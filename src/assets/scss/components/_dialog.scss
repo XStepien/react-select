@@ -1,0 +1,84 @@
+/* - - - - - - - - - - - - - - - - - - -
+
+            DIALOG OVERLAY
+
+- - - - - - - - - - - - - - - - - - - */
+
+.dialog-overlay{
+  background: rgba(97,104,124,.33);
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transition: all $transition-fast ease;
+  z-index: 99998;
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+              DIALOG BOX
+
+- - - - - - - - - - - - - - - - - - - */
+
+.dialog-box{
+  background: white;
+  border-radius: $border-radius;
+  box-shadow: 0 5px 15px rgba(97, 104, 124, .15);
+  left: 50%;
+  margin: auto;
+  opacity: 0;
+  padding: $margin-bigger $margin-standard;
+  position: fixed;
+  text-align: center;
+  top: 50%;
+  transform: scale(.6) translateX(-50%) translateY(-50%);
+  transform-origin: top left;
+  transition: all $transition-fast ease;
+  width: 500px;
+  z-index: 99999;
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+              DIALOG MODS
+
+- - - - - - - - - - - - - - - - - - - */
+
+.dialog-box{
+
+  &.mod-lg{
+    padding: $margin-bigger;
+    width: 800px;
+  }
+
+  &.mod-blue {
+    background: rgba(109, 208, 247, 0.97);
+    color: $navy;
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+            DIALOG STATES
+
+- - - - - - - - - - - - - - - - - - - */
+
+.dialog-overlay{
+
+  &.is-loaded{
+    opacity: 1;
+  }
+}
+
+.dialog-box{
+
+  &.is-loaded{
+    opacity: 1;
+    transform: scale(1) translateX(-50%) translateY(-50%);
+  }
+}

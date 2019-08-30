@@ -1,0 +1,16 @@
+.catalog-item{}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          CATALOGS ITEM STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.catalog-item{
+
+ &.is-processing-upload{
+    pointer-events: none;
+
+  }
+}

@@ -1,0 +1,142 @@
+.modal-head{
+  background: white;
+  border-bottom: 1px solid $grey-border;
+  min-width: 970px;
+  height: $modal-head-height;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  transition: all $transition-fast ease;
+  width: 100%;
+  z-index: 60;
+}
+
+  .modal-head-left{
+    height: $modal-head-height - 1px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  .modal-head-right{
+    background: white;
+    height: $modal-head-height - 1px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 11;
+    transition: right $transition-slow ease;
+  }
+
+    .modal-head-right-update{
+      border-left: 1px solid $grey-border;
+      border-right: 1px solid $grey-border;
+      float: right;
+      height: $modal-head-height;
+      padding: 15px 10px 15px 20px;
+      position: relative;
+      text-align: right;
+      vertical-align: top;
+
+      @media (max-width: $sm){
+        display: none;
+      }
+    }
+
+      .modal-head-right-update-avatar{
+        background: $grey-background;
+        height: 40px;
+        margin-right: 10px;
+        width: 40px;
+      }
+
+      .modal-head-right-update-txt{
+        display: inline-block;
+        margin-right: 10px;
+      }
+
+    .modal-head-right-status{
+      border-right: 1px solid $grey-border;
+      float: right;
+      height: $modal-head-height;
+      padding: 22px 15px 15px 20px;
+      position: relative;
+      text-align: right;
+
+      @media (max-width: $sm){
+        display: none;
+      }
+    }
+
+    .modal-head-right-catalog{
+      background-color: white;
+      border: 0;
+      border-bottom: 1px solid $grey-border;
+      border-radius: 0;
+      border-right: 1px solid $grey-border;
+      color: $grey;
+      display: inline-block;
+      float: right;
+      height: $modal-head-height;
+      padding: 15px 70px 15px 20px;
+      position: relative;
+      text-align: right;
+      transition: background-color $transition-fastest ease;
+      vertical-align: top;
+      z-index: 11;
+
+      &:hover, &:focus {
+        background: $grey-background;
+        color: $grey;
+        text-decoration: none;
+
+        .modal-head-right-catalog-icon{
+          background: url(/src/assets/images/components/buttons/catalog.png) white no-repeat center;
+        }
+      }
+
+      &.mod-pim{
+        padding: 12px 20px 15px 20px;
+      }
+    }
+
+      .modal-head-right-catalog-icon{
+        background: url(/src/assets/images/components/buttons/catalog.png) $grey-background no-repeat center;
+        border-radius: 50%;
+        height: 48px;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        width: 48px;
+      }
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          MODAL HEAD RIGHT MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.modal-head{
+
+  &.mod-dark{
+    background: $dark;
+    color: white;
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          MODAL HEAD RIGHT STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.modal-head-right{
+
+  &.is-slide-right{
+    right: -100%;
+  }
+}
+
+

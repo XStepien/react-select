@@ -1,0 +1,122 @@
+.toast{
+  position: fixed;
+  left: $margin-standard;
+  bottom: $margin-standard;
+  z-index: 9999999999;
+}
+
+  .toast-box{
+    background: hsla(197, 90%, 75%, .95);
+    border-radius: $border-radius;
+    color: $navy;
+    clear: both;
+    float: left;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    max-width: 400px;
+    padding: 14px 24px;
+    position: relative;
+    animation: toast 250ms 1;
+
+    &:hover{
+
+      .toast-box-kill{
+        opacity: 1;
+      }
+    }
+  }
+
+    .toast-box-title{
+
+      font-weight: 600;
+    }
+
+    .toast-box-message{
+
+    }
+
+    .toast-box-kill{
+      background: transparent;
+      border-radius: 50%;
+      height: 20px;
+      opacity: 0;
+      position: absolute;
+      right: 7px;
+      top: 7px;
+      transition: all $transition-fastest ease;
+      width: 20px;
+
+      &:before{
+        @include m-icon-lgw;
+        color: $navy;
+        position: absolute;
+        content: unicode($icon-close);
+        font-size: 12px;
+        left: 4px;
+        top: 4px;
+        font-weight: 900;
+      }
+
+      &:hover{
+        background-color: rgba(255,255,255,.25);
+      }
+    }
+
+
+@keyframes toast {
+  0%{
+    transform: translateY(25px);
+    opacity: 0;
+  }
+  100%{
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+              TOAST MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.toast{
+
+  &.mod-container{
+    bottom: 52px;
+    width: 980px;
+    left: 50%;
+    margin-left: -483px;
+
+    @media (min-width: $lg) {
+      width: 1150px;
+      margin-left: -568px;
+    }
+    @media (min-width: $xl) {
+      width: 1270px;
+      margin-left: -627px;
+    }
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+              TOAST-BOX MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.toast-box{
+
+  &.mod-red{
+    background: #fadedbf2;
+    color: $red;
+    box-shadow: 0 2px 5px rgba(18, 0, 0, 0.4);
+
+    .toast-box-kill{
+
+      &:before{
+        color: $red;
+      }
+    }
+  }
+}

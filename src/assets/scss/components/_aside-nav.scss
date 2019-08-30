@@ -1,0 +1,39 @@
+.aside-nav{
+  list-style: none;
+  margin-bottom: $margin-bigger;
+  padding: 0;
+}
+
+  .aside-nav-item{
+  }
+
+    .aside-nav-item-link{
+      color: $grey;
+      display: block;
+      padding: 10px 0;
+    }
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+                 STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.aside-nav-item{
+
+  &.is-active{
+
+    .aside-nav-item-link{
+      color: $blue;
+    }
+  }
+
+  &.is-disabled{
+
+    .aside-nav-item-link{
+      color: $grey-light;
+      pointer-events: none;
+    }
+  }
+}

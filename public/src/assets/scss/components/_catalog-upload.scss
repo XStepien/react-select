@@ -1,0 +1,329 @@
+.catalog-upload{
+  background: #1D2B4E;
+  background: linear-gradient(20deg, #1D2B4E 0%, #0F5788 65%, #0082C2 90%);
+  bottom: -100%;
+  display: none;
+  height: calc(100vh - #{$footer-height} );
+  position: absolute;
+  text-align: center;
+  transition: all 350ms ease;
+  width: 100%;
+  z-index: 50;
+}
+
+  .catalog-upload-inner{
+    bottom: 0;
+    left: 0;
+    overflow: visible;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-top: 30vh;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .catalog-upload-loader{
+    height: 113px;
+    margin: 0 auto;
+    position: relative;
+    width: 184px;
+  }
+
+    .catalog-upload-loader-state{
+      position:absolute;
+      left:0;
+      top:0;
+    }
+
+  .catalog-upload-modules{
+    display: block;
+    height: 81px;
+    margin: 20px auto 0px auto;
+    position: relative;
+    text-align: center;
+    width: 227px;
+  }
+
+    .catalog-upload-modules-lengow{
+      position: absolute;
+      right: -3px;
+      top: 16px;
+    }
+
+    .catalog-upload-modules-module{
+      left: 0px;
+      position: absolute;
+      top: 14px;
+    }
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+  CATALOG UPLOAD LOADER STATE - MODS
+
+- - - - - - - - - - - - - - - - - - - */
+
+.catalog-upload-loader-state{
+
+  &.mod-layer1{
+    margin: 1px 0 0 1px;
+    z-index: 1;
+  }
+
+  &.mod-layer2{
+    z-index: 2;
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          CATALOG UPLOAD STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.catalog-upload{
+
+  &.is-visible{
+    bottom: $footer-height;
+    opacity: 1;
+  }
+
+  &.mod-full{
+
+    &.is-visible{
+      bottom: 0;
+    }
+  }
+}
+
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+              CATALOG LOADER
+
+ - - - - - - - - - - - - - - - - - - - */
+
+
+$size: 44px;
+
+.catalog-loaders{
+  position: absolute;
+  width: $size;
+  height: $size;
+  top: 50%;
+  left: 50%;
+  margin-top: -($size/2);
+  margin-left: -($size/2);
+  perspective: 60vh;
+}
+
+  .catalog-loader:nth-child(1),
+  .catalog-loader:nth-child(2){
+    box-shadow: 0px 25px 32px -10px rgba(1, 8, 56, 0.18);
+    content: " ";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+
+  .catalog-loader:nth-child(1){
+    left: -($size/1.2);
+    background: $blue-deep;
+    transform: translateZ(0vh);
+    z-index: 1;
+    animation: rotation1 2.5s ease-out infinite;
+  }
+
+  .catalog-loader:nth-child(2){
+    right: -($size/1.2);
+    background: $blue-deep;
+    transform: translateZ(0vh);
+    z-index: 1;
+    animation: rotation2 2.5s ease-out infinite;
+  }
+
+  .catalog-loader{
+    &.mod-sky{
+      background-color: $sky;
+    }
+  }
+
+@keyframes rotation1{
+  25%{
+    left: 0;
+    transform: translateZ(-30vh);
+  }
+  50%{
+    left: ($size/1.2);
+    transform: translateZ(0vh);
+  }
+  75%{
+    left: 0;
+    transform: translateZ(10vh);
+    z-index: 2;
+  }
+}
+
+@keyframes rotation2{
+  25%{
+    right: 0;
+    transform: translateZ(10vh);
+    z-index: 2;
+  }
+  50%{
+    right: ($size/1.2);
+    transform: translateZ(0vh);
+  }
+  75%{
+    right: 0;
+    transform: translateZ(-30vh);
+  }
+}
+
+@keyframes zoom1{
+  0%{
+    transform: translateZ(-5vh);
+  }
+  50%{
+    transform: translateZ(5vh);
+  }
+
+  100%{
+    transform: translateZ(-5vh);
+  }
+}
+
+@keyframes zoom2{
+  0%{
+    transform: translateZ(5vh);
+  }
+  50%{
+    transform: translateZ(-5vh);
+  }
+  100%{
+    transform: translateZ(5vh);
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          CATALOG LOADER MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+
+.catalog-loader{
+
+  &:before,
+  &:after{
+    @include m-icon-lgw;
+    color: white;
+  }
+
+  &.mod-link{
+
+    &:before{
+      content: unicode($icon-link);
+      font-size: 30px;
+      left: 7px;
+      position: absolute;
+      top: 7px;
+    }
+  }
+
+  &.mod-manual{
+
+    &:before{
+      content: unicode($icon-manual);
+      font-size: 30px;
+      left: 7px;
+      top: 8px;
+      position: absolute;
+    }
+  }
+
+  &.mod-ftp{
+
+    &:before{
+      content: unicode($icon-ftp);
+      font-size: 28px;
+      left: 9px;
+      top: 8px;
+      position: absolute;
+    }
+  }
+
+  &.mod-googledrive{
+
+    &:before{
+      content: unicode($icon-googledrive);
+      font-size: 26px;
+      left: 9px;
+      top: 8px;
+      position: absolute;
+    }
+  }
+
+  &.mod-dropbox{
+
+    &:before{
+      content: unicode($icon-dropbox);
+      font-size: 28px;
+      left: 8px;
+      top: 9px;
+      position: absolute;
+    }
+  }
+
+  &.mod-magento{
+    background:url(/src/assets/images/pages/import-catalog/import-choice/choice-magento.png) #EF672F no-repeat center;
+  }
+
+  &.mod-woocommerce{
+    background:url(/src/assets/images/pages/import-catalog/import-choice/choice-woocommerce.png) #9b5c8f no-repeat center;
+  }
+
+  &.mod-prestashop{
+    background:url(/src/assets/images/pages/import-catalog/import-choice/choice-prestashop.png) #9fdbea no-repeat center;
+  }
+
+  &.mod-shopware{
+    background:url(/src/assets/images/pages/import-catalog/import-choice/choice-shopware.png) $grey-background no-repeat center;
+  }
+
+  &.mod-shopify{
+    background:url(/src/assets/images/pages/import-catalog/import-choice/choice-shopify.png) $grey-background no-repeat center;
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+        CATALOG LOADER STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.catalog-loaders{
+
+  &.is-fixed{
+
+    .catalog-loader:nth-child(1),
+    .catalog-loader:nth-child(2){
+      box-shadow: 5px 0px 5px 0px rgba(1, 8, 56, 0.18);
+    }
+
+    .catalog-loader:nth-child(1){
+      animation: zoom1 1.5s ease infinite;
+      left: -($size/2.4);
+      z-index: 2;
+    }
+
+    .catalog-loader:nth-child(2){
+      animation: zoom2 1.5s ease infinite;
+      right: -($size/2.4);
+    }
+  }
+}

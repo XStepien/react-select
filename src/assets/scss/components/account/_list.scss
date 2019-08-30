@@ -1,0 +1,23 @@
+.account-list{
+  padding: 0;
+}
+
+  .account-list-item{
+    background: transparent;
+    display: block;
+  }
+
+    .account-list-item-link{
+      display: block;
+      font-size: $font-small;
+      padding: 8px $margin-small 8px $margin-big;
+      transition: all $transition-fastest ease;
+      vertical-align: middle;
+
+      &:hover,
+      &:focus,
+      &:active{
+        background: $sky-lightest;
+        text-decoration: none;
+      }
+    }

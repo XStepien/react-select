@@ -1,0 +1,112 @@
+.radiobox{
+  background: white;
+  border: 2px solid $grey-disabled;
+  border-radius: $border-radius;
+  cursor: pointer;
+  display: block;
+  font-weight: 400;
+  font-size: $font-small;
+  left: 0;
+  margin-bottom: $margin-small;
+  padding: $margin-standard $margin-standard $margin-standard 70px;
+  position: relative;
+  transition: all $transition-fastest ease;
+
+  &:hover{
+    border-color: $grey-border;
+  }
+}
+
+  .radiobox-input{
+    display: none;
+  }
+
+  .radiobox-tick{
+    background: $grey-background center no-repeat;
+    border-radius: 50%;
+    bottom: 0;
+    height: 25px;
+    left: 20px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    transition: all $transition-fast ease;
+    transform: scale(.7);
+    width: 25px;
+  }
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+             RADIOBOX MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.radiobox{
+
+  &.mod-payment{
+    font-size: $font-standard;
+    padding: $margin-standard $margin-small;
+
+    .radiobox-tick{
+      bottom: inherit;
+      left: auto;
+      right: -13px;
+      top: -13px;
+    }
+
+    .radiobox-content{
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      min-height: 50px;
+    }
+  }
+
+  &.mod-small{
+    padding: $margin-small $margin-small $margin-small 70px;
+  }
+
+  &.mod-template{
+    color: $grey-placeholder;
+    padding: 20px 10px 15px;
+    text-align: center;
+
+    .radiobox-tick{
+      bottom: initial;
+      left: initial;
+      right: -9px;
+      top: -9px;
+    }
+  }
+
+  &.mod-inline{
+    display: block;
+    float: left;
+    margin-right: 10px;
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+             RADIOBOX STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.radiobox{
+
+  &.is-active{
+    border-color: $sky;
+
+    .radiobox-tick{
+      transform: scale(1);
+      background: url(/src/assets/images/components/radiobox/tick.png) $sky no-repeat center;
+    }
+
+    &.mod-template{
+      color: $grey;
+    }
+  }
+}

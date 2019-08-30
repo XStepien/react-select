@@ -1,0 +1,127 @@
+.supervision{
+  background-color: $rocket-blue-base;
+  height: $supervision-height;
+  left: 0;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  width: 100%;
+  z-index: 200;
+}
+
+  .supervision-back{
+    background: url(/src/assets/images/rocket/supervision-logo.png) $blue-rkt-base center no-repeat;
+    height: $supervision-height;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition: all $transition-fast ease;
+    width: $supervision-height;
+
+    &:hover,
+    &:focus{
+      background: url(/src/assets/images/rocket/supervision-logo.png) $blue-rkt-dark center no-repeat;
+
+      .supervision-back-label{
+        opacity: 1;
+        transform: translateX(13px);
+        transition: opacity $transition-fast ease 150ms, transform $transition-slow cubic-bezier(.17,.67,.49,.98) 150ms;
+      }
+    }
+  }
+
+    .supervision-back-label{
+      bacKground-color: rgba(30, 33, 40, 1);
+      border-radius: $border-radius;
+      color: white;
+      font-size: $font-small;
+      font-weight: 600;
+      left: 37px;
+      margin-bottom: 2px;
+      padding: 2px 5px;
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+      width: auto;
+      white-space: nowrap;
+      top: 17px;
+    }
+
+  .supervision-mid{
+    margin: 16px auto 0;
+  }
+
+    .supervision-mid-label{
+      background-color: white;
+      border-radius: 12px;
+      color: $rocket-blue-base;
+      display: inline-block;
+      font-size: $font-small;
+      font-weight: 700;
+      height: 24px;
+      line-height: 24px;
+      margin-right: 7px;
+      padding: 0 10px;
+      text-align: center;
+      transition: all $transition-fastest ease;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    .supervision-mid-name{
+      color: white;
+      margin-right: 7px;
+    }
+
+    .supervision-mid-user{
+      color: $darkest;
+      margin-right: 7px;
+    }
+
+  .supervision-right{
+    position: absolute;
+    right: 15px;
+    top: 0;
+  }
+
+/* - - - - - - - - - - - - - - - - - - -
+
+              SUPERVISION MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.supervision{
+
+  &.mod-noprod{
+    background-color: $darkest;
+
+    .supervision-back{
+      background: url(/src/assets/images/rocket/supervision-logo.png) $blue-rkt-dark center no-repeat;
+
+      &:hover,
+      &:focus{
+        background: url(/src/assets/images/rocket/supervision-logo.png) $blue-rkt-base center no-repeat;
+      }
+    }
+
+    .supervision-back-label{
+      bacKground-color: white;
+      color: $blue-rkt-base;
+    }
+
+    .supervision-mid-label{
+      background-color: white;
+      color: $rocket-blue-base;
+    }
+
+    .supervision-mid-name{
+      color: white;
+      margin-right: 7px;
+    }
+
+    .supervision-mid-user{
+      color: $dark-ultralight;
+      margin-right: 7px;
+    }
+  }
+}

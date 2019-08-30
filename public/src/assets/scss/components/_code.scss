@@ -1,0 +1,12 @@
+.code{
+  background-color: $grey-background;
+  border: 1px solid $grey-border;
+  color: $grey;
+  display: block;
+  padding: $margin-small;
+  word-break: break-word;
+}
+
+  .code-modify{
+    color: $red;
+  }

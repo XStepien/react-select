@@ -1,0 +1,73 @@
+.splash-header{
+  background: #1D2B4E;
+  background: linear-gradient(-280deg, #07488a, #0082c3);
+  color: white;
+  margin-bottom: $margin-bigger;
+  padding: $margin-biggest 0;
+  position:relative;
+  text-align: center;
+}
+
+  .splash-header-title{
+    border: 0;
+    color: white;
+    font-size: $font-kraken;
+    margin-top: 0;
+  }
+
+  .splash-header-subtitle{
+    color: white;
+    font-size: $font-bigger;
+    line-height: 1.6;
+    font-weight:400;
+  }
+
+  .splash-header-search[type="text"]{
+    background:url(/src/assets/images/components/splash-header/search.png) white no-repeat 20px center;
+    border: 0;
+    border-radius: $border-radius;
+    box-shadow: inset 0 3px 3px rgba(0,0,0,0.05);
+    color: $grey;
+    font-size: $font-big;
+    height: 60px;
+    line-height: 60px;
+    min-width: 450px;
+    outline: none;
+    padding: 0 15px 0 55px;
+    transition: all $transition-fastest ease;
+
+     &:hover{
+      border-color: $grey-border-over;
+    }
+
+    &:focus{
+      background-color: #fcfcfc;
+      border-color: $blue;
+      outline: none;
+    }
+  }
+
+  .splash-header-visual{
+    border-radius: $border-radius;
+    height: 325px;
+    margin: 60px auto 0;
+    box-shadow: 0 3px 0 rgba(0, 0, 0, .05);
+  }
+
+
+.splash-header{
+
+  &.mod-big-visual{
+    padding-bottom: 0;
+
+    &:before{
+      background: $grey-background;
+      content: '';
+      height: 125px;
+      left: 0;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+  }
+}

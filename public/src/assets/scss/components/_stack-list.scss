@@ -1,0 +1,908 @@
+/*
+MATCH CATEGORY WITH CHANNEL
+*/
+
+.stack-list{
+  list-style: none;
+  margin-bottom: $margin-standard;
+  padding: 0;
+}
+
+  .stack-list-item{}
+
+    .stack-list-item-link{
+      color: $grey;
+      cursor: pointer;
+      text-decoration: none;
+      border:1px solid $grey-border;
+      display: block;
+      padding: 12px 20px;
+      margin-top: -1px;
+      position: relative;
+      transition: background-color $transition-fastest ease;
+
+      &:hover{
+        background: $grey-background;
+        color: inherit;
+        text-decoration: none;
+
+        .stack-list-item-associated{
+
+          .stack-list-item-associated-remove{
+            opacity: 1;
+          }
+        }
+      }
+
+      &:focus{
+        color: inherit;
+        text-decoration: none;
+      }
+
+      &::before{
+        content: "";
+        display: block;
+        position: absolute;
+        top: -1px;
+        bottom: -1px;
+        left: -1px;
+        width: 3px;
+        background: transparent;
+        transition: all $transition-fastest ease;
+      }
+    }
+
+      .stack-list-item-link-breadcrump{
+        color: $grey-light;
+        font-style: italic;
+        font-size: $font-small;
+        margin-bottom: -3px;
+      }
+
+      .stack-list-item-link-suggested-label{
+        color: $green-darker;
+        font-style: italic;
+        font-size: $font-small;
+        font-weight: 400;
+      }
+
+      .stack-list-item-tick{
+        height: 24px;
+        width: 24px;
+        background: url(/src/assets/images/pages/channels/categories/tick.png) no-repeat center $sky;
+        border-radius: 50%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 10px;
+        margin: auto;
+        opacity: 0;
+        transition: all $transition-fast ease;
+      }
+
+      .stack-list-item-associated{
+        font-size: $font-small;
+        color: $grey-light;
+        font-style: italic;
+        margin: -5px 0 0 0;
+        padding-left: 10px;
+        background: url(/src/assets/images/pages/channels/categories/associated.png) left 5px no-repeat;
+
+        &.is-will-delete{
+          color: $red;
+        }
+
+        .stack-list-item-associated-remove{
+          display: inline-block;
+          opacity: 0;
+          height: 18px;
+          width: 18px;
+          margin-left: 3px;
+          vertical-align: middle;
+          border-radius: 50%;
+          background: $grey-placeholder;
+          transition: all $transition-fastest ease;
+
+          &:before{
+            @include m-icon-lgw;
+            color: white;
+            content: unicode($icon-add);
+            font-size: 12px;
+            padding: 2px 0 0 4px;
+            position: absolute;
+            transform: rotate(45deg);
+          }
+
+          &:hover{
+            background-color: $red;
+          }
+        }
+      }
+
+      .stack-list-item-products{
+        color: $grey-light;
+        font-size: $font-small;
+        text-align: right;
+      }
+
+      .stack-list-item-thesaurus-label{
+        color: $grey-light;
+      }
+
+      .stack-list-item-auto{
+
+        &:before{
+          @include m-icon-lgw;
+          color: $grey-border;
+          content: unicode($icon-active);
+          display: block;
+          font-size: 20px;
+          text-align: right;
+        }
+      }
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          STACK LIST MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.stack-list-container{
+  border:{
+    top: 1px solid $grey-border;
+    bottom: 1px solid $grey-border;
+  }
+  max-height: calc( 100vh - 420px );
+  overflow-y: auto;
+
+  &.overflow-hidden {
+    overflow-y: hidden;
+  }
+
+  &.is-blocked{
+
+    .stack-list-item-link{
+      cursor: default;
+      pointer-events: none;
+    }
+  }
+}
+
+.stack-list{
+
+  &.mod-multi-thesaurus{
+    max-height: calc( 100vh - 460px );
+  }
+
+  &.mod-matching-thesaurus{
+    margin-bottom: 0;
+
+    .stack-list-item{
+      list-style: none;
+
+      &[data-disabled="1"]{
+        background: $grey-disabled;
+        color: $grey-light;
+        cursor: not-allowed;
+
+        .stack-list-item-link{
+          pointer-events: none;
+        }
+      }
+    }
+
+    &:last-child{
+
+      .stack-list-item-link{
+        border-bottom: 1px solid white;
+
+        &:hover{
+          border-bottom: 1px solid $grey-background;
+        }
+      }
+    }
+  }
+
+  &.mod-navigation{
+
+    .stack-list-item{
+      position: relative;
+
+      .stack-list-item-completion{
+        height: 25px;
+        left: 10px;
+        position: absolute;
+        top: 12px;
+        width: 20px;
+        z-index: 2;
+
+        &:before{
+          content: '';
+          background-color: $red;
+          border-radius: 50%;
+          height: 4px;
+          left: 11px;
+          position: absolute;
+          top: 11px;
+          width: 4px;
+        }
+
+        &.is-ok{
+
+          &:before{
+            background-color: $green;
+          }
+        }
+      }
+
+      .stack-list-item-link{
+        display: grid;
+        grid-template-columns: auto 65px;
+
+        &:hover{
+          background-color: $sky-lightest;
+
+          .stack-list-item-badge{
+            background: white;
+
+            &.is-ok{
+              background: $green;
+              color: white;
+            }
+          }
+        }
+      }
+
+      .stack-list-item-badge{
+        @extend .badge;
+        align-self: center;
+        background: $grey-disabled;
+        color: $grey;
+        font-style: normal !important;
+        justify-self: end;
+        margin-left: 6px;
+        transition: all $transition-fastest ease;
+
+        &.is-ok{
+          background: $green;
+          color: white;
+        }
+      }
+
+      &.mod-depth-0{
+
+        .stack-list-item-link{
+          background-color: $grey-background;
+
+          &:hover{
+            background-color: $sky-lightest;
+          }
+        }
+
+        .stack-list-item-badge{
+          background: white;
+          color: $grey;
+
+          &.is-ok{
+            background: $green;
+            color: white;
+          }
+        }
+      }
+
+      &.mod-depth-2,
+      &.mod-depth-3,
+      &.mod-depth-4{
+
+        .stack-list-item-link{
+          font-weight: 500;
+        }
+      }
+
+      &.is-active{
+
+        .stack-list-item-link{
+          background: $sky-lighter;
+          border-color:$sky-lighter;
+          color: $navy;
+        }
+
+        .stack-list-item-badge{
+          background: $sky;
+          color: white;
+
+          &.is-ok{
+            background: $green;
+            color: white;
+          }
+        }
+
+        &:hover{
+
+          .stack-list-item-badge{
+            background: $sky;
+            color: white;
+
+            &.is-ok{
+              background: $green;
+              color: white;
+            }
+          }
+        }
+      }
+
+      &.is-disabled{
+
+        .stack-list-item-link{
+          color:$grey-placeholder;
+          pointer-events:none;
+        }
+      }
+    }
+  }
+
+  &.mod-categories{
+
+    ul{
+      padding: 0;
+      margin: 0;
+    }
+
+    .stack-list-item{
+      list-style: none;
+
+      &[data-disabled="1"]{
+        background: $grey-disabled;
+        color: $grey-light;
+        cursor: not-allowed;
+
+        .stack-list-item-link{
+          pointer-events: none;
+        }
+      }
+    }
+  }
+
+  &.mod-noborder{
+    margin-bottom: 1px;
+
+    .stack-list-item-link{
+      border: 0;
+    }
+  }
+
+  &.mod-border{
+    border-top: 1px solid $grey-border;
+    border-bottom: 1px solid $grey-border;
+  }
+
+  /*
+    Conversion list refacto
+  */
+
+  &.mod-conversion-merchant{
+    background: white;
+    border-top: 1px solid $grey-border;
+    border-bottom: 1px solid $grey-border;
+    max-height: 500px;
+    overflow-y: auto;
+
+    .stack-list-item{
+
+      &:last-child{
+
+        .stack-list-item-link{
+          border-bottom: 0px;
+        }
+      }
+
+      &.is-focus{
+
+        .stack-list-item-link{
+          background: $sky-lightest;
+          border-top: 1px solid white;
+          border-bottom: 1px solid white;
+        }
+
+        .stack-list-item-products{
+          color: $blue-grey-light
+        }
+
+        .stack-list-item-thesaurus-label{
+          color: $blue-grey-light;
+        }
+
+        .stack-list-item-auto{
+
+          &:before{
+            color: $blue-grey-light;
+          }
+        }
+      }
+
+      .stack-list-item-link{
+
+        &:hover{
+          background: $sky-white;
+
+          .stack-list-item-link-label{
+            color: $blue;
+          }
+
+          .checkbox.mod-stack-list{
+
+            .checkbox-state{
+              border-color: $blue;
+            }
+          }
+
+          .stack-list-item-products{
+            color: $blue-grey-light;
+          }
+
+          .stack-list-item-thesaurus-label{
+            color: $blue-grey-light;
+          }
+
+          .stack-list-item-auto{
+
+            &:before{
+              color: $blue-grey-light;
+            }
+          }
+
+          .stack-list-item-associated{
+
+            &:before{
+              color:  $blue-grey-lighter;
+            }
+
+            .stack-list-item-associated-remove{
+              background: $blue-grey-lighter;
+
+              &:hover{
+                background-color: $red;
+              }
+            }
+
+            &.is-will-delete{
+
+              &:before{
+                color: $red;
+              }
+
+              .stack-list-item-thesaurus-label{
+                color: $red;
+              }
+            }
+          }
+
+          &:before{
+            background: $blue;
+          }
+        }
+      }
+
+      .stack-list-item-link-label{
+        font-size: $font-standard;
+        margin: 0;
+      }
+
+      .stack-list-item-associated{
+        background: none;
+        margin: -2px 0 0 0;
+        padding-left: 40px;
+        position: relative;
+
+        &:before{
+          @include m-icon-lgw();
+          color: $grey-light;
+          content: unicode($icon-under);
+          font-size: 12px;
+          left: 22px;
+          top: 4px;
+          position: absolute;
+        }
+      }
+    }
+  }
+
+  &.mod-channel-value{
+    background: white;
+    border-top: 1px solid $grey-border;
+    border-bottom: 1px solid $grey-border;
+    max-height: 577px;
+    overflow: auto;
+
+    .stack-list-item{
+
+      .stack-list-item-link{
+        border-bottom: 0;
+
+        &::before{
+          content: "";
+          display: block;
+          position: absolute;
+          top: -1px;
+          bottom: -1px;
+          left: -1px;
+          width: 3px;
+          background: transparent;
+          transition: all $transition-fastest ease;
+        }
+
+        &:hover{
+          background: $sky-white;
+          color: $blue;
+
+          .stack-list-item-link-breadcrump{
+            color: $blue;
+          }
+
+          &:before{
+            background: $blue;
+          }
+        }
+
+        &.is-selected{
+
+          .stack-list-item-tick{
+            background: $blue;
+            border: 1px solid $blue;
+            height: 26px;
+            transform: scale(1);
+            width: 26px;
+
+            &:before{
+              content: unicode($icon-checked);
+            }
+          }
+
+          .stack-list-item-link-breadcrump{
+            color: $blue;
+          }
+        }
+      }
+
+      &.mod-suggested-group{
+
+        .stack-list-item-link{
+          color: $grey;
+          background: $green-lightest;
+
+          &:last-child{
+            position: relative;
+            z-index: 2;
+          }
+
+          &:hover{
+            background: $sky-white;
+            color: $blue;
+
+            &:before{
+              background: $blue;
+            }
+
+            .stack-list-item-link-suggested-label{
+              color: $blue;
+            }
+          }
+
+          &.is-selected{
+            color: $blue;
+
+            .stack-list-item-link-suggested-label{
+              color: $blue;
+            }
+          }
+        }
+      }
+    }
+
+    .stack-list-item-link-suggested-label{
+      color: $green-darkest;
+      font-style: italic;
+      font-size: $font-small;
+      font-weight: 400;
+      text-align:  right;
+    }
+
+    .stack-list-item-tick{
+      background: white center no-repeat;
+      border: 1px solid $grey-border;
+      border-radius: 50%;
+      bottom: 0;
+      height: 26px;
+      margin: auto;
+      opacity: 1;
+      position: absolute;
+      top: 0;
+      transition: all $transition-fast ease;
+      transform: scale(.7);
+      width: 26px;
+      transform-origin: center;
+
+      &:before{
+        @include m-icon-lgw();
+        color: white;
+        content: '';
+        font-size: 18px;
+        font-weight: 900;
+        left: 3px;
+        position: absolute;
+        top: 3px;
+      }
+    }
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          STACK LIST ITEM MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.stack-list-item{
+
+  &.mod-depth-0{
+
+    .stack-list-item-link{
+      padding-left: 42px;
+      font-weight: 600;
+    }
+  }
+
+  &.mod-depth-1{
+
+    .stack-list-item-link{
+      padding-left: 57px;
+      font-weight: 400;
+    }
+
+    .stack-list-item-tick{
+      left: 25px;
+    }
+  }
+
+  &.mod-depth-2{
+
+    .stack-list-item-link{
+      padding-left: 72px;
+      font-weight: 300;
+    }
+
+    .stack-list-item-tick{
+      left: 40px;
+    }
+  }
+
+  &.mod-depth-3{
+
+    .stack-list-item-link{
+      padding-left: 87px;
+      font-weight: 300;
+    }
+
+    .stack-list-item-tick{
+      left: 55px;
+    }
+  }
+
+  &.mod-depth-4{
+
+    .stack-list-item-link{
+      padding-left: 94px;
+      font-weight: 300;
+    }
+
+    .stack-list-item-tick{
+      left: 62px;
+    }
+  }
+
+  &.mod-depth-5{
+
+    .stack-list-item-link{
+      padding-left: 107px;
+      font-weight: 300;
+    }
+
+    .stack-list-item-tick{
+      left: 69px;
+    }
+  }
+
+  &.mod-depth-6{
+
+    .stack-list-item-link{
+      padding-left: 114px;
+      font-weight: 300;
+    }
+
+    .stack-list-item-tick{
+      left: 76px;
+    }
+  }
+
+  &.mod-depth-7{
+
+    .stack-list-item-link{
+      padding-left: 121px;
+      font-weight: 300;
+    }
+
+    .stack-list-item-tick{
+      left: 83px;
+    }
+  }
+}
+
+/*
+  Sugested categories
+*/
+
+.stack-list.mod-matching-thesaurus{
+
+  .stack-list-item{
+
+    &.mod-suggested-title,
+    &.mod-suggested-title[data-disabled="1"]{
+      background: $green-lightest;
+      color: $grey;
+      cursor: not-allowed;
+      margin-top: 1px;
+
+      .stack-list-item-link{
+        border: 1px solid $green;
+        pointer-events: none;
+      }
+    }
+
+    &.mod-suggested-group{
+
+      .stack-list-item-link{
+        color: $green-darker;
+        border: 1px solid $green;
+
+        &:last-child{
+          position: relative;
+          z-index: 2;
+        }
+
+        &.is-selected{
+          color: $blue;
+        }
+      }
+    }
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+      STACK LIST ITEM STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.stack-list-item{
+
+  &.is-focus{
+
+    .stack-list-item-link{
+      background: $grey-background;
+      border-color: $sky;
+      color: $blue !important;
+      z-index: 1;
+
+      &::before{
+        background: $sky-lighter;
+        border-color: $sky;
+      }
+    }
+  }
+
+  &.is-matching{
+
+    .stack-list-item-link{
+
+      &::before{
+        animation-name: category-animate;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        background: $grey-border;
+        border-color: $grey-border;
+      }
+    }
+  }
+
+  @keyframes category-animate {
+    0% {
+      top: -1px;
+      bottom:100%;
+    }
+    50% {
+       top: -1px;
+       bottom:-1px;
+    }
+    100% {
+       top: 100%;
+       bottom:-1px;
+    }
+  }
+
+  &.is-incomplete{
+
+    .stack-list-item-link{
+
+      &::before{
+        background: $orange;
+        border-color: $orange;
+        bottom: -1px;
+        top: -1px;
+      }
+    }
+  }
+
+  &.is-ok{
+
+    .stack-list-item-link{
+
+      &::before{
+        background: $green;
+        border-color: $green;
+      }
+    }
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+      STACK LIST ITEM LINK STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.stack-list-item-link{
+
+  &.is-selected{
+
+    color: $blue;
+
+    .stack-list-item-tick{
+      opacity: 1;
+    }
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+      STACK LIST WRAP LINK STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.stack-list-wrap-inner{
+  background: white;
+  z-index: 6;
+  transition: all 250ms ease-out;
+
+  &.is-full-screen{
+    height: 100% !important;
+    left: 0 !important;
+    padding: $margin-standard $margin-bigger $margin-bigger;
+    top: 0 !important;
+    width: 100% !important;
+    z-index: 9999;
+
+    .stack-list{
+
+      &.mod-conversion-merchant{
+        max-height: calc(100vh - 320px);
+      }
+
+      &.mod-channel-value{
+        max-height: calc(100vh - 243px);
+      }
+    }
+  }
+}

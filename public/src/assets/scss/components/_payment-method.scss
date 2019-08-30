@@ -1,0 +1,26 @@
+.payment-method-img{
+  margin-bottom: 20px;
+  background-image: url(/src/assets/images/pages/logistics/card-logos.png);
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          PAYMENT-METHOD MODS
+
+- - - - - - - - - - - - - - - - - - - */
+
+.payment-method-img{
+
+  &.mod-mastercard{
+    background-position: 0 -656px;
+    width: 52px;
+    height: 32px;
+  }
+
+  &.mod-visa{
+    background-position: 0 -820px;
+    width: 60px;
+    height: 32px;
+  }
+}

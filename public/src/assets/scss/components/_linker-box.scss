@@ -1,0 +1,60 @@
+.linker-box{
+  position: relative;
+}
+
+  .linker-box-linker{
+    border-left: 2px dotted $grey-border;
+    bottom: 0;
+    display: block;
+    left: 60px;
+    position: absolute;
+    top: 50px;
+    width: 1px;
+    z-index: -1;
+  }
+
+.linker-rows{
+  position:relative;
+}
+
+  .linker-rows-linker{
+    border-left: 1px solid #dadada;
+    bottom: -6px;
+    display: block;
+    left: 20px;
+    position: absolute;
+    top: 5px;
+    width: 1px;
+  }
+
+/* - - - - - - - - - - - - - - - - - - -
+
+        LINKER BOX LINKER MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+
+.linker-box-linker{
+
+  &.mod-dot{
+    border-left: 2px solid $sky;
+    bottom: 40px;
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+        LINKER BOX LINKER STATE
+
+ - - - - - - - - - - - - - - - - - - - */
+
+
+.linker-box-parent{
+
+  &.is-not-scoped{
+
+    .linker-box-linker:first-child{
+      border-left: 0;
+    }
+  }
+}

@@ -1,0 +1,120 @@
+// PRESELECT INPUT (Select + input)
+
+.preselect-input{
+  position: relative;
+
+  /*
+    Preselect chosen input
+  */
+
+  .chosen-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: inherit !important;
+
+    .chosen-single{
+      background: #f2f2f2;
+      border-bottom-right-radius: 0;
+      border-right-width: 0;
+      border-top-right-radius: 0;
+      width: 130px;
+      z-index: 7;
+    }
+
+    &.chosen-container-active{
+
+      .chosen-single{
+        background: #f2f2f2;
+      }
+    }
+  }
+
+  .input{
+    border-left-width: 131px;
+  }
+
+  select{
+    display: none;
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          PRESELECT INPUT MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.preselect-input{
+
+  /*
+    Right select
+  */
+
+  &.mod-right{
+
+    .chosen-container{
+      left: inherit;
+      right: 0;
+
+      .chosen-single{
+        border-bottom-left-radius: 0;
+        border-left-width: 0;
+        border-radius: $border-radius;
+        border-right-width: 1px;
+        border-top-left-radius: 0;
+      }
+    }
+
+    .input{
+      border-left-width:1px;
+      border-right-width:131px;
+    }
+  }
+}
+
+
+
+
+//////////////////////////////
+// PRESELECT TAG
+
+.preselect-tag{
+  position: relative;
+
+  .chosen-container{
+    width: 130px !important;
+    position: absolute;
+
+    .chosen-single{
+      border-radius: $border-radius 0 0 $border-radius;
+      border-right: 0;
+    }
+  }
+
+  ul{
+    border-radius: 0 $border-radius $border-radius 0;
+    margin-left: 130px;
+  }
+
+  &.right{
+
+    .btn-group.bootstrap-select{
+      left: inherit;
+      right: 0;
+
+      .btn{
+        border-radius: 0 $border-radius $border-radius 0;
+        border-left-width: 0;
+        border-right-width: 1px;
+      }
+    }
+
+    ul{
+      margin-left: 0;
+      margin-right: 130px;
+      border-radius: $border-radius 0 0 $border-radius;
+    }
+  }
+}

@@ -1,0 +1,68 @@
+.app-timeline{
+  display: inline-block;
+  list-style: none;
+  margin: 0 auto $margin-bigger;
+  padding: 0;
+}
+
+  .app-timeline-item{
+    display: inline-block;
+    font-size: $font-small;
+    position: relative;
+    text-align: center;
+    width: 120px;
+
+    &:before{
+      background: $sky-lighter;
+      border-radius: 50%;
+      bottom: -15px;
+      content: "";
+      left: 58px;
+      height: 5px;
+      position: absolute;
+      width: 5px;
+      z-index: 1;
+    }
+
+    &:not(:first-child):after{
+      background: $sky-lighter;
+      bottom: -13px;
+      content: "";
+      height: 1px;
+      left: -62px;
+      position: absolute;
+      width: 120px;
+    }
+  }
+
+    .app-timeline-item-link{
+      color: $grey;
+      text-decoration: none!important;
+    }
+
+/* - - - - - - - - - - - - - - - - - - -
+
+        APP TIMELINE ITEM STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+
+  .app-timeline-item{
+
+    &.is-active{
+      color: $blue;
+
+      &:before{
+        background: $blue;
+      }
+    }
+
+    &.is-disabled{
+      color: $grey-light;
+
+      &:before,
+      &:after{
+        background: $grey-border;
+      }
+    }
+  }

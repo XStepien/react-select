@@ -1,0 +1,79 @@
+.roi-calculation{}
+
+  .roi-calculation-button{
+    background: white;
+    border: 1px solid $grey-border;
+    border-radius: $border-radius;
+    -webkit-box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.05);
+            box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.05);
+    color: $grey;
+    display: block;
+    font-size: $font-small;
+    height: 100px;
+    margin-bottom: $margin-small;
+    padding: 20px $margin-small;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    top: 0px;
+    transition: all $transition-fastest ease;
+
+    &:hover,
+    &:focus{
+      -webkit-box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.05);
+              box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.05);
+      color: $blue;
+      text-decoration: none;
+      top: -4px;
+    }
+
+    &::before {
+      background: $blue;
+      bottom: -1px;
+      content: "";
+      display: block;
+      height: 2px;
+      left: -1px;
+      opacity: 0;
+      position: absolute;
+      right: 100%;
+      transition: all 250ms ease;
+      z-index: 10;
+    }
+  }
+
+  .roi-calculation-button-input{
+    display: none;
+  }
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+      ROI CALCULATION BUTTON STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.roi-calculation-button{
+
+  &.is-active{
+    -webkit-box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.05);
+    color: $blue;
+    background: white;
+
+    &::before{
+      opacity: 1;
+      right: -1px;
+    }
+  }
+
+  &.is-disabled{
+    background: $grey-background;
+    border: 1px solid $grey-border;
+    -webkit-box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0);
+    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0);
+    color: $grey-light;
+    cursor:not-allowed;
+    top: 0px;
+  }
+}

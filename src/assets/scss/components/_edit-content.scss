@@ -1,0 +1,86 @@
+.edit-content{
+  display: inline-block;
+  margin-top: -7px;
+  outline: none;
+  overflow: hidden;
+  padding: 5px 0px 1px 0;
+  position: relative;
+  transition: all $transition-fast ease;
+  width: auto;
+
+  &:before{
+    opacity: 0;
+    top: -10px;
+    @include m-icon-lgw;
+    color: $grey;
+    content: unicode($icon-pen);
+    font-size: 24px;
+    position: absolute;
+    right: 0px;
+    transition: all $transition-faster ease;
+  }
+
+  &:after{
+    background: $grey-border;
+    bottom: 0;
+    content: "";
+    left: 0;
+    height: 2px;
+    position: absolute;
+    transition: width $transition-fast ease,
+                background $transition-fast ease;
+    width: 0;
+  }
+
+  &:hover{
+
+    &:before{
+      opacity: 1;
+      top: 10px;
+    }
+
+    &:after{
+      width: 100%;
+    }
+  }
+
+  &:focus,
+  &:active,
+  &.is-focused{
+    color: $blue;
+
+    .edit-content-input{
+      color: $blue;
+    }
+
+    &:before{
+      opacity: 1;
+      color: $grey;
+      top: 10px;
+    }
+
+    &:after{
+      background: $blue;
+      width: 100%;
+    }
+  }
+}
+
+  .edit-content-input{
+    background: transparent;
+    border: 0;
+    color: $grey;
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.3;
+    display: block;
+    padding: 5px 30px 2px 0;
+    min-width: 0;
+    transition: all $transition-fast ease;
+    width: auto;
+
+    &:focus{
+      outline: none;
+    }
+  }

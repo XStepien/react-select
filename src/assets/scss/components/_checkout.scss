@@ -1,0 +1,29 @@
+.checkout-conditions{
+  background: $grey-background;
+  border: 1px solid $grey-border;
+  height: calc(100vh - 230px - 210px - #{$footer-height});
+  min-height: 150px;
+  overflow: auto;
+  padding: $margin-standard;
+}
+
+.checkout-estimate{
+  margin: 100px auto $margin-bigger;
+}
+
+.checkout-manager{
+  background: rgba(14, 20, 37, 0.5);
+  bottom: 0;
+  padding: $margin-standard $margin-bigger;
+  position: relative;
+  width: 100%;
+
+  @media(max-width: $lg){
+    display: none;
+  }
+}
+
+.checkout-img-user{
+  margin-bottom: $margin-standard;
+  margin-top: 5vh;
+}

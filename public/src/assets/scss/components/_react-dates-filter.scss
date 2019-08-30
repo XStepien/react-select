@@ -1,0 +1,134 @@
+/* - - - - - - - - - - - - - - - - - - -
+
+            REACT DATES MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.DayPicker.DayPicker__horizontal{
+
+  box-shadow: none;
+
+  .DayPickerKeyboardShortcuts__show,
+  .DayPickerKeyboardShortcuts__panel,
+  .DayPickerKeyboardShortcuts__panel--block,
+  .DayPickerKeyboardShortcuts_buttonReset {
+    display: none;
+  }
+
+  /*
+    Navigation
+  */
+
+  .DayPickerNavigation__horizontal .DayPickerNavigation_leftButton__horizontalDefault,
+  .DayPickerNavigation__horizontal .DayPickerNavigation_rightButton__horizontalDefault{
+    border: 0;
+    padding: 15px;
+    color: $grey;
+
+    &:hover{
+      color: $grey-light;
+    }
+
+    &:before {
+      @include m-icon-lgw;
+      content: unicode($icon-previous);
+      font-size: 21px;
+      position: absolute;
+      top: 4px;
+      left: 6px;
+    }
+
+    > svg{
+      display: none;
+    }
+  }
+
+  .DayPickerNavigation__horizontal .DayPickerNavigation_rightButton__horizontalDefault{
+
+    &:before {
+      content: unicode($icon-next);
+      left: initial;
+      right: 6px;
+      top: 4px;
+    }
+  }
+   /* weekHeader */
+
+  .DayPicker_weekHeader_li {
+    color: #757575;
+    display: inline-block;
+    text-align: center;
+  }
+
+  /*
+    Months
+  */
+
+  .CalendarMonth_caption{
+    margin: 0 0 15px 0;
+
+    strong{
+      color: $grey;
+      font-size: $font-small;
+      font-weight: bold;
+    }
+  }
+
+  /*
+    Days
+  */
+
+  .CalendarDay{
+    border: 0;
+    color: $dark-light;
+    font-size: 14px;
+    font-weight: bold;
+
+    &:focus{
+      outline: none;
+    }
+
+  }
+
+  .CalendarDay__selected-start,
+  .CalendarDay__selected-end,
+  .CalendarDay__selected{
+    background: $dark-light;
+    color: white;
+
+    &:hover{
+      background: $blue;
+      color: white;
+    }
+  }
+
+  .CalendarDay__selected_span {
+    background: $sky-lighter;
+
+    &:hover{
+      background: $blue;
+      color: white;
+    }
+  }
+
+  .CalendarDay--blocked-calendar {
+    background: transparent;
+    color: $grey-disabled;
+  }
+
+  .CalendarDay__hovered_span{
+    background: $sky-lightest;
+    color: $dark-light;
+  }
+
+  .CalendarDay__default:hover {
+    background: $blue;
+    color: white;
+  }
+
+  .CalendarDay__blocked_calendar{
+    background: transparent;
+    color: $grey-disabled;
+  }
+}
+

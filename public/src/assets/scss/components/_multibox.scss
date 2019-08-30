@@ -1,0 +1,153 @@
+.multibox{
+  position: relative;
+  transition: opacity $transition-fast ease,
+              transform $transition-fast ease;
+}
+
+  .multibox-back{
+    background: url(/src/assets/images/components/multibox/back-blue.png) left center no-repeat;
+    padding-left: 18px;
+
+    /*
+    MANUAL IMPORT
+    */
+
+    &.mod-drag{
+      left: 50%;
+      position: absolute;
+      top: -60px;
+      transform: translateX(-50%);
+    }
+  }
+
+  .multibox-title-back{
+    background: url(/src/assets/images/components/multibox/back-blue-bigger.png) left 11px no-repeat;
+    color: $grey;
+    display: inline-block;
+    padding: 6px 0 6px 35px;
+    position: relative;
+
+    &:hover{
+
+      background-position: left -33px;
+
+      .multibox-title-back-default{
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .multibox-title-back-over{
+        left: 35px;
+        opacity: 1;
+        pointer-events: inherit;
+      }
+    }
+  }
+
+    /*
+      Back arrow with a label on mouseover
+      e.g. Stats > By categories > Product
+    */
+
+    .multibox-title-back-default{
+      color: $grey;
+      display: inline-block;
+      font-weight: 600;
+    }
+
+    .multibox-title-back-over{
+      color: $grey;
+      display: inline-block;
+      left: 20px;
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+      top: 6px;
+      transition: all $transition-fastest ease;
+      white-space: nowrap;
+    }
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+            MULTIBOX MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.multibox{
+
+  /*
+    inside stats table overhead
+  */
+
+  &.mod-stat-table-overhead{
+
+    .multibox-title-back{
+      float: left;
+      margin-top: 9px;
+      margin-bottom: 15px;
+    }
+  }
+
+  /*
+    Nav / Accounts
+  */
+
+  &.mod-accounts{
+    padding-top: $margin-standard;
+
+    .multibox-back{
+      margin: $margin-standard 0 0 $margin-standard;
+    }
+  }
+
+  &.mod-padding{
+    padding: $margin-standard $margin-big;
+  }
+
+  &.mod-absolute{
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  &.mod-index-top{
+    z-index: 2;
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+            MULTIBOX STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.multibox{
+
+  /*
+    Set position
+  */
+
+  &.is-ready-right{
+    opacity: 0;
+    transform: translate(50px, 0);
+  }
+
+   &.is-ready-left{
+    opacity: 0;
+    transform: translate(-50px, 0);
+  }
+
+  /*
+    Show it with animation
+  */
+
+  &.is-visible{
+    opacity: 1;
+    transform: translate(0);
+    z-index: 1; // Fix z-index, transform is resetting z-index
+  }
+}

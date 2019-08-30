@@ -1,0 +1,320 @@
+//////////////////////////////
+// NAV TABS
+
+.ui-tabs{
+  padding:0;
+  border:0;
+  .ui-tabs-nav{
+    background:$grey-background;
+    padding:0;
+    margin:0 0 0 1px;
+    &.loading{
+      pointer-events:none;
+      opacity:.5;
+    }
+    li {
+      font-size:0;
+      margin:0 0 -1px -1px;
+      .ui-tabs-anchor {
+        display:block;
+        font-size:$font-standard;
+        height:60px;
+        line-height: 60px;
+        padding:0 15px;
+        border-radius:0;
+        border:1px solid $grey-border;
+        margin:0;
+        color:$grey;
+        transition: background-color $transition-fastest ease;
+        img.icon {
+          padding-right: 10px;
+          @media (max-width: $xxl){
+            padding-right: 0px;
+            margin-left: -8px;
+          }
+        }
+        &::before {
+          content: "";
+          position:absolute;
+          display:block;
+          background:$blue;
+          height:2px;
+          bottom:0;
+          left:0;
+          right:100%;
+          opacity:0;
+          transition: all $transition-fast ease;
+        }
+        &:hover,
+        &:focus{
+          border:1px solid $grey-border;
+          background:white;
+        }
+      }
+      &:last-child a{
+        border-right:1px solid $grey-border;
+      }
+      &.ui-tabs-active{
+        margin:0 0 -1px -1px;
+        padding:0;
+        background:white;
+        pointer-events:none;
+        a,
+        a:hover,
+        a:focus{
+          color:$navy;
+          &::before {
+            z-index:5;
+            right:0;
+            opacity:1;
+          }
+        }
+      }
+      &.disabled{
+        background:$grey-disabled;
+        pointer-events: none;
+      }
+    }
+  }
+  .ui-tabs-panel{
+    background: white;
+    border-top: 1px solid $grey-border;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, .2);
+    padding:$margin-bigger;
+    border-radius: 0 0 $border-radius $border-radius;
+    transition: none;
+    label{
+      display:block;
+    }
+  }
+  .tab-padding{
+    padding: 60px;
+  }
+  .grey-tab{
+    background:$grey-disabled;
+  }
+
+  // TABS OVER WHITE BG
+
+  &.over-white {
+    .ui-tabs-panel {
+      border-right: 1px solid $grey-border;
+      border-left: 1px solid $grey-border;
+      border-bottom: 1px solid $grey-border;
+    }
+    .ui-tabs-nav {
+      background: white;
+      li {
+        background: $grey-background;
+        &.ui-state-active {
+          background: white;
+        }
+      }
+    }
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+              TABS MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.nav-tabs{
+
+  /*
+    Help & support
+  */
+
+  &.mod-help{
+
+    .ui-tabs-nav{
+      background: white;
+      margin: 0;
+    }
+
+    .ui-tabs-anchor,
+    .ui-state-default:last-child .ui-tabs-anchor{
+      background: transparent;
+      border: 0 !important;
+      margin: 0;
+
+      &:hover, &:focus{
+        background: transparent !important;
+        color: $blue !important;
+      }
+    }
+
+    .ui-tabs-active .ui-tabs-anchor{
+      color: $blue;
+    }
+    .ui-tabs-panel{
+      padding: 0;
+    }
+  }
+
+  &.mod-half{
+
+    .ui-state-default{
+      width: 50%;
+    }
+
+    .ui-tabs-anchor{
+      text-align: center;
+      width: 100%;
+    }
+
+    .ui-tabs-panel{
+      padding: $margin-standard;
+    }
+  }
+
+  &.mod-nopadding{
+
+    .ui-tabs-panel{
+      padding: 0;
+    }
+  }
+}
+
+//////////////////////////////
+// NO JS TABS
+
+.nav-tabs-nojs{
+  transition: opacity $transition-fastest ease;
+  .tabs-header{
+    padding:1px;
+    list-style: none;
+    li{
+      float:left;
+      margin:0 0 -1px -1px;
+      a{
+        display:inline-block;
+        font-size:$font-standard;
+        height:60px;
+        line-height: 60px;
+        padding:0 15px;
+        border-radius:0;
+        border:1px solid $grey-border;
+        margin:0;
+        color:$grey;
+        text-decoration:none;
+        position:relative;
+        transition: all $transition-fastest ease;
+        &:hover{
+          background:white;
+        }
+      }
+      &.active{
+        a{
+          background:white;
+          z-index:1;
+          &::before {
+            content: "";
+            position:absolute;
+            display:block;
+            background:$blue;
+            height:2px;
+            bottom:-1px;
+            z-index:1;
+            left:-1px;
+            right:-1px;
+            opacity:1;
+          }
+        }
+      }
+    }
+  }
+  .content{
+    clear:both;
+    display:block;
+    background:white;
+    border-top: 1px solid $grey-border;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, .2);
+    padding: 45px $margin-bigger $margin-bigger;
+    margin-top:-1px;
+
+    &.mod-nooverflow{
+      overflow-x: hidden;
+    }
+
+    &.mod-red{
+      background: $red-lightest;
+    }
+  }
+
+  &.is-loading{
+    opacity: .5;
+    pointer-events: none;
+  }
+}
+
+.tabs-content-container{
+  padding: $margin-big $margin-bigger;
+  position: relative;
+
+  &.mod-section{
+    border-bottom: 1px solid $grey-separator;
+  }
+}
+
+.tabs-head{
+  padding: $margin-standard $margin-bigger;
+  position: relative;
+  width: 100%;
+
+  &.mod-bg-sky-lighter{
+    background-color: $sky-lighter;
+  }
+}
+
+.tabs-footer{
+  padding: $margin-standard $margin-bigger;
+  width: 100%;
+
+  &.mod-bg-sky-lighter{
+    background-color: $sky-lighter;
+  }
+}
+
+
+//////////////////////////////
+// VERTICAL TAB
+
+.vertical-tabs{
+  position:relative;
+  margin-left:120px;
+
+  .vertical-nav-tabs{
+    position:absolute;
+    top:0;
+    left:-122px;
+    width:120px;
+    > li{
+      border:1px solid $grey-border;
+      border-right:0;
+      margin: 0 0 -1px 0;
+      > a{
+        width:120px;
+        height:60px;
+        line-height:60px;
+        padding:0;
+        border:0 !important;
+        text-align:center;
+        border-radius: 0;
+        img{
+          max-width: 35px;
+          max-height: 35px;
+          vertical-align: middle;
+        }
+      }
+      &.ui-tabs-active,
+      &.active{
+         margin: 0 0 -1px 0;
+        a{
+          background:white;
+        }
+      }
+    }
+  }
+}

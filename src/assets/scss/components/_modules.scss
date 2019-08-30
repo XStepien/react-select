@@ -1,0 +1,129 @@
+.module{}
+
+  .module-illu{
+    display: block;
+    height: 114px;
+    margin: 60px auto 100px;
+    position: relative;
+    width: 426px;
+  }
+
+    .module-illu-lengow{
+      position: absolute;
+      right: 63px;
+      top: 22px;
+      z-index: 1;
+    }
+
+    .module-illu-module{
+      left: 50px;
+      position: absolute;
+      top: 12px;
+      z-index: 1;
+    }
+
+    .module-illu-plug{
+      left: 128px;
+      position: absolute;
+      top: 21px;
+      z-index: 0;
+    }
+
+  .module-arrow{
+    background: url(/src/assets/images/pages/channels/fields/advanced/result.png) 0 center no-repeat;
+    padding-left: 50px;
+
+    &.mod-noarrow{
+      background: transparent;
+    }
+  }
+
+  .module-icon-link-catalog{
+    margin-left: -13px;
+  }
+
+  .module-link-catalog-title{
+    margin-left: -3%;
+  }
+
+  .module-catalog-item{
+    padding-left: 54px;
+  }
+
+  .order-disconnected{
+    margin: 30px auto 0;
+    position: relative;
+    width: 180px;
+  }
+
+    .order-disconnected-module {
+      left: 0;
+      position: absolute;
+      top: 22px;
+      z-index: 1;
+    }
+
+    .order-disconnected-lengow {
+      position: absolute;
+      right: 0;
+      top: 28px;
+      z-index: 1;
+    }
+
+    .order-disconnected-plug {
+      left: 40px;
+      top: 17px;
+      position: absolute;
+      z-index: 0;
+    }
+
+/* - - - - - - - - - - - - - - - - - - -
+
+            MODULE-ILLU MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.module-illu{
+
+  &.mod-connected{
+    margin-top: 0px;
+
+
+    .module-illu-module{
+      left: 65px;
+    }
+
+    .module-illu-plug{
+      left: 158px;
+      top: 0px;
+    }
+  }
+
+  &.mod-disconnected{
+    margin: 60px auto 50px;
+
+    .module-illu-plug{
+      left: 129px;
+      top: -3px;
+    }
+  }
+
+  &.mod-upload{
+    margin: 0 auto;
+
+    .module-illu-module{
+      left: 90px;
+      top: 32px;
+    }
+
+    .module-illu-plug{
+      left: 138px;
+      top: 20px;
+    }
+
+    .module-illu-lengow{
+      right: 102px;
+      top: 36px;
+    }
+  }
+}

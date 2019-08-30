@@ -1,0 +1,45 @@
+
+.connector-switch {
+  color: $grey-light;
+  border: 1px solid #d7d7d7;
+  border-radius: 20px;
+  background: #fafafa;
+  display: inline-block;
+  font-size: .8em;
+  padding: 0 10px;
+  margin-bottom: 10px;
+  transition: background-color $transition-fast, color $transition-fast;
+
+  &:focus, &:active {
+    color: $grey-light;
+    text-decoration: none;
+  }
+  &:hover {
+    color: $grey;
+    text-decoration: none;
+    background: #efefef;
+  }
+}
+
+  .connector-switch-text {
+    display: inline-block;
+    margin-left: 5px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+/* - - - - - - - - - - - - - - - - - - -
+
+      CONNECTOR MOD RULE ELEMENT STATES
+
+- - - - - - - - - - - - - - - - - - - */
+
+.connector-switch-text {
+
+  &.is-active {
+    color: $grey;
+    font-weight: 700;
+  }
+}

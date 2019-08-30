@@ -1,0 +1,77 @@
+/* - - - - - - - - - - - - - - - - - - -
+
+          CUSTOM DARK SCROLLBAR
+
+ - - - - - - - - - - - - - - - - - - - */
+
+@mixin m-scroll-dark(){
+  &::-webkit-scrollbar{
+    background: $darkest;
+  }
+
+  &::-webkit-scrollbar-thumb{
+    background: $dark;
+    background-clip: content-box;
+    border: 3px solid transparent;
+    border-radius: 10px;
+  }
+}
+
+@mixin m-box-style(){
+  background: white;
+  border-radius: $border-radius;
+  box-shadow: 0 -0.5px 1px rgba(0, 0, 0, .2), 0 2px 2px rgba(0, 0, 0, .2);
+  display: block;
+  left: 0;
+  position: relative;
+  transition: opacity $transition-fastest ease,
+              background $transition-fastest ease,
+              top $transition-fastest ease,
+              left $transition-fastest ease,
+              box-shadow $transition-fastest ease;
+}
+
+@mixin m-row-style(){
+  margin-left: -15px;
+  margin-right: -15px;
+
+  &:before{
+    content: " ";
+    display: table;
+  }
+
+  &:after{
+    content: " ";
+    clear: both;
+    display: table;
+  }
+}
+
+@mixin m-icon-lgw(){
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: '#{$icomoon-font-family}' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Enable Ligatures ================ */
+  letter-spacing: 0;
+  -webkit-font-feature-settings: "liga";
+  -moz-font-feature-settings: "liga=1";
+  -moz-font-feature-settings: "liga";
+  -ms-font-feature-settings: "liga" 1;
+  font-feature-settings: "liga";
+  -webkit-font-variant-ligatures: discretionary-ligatures;
+  font-variant-ligatures: discretionary-ligatures;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@function unicode($str) {
+  @return unquote("\"") + $str + unquote("\"");
+}

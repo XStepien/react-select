@@ -1,0 +1,194 @@
+.dragndrop-zone{
+  border: 2px dashed $grey-border;
+  display: table;
+  font-size: $font-small;
+  margin-bottom: $margin-small;
+  min-height: 100px;
+  padding:{
+    bottom: 15px;
+    top: 15px;
+  }
+  position: relative;
+  text-align: center;
+  transition: all $transition-fast ease;
+  width: 100%;
+
+  &:hover{
+    background-color: $grey-input;
+    cursor: pointer;
+    border-color: $grey-border-over;
+  }
+}
+
+  .dragndrop-zone-input[type="file"]{
+    display: none;
+  }
+
+  .dragndrop-zone-drophere{
+    margin: 0;
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  .dragndrop-zone-dropnow{
+    display: none;
+    margin: 0;
+    vertical-align: middle;
+  }
+
+  .dragndrop-zone-complete{
+    display: none;
+    vertical-align: middle;
+  }
+
+  .dragndrop-zone-check{
+    display: none;
+    vertical-align: middle;
+  }
+
+  .dragndrop-attachments{
+    padding: 0;
+    text-align: left;
+  }
+
+    .dragndrop-attachments-file{
+      display: block;
+      padding: 0px;
+
+      &:hover{
+
+        .dragndrop-attachments-file-remove{
+          opacity: 1;
+        }
+      }
+    }
+
+      .dragndrop-attachments-file-remove{
+        display: inline-block;
+        opacity: 0;
+        height: 18px;
+        width: 18px;
+        margin-left: 3px;
+        vertical-align: middle;
+        border-radius: 50%;
+        background: $grey-placeholder;
+        transition: all $transition-fastest ease;
+
+        &:before{
+          @include m-icon-lgw;
+          color: white;
+          content: unicode($icon-add);
+          font-size: 12px;
+          padding: 2px 0 0 4px;
+          position: absolute;
+          transform: rotate(45deg);
+        }
+
+        &:hover{
+          background-color: $red;
+        }
+      }
+
+  .dragndrop-error{
+    color: $red;
+    display: none;
+    font-size: $font-small;
+    vertical-align: middle;
+  }
+
+  .dragndrop-cancel{
+    color: $grey;
+    margin-left: 15px;
+    text-decoration: underline;
+  }
+
+/* - - - - - - - - - - - - - - - - - - -
+
+             DRAGNDROP IS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.dragndrop{
+
+  /*
+    FILE IS READY TO DROP
+  */
+
+  &.is-dropable{
+
+    .dragndrop-zone{
+      background-color: $sky-lightest;
+      border: 2px dashed $sky;
+
+      &:hover{
+        background-color: $sky-lightest;
+        border-color: $sky;
+      }
+    }
+
+    .dragndrop-zone-drophere{
+      display: none;
+    }
+
+    .dragndrop-zone-dropnow{
+      color: $blue;
+      display: table-cell;
+    }
+  }
+
+  &.is-error{
+
+    .dragndrop-zone-drophere{
+      display: none;
+    }
+
+    .dragndrop-gauge-progress{
+      background: $red;
+      width: 100%;
+    }
+
+    .dragndrop-error{
+      display: table-cell;
+    }
+
+    .dragndrop-zone{
+      background-color: $red-lightest;
+      border: 2px dashed $red-lighter;
+
+      &:hover{
+        background-color: $red-lightest;
+        border-color: $red-lighter;
+      }
+    }
+  }
+
+  &.is-checking{
+
+    .dragndrop-zone-drophere{
+      display: none;
+    }
+
+    .dragndrop-zone{
+      background-color: $grey-input;
+    }
+
+    .dragndrop-zone-check{
+      display: table-cell;
+    }
+  }
+
+  &.is-complete{
+
+    .dragndrop-zone-drophere{
+      display: none;
+    }
+
+    .dragndrop-zone{
+      background-color: $grey-input;
+    }
+
+    .dragndrop-zone-complete{
+      display: table-cell;
+    }
+  }
+}

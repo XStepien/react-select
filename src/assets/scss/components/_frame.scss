@@ -1,0 +1,139 @@
+.frame{
+  background: $grey-background;
+  border: 1px solid $grey-border;
+  border-radius: $border-radius;
+  display: block;
+  margin-bottom: $margin-small;
+  padding: 45px $margin-big;
+  position: relative;
+}
+
+  .frame-illustration{
+    bottom: 0;
+    left: 40px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+  }
+
+  .frame-multiaccounts-logo{
+    background: $grey-background;
+    border-right: 1px solid $grey-border;
+    height: 80px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 80px;
+  }
+
+/* - - - - - - - - - - - - - - - - - - -
+
+              FRAMES MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.frame{
+
+  &.mod-white{
+    background: white;
+  }
+
+  &.mod-small{
+    padding: $margin-small;
+  }
+
+  &.mod-medium{
+    padding: 30px;
+  }
+
+  &.mod-smarthome{
+    border: 0;
+    margin: 0;
+    padding: 15px 30px;
+    background-color: $red-lightest;
+
+    &:hover{
+      background-color: $red-lightish;
+
+      &:before {
+        background: $red;
+        bottom: 0;
+        content: '';
+        display: block;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 2px;
+      }
+    }
+  }
+
+  &.mod-illustration{
+    padding-left: 130px;
+  }
+
+  &.mod-multiaccounts{
+    color: $grey;
+    height: 82px;
+    padding: 26px 0 0 110px;
+    transition: all $transition-fastest ease;
+
+    &:hover{
+      color: $blue;
+      text-decoration: none;
+    }
+  }
+
+  &.mod-channel{
+    height: 240px;
+    padding: $margin-standard;
+  }
+
+  &.mod-flicker{
+    color: $grey;
+    transition: color 100ms ease;
+
+    &:hover{
+      color: $blue;
+    }
+  }
+
+  &.mod-no-border{
+    border: 0;
+  }
+
+  &.mod-payment{
+    padding: $margin-standard $margin-standard $margin-standard 65px;
+  }
+
+  &.mod-preview-notemplate{
+    height: 500px;
+    overflow-y: auto;
+    width: 100%;
+  }
+
+  &.mod-red{
+    background-color: $red-lightest;
+  }
+
+  &.mod-checkboxlist{
+    max-height: 200px;
+    overflow-y: auto;
+    width: 100%;
+    padding: 0 $margin-small;
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+        FRAMES ILLUSTRATION MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.frame-illustration{
+
+  &.mod-lightning{
+    left: 100px;
+    top: 0;
+  }
+}

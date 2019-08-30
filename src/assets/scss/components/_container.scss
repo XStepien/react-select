@@ -1,0 +1,165 @@
+.container{
+  margin: auto;
+  padding: 0 15px;
+  position: relative;
+  width: 980px;
+
+  @media (min-width: $lg) {
+    width: 1150px;
+  }
+  @media (min-width: $xl) {
+    width: 1270px;
+  }
+
+  &:before{
+    display: table;
+    content: " ";
+  }
+
+  &:after{
+    display: table;
+    clear: both;
+    content: " ";
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+            CONTAINERS MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.container{
+
+  &.mod-small{
+    width: 750px;
+  }
+
+  &.mod-module-iframe{
+    width: 965px;
+  }
+
+  &.mod-fluid{
+    width: 100%;
+  }
+
+  &.mod-no-min{
+    min-width: 0;
+  }
+
+  &.mod-section{
+    padding-bottom: $margin-bigger;
+    padding-top: $margin-bigger;
+  }
+
+  &.mod-white-bg{
+    background: white;
+    border:{
+      bottom:1px solid $grey-separator;
+      top:1px solid $grey-separator;
+    }
+  }
+
+  &.mod-setup-matching{
+    min-width: 0;
+    width: 720px;
+
+    @media (min-width: $md) {
+      width: 640px;
+    }
+
+    @media (min-width: $lg +1) {
+      width: 830px;
+    }
+
+    @media (min-width: $xl) {
+      width: 990px;
+    }
+
+    @media (min-width: $xxl) {
+      width: 1150px;
+    }
+  }
+
+  &.mod-found-products{
+    min-width: 0;
+    width: 720px;
+    z-index: 30;
+
+    @media (min-width: $md) {
+      width: 720px;
+    }
+
+    @media (min-width: $lg) {
+      width: 720px;
+    }
+
+    @media (min-width: $xl) {
+      width: 900px;
+    }
+
+    @media (min-width: $xxl) {
+      width: 1100px;
+    }
+  }
+
+  &.mod-attributes{
+    padding-right: 405px;
+
+    @media (max-width: $xl) {
+      padding-right: 355px;
+    }
+  }
+
+  &.mod-with-categories{
+    width: 1200px;
+
+    @media (max-width: $xxl) {
+      width: 1050px;
+    }
+
+    @media (max-width: $xl) {
+      width: 860px;
+    }
+
+    @media (max-width: $lg) {
+      width: 100%;
+    }
+  }
+
+  &.mod-with-aside-categories{
+    width: 1050px;
+
+    @media (max-width: $xxl) {
+      width: 900px;
+    }
+
+    @media (max-width: $xl) {
+      width: 710px;
+    }
+
+    /*@media (max-width: $lg) {
+      width: 100%;
+    }*/
+  }
+
+  &.mod-reports{
+    min-height: 150px;
+  }
+
+  &.mod-app-iframe{
+    border: none;
+    height: 100vh;
+    padding: 130px 0 0;
+    width: 100%;
+  }
+
+  &.mod-about-app{
+    padding: 0;
+  }
+
+  &.mod-footer-rule{
+    padding-left: 3px;
+  }
+}

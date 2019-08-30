@@ -1,0 +1,88 @@
+.nocontent{
+  color: $grey-light;
+  padding: $margin-bigger 0 $margin-standard;
+  text-align: center;
+}
+
+.nocontent-icon{
+  background: url(/src/assets/images/layout/no-content/no-result-white.png) no-repeat center;
+  height: 180px;
+  margin: $margin-small auto 0;
+  width: 395px;
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+             NOCONTENT MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.nocontent{
+
+  &.mod-matching-thesaurus{
+    padding: $margin-small 0 $margin-standard;
+  }
+
+  &.mod-new-rule-content{
+    display:none;
+  }
+}
+
+.nocontent-icon{
+
+  &.mod-rules{
+    background-image: url(/src/assets/images/layout/no-content/no-result-white.png);
+  }
+
+  &.mod-channels{
+    background-image: url(/src/assets/images/layout/no-content/no-result-white.png);
+  }
+
+  &.mod-channels-switch{
+    background-image: url(/src/assets/images/layout/no-content/no-result-dark.png);
+    height: 125px;
+    margin: 0 auto;
+  }
+
+  &.mod-stats{
+    background-image: url(/src/assets/images/layout/no-content/no-result.png);
+  }
+
+  &.mod-orders{
+    background-image: url(/src/assets/images/layout/no-content/no-order.png);
+  }
+
+  &.mod-exclude{
+    background-image: url(/src/assets/images/layout/no-content/exclusion.png);
+    border: 3px solid $grey-border-over;
+    border-radius: 50%;
+    height: 150px;
+    margin-bottom: $margin-standard;
+    width: 150px;
+  }
+
+  &.mod-conversion-list{
+    background: url(/src/assets/images/layout/no-content/no-result-white.png) no-repeat center;
+    height: 150px;
+    margin: $margin-small auto 0;
+    width: 250px;
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+            NOCONTENT STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+ .nocontent{
+
+  &.mod-new-rule-content{
+    display:none;
+
+    &.is-visible{
+      display:block;
+    }
+  }
+}

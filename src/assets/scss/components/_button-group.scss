@@ -1,0 +1,545 @@
+/* - - - - - - - - - - - - - - - - - - -
+
+        Checkbox / radio list
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.checkbox-list,
+.radio-list{
+  display: block;
+
+  &::after{
+    clear: both;
+    content: " ";
+    display: block;
+    font-size: 0;
+    height: 0;
+    visibility: hidden;
+  }
+}
+
+  .checkbox-list-item,
+  .radio-list-item,
+  .react-radio-list-item,
+  .react-checkbox-list-item{
+    background-color: $grey-background;
+    border: 1px solid $grey-border;
+    border-right: 0;
+    color: $grey;
+    display: block;
+    float: left;
+    padding: 10px 18px;
+    position: relative;
+
+    &:first-child{
+      border-radius: $border-radius 0 0 $border-radius;
+    }
+
+    &:last-child{
+      border-radius: 0 $border-radius $border-radius 0;
+      border-right: 1px solid $grey-border;
+    }
+
+    &:focus{
+      color: $grey;
+      text-decoration: none;
+    }
+
+    &:hover{
+      background: white;
+      color: $blue;
+      text-decoration: none;
+    }
+
+    &::before {
+      background: $blue;
+      bottom: -1px;
+      content: "";
+      display: block;
+      height: 2px;
+      left: -1px;
+      opacity: 0;
+      position: absolute;
+      right: 100%;
+      transition: all $transition-fast ease;
+    }
+  }
+
+    .checkbox-list-item-input,
+    .radio-list-item-input{
+      display: none;
+    }
+
+
+/* - - - - - - - - - - - - - - - - - - - - - - - -
+
+    CHECKBOX-LIST-ITEM / RADIO-LIST-ITEM STATES
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+.checkbox-list-item,
+.radio-list-item,
+.react-radio-list-item,
+.react-checkbox-list-item{
+
+  &.is-active{
+    background: white;
+    color: $navy;
+    z-index: 5;
+
+    &::before {
+      opacity: 1;
+      right: -1px;
+    }
+  }
+
+  &.is-disabled{
+    background: $grey-disabled;
+    pointer-events: none;
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+        CHECKBOX LIST MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.checkbox-list{
+
+  &.mod-check{
+
+    .checkbox-list-item,
+    .react-checkbox-list-item{
+      background: white;
+      border: 2px solid $grey-disabled;
+      border-radius: $border-radius;
+      color: $grey-light;
+      padding: $margin-standard $margin-standard $margin-standard 70px;
+      width: 100%;
+      transition: all $transition-fastest ease;
+
+      &:hover{
+        border-color: $grey-border;
+        color: $grey;
+      }
+
+      &.is-active{
+        color: $grey;
+        border-color: $sky;
+
+        .checkbox-list-tick{
+          background: url(/src/assets/images/components/radiobox/tick.png) $sky no-repeat center;
+          transform: scale(1);
+        }
+
+        &::before {
+          opacity: 0;
+          right: 100%;
+        }
+      }
+    }
+
+    .checkbox-list-tick{
+      background: $grey-background center no-repeat;
+      border-radius: 50%;
+      bottom: 0;
+      height: 25px;
+      left: 20px;
+      margin: auto;
+      position: absolute;
+      top: 0;
+      transition: all $transition-fast ease;
+      transform: scale(.7);
+      width: 25px;
+    }
+  }
+
+  &.mod-rule{
+
+    .checkbox-list-item,
+    .react-checkbox-list-item{
+      line-height: 40px;
+      min-height: 40px;
+      width: 100%;
+    }
+
+    .checkbox-list-item-txt{
+      display: inline-block;
+      line-height: normal;
+      margin-top: -3px;
+      vertical-align: middle;
+    }
+  }
+
+  &.mod-tick{
+
+    .checkbox-list-item,
+    .react-checkbox-list-item{
+      background: $grey-background;
+      border: 1px solid $grey-border;
+      border-radius: $border-radius;
+      color: $greyish;
+      padding: $margin-standard $margin-standard $margin-standard 70px;
+      margin: 0 0 $margin-standard;
+      width: 100%;
+      transition: all $transition-fastest ease;
+
+      &:hover{
+        border-color: $grey-light;
+        color: $grey;
+
+        .checkbox-list-item-label{
+          border: 1px solid $green-darker;
+          color: $green-darkest;
+
+          &.mod-blue{
+            background: $blue;
+            border: 1px solid $blue;
+            color: white;
+          }
+        }
+
+        .checkbox-list-tick{
+          border: 1px solid $grey-light;
+        }
+      }
+
+      &.is-active{
+        background: white;
+        border-color: $grey-border;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        color: $grey;
+
+        .checkbox-list-item-title{
+          color: $blue;
+        }
+
+        .checkbox-list-tick{
+          background: url(/src/assets/images/components/radiobox/tick-thick.png) $blue no-repeat center;
+          border: 1px solid $blue;
+          transform: scale(1);
+        }
+
+        &:hover{
+          .checkbox-list-tick{
+            border: 1px solid $blue;
+          }
+        }
+
+        .checkbox-list-item-label{
+          border: 1px solid $green-darker;
+          color: $green-darkest;
+
+          &.mod-blue{
+            background: $blue;
+            border: 1px solid $blue;
+            color: white;
+          }
+        }
+      }
+    }
+
+    .checkbox-list-item-title{
+      color: $grey;
+      margin-bottom: 3px;
+      margin-top: 0;
+      transition: all $transition-fastest ease;
+    }
+
+    .checkbox-list-item-label{
+      background: white;
+      border-radius: 12px;
+      border: 1px solid $grey-light;
+      color: $grey-light;
+      display: inline-block;
+      float: left;
+      font-size: $font-small;
+      font-weight: 400;
+      height: 24px;
+      line-height: 21px;
+      margin: 3px $margin-tiny $margin-small 0;
+      padding: 0 10px;
+      text-align: center;
+      transition: all $transition-fastest ease;
+      vertical-align: middle;
+      white-space: nowrap;
+
+      &.mod-blue{
+        background: $dark-lightest;
+        border: 1px solid $dark-lightest;
+        color: white;
+        font-weight: 700;
+      }
+    }
+
+    .checkbox-list-tick{
+      background: white center no-repeat;
+      border: 1px solid $grey-border;
+      border-radius: 50%;
+      bottom: 0;
+      height: 32px;
+      left: 20px;
+      margin: auto;
+      position: absolute;
+      top: 0;
+      transition: all $transition-fast ease;
+      width: 32px;
+      transform: scale(.7);
+    }
+
+    .checkbox-list-footer{
+      background: url('/(/src/assets/images/pages/channels/choose-channel/white-paper-bg.jpg') repeat center top;
+      border: 1px solid $grey-border;
+      box-shadow: inset 0px 5px 10px -2px rgba(0,0,0,0.08);
+      padding: $margin-standard $margin-standard $margin-standard 70px;
+      min-height: 155px;
+      width: 100%;
+      display: block;
+      float: left;
+      margin: -$margin-standard 0 $margin-standard 0;
+
+      &.mod-universe{
+        margin: $margin-standard 0 $margin-standard 0;
+        box-shadow: none;
+      }
+    }
+
+    .checkbox-list-footer-img{
+      box-shadow: 0 0px 10px rgba(6, 63, 115, 0.4);
+      max-height: 140px;
+    }
+  }
+
+  &.mod-tick-nobox{
+
+    .checkbox-list-item,
+    .react-checkbox-list-item{
+      border:none !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+
+      &:before {
+        background:none !important;
+      }
+    }
+
+    .checkbox-list-footer{
+      margin: $margin-standard 0 $margin-standard 0;
+      box-shadow: none;
+    }
+  }
+
+
+  &.mod-circle{
+
+    .checkbox-list-item,
+    .react-checkbox-list-item{
+      background: $grey-background;
+      border: 2px solid $grey-border;
+      border-radius: 50%;
+      color: $grey-light;
+      font-weight: 700;
+      height: 50px;
+      margin: 0 $margin-small 0 0;
+      padding: 11px 0 0;
+      text-align: center;
+      width: 50px;
+      transition: all $transition-fast ease;
+
+      &.is-active{
+        color: $grey;
+        background-color: white;
+        border: 2px solid $blue;
+
+        &:before{
+          display: none;
+        }
+      }
+    }
+  }
+
+  &.mod-input-addon{
+    float: left;
+    height: 100%;
+
+    .checkbox-list-item,
+    .react-checkbox-list-item{
+      align-items: center;
+      display: flex;
+      height: 100%;
+      min-height: 44px;
+      padding: 8px 5px;
+      width: 60px;
+
+      &:first-child{
+        border-left: 0;
+        border-radius: 0;
+      }
+
+      img{
+        transform: scale(0.8);
+      }
+    }
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+        RADIO LIST MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.radio-list{
+
+  &.mod-check{
+
+    .radio-list-item,
+    .react-radio-list-item{
+      background: $grey-background;
+      border: 1px solid $grey-border;
+      border-radius: $border-radius;
+      color: $greyish;
+      display: block;
+      float: left;
+      margin-right: -2px;
+      padding: $margin-standard $margin-standard $margin-standard 70px;
+      transition: all $transition-fastest ease;
+
+      &:hover{
+        border-color: $grey-light;
+        color: $grey;
+      }
+
+      &.is-active{
+        background: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        color: $grey;
+        border-color: $grey-border;;
+
+        .radio-list-tick{
+          background: $blue;
+          border: 1px solid $blue;
+          transform: scale(1);
+
+          &:before{
+            @include m-icon-lgw();
+            color: white;
+            content: unicode($icon-checked);
+            font-size: 25px;
+            font-weight: 900;
+            left: 3px;
+            position: absolute;
+            top: 2px;
+          }
+        }
+
+        .radio-list-item-title{
+          color: $blue;
+        }
+      }
+
+      &.is-disabled{
+        background: $grey-disabled;
+        color: $grey-light;
+        cursor: not-allowed;
+        pointer-events: auto;
+
+        &:hover{
+          border: 1px solid $grey-border;
+        }
+
+        .radio-list-item-title{
+          color: $grey-light;
+        }
+
+        img{
+          filter: saturate(0.1);
+          opacity: 0.5;
+        }
+      }
+    }
+
+    .radio-list-tick{
+      background: white center no-repeat;
+      border: 1px solid $grey-border;
+      border-radius: 50%;
+      bottom: 0;
+      height: 32px;
+      left: 20px;
+      margin: auto;
+      position: absolute;
+      top: 0;
+      transition: all $transition-fast ease;
+      transform: scale(.7);
+      width: 32px;
+    }
+
+    .radio-list-item-title{
+      color: $grey;
+      margin-bottom: 3px;
+      margin-top: 0;
+      transition: all $transition-fastest ease;
+    }
+  }
+
+  &.mod-grid-rulechoice{
+    display: grid;
+    grid-column-gap: $margin-standard;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+
+    .radio-list-item,
+    .react-radio-list-item{
+      padding: 5px $margin-standard $margin-small $margin-standard;
+    }
+
+    &::after{
+      content: none;
+    }
+
+    .radio-list-tick{
+      bottom: initial;
+      left: 12px;
+      top: 11px;
+    }
+
+    &.mod-col-3{
+      grid-template-columns: auto auto auto;
+
+      .radio-list-item,
+      .react-radio-list-item{
+        margin-bottom: $margin-standard;
+      }
+    }
+
+    &.mod-col-3-fixed {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: $margin-standard;
+    }
+  }
+
+  &.mod-input-addon{
+    float: left;
+    height: 100%;
+
+    .radio-list-item,
+    .react-radio-list-item{
+      align-items: center;
+      display: flex;
+      height: 100%;
+      min-height: 44px;
+      padding: 8px 5px;
+      width: 60px;
+
+      &:first-child{
+        border-left: 0;
+        border-radius: 0;
+      }
+
+      img{
+        transform: scale(0.8);
+      }
+    }
+  }
+}

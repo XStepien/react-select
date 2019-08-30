@@ -1,0 +1,108 @@
+.textarea{
+  background: $grey-input;
+  border: 1px solid $grey-border;
+  border-radius: $border-radius;
+  box-shadow: inset 0 3px 3px rgba(0,0,0,0.05);
+  color: $grey;
+  height: 150px;
+  line-height: 1.5;
+  font-size: $font-standard;
+  max-width: 800px;
+  outline: none;
+  padding: 8px $margin-small;
+  width: 100%;
+
+  &:hover{
+    border-color: $grey-border-over;
+  }
+
+  &:focus{
+    background-color: white;
+    border-color: $sky;
+    outline: none;
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+            TEXTAREA MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.textarea{
+
+  /*
+    WHITE BACKGROUND
+  */
+
+  &.mod-background-white{
+    background: white;
+  }
+
+  &.mod-injection{
+    height: 150px;
+  }
+
+  &.mod-exclude-ip{
+    border-radius: 0 $border-radius $border-radius 0;
+    height:200px;
+  }
+
+  &.mod-custom-field{
+    color: $grey;
+    display: block;
+    height: 44px;
+    overflow: hidden;
+    resize: none;
+    transition: all 125ms ease;
+  }
+
+  &.mod-autosize{
+    height: $input-height;
+    line-height: 30px;
+    max-width: 800px;
+    min-height: $input-height;
+    overflow: hidden;
+    padding: 5px $margin-small;
+    resize: none;
+    transition: all $transition-fast ease;
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+            INPUTS STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.textarea{
+
+  &[disabled],
+  &[readonly]{
+    background: $grey-disabled;
+    border-color:$grey-border;
+    color:$grey-light;
+    cursor: not-allowed;
+  }
+
+  &.is-discrete{
+    color: $grey;
+    border-color: transparent;
+    background-color: transparent;
+    box-shadow: none;
+
+    &:hover{
+      border-color: $grey-border-over;
+      box-shadow: inset 0 3px 3px rgba(0,0,0,0.05);
+    }
+
+    &:focus{
+      background-color: white;
+      border-color: $sky;
+      box-shadow: inset 0 3px 3px rgba(0,0,0,0.05);
+      outline: none;
+    }
+  }
+}

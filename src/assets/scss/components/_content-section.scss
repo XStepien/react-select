@@ -1,0 +1,24 @@
+.content-section{
+  margin-bottom: $margin-bigger;
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          CONTENT SECTION MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.content-section{
+
+  &.mod-small{
+    margin-bottom: $margin-standard;
+  }
+
+  &.mod-maxheight{
+    max-height: calc(100vh - 460px);
+    overflow-y: auto;
+    padding: 45px;
+    border: 1px solid $grey-border;
+  }
+}

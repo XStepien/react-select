@@ -1,0 +1,244 @@
+.recobox{
+  @include m-box-style();
+  height: 200px;
+  margin-bottom: $margin-standard;
+}
+
+  .recobox-right{
+    background-color: white;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 220px;
+  }
+
+    .recobox-right-logo{
+      height: 88px;
+      width: 220px;
+    }
+
+    .recobox-right-button{
+      background-color: transparent;
+      border-radius: 50%;
+      bottom: 5px;
+      cursor: pointer;
+      display: inline-block;
+      height: 37px;
+      opacity: 0;
+      position: absolute;
+      right: 5px;
+      transition: all $transition-faster ease;
+      width: 37px;
+
+      &:before{
+        @include m-icon-lgw;
+        color: $grey-border-over;
+        content: unicode($icon-forward);
+        font-size: 18px;
+        position: absolute;
+        top: 9px;
+        left: 9px;
+      }
+
+      &:hover,
+      &:focus{
+        background-color: $grey-background;
+        cursor: pointer;
+        outline: none;
+        text-decoration: none;
+
+        &:before{
+          @include m-icon-lgw;
+          color: $blue;
+        }
+      }
+    }
+
+  .recobox-left{
+    display: block;
+    height: 100%;
+    padding: 0 240px 0 0;
+    width: 100%;
+  }
+
+    .recobox-left-title{
+      color: white;
+      display: block;
+      font-size: $font-bigger;
+      font-weight: 300;
+      float: right;
+      text-align: right;
+      text-transform: uppercase;
+
+      &:after{
+        background-color: #8beab6;
+        content: "";
+        display: block;
+        height: 2px;
+        margin: 7px 0 0 0;
+        position: absolute;
+        right: 240px;
+        width: 35px;
+      }
+    }
+
+    .recobox-left-type{
+      clear: both;
+      color: white;
+      display: block;
+      float: right;
+      font-size: $font-small;
+      font-weight: 600;
+      text-align: right;
+      max-width: 50%;
+    }
+
+    .recobox-left-illu{
+      bottom: 0;
+      height: 100%;
+      position: absolute;
+      width: 100%;
+    }
+
+      .recobox-left-illu-v1-part-1{
+        background: url('/(/src/assets/images/pages/channels/choose-channel/reco1-1.png') bottom left 10px no-repeat;
+        bottom: 114px;
+        height: 32px;
+        left: 6px;
+        width: 31px;
+        position: absolute;
+      }
+
+      .recobox-left-illu-v1-part-2{
+        background: url('/(/src/assets/images/pages/channels/choose-channel/reco1-2.png') bottom left 10px no-repeat;
+        bottom: 53px;
+        height: 67px;
+        left: 6px;
+        width: 123px;
+        position: absolute;
+      }
+
+      .recobox-left-illu-v1-part-3{
+        background: url('/(/src/assets/images/pages/channels/choose-channel/reco1-3.png') bottom 10px left 10px no-repeat;
+        bottom: 0;
+        height: 70px;
+        width: 213px;
+        position: absolute;
+      }
+
+      .recobox-left-illu-v2-part-1{
+        background: url('/(/src/assets/images/pages/channels/choose-channel/reco2-1.png') bottom left no-repeat;
+        bottom: 92px;
+        height: 45px;
+        left: 8px;
+        width: 46px;
+        position: absolute;
+      }
+
+      .recobox-left-illu-v2-part-2{
+        background: url('/(/src/assets/images/pages/channels/choose-channel/reco2-2.png') bottom left no-repeat;
+        bottom: 10px;
+        height: 86px;
+        left: 12px;
+        position: absolute;
+        width: 140px;
+      }
+
+      .recobox-left-illu-v2-part-3{
+        background: url('/(/src/assets/images/pages/channels/choose-channel/reco2-3.png') bottom 10px left 10px no-repeat;
+        bottom: 0;
+        height: 53px;
+        width: 201px;
+        position: absolute;
+      }
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+           WRAP-RECOBOXES (LINK)
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.wrap-recobox{
+  cursor: pointer;
+
+  .recobox{
+    color: $grey;
+    top: 0;
+  }
+
+  &:hover,
+  &:focus{
+    text-decoration: none;
+
+    .recobox{
+      box-shadow: 0 -0.5px 1px rgba(0, 0, 0, .2), 0 10px 10px rgba(0, 0, 0, .2);
+      top: -6px;
+    }
+  }
+
+  &:hover {
+
+    .anim-spring-1 {
+      -webkit-animation: spring-1 0.5s ease;
+      -moz-animation: spring-1 0.5s ease;
+      -ms-animation: spring-1 0.5s ease;
+      animation: spring-1 0.5s ease;
+    }
+
+    .anim-spring-2 {
+      -webkit-animation: spring-2 350ms ease;
+      -moz-animation: spring-2 350ms ease;
+      -ms-animation: spring-2 350ms ease;
+      animation: spring-2 350ms ease;
+    }
+
+    .anim-spring-3 {
+      -webkit-animation: spring-3 0.2s ease;
+      -moz-animation: spring-3 0.2s ease;
+      -ms-animation: spring-3 0.2s ease;
+      animation: spring-3 0.2s ease;
+    }
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+           RECOBOX STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+
+.wrap-recobox{
+
+  &.is-hovered{
+
+    .recobox-right-button{
+      opacity: 1;
+    }
+  }
+
+  &.is-going{
+
+    .recobox{
+      opacity: 0;
+      transform: translate(30px,0);
+    }
+  }
+
+  &.is-comming{
+
+    .recobox{
+      opacity: 1;
+      transform: translate(-30px,0);
+    }
+  }
+
+  &.is-hidden{
+
+    .recobox{
+      display: none;
+    }
+  }
+}

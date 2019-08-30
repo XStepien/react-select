@@ -1,0 +1,83 @@
+.box-permission{
+  @include m-box-style();
+  margin-bottom: $margin-small;
+  min-height:210px;
+  padding: 45px $margin-bigger;
+  transition: all $transition-faster ease;
+  top: 0px;
+
+  &:hover,
+  &:focus{
+    text-decoration: none;
+  }
+}
+
+  .box-permission-title{}
+
+  .box-permission-input{
+    display: block;
+    opacity: .01;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+  }
+
+  .box-permission-confirm{
+    display: none;
+  }
+
+    .box-permission-confirm-edit{
+      display: none;
+    }
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+           BOX-PERMISSION STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+ .box-permission{
+
+  &.is-confirming{
+
+    .box-permission-confirm{
+      display:block;
+    }
+  }
+
+  &.is-active{
+
+    &:hover{
+
+      .box-permission-confirm-edit{
+        display: inline-block;
+      }
+    }
+
+    .box-permission-title{
+
+      &:after{
+        background: url(/src/assets/images/components/checkbox/tick_lg.png) $blue center no-repeat;
+        border-radius: 50%;
+        content: '';
+        display: inline-block;
+        height: 22px;
+        margin: 0 0 0 5px;
+        vertical-align: sub;
+        width: 22px;
+      }
+    }
+  }
+
+  &.is-selectable{
+    cursor: pointer;
+
+    &:hover,
+    &:focus{
+      box-shadow: 0 -0.5px 1px rgba(0, 0, 0, .2), 0 10px 10px rgba(0, 0, 0, .2);
+      top: -6px;
+      text-decoration: none;
+    }
+  }
+}

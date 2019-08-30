@@ -1,0 +1,101 @@
+.step-bar{
+  display: inline-block;
+  list-style: none;
+  margin: 0;
+  padding: 9px 0 0;
+}
+
+  .step-bar-item{
+    display: inline-block;
+    font-size: $font-small;
+    position: relative;
+    text-align: center;
+    width: 120px;
+
+    &::before{
+      background: $grey-step-bar;
+      border: 1.5px solid $blue-lighter;
+      border-radius: 50%;
+      bottom: -15px;
+      content: "";
+      left: 58px;
+      height: 8px;
+      position: absolute;
+      z-index: 1;
+      width: 8px;
+    }
+
+    &:not(:first-child)::after{
+      background: $blue-lighter;
+      bottom: -12px;
+      content: "";
+      height: 1px;
+      left: -62px;
+      position: absolute;
+      width: 120px;
+    }
+  }
+
+    .step-bar-item-link{
+      color: $grey;
+
+      &:hover{
+        text-decoration: none;
+      }
+    }
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+             STEP-BAR STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.step-bar-item{
+
+  /*
+    Current list-item
+  */
+
+  &.is-current{
+
+    &::before{
+      background: $grey-step-bar;
+      border: 2px solid $blue;
+      bottom: -17px;
+      height: 11px;
+      width: 11px;
+    }
+
+    .step-bar-item-link{
+      color: $blue;
+      pointer-events: none;
+    }
+  }
+
+  /*
+    Disabled list-item
+  */
+
+  &.is-disabled{
+
+    &::before{
+      background: $grey-step-bar;
+      border: 1.5px solid $grey-light;
+    }
+
+    &::after{
+      background: $grey-light;
+    }
+
+    &:first-child::before{
+      background: $grey-step-bar;
+      border: 1.5px solid $blue-lighter;
+    }
+
+    .step-bar-item-link{
+      color: $grey-light;
+      pointer-events: none;
+    }
+  }
+}

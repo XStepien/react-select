@@ -1,0 +1,122 @@
+.footernav{
+  display: inline-block;
+}
+
+  .footernav-button{
+    background-color: $blue-darker;
+    display: inline-block;
+    height: $footer-height;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    transition: all $transition-fastest ease;
+    width: 39px;
+    z-index: 11;
+
+    &:hover{
+      background-color: $blue-lighter;
+    }
+  }
+
+    .footernav-button-carret{
+      color: white;
+      display: inline-block;
+      height: $footer-height;
+      line-height: 1.2;
+      padding-top: 20px;
+      position: relative;
+      width: 40px;
+
+      &:after{
+        @include m-icon-lgw;
+        content: unicode($icon-carret);
+        font-size: $font-standard;
+        font-weight: 700;
+        right: 13px;
+        position: absolute;
+        top: 21px;
+        transform: rotate(180deg);
+      }
+    }
+
+  .footernav-drop{
+    background-color: $darker;
+    bottom: $footer-height;
+    box-shadow: 10px 10px 10px 0 rgba(0, 0, 0, 0.1);
+    max-height: 0px;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    transition: all $transition-faster cubic-bezier(0.75, 0.25, 0.25, 0.75);
+    min-width: 200px;
+    position: absolute;
+  }
+
+    .footernav-drop-menu{
+      margin: 0px;
+      padding: 0px;
+    }
+
+      .footernav-drop-menu-item{
+        background-color: transparent;
+        list-style: none;
+        position: relative;
+        transition: background $transition-fastest ease;
+        width: 100%;
+      }
+
+        .footernav-drop-menu-item-link{
+          color: white;
+          display: block;
+          font-weight: 600;
+          font-size: $font-small;
+          height: $footer-height;
+          line-height: $footer-height;
+          padding: 0px 30px;
+          text-decoration: none;
+
+          &:hover,
+          &:focus{
+            background-color: $dark;
+            color: white;
+            text-decoration: none;
+
+            &:before{
+              background-color: $blue;
+              content: '';
+              height: 100%;
+              left: 0;
+              position: absolute;
+              width: 2px;
+            }
+          }
+        }
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          FOOTERNAV STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.footernav{
+
+  &.is-open{
+
+    .footernav-drop{
+      /* max 6 links in the menu */
+      max-height: calc(100% * 6);
+    }
+
+    .footernav-button{
+      background-color: $blue-lighter;
+    }
+
+    .footernav-button-carret{
+      color: white;
+
+      &:after{
+        transform: rotate(0deg);
+      }
+    }
+  }
+}

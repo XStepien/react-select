@@ -1,0 +1,124 @@
+.flip-selected-wrap{
+  height: 36px;
+  perspective: 1000;
+  width: 36px;
+}
+
+  .flip-selected{
+    position: relative;
+    transform-style: preserve-3d;
+    transition: 0.6s;
+  }
+
+    .flip-selected-icon{
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: 50%;
+      height: 36px;
+      left: 0;
+      position: absolute;
+      top: 0;
+      transform: rotateY(0deg);
+      width: 36px;
+      z-index: 2;
+    }
+
+    .flip-selected-back {
+      backface-visibility: hidden;
+      background: url(/src/assets/images/pages/channels/settings/tick-white.png) $sky no-repeat center;
+      border: 0;
+      border-radius: 50%;
+      height: 36px;
+      left: 0;
+      position: absolute;
+      top: 0;
+      transform: rotateY(180deg);
+      width: 36px;
+    }
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          FLIP SELECTED MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+ .flip-selected{
+
+  &.mod-ftp{
+
+    .flip-selected-icon{
+      background:url(/src/assets/images/pages/import-catalog/import-choice/choice-ftp.png) $grey-background no-repeat center;
+    }
+  }
+
+  &.mod-magento{
+
+    .flip-selected-icon{
+      background:url(/src/assets/images/pages/import-catalog/import-choice/choice-magento.png) #EF672F no-repeat center;
+    }
+  }
+
+  &.mod-woocommerce{
+
+    .flip-selected-icon{
+      background:url(/src/assets/images/pages/import-catalog/import-choice/choice-woocommerce.png) #9b5c8f no-repeat center;
+    }
+  }
+
+  &.mod-prestashop{
+
+    .flip-selected-icon{
+      background:url(/src/assets/images/pages/import-catalog/import-choice/choice-prestashop.png) #9fdbea no-repeat center;
+    }
+  }
+
+  &.mod-shopware{
+
+    .flip-selected-icon{
+      background:url(/src/assets/images/pages/import-catalog/import-choice/choice-shopware.png) $grey-background no-repeat center;
+    }
+  }
+
+  &.mod-shopify{
+
+    .flip-selected-icon{
+      background:url(/src/assets/images/pages/import-catalog/import-choice/choice-shopify.png) $grey-background no-repeat center;
+    }
+  }
+
+  &.mod-link{
+
+    .flip-selected-icon{
+      background:url(/src/assets/images/pages/import-catalog/import-choice/choice-link.png) $grey-background no-repeat center;
+    }
+  }
+
+  &.mod-manual{
+
+    .flip-selected-icon{
+      background:url(/src/assets/images/pages/import-catalog/import-choice/choice-manual.png) $grey-background no-repeat center;
+    }
+  }
+
+  &.mod-green{
+
+    .flip-selected-back{
+      background-color: $green;
+    }
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          FLIP SELECTED STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.flip-selected{
+
+  &.is-selected{
+    transform: rotateY(180deg);
+  }
+}

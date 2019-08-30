@@ -1,0 +1,207 @@
+$filter-height : 57px;
+$filter-head-height : 114px;
+
+.filters{
+  background: white;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.35);
+  height: $filter-height;
+  left: 0;
+  min-width: 980px;
+  opacity: 1;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transition: opacity $transition-faster ease,
+              top $transition-faster ease;
+  z-index: 60;
+}
+
+  .filters-container{
+
+    &.mod-modal-head{
+      margin-top: 5px;
+    }
+  }
+
+    .filters-container-dockable{
+      margin-left: auto;
+      margin-right: auto;
+      min-width: 970px;
+      padding: 0;
+      position: relative;
+
+      @media (min-width: $sm){
+        width: 750px;
+      }
+
+      @media (min-width: $md){
+        width: 980px;
+      }
+
+      @media (min-width: $lg){
+        width: 1150px;
+      }
+
+      @media (min-width: $xl){
+        width: 1270px;
+      }
+    }
+
+    .filters-container-title{
+      float: left;
+      font-weight: 600;
+      line-height: $filter-height;
+      margin-left: $margin-small;
+    }
+
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+              FILTERS MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.filters{
+
+  /*
+    Top spacing if nav top
+  */
+
+  &.mod-headnav{
+    top:64px;
+  }
+
+  &.mod-noshadow{
+    box-shadow: none;
+  }
+
+  /*
+    in aside-layout
+  */
+
+  &.mod-aside-layout{
+    min-width: auto;
+    padding: 0 15px;
+    position: relative;
+    top: 0;
+  }
+
+  /*
+    Dockable
+  */
+
+  &.mod-dockable{
+    background: transparent;
+    box-shadow: none;
+    min-width: auto;
+    position: relative;
+  }
+
+  /*
+    In reporting error feed activities
+  */
+
+  &.mod-table-overhead{
+    background: white;
+    box-shadow: none;
+    height: auto;
+    min-width: auto;
+    padding: $margin-small;
+    position: relative;
+    transition: none;
+  }
+
+  /*
+    Top spacing if nav top + trial expired bar
+  */
+
+  &.mod-trial-bar{
+    top: calc(#{$navbar-height} + #{$trial-bar-height});
+  }
+
+  /*
+    Stats
+  */
+
+  &.mod-dark{
+    background:$darkest;
+  }
+
+  /*
+    In find and replace list rule
+  */
+
+  &.mod-replace{
+    padding: 12px 15px 12px 15px;
+  }
+
+  &.mod-preview-pim{
+    background: white;
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,.08);
+    height: initial;
+    left: 100%;
+    transition: all 350ms ease;
+    min-width: initial;
+
+    &.mod-no-modal{
+        left:0;
+    }
+
+    .filters-head{
+      align-items: center;
+      display: grid;
+      grid-template-columns: max-content max-content max-content;
+      height: $filter-head-height;
+      padding: $margin-standard 0 $margin-standard 0;
+    }
+
+    .filters-inner{
+      box-shadow: 0 0 1px rgba(0, 0, 0, 0.35);
+      padding-left: $margin-standard;
+      height: $filter-height;
+    }
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+              FILTERS STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+
+.filters{
+
+  /*
+    Docked
+  */
+
+  &.is-docked{
+    position: fixed;
+    background: white;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.35);
+
+    &.mod-reporting{
+      padding: 0 420px 0 30px;
+    }
+
+    &.mod-table-overhead{
+      top: $navbar-height;
+    }
+
+    .filters-container-dockable{
+      float: inherit;
+      padding: 0 $margin-small;
+    }
+  }
+
+  /*
+    Hidden
+  */
+
+  &.is-hidden{
+    opacity: 0;
+    top: 0;
+  }
+}

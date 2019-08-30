@@ -1,0 +1,18 @@
+.color-picker{
+  color: $grey;
+  position: relative;
+  transition: color $transition-fastest ease;
+
+  &:hover{
+    color: $blue;
+  }
+
+  &:before{
+    @include m-icon-lgw;
+    content: unicode($icon-color);
+    font-size: $font-biggest;
+    position: absolute;
+    top: 7px;
+    left: 7px;
+  }
+}

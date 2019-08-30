@@ -1,0 +1,19 @@
+.lgw-gradiant {
+  background: #1D2B4E;
+  background: linear-gradient(20deg, #1D2B4E 0%, #0F5788 65%, #0082C2 90%);
+  background-attachment: fixed;
+
+  &.mod-light{
+    background: #153a65;
+    background: linear-gradient(20deg, #153a65 0%, #007ec2 65%, #06a8ef 90%);
+  }
+
+  &.mod-home{
+    overflow-x: hidden;
+  }
+
+  &.mod-reverted{
+    background: #153a65;
+    background: linear-gradient(200deg, #153a65 0%, #007ec2 85%, #06a8ef 100%);
+  }
+}

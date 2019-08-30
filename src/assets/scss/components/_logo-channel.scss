@@ -1,0 +1,35 @@
+.logo-channel{
+  height: 70px;
+  position: relative;
+  text-align: center;
+}
+
+  .logo-channel-image{
+    max-height: 70px;
+    max-width: 100%;
+  }
+
+.grid-channel-logo{
+  max-height: 50px;
+  margin-left: $margin-standard;
+
+  &.mod-small{
+    max-height: 30px;
+    margin-left: 0;
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          LOGO CHANNEL MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.logo-channel{
+
+  &.mod-mini{
+    width: 120px;
+    height: 48px;
+  }
+}

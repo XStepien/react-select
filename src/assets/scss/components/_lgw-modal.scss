@@ -1,0 +1,564 @@
+.lgw-modal{
+  background: white;
+  bottom: 0;
+  height: 100%;
+  left: 100%;
+  position: fixed;
+  top: 0;
+  transition: all 350ms ease;
+  width: 100%;
+  z-index: 150;
+}
+
+  .lgw-modal-inner{
+    height: 100%;
+    opacity: 0;
+    position: relative;
+    transition: opacity $transition-fast ease;
+  }
+
+  .lgw-modal-close{
+    background-color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    height: $modal-head-height;
+    opacity: 0;
+    position: fixed;
+    right: 30px;
+    top: 30px;
+    transition: all $transition-fast ease;
+    width: $modal-head-height;
+    z-index: 12;
+
+    &:hover{
+      opacity: .75;
+
+      .lgw-modal-close-escape{
+        opacity: 1;
+      }
+    }
+
+    &:before{
+      @include m-icon-lgw;
+      color: $grey;
+      content: unicode($icon-close);
+      font-size: 21px;
+      position: absolute;
+      top: 25px;
+      left: 25px;
+    }
+  }
+
+    .lgw-modal-close-escape{
+      color: $grey-light;
+      font-size: $font-smaller;
+      line-height: 19px;
+      opacity: 0;
+      position: absolute;
+      right: 0;
+      text-align: center;
+      top: 46px;
+      transition: all $transition-fast ease;
+      width: 70px;
+    }
+
+      .lgw-modal-close-escape-key{
+        border: 1px solid $grey-light;
+        padding: 2px 5px;
+        border-radius: $border-radius;
+      }
+
+  .lgw-modal-overlay{
+    background: $dark;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    position: fixed;
+    right: 0;
+    transition: all $transition-fast ease;
+    top: 0;
+    z-index: 149;
+
+    &.is-visible{
+      opacity: .33;
+    }
+
+    &.mod-footer{
+      bottom: initial;
+      height: calc(100vh - #{$footer-height});
+    }
+
+    &.mod-react{
+      top: $supervision-height;
+    }
+  }
+
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+              MODAL MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.lgw-modal{
+
+  /*
+    White BG
+  */
+
+  &.mod-white-bg{
+    background-color: white;
+  }
+
+  &.mod-side {
+    box-shadow: -3px 0 10px rgba(0, 0, 0, .15);
+
+    @media (min-width: $md) {
+      width: 50%;
+    }
+
+    @media (min-width: $lg) {
+      width: 38.2%;
+    }
+
+    @media (min-width: $xxxl) {
+      width: 650px;
+    }
+  }
+
+  &.mod-react-side{
+    box-shadow: -3px 0 10px rgba(0,0,0,.15);
+    transition: all 350ms ease;
+
+    @media (min-width: $md){
+      left: 50%;
+      width: 50%;
+    }
+
+    @media (min-width: $lg){
+      left: 61.8%;
+      width: 38.2%;
+    }
+
+    @media (min-width: $xxxl){
+      left:  calc(100% - 650px);
+      width: 650px;
+    }
+
+    &.is-opening{
+
+      @media (min-width: $md){
+        left: 50%;
+      }
+
+      @media (min-width: $lg){
+        left: 61.8%;
+      }
+
+      @media (min-width: $xxxl){
+        left: calc(100vw - 650px);
+      }
+    }
+
+    .lgw-modal-close{
+      box-shadow: 0 4px 4px 0 rgba(0,0,0,.1);
+      -webkit-box-shadow: 0 4px 4px 0 rgba(0,0,0,.1);
+      opacity: 1;
+
+      &:hover{
+        box-shadow: 0 15px 15px 0 rgba(0,0,0,.1);
+        -webkit-box-shadow: 0 15px 15px 0 rgba(0,0,0,.1);
+      }
+    }
+
+    .lgw-modal-inner{
+      background-color: $grey-background;
+      opacity: 1;
+    }
+
+    .lgw-modal-close{
+      box-shadow: 0 4px 4px 0 rgba(0,0,0,.1);
+      -webkit-box-shadow: 0 4px 4px 0 rgba(0,0,0,.1);
+      opacity: 1;
+
+      &:hover{
+        box-shadow: 0 15px 15px 0 rgba(0,0,0,.1);
+        -webkit-box-shadow: 0 15px 15px 0 rgba(0,0,0,.1);
+      }
+    }
+  }
+
+  &.mod-footer{
+    height: calc(100vh - #{$footer-height});
+  }
+
+  /*
+    No close
+  */
+
+  &.mod-no-close{
+
+    &.is-loaded{
+
+      .lgw-modal-close{
+        display: none;
+      }
+    }
+  }
+
+  /*
+    Right aside
+  */
+
+  &.mod-right-aside{
+    padding: 0 0 $margin-bigger 260px;
+    top: 64px;
+    z-index: 40;
+
+    .ajax-loading{
+      left:260px;
+    }
+
+    .lgw-modal-close{
+      right: 450px;
+
+      @media (max-width: $lg) {
+        right: 300px;
+      }
+    }
+  }
+
+  /*
+    In found products
+  */
+
+  &.mod-import{
+    padding: 0 420px $margin-bigger 0;
+    top: 0;
+
+    .ajax-loading{
+      left: inherit;
+      right: 420px;
+    }
+
+    @media (max-width: $lg) {
+      padding-right: 300px;
+
+      .ajax-loading{
+        right: 300px;
+      }
+    }
+  }
+
+  /*
+    In launch channel
+  */
+
+  &.mod-dark{
+
+    &.is-opening{
+
+      .lgw-modal-close{
+        &:before{
+          color: $grey;
+        }
+      }
+    }
+
+    &.is-loaded{
+
+      .lgw-modal-close{
+        background-color: rgba(255, 255, 255, 0.25);
+
+        &:before{
+          color: white;
+        }
+
+        &:hover{
+          background-color: rgba(255, 255, 255, 0.35);
+        }
+      }
+
+      .lgw-modal-close-escape{
+        color: white;
+      }
+
+      .lgw-modal-close-escape-key{
+        border-color: white;
+        color: white;
+      }
+    }
+  }
+
+  /*
+    In launch channel
+  */
+
+  &.mod-dark-grey{
+
+    &.is-opening{
+
+      .lgw-modal-close{
+        &:before{
+          color: $grey;
+        }
+      }
+    }
+
+    &.is-loaded{
+
+      .lgw-modal-close{
+        background-color: rgba(255, 255, 255, 0.25);
+
+        &:before{
+          color: rgba(70, 70, 70, 0.5);
+        }
+
+        &:hover{
+          background-color: rgba(255, 255, 255, 1);
+
+          &:before{
+            color: rgba(70, 70, 70, 1);
+          }
+
+          .lgw-modal-close-escape{
+            color: rgba(70, 70, 70, 1);
+          }
+        }
+      }
+
+      .lgw-modal-close-escape{
+        color: rgba(70, 70, 70, 0.5);
+      }
+    }
+  }
+
+  /*
+    E.g. RGPD owner modal
+  */
+
+  &.mod-overlay{
+
+    .lgw-modal-close{
+      background-color: rgba(255, 255, 255, 0.25);
+
+      &:before{
+        color: white;
+      }
+
+      &:hover{
+        background-color: rgba(255, 255, 255, 0.35);
+      }
+    }
+
+    .lgw-modal-close-escape{
+      color: white;
+    }
+
+    .lgw-modal-close-escape-key{
+      border-color: white;
+      color: white;
+    }
+
+    .ajax-loading-message{
+      color: white;
+    }
+
+    .ajax-loading-ball1,
+    .ajax-loading-ball2{
+      background-color: $dark-lightest;
+    }
+
+    &.is-opening,
+    &.is-loaded{
+      background-color: rgba(33, 49, 89, 0.8);
+    }
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+              MODAL STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.lgw-modal{
+
+  /*
+    Opening effect
+  */
+
+  &.is-opening{
+    left: 0;
+
+    &.mod-side{
+
+      @media (min-width: $md){
+        left: 50%;
+      }
+
+      @media (min-width: $lg){
+        left: 61.8%;
+      }
+
+      @media (min-width: $xxxl){
+        left: calc(100vw - 650px);
+      }
+    }
+
+    .lgw-modal-close{
+      box-shadow: 0 4px 4px 0 rgba(0,0,0,.1);
+      -webkit-box-shadow: 0 4px 4px 0 rgba(0,0,0,.1);
+      opacity: 1;
+
+      &:hover{
+        box-shadow: 0 15px 15px 0 rgba(0,0,0,.1);
+        -webkit-box-shadow: 0 15px 15px 0 rgba(0,0,0,.1);
+      }
+    }
+  }
+
+  /*
+    Remove loading effect
+  */
+
+  &.is-loaded{
+    background-color: $grey-background;
+    background-image: none;
+
+    .lgw-modal-inner{
+      opacity: 1;
+    }
+
+    .lgw-modal-close{
+      box-shadow: 0 4px 4px 0 rgba(0,0,0,.05);
+      -webkit-box-shadow: 0 4px 4px 0 rgba(0,0,0,.05);
+
+      &:hover{
+        box-shadow: 0 15px 15px 0 rgba(0,0,0,.05);
+        -webkit-box-shadow: 0 15px 15px 0 rgba(0,0,0,.05);
+      }
+    }
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          MODAL ANIMATION REACT
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.lgw-modal-anim-enter{
+
+  .lgw-modal.mod-react-side{
+    left: 100%;
+
+    .lgw-modal-inner {
+      opacity: 0;
+    }
+  }
+
+  .lgw-modal-close{
+    opacity: 0;
+  }
+
+  .lgw-modal-overlay {
+
+    &.is-visible {
+      opacity: 0;
+    }
+  }
+
+  &.lgw-modal-anim-enter-active{
+
+    .lgw-modal.mod-react-side{
+      transition: all $transition-fast ease;
+
+      @media (min-width: $md){
+        left: 50%;
+      }
+
+      @media (min-width: $lg){
+        left: 61.8%;
+      }
+
+      @media (min-width: $xxxl){
+        left: calc(100vw - 650px);
+      }
+
+      .lgw-modal-inner {
+        opacity: 1;
+      }
+    }
+
+    .lgw-modal-close{
+      opacity: 1;
+    }
+
+    .lgw-modal-overlay {
+
+      &.is-visible {
+        opacity: .33;
+      }
+    }
+  }
+}
+
+.lgw-modal-anim-leave{
+
+  .lgw-modal.mod-react-side{
+
+    @media (min-width: $md){
+      left: 50%;
+    }
+
+    @media (min-width: $lg){
+      left: 61.8%;
+    }
+
+    @media (min-width: $xxxl){
+      left: calc(100vw - 650px);
+    }
+
+    .lgw-modal-inner {
+      opacity: 1;
+    }
+  }
+
+  .lgw-modal-close{
+    opacity: 1;
+  }
+
+  .lgw-modal-overlay {
+
+    &.is-visible {
+      opacity: .33;
+    }
+  }
+
+  &.lgw-modal-anim-leave-active{
+
+    .lgw-modal.mod-react-side{
+      left: 100%;
+      transition: all $transition-fast ease;
+
+      .lgw-modal-inner {
+        opacity: 0;
+      }
+    }
+
+    .lgw-modal-overlay {
+
+      &.is-visible {
+        opacity: 0;
+      }
+    }
+
+    .lgw-modal-close{
+      opacity: 0;
+    }
+  }
+}

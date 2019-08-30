@@ -1,0 +1,46 @@
+.load-content{
+  opacity: 0;
+  pointer-events: none;
+  position: relative;
+  transition: opacity $transition-fast ease;
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          LOAD-CONTENT MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.load-content{
+
+  &.mod-tab{
+    opacity: 0;
+    position: relative;
+    transition: opacity $transition-fast ease;
+  }
+
+  &.mod-none{
+    height: 0;
+    overflow: hidden;
+
+    &.is-loaded{
+      height: auto;
+      overflow: initial;
+    }
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          LOAD-CONTENT STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.load-content{
+
+  &.is-loaded{
+    opacity: 1;
+    pointer-events: auto;
+  }
+}

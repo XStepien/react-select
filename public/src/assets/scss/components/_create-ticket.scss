@@ -1,0 +1,10 @@
+.create-ticket{
+  background: white;
+  color: $grey;
+}
+
+  .create-ticket-form{
+    max-height: calc(100vh - 120px - #{$navbar-height} );
+    overflow-y: auto;
+    padding: $margin-standard $margin-bigger;
+  }

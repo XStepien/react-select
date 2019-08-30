@@ -1,0 +1,16 @@
+//////////////////////////////
+// ORDER DETAIL PAGE
+
+.map.leaflet-container {
+  height: 300px;
+  width: 100%;
+
+  .leaflet-pane {
+    z-index: 50;
+  }
+  .leaflet-control-container {
+    .leaflet-top, .leaflet-bottom {
+      z-index: 59;
+    }
+  }
+}

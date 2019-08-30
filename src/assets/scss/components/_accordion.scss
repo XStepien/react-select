@@ -1,0 +1,73 @@
+//////////////////////////////
+// ACCORDION
+
+.ui-accordion{
+    .ui-accordion-header{
+        border:1px solid $grey-border;
+        margin:-1px 0 0;
+        padding:20px 15px;
+        outline:0;
+        &:hover{
+            background:$grey-background;
+        }
+    }
+    h2{
+        font:{
+            size: $font-standard;
+            weight:normal;
+        }
+        background:white;
+        position:relative;
+        color:$grey;
+        &.ui-state-active{
+            background:$grey-background;
+            .chevron{
+                background:url(/src/assets/images/components/select/arrow-up.png);
+            }
+        }
+    }
+    .ui-accordion-content{
+        padding:45px $margin-standard;
+        border:1px solid $grey-border;
+        border-top:0;
+    }
+    .chevron{
+        height:8px;
+        width:13px;
+        background:url(/src/assets/images/components/select/arrow-down.png);
+        margin:auto;
+        right:$margin-small;
+        top:0;
+        bottom:0;
+        display:block;
+        position:absolute;
+    }
+}
+
+////////////////////////////////////
+// RADIO ACCORDION
+
+.radio-accordion.ui-accordion {
+  .ui-accordion-header {
+    background: $grey-background;
+    padding: 5px 15px;
+    &.ui-state-active {
+      background: white;
+      .chevron {
+        background: url(/src/assets/images/components/select/arrow-up.png);
+      }
+    }
+    .radio {
+      margin-left:-15px;
+    }
+  }
+  .radio {
+    div {
+      margin-right: 15px;
+    }
+    label {
+      color: $grey;
+      font-size: 15px;
+    }
+  }
+}

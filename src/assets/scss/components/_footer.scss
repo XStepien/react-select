@@ -1,0 +1,132 @@
+.footer-standard{
+  background: white;
+  bottom: 0;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.35);
+  color: $grey-light;
+  font-size: $font-small;
+  height: 55px;
+  left: 0;
+  margin-top: $margin-bigger;
+  padding: $margin-small 0;
+  position: absolute;
+  right: 0;
+
+  &::selection {
+    background: transparent;
+
+  }
+
+  &::-moz-selection {
+    background: transparent;
+  }
+}
+
+  .footer-link{
+    color: $grey-light;
+
+    &:hover{
+      color: $grey-light;
+    }
+  }
+
+  .footer-heart{
+    color: $red;
+  }
+
+  .footer-nantes{
+    font:{
+      size: $font-small;
+      weight: normal;
+    }
+  }
+
+  .footer-list{
+    list-style: none;
+    padding: 0;
+  }
+
+    .footer-list-item{
+      margin-bottom: 4px;
+    }
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+              BUTTONS MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.footer-standard{
+
+  &.mod-transparent{
+    color: $dark-lightest;
+    background: transparent;
+    box-shadow: none;
+
+    .footer-heart{
+      color: $dark-lightest;
+    }
+
+    .footer-link{
+      color: $dark-lightest;
+
+      &:hover{
+        color: $dark-lightest;
+      }
+    }
+  }
+
+  &.mod-order-detail {
+    margin-bottom: 55px;
+  }
+
+  &.mod-cms{
+    background: transparent;
+    box-shadow: none;
+    position: absolute;
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+            FOOTER WRAP
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.footer-wrap{
+
+  &.mod-order {
+
+    .footer-standard {
+      bottom: $footer-height;
+    }
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+              UTILITIES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.u-highlight-yellow::selection {
+  background: #FFD600;
+  color: #1B8F3A;
+}
+
+.u-highlight-yellow::-moz-selection {
+  background: #FFD600;
+  color: #1B8F3A;
+}
+
+.u-highlight-green::selection {
+  background: #1B8F3A;
+  color: #FFD600;
+}
+
+.u-highlight-green::-moz-selection{
+  background: #1B8F3A;
+  color: #FFD600;
+}

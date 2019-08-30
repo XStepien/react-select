@@ -1,0 +1,104 @@
+.box{
+
+  &:hover{
+
+    .box-delete{
+      cursor: pointer;
+      opacity: 1;
+    }
+  }
+}
+
+  .box-delete{
+    bottom: 0;
+    opacity: 0;
+    position: absolute;
+    right: -52px;
+    transition: opacity $transition-fastest ease;
+    top: 0;
+    width: 52px;
+
+    &::before{
+      background: url(/src/assets/images/pages/channels/fields/advanced/box-close.png) no-repeat;
+      bottom: 0;
+      content: '';
+      height: 22px;
+      left: 0;
+      margin: auto;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 22px;
+    }
+
+    &:hover{
+
+      &::before{
+        background-position: 0 -22px;
+      }
+    }
+  }
+
+  .box-confirm{}
+
+  .box-confirm-multiple{
+    background: white;
+    bottom: 0;
+    cursor: default;
+    left: 52px;
+    opacity: 0;
+    padding: $margin-big $margin-standard 5px;
+    position: absolute;
+    right: -52px;
+    text-align: center;
+    top: 0;
+    transition: all $transition-fastest ease;
+
+    &.is-visible{
+      left: 0;
+      opacity: 1;
+      right: 0;
+      transition: all $transition-fast ease;
+    }
+  }
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+              BOX STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.box{
+
+  &.is-confirming{
+    left: -200px;
+    opacity:1;
+
+    .box-delete{
+      display:none;
+    }
+
+    .box-confirm{
+      bottom: 0;
+      height: 80px;
+      margin: auto;
+      position: absolute;
+      right: -150px;
+      top: 0;
+      width: 135px;
+    }
+  }
+
+  &.is-removing{
+    left: -2000px;
+    opacity: 0;
+  }
+
+  &.is-confirming-multiple{
+
+    .box-delete{
+      display: none;
+    }
+  }
+}

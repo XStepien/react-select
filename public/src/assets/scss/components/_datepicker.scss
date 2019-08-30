@@ -1,0 +1,235 @@
+//////////////////////////////
+// STANDARD DATEPICKER
+
+.ui-datepicker{
+  width:245px;
+  background:white;
+  padding:0;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
+  border: 1px solid $grey-disabled;
+
+  .ui-datepicker-title{
+    font-weight:bold;
+    font-size: $font-small;
+    color:$grey;
+    padding:{
+      top:10px;
+      bottom:10px;
+    }
+  }
+  .ui-datepicker-calendar{
+    background:white;
+    border-collapse: collapse;
+    border-spacing: 0;
+    padding:0;
+    margin:0;
+    font-family: 'Lato', sans-serif;
+    thead{
+      font-size:$font-small;
+      background:transparent;
+      th{
+        color:$grey-light;
+        font-size:$font-smaller;
+        padding:0;
+        height:34px;
+      }
+    }
+    td{
+      padding:0;
+      border:0;
+      top:0;
+      left:0;
+      a,span{
+        padding:0;
+        margin:0;
+        height:34px;
+        width:34px;
+        line-height:34px;
+        text-align:center;
+        color:$dark-light;
+        font-size:$font-small;
+        font-weight: bold;
+      }
+      span{
+        color:$grey-disabled;
+      }
+      &:not(.ui-datepicker-unselectable){
+        &:hover,
+        &:focus{
+          border:0;
+          background:$blue;
+        }
+      }
+      &.ui-datepicker-current-day {
+        border:0;
+        background:$dark-light;
+        a{
+          color:white;
+        }
+      }
+      &:hover,
+      &:focus{
+        background:transparent;
+        a{
+          color:white;
+        }
+      }
+    }
+  }
+  tr{
+    background:transparent;
+  }
+  .ui-datepicker-prev,
+  .ui-datepicker-next{
+    cursor:pointer;
+    top:12px;
+    &:hover,
+    &:focus{
+      opacity:.8;
+    }
+  }
+  .ui-datepicker-prev{
+    background:url(/src/assets/images/components/datepicker/arrow-left-midnight.png) center center no-repeat;
+    left:3px;
+    &.ui-state-disabled{
+      background-image:url(/src/assets/images/components/datepicker/arrow-left-disabled.png);
+    }
+  }
+  .ui-datepicker-next{
+    background:url(/src/assets/images/components/datepicker/arrow-right-midnight.png) center center no-repeat;
+    right:3px;
+    &.ui-state-disabled{
+      background-image:url(/src/assets/images/components/datepicker/arrow-right-disabled.png);
+    }
+  }
+}
+
+
+//////////////////////////////
+// RANGE PICKER
+// e.g. Advanced rules
+
+.range-picker{
+  .from,.to{
+    width:48%;
+    margin-left:2%;
+    float:left;
+    input{
+      width:100%;
+      background:url(/src/assets/images/components/datepicker/calendar.png) $grey-input no-repeat right 8px center;
+    }
+  }
+  label{
+    font-size:$font-small;
+    color:$grey-light;
+    font-weight:400;
+  }
+}
+
+//////////////////////////////
+// TOGGLE DATE PICKER
+
+.toggle-picker{
+  .toggle{
+    display:none;
+    position:absolute;
+    top:-35px;
+    right:15px;
+  }
+  .button{
+    margin-top:5px;
+  }
+  &.active{
+    .toggle{
+      display:block;
+    }
+    .button{
+      display:none;
+    }
+  }
+}
+
+
+//////////////////////////////
+// DATE LIST
+// Today, Yestereday, Last month...
+
+.date-list{
+  padding:0;
+  list-style: none;
+  a{
+    cursor: pointer;
+    color:$grey;
+    line-height:1.6;
+    font-size: $font-small;
+  }
+}
+
+.ui-datepicker .ui-datepicker-calendar .range{
+  background:$sky-lighter;
+}
+
+.period-dark{
+  h4,
+  th span{
+    color: $dark-lightest;
+  }
+  .ui-datepicker{
+    background: transparent;
+    .ui-datepicker-calendar{
+      background: transparent;
+      td{
+        border-color: $dark;
+        a{
+          color: white;
+          &.ui-state-default{
+            color: white;
+            &:hover{
+              background:$blue;
+            }
+          }
+        }
+        &.ui-datepicker-current-day{
+          pointer-events: none;
+          a{
+            color: $dark;
+            background:white;
+          }
+        }
+        &.ui-datepicker-unselectable{
+          span{
+            color: $darkest;
+          }
+        }
+      }
+      .range{
+        background:$dark-lighter;
+        a{
+          background: $dark-lighter;
+        }
+      }
+    }
+    .ui-datepicker-next {
+      background-image: url(/src/assets/images/components/datepicker/arrow-right-disabled.png);
+      &.ui-state-disabled{
+        background-image: url(/src/assets/images/components/datepicker/arrow-right-midnight.png);
+      }
+    }
+    .ui-datepicker-prev {
+      background-image: url(/src/assets/images/components/datepicker/arrow-left-disabled.png);
+      &.ui-state-disabled{
+        background-image: url(/src/assets/images/components/datepicker/arrow-left-midnight.png);
+      }
+    }
+  }
+  .date-list a {
+    color: white;
+  }
+  .ui-datepicker-title{
+    color: white;
+  }
+}
+
+input.datepicker.mod-icon-calendar.hasDatepicker{
+  background: url(/src/assets/images/components/datepicker/calendar-big.png) $grey-input no-repeat right 8px center;
+}

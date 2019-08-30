@@ -1,0 +1,247 @@
+.footer-button{
+  background-color: $blue;
+  border: 0;
+  border-radius: 0;
+  color: white;
+  display: inline-block;
+  font-size: $font-small;
+  font-weight: 600;
+  line-height: $footer-height;
+  margin: 0;
+  padding: 0 30px;
+  top: 0 !important;
+  transition: all $transition-fastest ease;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+
+  &:hover,
+  &:focus{
+    background-color: $blue-lighter;
+    text-decoration: none;
+    color: white;
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+        FOOTER-BUTTON MODS
+
+- - - - - - - - - - - - - - - - - - - */
+
+.footer-button{
+
+  &.mod-green{
+    background: $green;
+  }
+
+  &.mod-red{
+    background: $red;
+  }
+
+  &.mod-dark{
+    background: $dark;
+
+    &:hover,
+    &:focus{
+      background: $dark-lighter;
+      color: white;
+    }
+  }
+
+  &.mod-light{
+  }
+
+  &.mod-main{
+    border-radius: $border-radius;
+    color: white;
+
+    font:{
+      size: $font-standard;
+      family: 'Lato', sans-serif;
+      weight: 600;
+    }
+
+    height: $footer-height - 10px;
+    line-height: $footer-height - 10px;
+    margin: 5px;
+    padding: 0 30px;
+    position: relative;
+    text-align: left;
+
+    .footer-button-arrow,
+    .footer-button-tick{
+      display: none;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-button-title{
+      margin-top: 8px;
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  &.mod-next-step{
+    padding:0 60px 0 20px;
+
+    .footer-button-arrow,
+    .footer-button-tick{
+      background: url(/src/assets/images/layout/footer/arrow-next.png) no-repeat center;
+      bottom: 0;
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 60px;
+    }
+
+    .footer-button-title{
+      font-weight: 800;
+      margin:{
+        top: 0px;
+        bottom: -9px;
+      }
+    }
+
+    .footer-button-next-step{
+      text-transform:none;
+      position: relative;
+      z-index:1;
+      font:{
+        size:$font-small;
+      }
+    }
+  }
+
+  &.mod-text{
+    background:transparent;
+    border-left:1px solid $dark;
+    &:hover,
+    &:focus{
+      background:transparent;
+      color:white;
+      text-decoration: underline;
+    }
+  }
+
+  &.mod-responsive{
+    display:none;
+
+    @media (max-width: $lg){
+      display:block;
+    }
+  }
+
+   &.mod-standard{
+    font-size: $font-standard;
+   }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+        FOOTER-BUTTON STATES
+
+- - - - - - - - - - - - - - - - - - - */
+
+.footer-button{
+
+  &.is-disabled{
+    background: $dark-lighter;
+    color: $darker;
+    cursor: default;
+    pointer-events: none;
+
+    &.mod-main{
+      background-color: $dark-lighter;
+      color: $darker;
+    }
+
+    &.mod-next-step{
+
+      .footer-button-arrow,
+      .footer-button-tick{
+        background: url(/src/assets/images/layout/footer/arrow-next-disabled.png) no-repeat center;
+      }
+    }
+
+    &.mod-light{
+      background-color: $grey-disabled;
+      color: $grey-light;
+
+      .footer-button-arrow{
+        background-image: url(/src/assets/images/layout/footer/arrow-next-light.png);
+      }
+    }
+  }
+
+  &.is-desactivated{
+    background: transparent;
+    border: 1px dashed $dark-lightest;
+    box-shadow: none;
+    color: $dark-lightest;
+    pointer-events: none;
+    top: 0;
+
+    &.mod-next-step{
+
+      .footer-button-arrow,
+      .footer-button-tick{
+        background: url(/src/assets/images/layout/footer/arrow-next-desactivated.png) no-repeat center;
+      }
+    }
+  }
+
+  &.is-waiting{
+
+    &.mod-main{
+      background: $dark-lighter;
+      color: $darker;
+      overflow: hidden;
+      pointer-events: none;
+      top: 0;
+      -webkit-box-shadow: none;
+              box-shadow: none;
+
+      .footer-button-arrow,
+      .footer-button-tick{
+        background:url(/src/assets/images/layout/footer/arrow-next-waiting.png) no-repeat center;
+      }
+
+      &:before{
+        animation: loadingAnimation 1.0s infinite ease-in-out;
+        background: $dark-lightest;
+        border-radius: 50%;
+        content: '';
+        height: 400px;
+        left: 50%;
+        margin: -200px 0 0 -200px;
+        opacity: 0;
+        position: absolute;
+        top: 50%;
+        width: 400px;
+      }
+    }
+
+    &.mod-light{
+      background: $grey-border-over;
+      color: $grey-light;
+
+      &:before{
+        animation: loadingAnimation 1.0s infinite ease-in-out;
+        background: $grey-disabled;
+        border-radius: 50%;
+        content: '';
+        height: 400px;
+        left: 50%;
+        margin: -200px 0 0 -200px;
+        opacity: 0;
+        position: absolute;
+        top: 50%;
+        width: 400px;
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+.channel-thesaurus-box{
+
+  @include m-box-style();
+  display: none;
+  left: inherit;
+  margin-bottom: $margin-standard;
+  min-height: 250px;
+  padding: 45px $margin-bigger;
+  position: fixed;
+  top: 30px;
+  transition: none;
+  width: 605px;
+  z-index: 2;
+
+  @media (max-width: $xxl){
+    width: 550px;
+  }
+
+  @media (max-width: $lg){
+    padding:{
+      left: $margin-standard;
+      right: $margin-standard;
+    }
+    width: 455px;
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+        CHANNEL THESAURUS STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.channel-thesaurus-box{
+
+  &.is-disabled{
+    filter: blur(3px);
+    pointer-events: none;
+    opacity: 0.5;
+  }
+}

@@ -1,0 +1,1307 @@
+// Refacto of the file _transfo.scss
+
+$boxfield-input-height: 44px;
+
+// Wrapper for grouped boxfields
+.boxfields{
+  margin-bottom: $margin-standard;
+}
+
+  .boxfields-header,
+  .boxfields-items-header{
+    background-color: $grey-separator;
+    box-shadow: 0 -0.5px 1px rgba(0, 0, 0, .2), 0 2px 2px rgba(0, 0, 0, .2);
+    color: $grey;
+    display: block;
+    padding: $margin-tiny $margin-standard;
+    position: relative;
+  }
+
+    .boxfields-items{
+
+      .boxfields-items-header{
+        background-color: $grey-separator;
+        box-shadow: 0 -0.5px 1px rgba(0, 0, 0, .2), 0 2px 2px rgba(0, 0, 0, .2);
+        color: $grey;
+        display: block;
+        padding: $margin-tiny $margin-standard;
+        position: relative;
+      }
+
+    }
+
+    .boxfield-delete{
+      position: absolute;
+      top: 25px;
+      right: 24px;
+      z-index: 3;
+
+      &:before{
+        @include m-icon-lgw;
+        border-radius: 20px;
+        color: $grey-light;
+        content: unicode($icon-delete);
+        font-size: 20px;
+        height: 20px;
+        padding: 5px 6px 6px 6px;
+        transition: all 125ms ease;
+        width: 20px;
+
+      }
+
+      &:hover,
+      &:focus{
+        text-decoration: none;
+
+        &:before{
+          background-color: $red-lightish;
+          color: $red;
+        }
+      }
+
+      &.mod-field{
+        top: 15px;
+
+        &:before{
+          color: $grey-border-over;
+        }
+
+        &:hover,
+        &:focus{
+
+          &:before{
+            color: $red;
+          }
+        }
+      }
+    }
+
+  .boxfields-add{
+    background-color: white;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    box-shadow: 0 -0.5px 1px rgba(0, 0, 0, .2), 0 2px 2px rgba(0, 0, 0, .2);
+    color: $grey-light;
+    display: block;
+    padding: 20px $margin-standard 20px $margin-bigger;
+    position: relative;
+    transition: all 125ms ease;
+    z-index: 2;
+
+    &:before{
+      @include m-icon-lgw;
+      border-radius: 12px;
+      color: $grey-light;
+      content: unicode($icon-add);
+      height: 12px;
+      font-size: 13px;
+      font-weight: 900;
+      left: $margin-standard;
+      padding: 5px;
+      position: absolute;
+      transition: all 125ms ease;
+      width: 12px;
+    }
+
+    &:hover{
+      background-color: white;
+      cursor: pointer;
+
+      &:before{
+        background-color: $sky;
+        color: white;
+      }
+    }
+  }
+
+
+// Boxfield-item
+.boxfield{
+
+  &:hover,
+  &:focus{
+
+    .boxfield-delete{
+      opacity: 1;
+    }
+  }
+
+  .boxfield-delete{
+    opacity: 0;
+    transition: all 125ms ease;
+  }
+}
+
+  .boxfield-inner{
+
+    .switch{
+      margin:0;
+      padding-top:$margin-small;
+    }
+  }
+
+  .boxfield-label{
+    position:relative;
+
+    .compulsory{
+      position: absolute;
+      right: 0px;
+      top: 0;
+      z-index: 2;
+    }
+  }
+
+    .boxfield-label-main{
+      color: $grey-light;
+      display: block;
+      font-weight: 600;
+      margin-bottom: 7px;
+      padding-right: 10px;
+      overflow: hidden;
+      position: relative;
+      transition: all $transition-fastest ease;
+      white-space: nowrap;
+    }
+
+    .boxfield-label-locked-icon{
+      background: url(/src/assets/images/components/input/locker.png) no-repeat top left;
+      display: inline-block;
+      height: 15px;
+      margin-right: 5px;
+      width: 11px;
+    }
+
+    .boxfield-label-secundary{
+      color: $grey-light;
+      display: block;
+      font-size: $font-small;
+      font-weight: 400;
+      margin-bottom: 7px;
+      padding-right:10px;
+      overflow: hidden;
+      position: relative;
+      transition: all $transition-fastest ease;
+      white-space: nowrap;
+    }
+
+  .boxfield-assign{
+    cursor: text;
+    position: relative;
+    transition: all $transition-fast ease;
+  }
+
+    .boxfield-assign-tags-box{
+      white-space: nowrap; /* delete this style when textarea autosize is done by front */
+    }
+
+    .boxfield-assign-tags{
+      background: $grey-input;
+      border: 1px solid $grey-border;
+      border-radius: $border-radius;
+      bottom: 0;
+      box-shadow: inset 0 3px 3px rgba(0,0,0,0.05);
+      font-size: 0; // Remove spacing of inline-block childs
+      left: 0;
+      line-height: 30px;
+      overflow: hidden;
+      padding:{
+        top: 6px;
+        left: $margin-small;
+      }
+      position: absolute;
+      right: 0;
+      top: 0;
+
+      .spinner{
+        margin-top: 4px;
+      }
+
+      /* Not sure if useful */
+      .wrap{
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        border: 1px solid #eee;
+        background: #fff;
+        height: 32px;
+      }
+
+      &.is-error{
+        overflow: visible;
+
+        .boxfield-tags-span{
+
+          &.mod-error{
+
+            &:hover{
+
+              .boxfield-assign-tags-error{
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+
+      &.disabled {
+        background: #ebebeb;
+        cursor: not-allowed;
+        pointer-events: none;
+      }
+    }
+
+      .boxfield-assign-tags-error{
+        background: white;
+        border: 1px solid $red;
+        border-radius: 1px;
+        color: $red;
+        left: -16px;
+        line-height: 20px;
+        opacity: 0;
+        overflow: visible;
+        position: absolute;
+        bottom: 31px;
+        padding: 7px 15px;
+        transition: opacity $transition-fastest ease;
+      }
+
+      .boxfield-tags-span{
+        font-size: $font-standard;
+        line-height: 0;
+        margin: 0;
+        margin-right: 3px;
+        vertical-align: middle;
+
+        &.mod-tag{
+          background: $blue-deep;
+          border: 1px solid $blue-deep;
+          border-radius: 3px;
+          color: white;
+          display: inline-block;
+          font-size: $font-small;
+          font-weight: 600;
+          height: 24px;
+          line-height: 23px;
+          padding: 0 7px 0 32px;
+          position: relative;
+          text-transform: uppercase;
+
+          &:before{
+            @include m-icon-lgw();
+            content: unicode($icon-tagfilled);
+            font-size: 20px;
+            left: 7px;
+            position: absolute;
+            top: 1px;
+          }
+
+          &.mod-grey{
+            background-color: $grey-disabled;
+            border-color: $grey-disabled;
+            color: $grey;
+            padding-left: 7px;
+            text-transform: initial;
+
+            &:before{
+              content: '';
+            }
+          }
+
+          &.mod-channel{
+            background-color: white;
+            border-color: $dark-light;
+            color: $dark-light;
+
+            &:before{
+              content: unicode($icon-bag);
+              font-size: 18px;
+              top: 1px;
+            }
+          }
+
+          &.mod-duo{
+            height: 32px;
+            line-height: 0.8;
+            padding: 3px 7px 0 32px;
+          }
+
+          &.mod-link{
+
+            &:before{
+              content: unicode($icon-link);
+              font-size: 18px;
+              top: 1px;
+            }
+          }
+
+          &.mod-manual{
+
+            &:before{
+              content: unicode($icon-manual);
+              font-size: 18px;
+              top: 2px;
+            }
+          }
+
+          &.mod-file{
+
+            &:before{
+              content: unicode($icon-file);
+              font-size: 18px;
+              top: 2px;
+            }
+          }
+
+          &.mod-ftp{
+
+            &:before{
+              content: unicode($icon-ftp);
+              font-size: 18px;
+              top: 2px;
+            }
+          }
+
+          &.mod-lgw{
+
+            &:before{
+              content: unicode($icon-lengow);
+              font-size: 21px;
+              left: 5px;
+              top: 0px;
+            }
+          }
+
+          &.mod-app{
+
+            &:before{
+              content: unicode($icon-app);
+              font-size: 21px;
+              left: 5px;
+              top: 0px;
+            }
+          }
+
+          &.mod-dropbox{
+
+            &:before{
+              content: unicode($icon-dropbox);
+              font-size: 21px;
+              left: 5px;
+              top: 0px;
+            }
+          }
+
+          &.mod-googledrive{
+
+            &:before{
+              content: unicode($icon-googledrive);
+              font-size: 21px;
+              left: 5px;
+              top: 0px;
+            }
+          }
+
+          &.mod-segment{
+
+            &:before{
+              content: unicode($icon-segment);
+              font-size: 18px;
+              top: 2px;
+            }
+          }
+
+          &.mod-blue{
+            background-color: $blue-deep;
+            border-color: $blue-deep;
+          }
+
+          &.mod-sky{
+            background-color: $sky;
+            border-color: $sky;
+          }
+
+          &.mod-error{
+            background: $red;
+            border-color: $red;
+            color: white;
+            height: 24px;
+            padding: 0 7px 0 28px;
+            width: auto;
+
+            &:hover{
+              cursor: default;
+            }
+
+            &:before{
+              content: unicode($icon-close);
+              font-size: 14px;
+              font-weight: 900;
+              left: 6px;
+              top: 5px;
+            }
+          }
+
+          &.mod-magento{
+            background: url(/src/assets/images/pages/import-catalog/import-choice/choice-magento.png) $color-magento no-repeat 3px center;
+            background-size: 24px;
+            border-color: $color-magento;
+
+            &:before{
+              content: none;
+            }
+          }
+
+          &.mod-woocommerce{
+            background: url(/src/assets/images/pages/import-catalog/import-choice/choice-woocommerce.png) $color-woocommerce no-repeat 1px center;
+            background-size: 26px;
+            border-color: $color-woocommerce;
+
+             &:before{
+              content: none;
+            }
+          }
+
+          &.mod-prestashop{
+            background: url(/src/assets/images/pages/import-catalog/import-choice/choice-prestashop.png) $blue-deep no-repeat 3px center;
+            background-size: 23px;
+            border-color: $blue-deep;
+
+             &:before{
+              content: none;
+            }
+          }
+
+          &.mod-shopware{
+            background: url(/src/assets/images/pages/import-catalog/import-choice/shopware-white.png) $color-shopware no-repeat 6px center;
+            background-size: 16px;
+            border-color: $color-shopware;
+
+             &:before{
+              content: none;
+            }
+          }
+
+          &.mod-shopify{
+            background: url(/src/assets/images/pages/import-catalog/import-choice/choice-shopify.png) $color-shopify no-repeat 4px 0px;
+            background-size: 24px;
+            border-color: $color-shopify;
+
+             &:before{
+              content: none;
+            }
+          }
+
+          &.mod-google_analytics{
+            background: url(/src/assets/images/pages/import-catalog/import-choice/google-analytics.png) $sky no-repeat 4px 0px;
+            background-size: 22px;
+            border-color: $sky;
+
+             &:before{
+              content: none;
+            }
+          }
+
+          &.mod-textmaster{
+            background: url(/src/assets/images/pages/apps/textmaster/tag-textmaster.png) $sky no-repeat 4px 0px;
+            background-size: 24px;
+            border-color: $sky;
+
+             &:before{
+              content: none;
+            }
+          }
+
+          &.mod-function,
+          &.mod-function-close{
+            background:white;
+            border-color:$sky;
+            color:$grey;
+            font-size:$font-small;
+            height:30px;
+            line-height: 29px;
+            margin-top:0;
+            position:relative;
+            border-radius:0;
+
+            &::before {
+              content:'';
+              height: 30px;
+              width: 3px;
+              position: absolute;
+              top:-1px;
+            }
+
+            // Not sure what it does...
+            /*span{
+              color: $blue;
+              font-size: $font-small;
+              padding: 0;
+              margin:0 ;
+              position: relative;
+              top: -1px;
+            }*/
+          }
+
+          &.mod-function{
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+            padding: 0 7px;
+
+            &::before {
+              background: url(/src/assets/images/pages/channels/fields/tags/function-overlay.png) white;
+              left: initial;
+              right: -3px;
+            }
+          }
+
+          &.mod-function-close{
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+            padding: 0;
+            width: 5px;
+
+            &::before {
+              background:url(/src/assets/images/pages/channels/fields/tags/function-overlay-close.png) white;
+              left: -3px;
+            }
+          }
+        }
+
+        &.mod-space{
+          display:inline-block;
+          width:7px;
+          height:30px;
+          background:url(/src/assets/images/pages/channels/fields/tags/space.png) no-repeat center 18px;
+        }
+
+        &.mod-text{
+          line-height: 23px;
+        }
+
+        &.mod-error{
+          background: $red;
+          border-radius: $border-radius;
+          color: white;
+          cursor: default;
+          display: inline-block;
+          height: 20px;
+          margin: 0 $margin-tiny 0 0;
+          overflow: visible;
+          padding: 0;
+          position: relative;
+          text-align: left;
+          width: 20px;
+          z-index: 11;
+
+          &:hover{
+            cursor: default;
+          }
+
+          &:before{
+            @include m-icon-lgw();
+            content: unicode($icon-close);
+            font-size: 14px;
+            font-weight: 900;
+            left: 3px;
+            position: absolute;
+            top: 3px;
+          }
+        }
+      }
+
+      .boxfield-tags-span + .boxfield-tags-span {
+        margin-right: 3px;
+      }
+
+    .boxfield-tags-span.mod-text + .boxfield-tags-span.mod-space,
+    .boxfield-tags-span.mod-space + .boxfield-tags-span.mod-text {
+      margin-left: -6px;
+    }
+
+    .boxfield-link{
+
+      &.mod-list{
+        position: absolute;
+        right: 65px;
+        top: 15px;
+      }
+    }
+
+      .boxfield-assign-tags-gradiant{
+        background: linear-gradient(to right, rgba(250,250,250,0) 0%,rgba(250,250,250,0) 1%,rgba(250,250,250,1) 50%,rgba(250,250,250,1) 100%);
+        bottom: 0;
+        opacity: 1;
+        pointer-events: none;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 30px;
+        z-index: 1;
+      }
+
+      .boxfield-assign-tags-input{
+        background: $grey-input;
+        border: 1px solid $grey-border;
+        border-radius: $border-radius;
+        box-shadow: inset 0 3px 3px rgba(0,0,0,0.05);
+        color: $grey;
+        display: block;
+        font-size: $font-standard;
+        height: $boxfield-input-height;
+        line-height: calc(#{$boxfield-input-height} - 2px);
+        outline: none;
+        padding: 0 $margin-small;
+        transition: all $transition-fastest ease;
+        width: 100%;
+        position: relative;
+
+        &::-ms-clear {
+          display: none;
+        }
+
+        &:hover,
+        &:focus{
+          color: $grey;
+        }
+
+        &:focus{
+          background-color: white;
+          border-color: $sky;
+          outline: none;
+        }
+
+        &[disabled],
+        &[readonly]{
+          background: $grey-disabled;
+          border-color: $grey-border;
+          color: $grey-light;
+          cursor: not-allowed;
+
+          &:focus{
+            background: #eee;
+          }
+        }
+        
+        &.locked {
+          opacity: 0; 
+        }
+      }
+
+      .boxfield-assign-tags-textarea{
+        @extend .textarea.mod-autosize;
+        @extend .boxfield-assign-tags-input;
+      }
+
+    .boxfield-rules-covered{
+      text-align: right;
+
+      &.is-processing{
+
+        .spinner{
+          display: inline-block;
+        }
+
+        .boxfield-rules-covered-products{
+          opacity: 0;
+        }
+
+        .boxfield-rules-covered-processing{
+          opacity: 1;
+        }
+      }
+
+      &.is-final{
+
+        .boxfield-rules-covered-products{
+          opacity: 1;
+        }
+
+        .spinner{
+          opacity: 0;
+        }
+      }
+    }
+
+      .boxfield-rules-covered-products,
+      .boxfield-rules-covered-processing{
+        opacity: 0;
+        padding-top: 3px;
+        position: absolute;
+        top: 15px;
+        right: 0;
+        transition: all $transition-fast ease;
+      }
+
+        .boxfield-rules-covered-products-span{
+          font-size: $font-small;
+          margin: 0 !important;
+          line-height: 1;
+          vertical-align: inherit;
+        }
+
+    .boxfield-preview{
+      margin: $margin-tiny 0 $margin-standard;
+    }
+
+/* - - - - - - - - - - - - - - - - - - -
+
+            BOXFIELD MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.boxfield{
+
+  &.mod-box{
+    @include m-box-style();
+    margin-bottom: $margin-small;
+    padding: $margin-small $margin-standard;
+  }
+
+  &.mod-advanced-btn{
+
+    .boxfield-advanced-rule{
+      bottom: 28px;
+      display: block;
+      height: 20px;
+      position: absolute;
+      right: 30px;
+      width: 20px;
+    }
+
+    .boxfield-advanced-rule-icon{
+      display: block;
+      height: 20px;
+      width: 20px;
+      transition: color $transition-fast ease;
+
+      &:before{
+        @include m-icon-lgw;
+        color: $grey-border-over;
+        content: unicode($icon-cog);
+        font-size: 21px;
+        position: absolute;
+        transition: color $transition-fast ease;
+      }
+
+      &:hover{
+        background-position: 0 -20px;
+
+        &:before{
+          color: $blue;
+        }
+      }
+    }
+
+    .boxfield-advanced-rule-count{
+      display: none;
+    }
+
+    .boxfield-assign{
+      margin-right: 35px;
+    }
+  }
+
+  &.mod-grouped{
+    border-radius: 0;
+    margin-bottom: 1px;
+  }
+
+  &.mod-caption{
+
+    .boxfield-advanced-rule{
+      bottom: 52px;
+    }
+  }
+
+  &.mod-addon{
+
+    &.is-focused:not(.is-ruled):not(.mod-ob) {
+      background: white;
+    }
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+           BOXFIELD-WRAP MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.boxfield-wrap{
+
+  &.mod-transform-pim{
+
+    .boxfield-wrap-header{
+      display: grid;
+      font-weight: 700;
+      grid-template-columns: 1.6fr 1fr 1fr 1.4fr 0.25fr 0.25fr;
+      padding: $margin-small $margin-standard $margin-small;
+    }
+
+    .boxfield-advanced-rule{
+      height: 32px;
+      bottom: initial;
+      right: 55px;
+      width: 32px;
+
+      .boxfield-advanced-rule-icon{
+        border-radius: 50%;
+        height: 32px;
+        width: 32px;
+
+        &:before{
+          top: 5px;
+          left: 6px;
+        }
+
+        &:hover{
+          background-color: $sky-lightest;
+
+          &:before{
+            color: $blue;
+          }
+        }
+      }
+
+      .boxfield-advanced-rule-count{
+        right: 1px;
+        top: 1px;
+      }
+
+    }
+
+    .boxfield-delete{
+      right: 15px;
+      top: 16px;
+    }
+
+    .boxfield{
+      align-items: center;
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1.4fr 0.25fr 0.25fr;
+      padding: $margin-small $margin-standard $margin-small;
+
+      &.is-ruled{
+
+        .boxfield-advanced-rule{
+          bottom: initial;
+        }
+      }
+
+      &.mod-box{
+        transition: all $transition-fast ease;
+
+        &:hover{
+          background: $sky-white;
+          color: $blue;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  &.mod-segment{
+    @extend .mod-transform-pim;
+
+    .boxfield{
+      grid-template-columns: 1.7fr 1fr 1fr 1fr 0.3fr;
+      cursor: pointer;
+    }
+
+    .boxfield-wrap-header{
+      grid-template-columns: 1.7fr 1fr 1fr 1fr 0.3fr;
+    }
+
+    .boxfield-delete {
+      right: 29px;
+      top: 26px;
+    }
+  }
+
+  .boxfields-add{
+    background-color: transparent;
+    border: 2px dotted #d7d7d7;
+    border-radius: 3px;
+    box-shadow: 0 -0.5px 1px rgba(0, 0, 0, 0), 0 2px 2px rgba(0, 0, 0, 0);
+    color: #999;
+    padding: $margin-small $margin-standard $margin-small $margin-bigger;
+
+    &:hover{
+      background-color: white;
+      border: 2px dotted transparent;
+      box-shadow: 0 -0.5px 1px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.2);
+      color: $blue;
+      text-decoration: none;
+    }
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+            BOXFIELD STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.boxfield{
+
+  &.is-focused:not(.is-ruled){
+
+    .boxfield-assign{
+
+      .boxfield-assign-tags-input{
+        opacity: 1;
+        z-index: 11;
+      }
+
+      .boxfield-assign-tags{
+        opacity: 0;
+      }
+    }
+
+    &.mod-advanced-btn{
+
+      .boxfield-assign{
+        margin-right: 0px;
+      }
+    }
+
+
+    &.mod-box{
+
+      .boxfield-advanced-rule-icon{
+        background-position: 0 -40px;
+      }
+
+      .boxfield-assign{
+        padding-right: 0;
+      }
+    }
+
+    &:not(.mod-ob){
+      background:$sky-lighter;
+      box-shadow:none;
+
+      .boxfield-assign-tags-input{
+        border-color: white;
+        background: white;
+        box-shadow: 0 3px 0 0 rgba(0,0,0,.05);
+
+        &:focus{
+          background-color: white;
+          border-color: $sky;
+          outline: none;
+          box-shadow: inset 0 3px 3px rgba(0, 0, 0, 0.05);
+        }
+      }
+
+      .boxfield-label label{
+        color:white !important;
+      }
+
+      .boxfield-advanced-rule-icon{
+        background-position:0 -40px;
+      }
+
+      .boxfield-assignm{
+        padding-right:0;
+      }
+    }
+
+    .boxfield-assign-tags-input{
+       opacity: 1;
+    }
+
+    .boxfield-link{
+      color: $dark-lighter;
+    }
+
+    .boxfield-delete{
+
+      &.mod-field{
+
+        &:before{
+          color: $dark-light;
+        }
+
+        &:hover,
+        &:focus{
+
+          &:before{
+            color: $red;
+          }
+        }
+      }
+    }
+  }
+
+  &.is-saving{
+
+    .boxfield-assign-tags{
+      background-image: url(/src/assets/images/pages/channels/fields/loading.gif);
+      background-position: 10px center;
+      background-repeat: no-repeat;
+      z-index: 10;
+    }
+
+    .boxfield-assign-tags-input{
+      position:relative;
+      z-index: 9;
+    }
+  }
+
+  &.is-done{
+
+    .boxfield-label-main{
+      color: $grey;
+    }
+
+    .boxfield-assign{
+
+      .boxfield-assign-tags-input{
+        opacity: 0;
+      }
+
+      .boxfield-assign-tags {
+        z-index: 10;
+
+        & ~ :not(.boxfield-assign-tags-input) {
+          z-index: 11;
+        }
+      }
+    }
+  }
+
+  &.is-ruled{
+    cursor: pointer;
+
+    .boxfield-inner{
+      pointer-events: none;
+    }
+
+    &:hover,
+    &:focus{
+
+      .boxfield-rules-covered-products{
+        text-decoration: underline;
+      }
+    }
+
+    &.mod-advanced-btn{
+
+      .boxfield-assign-tags{
+        background: white;
+        border:0 ;
+        box-shadow: none;
+        padding: 0;
+      }
+
+      .boxfield-label,
+      .boxfield-label-main,
+      .boxfield-label-secundary{
+
+        &.is-ellipsed,
+        &.is-full-length {
+          pointer-events: auto;
+        }
+      }
+
+      .boxfield-assign-tags-input{
+        background: white;
+        border: 0;
+        cursor: default;
+        padding: 0;
+        pointer-events: none;
+      }
+
+      select,
+      .field-virtual-select,
+      .chosen-container,
+      .switch{
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+
+    .covered{
+      margin: 15px 0 0 0;
+      color: $grey-light;
+    }
+
+    .boxfield-advanced-rule-count{
+      background: $blue;
+      border-radius: 7px;
+      color: white;
+      display: block;
+      font-size: $font-smaller;
+      font-weight: 600;
+      height: 14px;
+      line-height: 14px;
+      min-width: 14px;
+      padding: 0 2px;
+      position: absolute;
+      right: -4px;
+      text-align: center;
+      top: -4px;
+      z-index: 20;
+    }
+
+    .boxfield-advanced-rule{
+      bottom: 20px;
+    }
+
+    .boxfield-assign-tags-gradiant{
+      display:none;
+    }
+
+    .boxfield-rules-covered{
+      color: $grey-light;
+      margin: 15px 0 0 0;
+    }
+
+    &:after{
+      background: $grey-background;
+      bottom: 58px;
+      content: '';
+      height: 1px;
+      left: 0;
+      position: absolute;
+      right: 0;
+    }
+
+    /* Bad but temporary */
+    p{
+      margin:0;
+      line-height: 1.2;
+      font-size:$font-small;
+      line-height: 1;
+      *{
+        margin:0;
+        line-height: 1;
+        vertical-align: bottom;
+      }
+    }
+
+    &:hover,
+    &:focus{
+      .rules-covered-products{
+        text-decoration: underline;
+      }
+    }
+
+    &:after{
+      content:'';
+      position: absolute;
+      bottom: 58px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: $grey-background;
+      z-index: 10;
+    }
+
+    .boxfield-assign {
+
+      .boxfield-assign-tags-input{
+        opacity: 0;
+      }
+
+      .boxfield-assign-tags-box{
+         /*height:44px;*/
+         min-height: 44px;
+
+         // Not sure what it does...
+        [data-type="rules"] {
+          b {
+            padding: 0 5px 0 0;
+            display: inline-block;
+            font-size: 15px;
+          }
+        }
+      }
+    }
+    /**/
+  }
+
+  &.is-disabled{
+
+    .boxfield-assign-tags{
+      background-color: $grey-disabled;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+      BOXFIELD LABEL MAIN STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.boxfield-label-main{
+
+  &.is-ellipsed{
+    cursor: pointer;
+
+    &:hover{
+      color: $grey-light;
+    }
+  }
+
+  &.is-full-length{
+    cursor: pointer;
+    white-space: normal;
+    word-break: break-all;
+
+    &:hover{
+      color: $grey;
+    }
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+      FIELD LABEL SECUNDARY STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.boxfield-label-secundary{
+
+  &.is-ellipsed{
+    cursor: pointer;
+
+    &:hover{
+      color: $grey;
+    }
+  }
+
+  &.is-full-length{
+    cursor: pointer;
+    white-space: normal;
+    word-break: break-all;
+
+    &:hover{
+      color: $grey;
+    }
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+      BOXFIELD ASSIGMENT STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.boxfield-assign{
+
+  &.is-focused{
+
+    .boxfield-assign-tags{
+      opacity:0;
+    }
+  }
+}

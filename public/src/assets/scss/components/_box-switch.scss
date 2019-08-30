@@ -1,0 +1,67 @@
+
+.box-switch {
+  color: $sky-lighter;
+  font-weight: normal;
+  transition: background-color $transition-fast;
+
+  &:focus, &:active {
+    color: $sky-lighter;
+    text-decoration: none;
+  }
+  &:hover {
+    color: $sky;
+    background-color: $sky-lighter;
+    text-decoration: none;
+  }
+}
+
+  .box-switch-icon {
+
+    &:after {
+      @include m-icon-lgw();
+      content: unicode($icon-switch);
+    }
+  }
+
+/* - - - - - - - - - - - - - - - - - - -
+
+      BOX MOD RULE ELEMENT MODS
+
+- - - - - - - - - - - - - - - - - - - */
+
+
+.box-switch {
+
+  &.mod-condition{
+    color: #76b5f4;
+
+    &:focus, &:active {
+      color: #76b5f4;
+    }
+
+    &:hover {
+      color: $blue-deep;
+      background-color: #76b5f4;
+    }
+  }
+
+  &.mod-time{
+
+    .box-operator{
+      background: $dark-light;
+    }
+  }
+}
+/* - - - - - - - - - - - - - - - - - - -
+
+      BOX MOD RULE ELEMENT STATES
+
+- - - - - - - - - - - - - - - - - - - */
+
+  .box-switch-text {
+
+    &.is-active {
+      color: #fff;
+      font-weight: 700;
+    }
+  }

@@ -1,0 +1,190 @@
+.form{
+}
+
+  .form-group{
+    position: relative;
+    margin-bottom: 20px;
+
+    &:hover{
+
+      .form-group-remove{
+        opacity: 1;
+
+        &:hover{
+          opacity: .66;
+        }
+      }
+    }
+  }
+
+    .form-group-label{
+      font-weight: 600;
+      color: $grey;
+      display: inline-block;
+      margin-bottom: 7px;
+    }
+
+    .form-group-state{
+      position: relative;
+    }
+
+      .form-group-state-message{
+        animation: state-message 150ms 1;
+        animation-timing-function: ease;
+        border-radius: $border-radius $border-radius 0 0;
+        color: white;
+        font-size: $font-small;
+        height: 22px;
+        line-height: 22px;
+        padding: 0 10px;
+        position: absolute;
+        right: 0;
+        top: -21px;
+        transform-origin: right bottom;
+      }
+
+      .form-group-state-alert{
+        background: $red-lightest;
+        border-radius: 0 0 $border-radius $border-radius;
+        color: $red;
+        display: none;
+        font-size: $font-small;
+        height: auto;
+        line-height: 22px;
+        padding: 5px $margin-small;
+        width: 100%;
+      }
+
+    .form-group-caption{
+      color: $grey-light;
+      font-size: $font-small;
+      margin: 3px 0 0;
+
+      &.mod-smaller{
+        font-size: $font-smaller;
+      }
+    }
+
+  .form-group-remove{
+    background: url(/src/assets/images/pages/import-catalog/remove.png) no-repeat center;
+    bottom: 5px;
+    margin: auto;
+    opacity: 0;
+    position: absolute;
+    right: -25px;
+    top: 5px;
+    width: 25px;
+  }
+
+[placeholder]{
+
+  &::-moz-placeholder{
+    color: $grey-placeholder;
+  }
+
+  &:-ms-input-placeholder{
+    color: $grey-placeholder;
+  }
+
+  &::-webkit-input-placeholder{
+    color: $grey-placeholder;
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          FORM GROUP LABEL MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.form-group-label{
+
+  &.mod-white{
+    color: white;
+  }
+
+  &.mod-matching{
+    margin-top: 12px;
+    text-align: right;
+    width: 100%;
+  }
+
+  &.mod-conversion-list{
+    font-size: $font-standard;
+    font-weight: normal;
+    padding-top: 12px;
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+              FORMS STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.form-group-state{
+
+  &.is-error{
+
+    .form-group-state-message{
+      background: $red;
+    }
+
+    .form-group-state-alert{
+      display: block;
+    }
+
+    .input,
+    .textarea{
+      border-color: $red;
+      border-top-right-radius: 0;
+    }
+
+    .help-block{
+      color: $red;
+    }
+
+    .list-unstyled{
+      list-style: none;
+      padding: 0;
+    }
+  }
+
+  &.is-success{
+
+    .form-group-state-message{
+      background: $green;
+    }
+
+    .form-group-state-alert{
+      display: block;
+      background: $green-lightest;
+      color: $green-darkest;
+    }
+
+    .input,
+    .textarea{
+      border-color: $green;
+      border-top-right-radius: 0;
+    }
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+           FORMS ANIMATIONS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+@keyframes state-message{
+
+  0%{
+    transform: scale(0);
+  }
+
+  100%{
+    transform: scale(1);
+  }
+}

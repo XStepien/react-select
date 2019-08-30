@@ -1,0 +1,232 @@
+.__react_component_tooltip{
+
+  border-radius: $border-radius !important;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, .05) !important;
+  font-size: $font-small !important;
+  padding: 10px 15px !important;
+
+  &.place-top {
+    margin-top: -5px !important;
+
+    &:after{
+      border-width: 4px 4px 0 4px !important;
+      bottom: -4px !important;
+      margin: 0 0 0 -4px !important;
+    }
+
+    &.show{
+      animation: tooltipTop 200ms;
+    }
+  }
+
+  &.place-bottom {
+    margin-top: 10px !important;
+
+    &.show{
+      animation: tooltipBottom 200ms;
+    }
+
+    &:after{
+      border-width: 0 4px 4px 4px !important;
+      top: -4px !important;
+      margin: 0 0 0 -4px !important;
+    }
+  }
+
+  &.place-left {
+    margin-left: -5px !important;
+
+    &.show{
+      animation: tooltipLeft 200ms;
+    }
+
+    &:after{
+      border-width: 4px 0 4px 4px !important;
+      right: -4px !important;
+      margin: -4px 0 0 0 !important;
+    }
+  }
+
+  &.place-right {
+    margin-right: -5px !important;
+
+    &.show{
+      animation: tooltipRight 200ms;
+    }
+
+    &:after{
+      border-width: 4px 4px 4px 0 !important;
+      left: -4px !important;
+      margin: -4px 0 0 0 !important;
+    }
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          TOOLTIP WRAP BORDER -
+fix position bugs near window border
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.wrap-border{
+  max-width: 130px;
+  text-align: center;
+
+  .__react_component_tooltip{
+    max-width: inherit;
+  }
+}
+
+.footer-corner-bottom-left{
+  text-align: center;
+
+  .__react_component_tooltip{
+    left: -10px!important;
+    top: inherit!important;
+    bottom: 61px!important;
+
+    &.place-right {
+
+      &:after{
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-color: #222 transparent transparent transparent !important;
+        border-width: 4px 4px 0 4px !important;
+        left: 32%;
+        margin: 0 0 0 23px !important;
+        top: 100%;
+      }
+    }
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+            TOOLTIP MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.__react_component_tooltip{
+
+  /*
+    Type blue
+  */
+
+  &.mod-blue{
+    background: $sky-lighter !important;
+    color: $dark-light !important;
+
+    &.place-top {
+
+      &:after{
+        border-color: $sky-lighter transparent transparent transparent !important;
+      }
+    }
+
+    &.place-bottom {
+
+      &:after{
+        border-color: transparent transparent $sky-lighter transparent !important;
+      }
+    }
+
+    &.place-left {
+
+      &:after{
+        border-color: transparent transparent transparent $sky-lighter !important;
+      }
+    }
+
+    &.place-right {
+
+      &:after{
+        border-color: transparent $sky-lighter transparent transparent !important;
+      }
+
+    }
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+            TOOLTIP STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.__react_component_tooltip{
+
+  /*
+    Type blue
+  */
+
+  &.mod-blue{
+
+    &.show {
+      opacity: 1;
+    }
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          TOOLTIP ANIMATIONS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.__react_component_tooltip {
+
+  @keyframes tooltipTop{
+  
+    from{
+      margin-top: -12px;
+      opacity: 0;
+    }
+  
+    to{
+      margin-top: -5px;
+      opacity: 1 !important;
+    }
+  }
+  
+  @keyframes tooltipRight{
+  
+    from{
+      margin-left: 17px;
+      opacity: 0;
+    }
+  
+    to{
+      margin-left: 10px;
+      opacity: 1 !important;
+    }
+  }
+  
+  @keyframes tooltipBottom{
+  
+    from{
+      margin-top: 17px;
+      opacity: 0;
+    }
+  
+    to{
+      margin-top: 10px;
+      opacity: 1 !important;
+    }
+  }
+  
+  @keyframes tooltipLeft{
+  
+    from{
+      margin-left: -12px;
+      opacity: 0;
+    }
+  
+    to{
+      margin-left: -5px;
+      opacity: 1 !important;
+    }
+  }
+}

@@ -1,0 +1,369 @@
+$navbar-height: 64px;
+
+.headnav{
+  background: $dark;
+  height: $navbar-height;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 62;
+}
+
+  .headnav-burger{
+    display: none;
+    float: left;
+    height: $navbar-height;
+    padding-top: 25px;
+    width: $navbar-height;
+
+    @media (max-width: $md) {
+      display:block;
+    }
+
+    &:hover{
+      background: $dark-light;
+    }
+  }
+
+    .headnav-burger-line{
+      background: white;
+      border-radius: 1px;
+      height: 2px;
+      margin: 0 auto 4px;
+      width: 22px;
+    }
+
+  .headnav-home{
+    display: block;
+    float: left;
+    height: $navbar-height;
+    overflow: hidden;
+    position: relative;
+    width: 150px;
+
+    @media (max-width: $lg) {
+      width: $navbar-height;
+    }
+
+    &:hover,
+    &:focus{
+      background-color: $dark-light;
+
+      .headnav-home-logo,
+      .headnav-home-minilogo{
+        opacity: 0;
+        top: -$navbar-height;
+      }
+
+      .headnav-home-hover{
+        opacity: 1;
+        top: 0;
+      }
+    }
+  }
+
+    .headnav-home-logo{
+      background: url(/src/assets/images/logos/lengow-white.png) center no-repeat;
+      height: $navbar-height;
+      position: relative;
+      top: 0;
+      transition: all $transition-fastest ease;
+      width: 100%;
+
+      @media (max-width: $lg) {
+        display: none;
+      }
+    }
+
+    .headnav-home-minilogo{
+      background: url(/src/assets/images/logos/lengow-white-icon.png) center no-repeat;
+      display: none;
+      height: $navbar-height;
+      position: relative;
+      top: 0;
+      transition: all $transition-fastest ease;
+      width: 100%;
+
+      @media (max-width: $lg) {
+        display: block;
+      }
+    }
+
+    .headnav-home-hover{
+      background: url(/src/assets/images/layout/navbar/home-top.png) 30px 20px no-repeat;
+      color: white;
+      font-size: $font-small;
+      font-weight: 600;
+      height: $navbar-height;
+      line-height: $navbar-height;
+      opacity: 0;
+      padding-left: 60px;
+      position: absolute;
+      top: $navbar-height;
+      transition: all $transition-fastest ease;
+      width: 100%;
+      @media (max-width: $lg) {
+        text-indent: -9999px;
+        background-position: center;
+      }
+    }
+
+  .headnav-tabs{
+    background: $dark;
+    margin: 0;
+    padding: 0;
+
+    @media (max-width: $md) {
+      display: none;
+      left: 0;
+      position: fixed;
+      top: $navbar-height;
+      width: 200px;
+    }
+  }
+
+    .headnav-tabs-li{
+      float: left;
+      list-style: none;
+      position: relative;
+
+      @media (max-width: $md) {
+        display: block;
+        float: inherit;
+      }
+    }
+
+      .headnav-tabs-li-link{
+        color:white;
+        display:block;
+        font-weight:600;
+        font-size:$font-small;
+        float: left;
+        height:$navbar-height;
+        line-height: $navbar-height;
+        padding:0 30px;
+        transition: background $transition-fastest ease;
+
+        @media (max-width: $lg) {
+          padding:0 15px;
+        }
+
+        &:hover,
+        &:focus{
+          background:$dark-light;
+          color:white;
+          text-decoration: none;
+        }
+      }
+
+  .headnav-right{
+    display: block;
+    height: $navbar-height;
+    padding: 0 80px 0 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+    .headnav-right-upgrade{
+      color: white;
+      display: inline-block;
+      font-size: $font-small;
+      height: $navbar-height;
+      overflow: hidden;
+      padding: 0 $margin-small;
+      position: relative;
+      text-decoration: none;
+
+      @media (max-width: $sm) {
+        display: none;
+      }
+
+      &:hover,
+      &:active,
+      &:focus{
+        background-color: $dark-light;
+        color: white;
+        text-decoration: none;
+
+        .headnav-right-upgrade-default{
+          margin-top: -$navbar-height;
+        }
+      }
+    }
+
+      .headnav-right-upgrade-default{
+        height: $navbar-height;
+        padding-top: 13px;
+        transition: all $transition-fastest ease;
+      }
+
+        .headnav-right-upgrade-default-subscribe{
+          font-weight: 700;
+        }
+
+      .headnav-right-upgrade-hover{
+        display: inline-block;
+        height: $navbar-height;
+        font-weight: 700;
+        padding-top: 22px;
+        text-align: center;
+        width: 100%;
+      }
+
+        .headnav-right-upgrade-hover-img{
+          display: inline-block;
+          font-weight: 700;
+          margin: 0 auto;
+          padding-left: 10px;
+        }
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+             HEADNAV MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.headnav{
+
+  /*
+    HOME
+  */
+
+  &.mod-home{
+
+    @media (max-width: $lg) {
+
+      .headnav-burger{
+        display: block;
+      }
+
+      .headnav-tabs{
+        display: none;
+        left: 0;
+        position: fixed;
+        top: $navbar-height;
+        width: 200px;
+      }
+
+      .headnav-tabs-li{
+        display: block;
+        float: inherit;
+      }
+    }
+
+    @media (max-width: $xxxl) {
+
+      .headnav-tabs-li-link{
+        padding: 0 15px;
+      }
+
+      .headnav-home-logo{
+        display: none;
+      }
+
+      .headnav-home-minilogo{
+        display: block;
+      }
+
+      .headnav-home-hover{
+        text-indent: -9999px;
+        background-position: center;
+      }
+
+      .headnav-home{
+        width: $navbar-height;
+      }
+    }
+
+    .headnav-right-upgrade{
+
+      @media (max-width: $xl) {
+        display: none;
+      }
+    }
+
+    .headnav-right{
+      right:520px;
+
+      @media (max-width:$md) {
+        right: 0;
+      }
+    }
+  }
+
+  /*
+    LAUNCHING
+  */
+
+  &.mod-launching{
+
+    .headnav-burger{
+      display: none;
+    }
+
+    .headnav-home{
+      pointer-events: none;
+      width: 150px;
+    }
+
+    .headnav-home-logo{
+      display: block;
+    }
+
+    .headnav-home-minilogo{
+      display: none;
+    }
+
+    .headnav-tabs{
+      display: none;
+    }
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+             HEADNAV STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.headnav{
+
+  &.is-open{
+
+    .headnav-tabs{
+      display: block;
+    }
+  }
+}
+
+.headnav-tabs-li{
+
+  &.is-active{
+
+    .headnav-tabs-li-link{
+      background: $darker;
+      color: white;
+
+      &::before{
+        background: $blue;
+        content: '';
+        height: 2px;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+
+      @media (max-width: $md) {
+        color: $blue;
+
+        &::before{
+          display: none;
+        }
+      }
+    }
+  }
+}

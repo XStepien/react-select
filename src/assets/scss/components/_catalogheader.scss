@@ -1,0 +1,121 @@
+$catalogheader-height:  75px;
+
+.catalogheader{
+  background: white;
+  border-bottom: 1px solid $grey-border;
+  height: $catalogheader-height;
+  position: absolute;
+  top: $navbar-height;
+  width: 100%;
+  z-index: 40;
+}
+
+  .catalogheader-inner{
+    align-items: center;
+    display: grid;
+    grid-template-columns: 85px 1.7fr 1.5fr 0.7fr 0.6fr;
+    height: $catalogheader-height;
+    width: 100%;
+  }
+
+  .catalogheader-back{
+    position: relative;
+    height: 75px;
+    width: 75px;
+    // border-left: 1px solid $grey-background;
+    // border-right: 1px solid $grey-background;
+
+    &:hover{
+      background: $grey-background;
+
+      &:before{
+        color: $blue;
+      }
+    }
+
+    &:before{
+      @include m-icon-lgw;
+      color: $grey;
+      content: unicode($icon-previous);
+      font-size: 22px;
+      left: 26px;
+      position: absolute;
+      top: 26px;
+    }
+  }
+
+  .catalogheader-catalog{
+    align-items: center;
+    display: grid;
+    grid-template-columns: 44px auto;
+    position: relative;
+
+    &.mod-modal{
+      grid-template-columns: auto 44px;
+
+      .catalogheader-catalog-name{
+        padding: 0 20px 0 $margin-small;
+      }
+
+      &.mod-duo{
+        grid-template-columns: auto 74px;
+
+        .icon-circle:nth-child(2){
+          box-shadow: 2px 0 2px rgba(0, 0, 0, 0.57);
+        }
+      }
+    }
+
+    &.mod-duo{
+      grid-template-columns: 74px auto;
+
+      >.icon-circle:first-child{
+        box-shadow: 2px 0 2px rgba(0, 0, 0, 0.57);
+      }
+    }
+
+    &.mod-duo-plus{
+      grid-template-columns: 74px auto;
+
+      >.icon-circle:first-child{
+        box-shadow: 2px 0 2px rgba(0, 0, 0, 0.57);
+      }
+
+      &:before{
+        background: url(/src/assets/images/pages/catalogs/source-plus.png) 67px center no-repeat;
+        content: '';
+        display: block;
+        height: 100%;
+        position: absolute;
+        width: 100%;
+      }
+    }
+
+    &.mod-right{
+      justify-content: end;
+
+      .catalogheader-catalog-name{
+        padding: 0 0 0 $margin-small;
+      }
+    }
+
+    &.mod-settings{
+      grid-template-columns: 44px auto auto;
+    }
+
+    &.mod-witch{
+      grid-template-columns: 80px auto;
+    }
+  }
+
+  .catalogheader-catalog-name{
+    padding: 0 $margin-small 0 $margin-small;
+  }
+
+  .catalogheader-catalog-name-id{
+    font-weight: 700;
+    float: left;
+    margin-top: 9px;
+    color: $grey-light;
+    font-size: $font-small;
+  }

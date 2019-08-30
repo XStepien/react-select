@@ -1,0 +1,103 @@
+$select-bar-height : 57px;
+
+.select-bar{
+  background: $sky-lighter;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.35);
+  height: $select-bar-height;
+  left: 0;
+  min-width: 980px;
+  opacity: 1;
+  position: fixed;
+  right: 0;
+  top: $navbar-height;
+  transition: opacity $transition-fast ease,
+              top $transition-fast ease;
+  z-index: 61;
+}
+
+  .select-bar-left{
+    color: $dark-light;
+    float: left;
+    font-size: $font-small;
+    margin-top: 9px;
+  }
+
+    .select-bar-left-main{
+      font-weight: 700;
+    }
+
+    .select-bar-left-subline{
+      display: inline-block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: 500px;
+
+      @media (min-width: $lg) {
+        max-width: 600px;
+      }
+      @media (min-width: $xl) {
+        max-width: 750px;
+      }
+    }
+
+  .select-bar-right{
+    color: $dark-light;
+    float: right;
+    font-size: $font-small;
+    margin-top: 18px;
+  }
+
+/* - - - - - - - - - - - - - - - - - - -
+
+              FILTERS MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.select-bar{
+
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+              FILTERS STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+
+.select-bar{
+
+  /*
+    Hidden
+  */
+
+  &.is-hidden{
+    opacity: 0;
+    top: 0;
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+        SELECT BAR ANIMATION REACT
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.select-bar{
+
+  &.select-bar-enter{
+    top: 0;
+
+    &.select-bar-enter-active{
+      top: $navbar-height;
+    }
+  }
+
+  &.select-bar-leave{
+    top: $navbar-height;
+
+    &.select-bar-leave-active{
+      top: 0;
+    }
+  }
+}

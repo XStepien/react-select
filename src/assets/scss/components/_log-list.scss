@@ -1,0 +1,23 @@
+.log-list{
+  list-style: none;
+  margin: 0 0 $margin-standard;
+  padding: 0;
+}
+
+  .log-list-item{
+    background-color: white;
+    padding: $margin-standard $margin-big;
+
+    &:nth-of-type(even) {
+      background-color: $grey-background;
+    }
+  }
+
+    .log-list-item-txt{
+    }
+
+    .log-list-item-time{
+      color: $grey-light;
+      font-size: $font-small;
+      margin-bottom: $margin-small;
+    }

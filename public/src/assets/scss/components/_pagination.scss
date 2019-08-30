@@ -1,0 +1,69 @@
+
+.pagination{
+  display: inline-block;
+  margin: 13px 5px 0 0;
+
+  &.mod-modal-head{
+    margin-top: 19px;
+  }
+}
+
+  .pagination-left{
+    background: url(/src/assets/images/layout/filters/arrow-left.png) no-repeat center center;
+    border: 1px solid $grey-border;
+    border-radius: $border-radius;
+    display: block;
+    float: left;
+    height: 30px;
+    margin: 0 0 0 5px;
+    padding: 0;
+    width: 30px;
+
+    &:hover,
+    &:focus{
+      background-color: $grey-background;
+    }
+  }
+
+  .pagination-right{
+    background: url(/src/assets/images/layout/filters/arrow-right.png) no-repeat center center;
+    border-radius: $border-radius;
+    border: 1px solid $grey-border;
+    display: block;
+    float: left;
+    height: 30px;
+    margin: 0 0 0 5px;
+    padding: 0;
+    width: 30px;
+
+    &:hover,
+    &:focus{
+      background-color: $grey-background;
+    }
+  }
+
+  .pagination-value{
+    display: block;
+    font-size: $font-small;
+    font-weight: 600;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    margin-left: 5px;
+  }
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+            PAGINATION STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.pagination-left, .pagination-right{
+
+  &.is-disabled{
+    pointer-events: none;
+    opacity:.5;
+  }
+}
+

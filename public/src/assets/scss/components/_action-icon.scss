@@ -1,0 +1,25 @@
+.action-icon{
+  background: url(/src/assets/images/components/action-icon/edit.png) no-repeat center 0;
+  display: inline-block;
+  height: 13px;
+  margin: 0 3px;
+  width: 16px;
+
+  &:hover{
+    background-position: 0 -13px;
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+                 MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.action-icon{
+
+  &.mod-trash{
+    background-image: url(/src/assets/images/components/action-icon/trash.png);
+  }
+}

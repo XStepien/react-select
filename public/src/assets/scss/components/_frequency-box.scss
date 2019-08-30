@@ -1,0 +1,83 @@
+.frequency-box {
+  border: 1px solid $grey-border;
+  border-radius: $border-radius;
+  display: block;
+  height: 84px;
+  padding: 15px 5px 0;
+}
+
+.add-frequency-box {
+  background: url(/src/assets/images/pages/products/new.png) $grey-background center no-repeat;
+  border: 2px dotted #d7d7d7;
+  border-radius: 3px;
+  color: #999;
+  display: block;
+  font-size: 14.1px;
+  height: 84px;
+  margin-bottom: 0px;
+  padding: 15px 5px 0;
+  transition: all 125ms ease;
+
+  &:hover{
+    background: url(/src/assets/images/pages/products/new.png) white center no-repeat;
+    cursor: pointer;
+  }
+}
+  .frequency-box-value{
+    height: 41px;
+  }
+  .add-frequency-box-buttons{
+    position: absolute;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-column-gap: 30px;
+    top: 57px;
+    width: calc(100% - 70px);
+  }
+
+  .add-frequency-box-buttons-link{
+    padding:0px;
+
+    &:nth-child(1){
+      justify-self: end;
+    }
+
+    &:nth-child(2){
+      justify-self: start;
+    }
+  }
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          FREQUENCY BOX STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.frequency-box {
+
+  &.is-active {
+    border-bottom: 0px;
+    box-shadow: 0 2px 0 0 $blue;
+    -webkit-box-shadow: 0 2px 0 0 $blue;
+  }
+
+  &.is-error {
+    border: 1px solid $red;
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+        ADD FREQUENCY BOX STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+ .add-frequency-box {
+
+  &.is-disabled{
+    opacity:.5;
+    pointer-events: none;
+  }
+}

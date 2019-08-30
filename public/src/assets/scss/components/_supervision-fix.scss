@@ -1,0 +1,262 @@
+/*
+  SUPERVISION
+*/
+
+body{
+
+  &.mod-supervision{
+    padding-top: $supervision-height;
+
+    .filters{
+      top: $supervision-height;
+
+      &.mod-headnav{
+        top: calc(64px + #{$supervision-height});
+
+        &.mod-trial-bar{
+          top: calc(#{$navbar-height} + #{$supervision-height} + #{$trial-bar-height});
+        }
+      }
+
+      &.mod-dockable{
+        top: inherit;
+
+        &.is-docked{
+          top: $supervision-height;
+        }
+      }
+
+      &.mod-table-overhead{
+        top: 0;
+      }
+    }
+
+    .headnav{
+      top: $supervision-height;
+    }
+
+    .select-bar{
+      top: calc(#{$navbar-height} + #{$supervision-height});
+
+
+      &.select-bar-enter{
+        top: 0;
+
+        &.select-bar-enter-active{
+          top: calc(#{$navbar-height} + #{$supervision-height});
+        }
+      }
+
+      &.select-bar-leave{
+        top: calc(#{$navbar-height} + #{$supervision-height});
+
+        &.select-bar-leave-active{
+          top: 0;
+        }
+      }
+    }
+
+    .aside{
+      top: $supervision-height;
+    }
+
+    .dropdown-lgw{
+
+      &.mod-navbar-icon{
+
+        .dropdown-lgw-content{
+          top: calc(#{$navbar-height} + #{$supervision-height});
+        }
+      }
+    }
+
+    .aside-layout{
+
+      .aside-layout-aside{
+
+        &.is-fixed{
+          top: calc(#{$supervision-height} + 130px);
+        }
+      }
+
+      &.mod-trial-bar{
+
+        .aside-layout-aside{
+
+          &.is-fixed{
+            top: calc(#{$supervision-height} + #{$trial-bar-height} + 130px);
+          }
+        }
+      }
+    }
+
+    &.mod-headnav{
+      padding-top: 130px;
+
+      &.mod-trial-bar{
+        padding-top: calc(130px + #{$trial-bar-height});
+      }
+    }
+
+
+    .table-catalog-wrap{
+        top: calc(#{$filter-height} + #{$supervision-height});
+
+        &.mod-preview{
+          top: calc(114px + 57px);
+        }
+
+        &.mod-modal{
+          top: 0;
+        }
+    }
+
+    .lgw-modal{
+      top: $supervision-height;
+      height: calc(100% - #{$supervision-height});
+
+      &.mod-footer{
+        height: calc(100% - 57px - 54px);
+      }
+    }
+
+    .modal-head {
+      top: $supervision-height;
+    }
+
+    .modalhead-secundary{
+      top: calc(#{$supervision-height} + #{$modal-head-height});
+    }
+
+    .lgw-modal-close {
+      top: calc(30px + #{$supervision-height});
+    }
+
+    .app-nav{
+      top: calc(#{$navbar-height} + #{$supervision-height});
+    }
+
+    .onboarding{
+
+      &.is-visible {
+        top: $supervision-height;
+      }
+    }
+
+    .trial-bar{
+      top: calc(#{$navbar-height} + #{$supervision-height});
+
+      &.mod-home{
+        top: calc(#{$navbar-height} + #{$supervision-height});
+      }
+    }
+
+    .catalogheader{
+      top: calc(#{$navbar-height} + #{$supervision-height});
+
+      &.mod-trial-bar{
+        top: calc(#{$navbar-height} + #{$supervision-height} + #{$trial-bar-height});
+      }
+    }
+
+    .catalogmenu{
+      top: calc(#{$catalogheader-height} + #{$navbar-height} + #{$supervision-height});
+
+      &.mod-trial-bar{
+        top: calc(44px + #{$catalogheader-height} + #{$navbar-height} + #{$supervision-height});
+      }
+    }
+
+    .stack-list-wrap-inner{
+
+      &.is-full-screen{
+        padding: $margin-bigger;
+
+        .stack-list{
+
+          &.mod-conversion-merchant{
+            max-height: calc(100vh - 380px);
+          }
+
+          &.mod-channel-value{
+            max-height: calc(100vh - 303px);
+          }
+        }
+      }
+
+    }
+
+    .dropdown-lgw{
+
+      &.mod-gauge{
+
+        .dropdown-lgw-content{
+          top: calc(#{$modalhead-secundary} + #{$modal-head-height} + #{$supervision-height});
+        }
+      }
+    }
+
+    /*
+      GLOBAL
+    */
+
+    .global{
+      min-height: calc(100vh - #{$supervision-height});
+
+      &.mod-nopadding-top{
+
+        &.mod-headnav{
+
+          &.mod-trial-bar{
+            padding-top: calc(64px + #{$trial-bar-height});
+          }
+        }
+      }
+
+      &.mod-filters{
+
+        &.mod-headnav{
+
+          &.mod-trial-bar{
+            padding-top: calc(165px + #{$trial-bar-height} + #{$supervision-height});
+          }
+        }
+      }
+
+      &.mod-app-nav {
+
+        &.mod-trial-bar{
+          padding-top: calc(180px + #{$trial-bar-height} + #{$supervision-height});
+        }
+      }
+
+      &.mod-reports{
+
+        &.mod-trial-bar{
+          padding-top: calc(121px + #{$trial-bar-height});
+        }
+      }
+
+      &.mod-app-detail{
+
+        &.mod-trial-bar{
+          margin-top: calc(#{$navbar-height} + #{$trial-bar-height} + #{$supervision-height});
+        }
+      }
+
+      &.mod-iframe{
+
+        &.mod-trial-bar{
+          padding-top: calc(#{$trial-bar-height} + #{$supervision-height});
+        }
+      }
+
+      &.mod-pim{
+
+        &.mod-trial-bar{
+          padding-top: calc(260px + #{$trial-bar-height});
+        }
+      }
+    }
+  }
+}

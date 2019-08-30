@@ -1,0 +1,68 @@
+.matchingrid{
+  display: grid;
+  grid-template-columns: 50% 50%;
+
+  .matchingrid-label{
+    padding-right: 15px;
+    transition: all $transition-fast ease;
+
+    &.mod-right{
+      padding-right: 0px;
+      padding-left: 15px;
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+  .matchingrid-input{
+    position: relative;
+    padding-right: 15px;
+    transition: all $transition-fast ease;
+
+    &.mod-right{
+      padding-right: 0px;
+      padding-left: 15px;
+      opacity: 0;
+      pointer-events: none;
+
+      &:before{
+        @include m-icon-lgw;
+        content: unicode($icon-associate);
+        color: $grey-border;
+        font-size: 30px;
+        font-weight: 500;
+        left: -13px;
+        min-height: 100%;
+        position: absolute;
+        top: 7px;
+        text-decoration: none;
+      }
+    }
+  }
+
+
+  &.is-matching{
+
+    .matchingrid-label{
+      padding-right: 30px;
+
+      &.mod-right{
+        padding-right: 0px;
+        padding-left: 30px;
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+
+    .matchingrid-input{
+      padding-right: 30px;
+
+      &.mod-right{
+        padding-right: 0px;
+        padding-left: 30px;
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+  }
+}

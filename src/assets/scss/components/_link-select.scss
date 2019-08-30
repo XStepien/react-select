@@ -1,0 +1,123 @@
+/*
+  Style for chosen's plugin
+  Classes are nested beacause of plugin's CSS specificity
+*/
+
+
+.link-select-wrap {
+
+  .chosen-container-single, .chosen-container-single.chosen-container-active{
+    width: auto !important;
+
+    .chosen-single{
+      background: transparent !important;
+      border: 0;
+      box-shadow: none !important;
+      color: $blue;
+      font-size: $font-small;
+      font-weight: 400;
+      line-height: 1.5;
+      max-width: 190px;
+      padding: 11px 0 0;
+
+      span{
+        display: inline-block;
+        margin-right: 18px;
+        text-align: left;
+        width: 90%;
+
+        &:hover{
+          text-decoration: underline;
+        }
+      }
+
+      div{
+        right: 4px;
+        width: 9px;
+
+        b{
+          background: url(/src/assets/images/layout/filters/carret-blue-down.png) no-repeat center;
+          background-size: inherit !important;
+        }
+      }
+    }
+
+    &.chosen-with-drop{
+
+      .chosen-single{
+
+        div{
+
+          b{
+            background: url(/src/assets/images/layout/filters/carret-blue-up.png) no-repeat center;
+            background-size: inherit !important;
+          }
+        }
+      }
+    }
+  }
+
+  .chosen-drop{
+    left: initial !important;
+    margin-top: -13px;
+    min-width: initial !important;
+    right:0 !important;
+    width: auto;
+    white-space: nowrap;
+
+    .chosen-results{
+      border: 1px solid $grey-border;
+      border-radius: 3px;
+      text-align: left;
+
+      li{
+        padding: 12px 25px 12px 45px;
+
+        &.result-selected{
+          background: url(/src/assets/images/components/select/tick.png) no-repeat 14px center;
+        }
+      }
+    }
+  }
+}
+
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+              BUTTONS MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.link-select-wrap {
+
+  /*
+    No search link-select
+  */
+
+  &.mod-no-search{
+
+    .chosen-search{
+      display: none;
+    }
+  }
+
+  &.mod-blue{
+
+    .chosen-container-single .chosen-single.chosen-default{
+      color: $blue;
+    }
+  }
+
+  &.mod-inline {
+
+    .chosen-container-single .chosen-single div b{
+      background-position: center 10px !important;
+    }
+
+
+    .chosen-container-single .chosen-single{
+      padding: 0;
+    }
+  }
+}

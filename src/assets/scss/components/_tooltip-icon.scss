@@ -1,0 +1,44 @@
+.tooltip-icon{
+  background: url(/src/assets/images/components/tooltip/info.png) no-repeat;
+  display: inline-block;
+  height: 14px;
+  line-height: 14px;
+  margin-left: 3px;
+  position: relative;
+  width: 14px;
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+             TOOLTIPS MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.tooltip-icon{
+
+  &.mod-table{
+    vertical-align: middle;
+  }
+
+  &.mod-warning{
+    background: url(/src/assets/images/components/tooltip/warning.png) no-repeat;
+    display: inline-block;
+    height: 16px;
+    margin-left: 3px;
+    position: relative;
+    width: 18px;
+  }
+
+  &.mod-white{
+    background: url(/src/assets/images/components/tooltip/info-white.png) no-repeat;
+  }
+
+  &.mod-navy{
+    background: url(/src/assets/images/components/tooltip/info-navy.png) no-repeat;
+  }
+
+  &.mod-trial-bar{
+    margin-bottom: -2px;
+  }
+}

@@ -1,0 +1,106 @@
+.footer{
+  background: $dark;
+  bottom: 0px;
+  height: $footer-height;
+  left: 0;
+  min-width: 500px;
+  position: fixed;
+  transition: all $transition-fast ease;
+  width: 100%;
+  z-index: 110;
+}
+
+  .footer-confirm-close,
+  .react-footer-confirm-close{
+    background: $dark;
+    bottom: -$footer-height;
+    color: white;
+    height: $footer-height;
+    position: fixed;
+    right: 0;
+    transition: all $transition-fast ease;
+
+    &.mod-right{
+      right: initial;
+      left: inherit;
+      padding-left: 5px;
+    }
+  }
+
+    .footer-confirm-close-txt{
+      display: inline-block;
+      font-size: $font-small;
+      font-weight: 600;
+      line-height: $footer-height;
+      margin: 0;
+      padding-right: $margin-small;
+    }
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+              FOOTER MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.footer{
+
+  &.mod-split{
+    background: $grey-background;
+    border-top: 1px solid $grey-disabled;
+    left: inherit;
+    min-width: inherit;
+    right: 0;
+  }
+
+  &.mod-checkout{
+    width: 61.8%;
+  }
+
+  &.mod-payment{
+    background: $grey-background;
+    bottom: 0;
+    left: 0;
+    padding: 0;
+    position: absolute;
+    width: 100%;
+  }
+
+  &.mod-modal{
+    position: absolute;
+  }
+
+  &.mod-white{
+    background: white;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+              FOOTER STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.footer{
+
+  &.is-loading{
+    bottom: -$footer-height;
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+        FOOTER CONFIRM CLOSE STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.footer-confirm-close,
+.react-footer-confirm-close{
+
+  &.is-active{
+    bottom: 0;
+  }
+}

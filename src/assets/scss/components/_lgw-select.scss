@@ -1,0 +1,521 @@
+// LENGOW REACT SELECT
+
+.lgw-select-container-single,
+.lgw-select-container-multi{
+
+  .lgw-select-single{
+    background: $grey-input;
+    border: 1px solid $grey-border;
+    border-radius: $border-radius;
+    color: $grey;
+    cursor: pointer;
+    box-shadow: inset 0 3px 3px rgba(0,0,0,0.05);
+    font-size: $font-standard;
+    height: 44px;
+    line-height: 44px;
+    padding: 0 15px;
+    outline: none;
+
+    div{
+      width: 44px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: block;
+      height: 100%;
+
+      b.lgw-select-arrow{
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: url(/src/assets/images/components/select/arrow-down.png) no-repeat center center;
+        background-size: inherit !important;
+      }
+    }
+
+    &.lgw-select-default {
+      color: $grey-placeholder;
+    }
+  }
+
+
+  .lgw-select-drop{
+    border: 0;
+    box-shadow: 0 10px 10px 0 rgba(0,0,0,.15);
+    left: 0;
+    min-width: 350px;
+    opacity: 0;
+    pointer-events: none;
+    top: 100%;
+    transform: scale(1, 0);
+    transform-origin: right top;
+    transition: transform $transition-faster ease,
+                  opacity $transition-faster ease;
+    z-index: 70;
+    width: 740px;
+
+    @media (min-width: $md){
+      width: 740px;
+    }
+
+    @media (min-width: $lg){
+      width: 910px;
+    }
+
+    @media (min-width: $xl){
+      width: 1030px;
+    }
+
+
+    .subtitle{
+      color: $grey-light;
+      font-size: 11px;
+      margin-top: 3px;
+      margin-bottom: $margin-tiny;
+    }
+    
+    .sample{
+      color: $grey-light;
+      font-size: 13px;
+      font-style: italic;
+      margin-top: 10px;
+    }
+    
+  }
+
+  .lgw-select-results{
+    margin: 0;
+    max-height: 300px;
+    padding: 0;
+
+    div.lgw-select-result,
+    .lgw-select-result-group-option,
+    div.no-results{
+      color: $grey;
+      font-size: $font-standard;
+      line-height: 1.5;
+      min-height: 44px;
+      padding: 12px 15px 12px 25px;
+      word-wrap: normal;
+
+      &.highlighted{
+        background: $sky-lightest;
+        color: $grey;
+      }
+
+      &.result-selected{
+        background:url(/src/assets/images/components/select/tick.png) $sky-white no-repeat 8px center;
+      }
+
+      &.blur {
+        color: $dark-lightest;
+      }
+
+      img.chose-image-list {
+        margin-right: 10px;
+        margin-top: -1px;
+        max-width: 24px;
+      }
+
+      &.depth1{
+        padding-left:25px;
+      }
+
+      &.depth2{
+        padding-left:35px;
+      }
+
+      &.depth3{
+        padding-left:45px;
+      }
+
+      &.depth4{
+        padding-left:55px;
+      }
+
+      &.depth5,
+      &.depth6,
+      &.depth7{
+        padding-left:65px;
+      }
+    }
+  }
+
+  .lgw-select-search{
+    padding: 0;
+
+    input[type="text"]{
+      background: url(/src/assets/images/components/select/search-light.png) no-repeat right 15px center;
+      background-size: inherit !important;
+      border: 1px solid $grey-border;
+      color: $grey;
+      font-size: $font-big;
+      height: 44px;
+      line-height: 44px;
+      margin: 0;
+      padding:0 40px 0 15px;
+    }
+  }
+
+  &:hover,
+  &:focus{
+
+    .lgw-select-single{
+      border-color: $grey-border-over;
+    }
+  }
+
+  &.lgw-select-container-active{
+
+    &:hover,
+    &:focus{
+
+      .lgw-select-single{
+        border-color: $grey-border-over;
+      }
+    }
+
+    .lgw-select-single{
+      background: $grey-input;
+      border-color: $grey-border;
+
+
+      div{
+
+        b.lgw-select-arrow{
+          background: url(/src/assets/images/components/select/arrow-down.png) no-repeat center center;
+          background-size: inherit !important;
+        }
+      }
+    }
+  }
+
+  &.lgw-select-with-drop{
+
+    .lgw-select-single{
+      border-color: $grey-border;
+      box-shadow: inset 0 3px 3px rgba(0,0,0,0.05);
+
+      div b.lgw-select-arrow{
+        background-image: url(/src/assets/images/components/select/arrow-up.png);
+        background-size: inherit !important;
+      }
+    }
+
+    .lgw-select-drop{
+      opacity: 1;
+      pointer-events: inherit;
+      transform: scale(1);
+      transition: transform $transition-faster ease,
+                    opacity $transition-faster ease;
+    }
+  }
+}
+
+
+.lgw-select-disabled{
+  opacity: 1 !important;
+
+  .lgw-select-single{
+    background: $grey-border;
+    border: $grey-border !important;
+    color: $grey-light;
+    cursor:not-allowed !important;
+
+    div{
+      opacity: 0;
+    }
+  }
+}
+
+
+
+// No search choosen
+
+.lgw-select-nosearch{
+  .lgw-select-search{
+    display:none;
+  }
+  .lgw-select-results{
+    border-top:1px solid $grey-border;
+  }
+}
+
+
+// Group option
+
+.lgw-select-container .lgw-select-results div.lgw-select-result{
+
+  /* don't know the html structure of this*/
+  &.group-option{
+    padding: 0 15px 0 25px;
+  }
+  &.group-result{
+    font-weight:600;
+    padding-left:15px;
+  }
+  /**/
+
+}
+
+.lgw-select-result-group{
+  padding: 0;
+}
+
+.lgw-select-result-group-label{
+  font-size: $font-big;
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 25px 15px 0 0;
+  padding: 0 15px 0 25px;
+}
+
+.lgw-select-result-group-option{
+  padding: 0 15px 0 25px;
+
+}
+
+
+//////////////////////////////
+// CHOSEN MULTI
+
+.lgw-select-container-multi{
+  .lgw-select-choices{
+    cursor: pointer;
+    min-height:44px !important;
+    border: 1px solid $grey-border;
+    border-radius: $border-radius;
+    padding: 0 30px 0 $margin-small;
+    background:url(/src/assets/images/components/select/arrow-down.png) $grey-input no-repeat right 10px center;
+    font-size: $font-standard;
+    box-shadow: inset 0 3px 3px rgba(0,0,0,0.05);
+    &:hover,
+    &:focus{
+      border-color: $grey-border-over;
+    }
+    li.search-choice{
+      border:0;
+      background:transparent;
+      height:30px;
+      line-height:30px;
+      padding:0;
+      box-shadow: none;
+      margin: 6px 5px 0 0;
+      &::after{
+        content: ',';
+        padding-left:20px;
+      }
+      .search-choice-close{
+        background:url(/src/assets/images/components/select/close.png);
+        height:12px;
+        width:12px;
+        top: 10px;
+        right: 8px;
+        &:hover{
+          background-position:0 -12px;
+        }
+      }
+    }
+    li.search-field input[type="text"]{
+      color: $grey-placeholder;
+      height:30px;
+    }
+  }
+}
+.lgw-select-container-active .lgw-select-choices li.search-field input[type="text"]{
+  color:$grey !important;
+}
+
+.lgw-select-container-single .lgw-select-search input[type="text"] {
+  font-family: 'Lato', sans-serif;
+}
+
+.lgw-select-footer{
+    box-shadow: 0 -1px 5px 0px rgba(0, 0, 0, 0.10);
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          LENGOW SELECT MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+
+.lgw-select-container{
+
+  &:focus{
+    outline: none;
+  }
+
+  &.mod-filter{
+    margin-top: 12px;
+    margin-right: 2px;
+    width: 140px !important;
+    float:left;
+
+    .lgw-select-single{
+      background: transparent;
+      border: 0;
+      border-radius: $border-radius;
+      box-shadow: none !important;
+      color: $grey;
+      height: 34px;
+      font-weight: 600;
+      font-size: $font-small;
+      line-height: 34px;
+      /*max-width: 140px;*/
+      padding:0 10px;
+      transition: all $transition-fastest ease;
+
+      span{
+        display: inline-block;
+        width: auto;
+        margin-right: 8px;
+        float: left;
+        max-width: 100px;
+
+        img.chose-image-small {
+          display: none;
+        }
+      }
+
+      div{
+        float: left;
+        position: relative;
+        right: initial;
+        width: 9px;
+
+        b{
+          background: none;
+
+          &:before{
+            @include m-icon-lgw;
+            content: unicode($icon-carret);
+            position: absolute;
+            right: -3px;
+            top: 11px;
+          }
+        }
+      }
+
+      &:hover{
+        background: $grey-background;
+      }
+    }
+
+    .lgw-select-drop{
+      margin-top:-1px;
+    }
+
+    &.lgw-select-with-drop{
+
+      .lgw-select-single{
+        border-radius: $border-radius $border-radius 0 0;
+
+        div{
+
+          b{
+            background: none;
+            transform: rotate(180deg);
+          }
+        }
+      }
+    }
+
+    &.is-active,
+    &.lgw-select-container-active{
+
+      .lgw-select-single{
+        background: $sky-white;
+        color: $blue;
+      }
+    }
+  }
+
+  &.mod-tabs{
+    width: 100%;
+
+    .lgw-select-tabs{
+      background: $grey-background;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      margin: 0 0 0 1px;
+      padding: 0;
+    }
+
+    .lgw-select-tab{
+      font-size:0;
+      margin:0 0 -1px -1px;
+      text-align: center;
+
+      &.is-active{
+
+        .lgw-select-tab-anchor{
+          background:white;
+          z-index:1;
+
+          &::before {
+            background: $blue;
+            bottom: -1px;
+            content: "";
+            display: block;
+            height: 2px;
+            left: -1px;
+            opacity: 1;
+            position: absolute;
+            right: -1px;
+            z-index: 1;
+          }
+        }
+      }
+    }
+
+    .lgw-select-tab-anchor{
+      border: 1px solid $grey-border;
+      border-radius: 0;
+      color: $grey;
+      display: block;
+      font-size: $font-standard;
+      height: 60px;
+      line-height: 60px;
+      padding: 0 15px;
+      position: relative;
+      margin: 0;
+      transition: background-color $transition-fastest ease;
+
+      &::before {
+        background: $blue;
+        bottom: 0;
+        content: "";
+        display: block;
+        height: 2px;
+        left: 0;
+        opacity: 0;
+        position: absolute;
+        right: 100%;
+        transition: all $transition-fast ease;
+      }
+      &:hover,
+      &:focus{
+        background: white;
+        border: 1px solid $grey-border;
+        text-decoration: none;
+        outline: none;
+      }
+    }
+
+    .lgw-select-results{
+
+      .lgw-select-result{
+        outline: none;
+
+        &.active-result{
+          /*display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+          justify-items: start;
+          grid-column-gap: $margin-small;*/
+        }
+      }
+    }
+  }
+}

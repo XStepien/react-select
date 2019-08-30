@@ -1,0 +1,40 @@
+////////////////////////////////////
+// UI SLIDER
+
+.ui-slider.ui-slider-horizontal{
+  background:$grey-disabled;
+  height: 2px;
+  border-radius: 2px;
+  .ui-slider-handle{
+    background:$blue;
+    border-radius: 10px;
+    height: 12px;
+    width: 12px;
+    top: -5px;
+    &:focus {
+        outline: transparent auto 0px;
+    }
+  }
+  .ui-slider-range-min {
+      background:$blue;
+      border-radius: 2px;
+  }
+  label {
+    position: absolute;
+    width: 20px;
+    margin-left: -10px;
+    text-align: center;
+    margin-top: 20px;
+    color: $grey;
+  }
+}
+ul.slider-legend {
+  position: absolute;
+  padding: 10px 0 0;
+  font-size: $font-small;
+  li {
+    display: inline-block;
+    list-style: none;
+    text-align: center;
+  }
+}

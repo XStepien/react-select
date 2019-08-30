@@ -1,0 +1,272 @@
+.label{
+  background: $grey-disabled;
+  border-radius: 12px;
+  color: $grey-light;
+  display: inline-block;
+  font-size: $font-small;
+  font-weight: 400;
+  height: 24px;
+  line-height: 24px;
+  padding: 0 10px;
+  text-align: center;
+  transition: all $transition-fastest ease;
+  vertical-align: middle;
+  white-space: nowrap;
+
+
+  /* - - - - - - - - - - - - - - - - - - -
+
+                LABEL MODS
+
+   - - - - - - - - - - - - - - - - - - - */
+
+  &.mod-small{
+    font-size: $font-small -1px;
+    font-weight: 600;
+    padding: 3px 7px;
+    height: inherit;
+    line-height: inherit;
+    line-height: 1;
+  }
+
+  &.mod-blue{
+    background: $blue;
+    color: white;
+  }
+
+  &.mod-navy{
+    background: $navy;
+    color: white;
+  }
+
+  &.mod-grey{
+    background: $grey-border;
+  }
+
+  &.mod-dark-light{
+    background: $dark-light;
+    color: white;
+  }
+
+  &.mod-red {
+    background: $red;
+    color: white;
+  }
+
+  &.mod-red-lighter {
+    background: $red-lighter;
+    color: white;
+  }
+
+  &.mod-red-darker {
+    background: $red-darker;
+    color: white;
+  }
+
+  &.mod-orange {
+    background: $orange-darker;
+    color: white;
+  }
+
+  &.mod-green,
+  &.shipped,
+  &.closed{
+    background: $green;
+    color: white;
+  }
+
+  &.mod-midnight{
+    background: $dark-lighter;
+    color: white;
+  }
+
+  &.mod-white{
+    background: white;
+    border: 1px solid $grey-border;
+  }
+
+  &.mod-white-grey{
+    background: white;
+    border: 1px solid $grey;
+    color: $grey;
+  }
+
+  &.mod-outline-blue,
+  &.new,
+  &.accepted{
+    background: white;
+    border: 1px solid $blue;
+    color: $blue;
+    line-height: 21px;
+  }
+
+  &.mod-outline-navy{
+    background: white;
+    border: 1px solid $navy;
+    color: $navy;
+    line-height: 21px;
+  }
+
+  &.mod-outline-green,
+  &.waiting_shipment{
+    background: white;
+    border: 1px solid $green;
+    color: $green;
+    line-height: 21px;
+  }
+
+  &.mod-outline-red{
+    background: white;
+    border: 1px solid $red;
+    color: $red;
+    line-height: 21px;
+  }
+
+  &.mod-outline-orange{
+    background: white;
+    border: 1px solid $orange-darker;
+    color: $orange-darker;
+    line-height: 21px;
+  }
+
+  &.mod-outline-midnight{
+    background: white;
+    border: 1px solid $dark-lighter;
+    color: $dark-lighter;
+    line-height: 21px;
+  }
+
+  &.mod-outline-white{
+    background: transparent;
+    border: 1px solid $white;
+    color: $white;
+    line-height: 21px;
+  }
+
+  &.mod-white-green{
+    background: white;
+    color: $green;
+  }
+
+  &.mod-white-orange{
+    background: white;
+    color: $orange;
+  }
+
+  &.mod-white-red{
+    background: white;
+    color: $red;
+  }
+
+  &.mod-white-orange{
+    background: white;
+    color: $orange-darkest;
+  }
+
+  &.mod-history{
+    margin-top:-13px;
+  }
+
+  &.mod-white-blue{
+    background-color: white;
+    color: $rocket-blue-base;
+  }
+
+  &.mod-text-middle{
+    vertical-align: middle;
+  }
+
+  &.mod-orange-light{
+    background: $orange-lightest;
+    color: $orange-darkest;
+  }
+
+  &.mod-green-light{
+    background: $green-lightest;
+    color: $green-darker;
+  }
+
+  &.mod-blue-light{
+    background: $blue-lightest;
+    color: $blue;
+  }
+
+  &.mod-white-light{
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+  }
+
+  &.mod-icon-solo{
+    align-items: center;
+    height: 25px;
+    display: inline-flex;
+    padding: 2px 2px;
+    width: 25px;
+    position: relative;
+  }
+
+  &.mod-icon-text{
+    align-items: center;
+    font-weight: 600;
+    height: 25px;
+    display: inline-flex;
+    position: relative;
+  }
+
+
+
+  /* - - - - - - - - - - - - - - - - - - -
+
+              LABEL STATES
+
+   - - - - - - - - - - - - - - - - - - - */
+
+   &.is-loading{
+    padding-right: 30px;
+    line-height: 23px;
+
+    &:after{
+      @include m-icon-lgw;
+      animation: statusAnimation 1.0s infinite linear;
+      content: unicode($icon-update);
+      font-size: $font-standard;
+      margin: 4px 0 0 7px;
+      position: absolute;
+      white-space: nowrap;
+    }
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+            LABEL ANIMATIONS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+@keyframes statusAnimation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+h1,h2,h3{
+
+  .label{
+    vertical-align: bottom;
+  }
+}
+
+/*
+  ::selection
+*/
+
+.label::selection {
+  background: transparent;
+}
+
+.label::-moz-selection {
+  background: transparent;
+}

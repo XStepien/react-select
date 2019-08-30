@@ -1,0 +1,184 @@
+.global{
+  min-height: 100vh;
+  min-width: 980px;
+  padding: 60px 0 80px;
+  position: relative;
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+              GLOBAL MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.global{
+
+  &.mod-width-auto{
+    min-width: auto;
+  }
+
+  /* WITH HEADER */
+
+  &.mod-headnav{
+    padding-top: 130px;
+
+    &.mod-trial-bar{
+      padding-top: calc(130px + #{$trial-bar-height});
+    }
+  }
+
+  &.mod-nopadding-top{
+    padding-top: 0;
+
+    &.mod-headnav{
+      padding-top: 64px;
+
+      &.mod-trial-bar{
+        padding-top: calc(64px + #{$trial-bar-height});
+      }
+    }
+  }
+
+  &.mod-filters{
+    padding-top: 120px;
+
+    &.mod-headnav{
+      padding-top: 165px;
+
+      &.mod-trial-bar{
+        padding-top: calc(165px + #{$trial-bar-height});
+      }
+    }
+  }
+
+  &.mod-app-nav {
+    padding-top: 180px;
+
+    &.mod-with-menu {
+      padding-top: calc(180px - #{$app-nav});;
+    }
+    &.mod-trial-bar{
+      padding-top: calc(180px + #{$trial-bar-height});
+    }
+  }
+
+  &.mod-stepbar {
+    padding-top: calc(#{$app-nav}*2 + #{$navbar-height} + #{$margin-bigger});
+  }
+
+  &.mod-reports{
+    padding-top: 121px;
+
+    &.mod-trial-bar{
+      padding-top: calc(121px + #{$trial-bar-height});
+    }
+  }
+
+  &.mod-injection-nav{
+    padding: $filter-height 0 0;
+  }
+
+  /* WITH FOOTER */
+
+  &.mod-footer{
+    padding-bottom: 140px;
+  }
+
+  &.mod-footer-upgrade{
+    padding-bottom: 55px;
+  }
+
+  /* WITH ASIDE */
+
+  &.mod-aside-right{
+    padding-right: $aside-width;
+
+    @media (max-width: $lg) {
+      padding-right: $aside-width-small;
+    }
+  }
+
+  &.mod-aside-home{
+    padding-right: $aside-width-home;
+    min-width: auto;
+
+    @media (max-width: $md) {
+      padding-right: 0;
+      width: 100%;
+    }
+  }
+
+  &.mod-aside-setup-matching{
+    padding-right: $aside-width;
+
+    @media (max-width: $lg) {
+      padding-right: $aside-width-small;
+    }
+
+    @media (max-width: $md) {
+      padding-right: 0;
+    }
+  }
+
+  &.mod-aside-transfo{
+    padding-left: $aside-width-small;
+
+    @media (max-width: $lg) {
+      padding-left: 0;
+    }
+  }
+
+  &.mod-aside-categories{
+    padding-left: 450px;
+  }
+
+  &.mod-app-detail{
+    margin-top:$navbar-height;
+
+    &.mod-trial-bar{
+      margin-top: calc(#{$navbar-height} + #{$trial-bar-height});
+    }
+  }
+
+  &.mod-import-method{
+    top:0;
+    transition: all 350ms ease;
+  }
+
+  &.mod-iframe{
+    height: 100vh;
+    padding-bottom: 0;
+    padding-top: 0;
+    overflow: hidden;
+
+    &.mod-trial-bar{
+      padding-top: $trial-bar-height;
+    }
+  }
+
+  &.mod-couple{
+    background: url(/src/assets/images/pages/errors/couple.png);
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    bottom: 0;
+    min-width: 100%;
+    position: fixed;
+
+    &.mod-headnav{
+      padding-top: 0px;
+    }
+
+    @media screen and (max-width: 1199px) {
+      background-size: 40%;
+    }
+
+    @media screen and (max-width: 991px) {
+      background-size: 30%;
+    }
+  }
+
+  &.mod-pim{
+    padding-top: 260px;
+  }
+}

@@ -1,0 +1,231 @@
+.switch{
+
+  &.mod-block{
+
+    .switch-wrap{
+      align-items: center;
+      display: grid;
+      grid-template-columns: 60px auto;
+
+      align-self: start;
+      margin-top: 20px;
+    }
+
+    .switch-text{
+      color: $grey-light;
+      font-weight: 400;
+      font-size: $font-standard;
+      line-height: 22px;
+      transition: all $transition-fastest ease;
+    }
+
+    .switch-state{
+      margin-top: 20px;
+      align-self: start;
+    }
+
+    .switch-title{
+        color: $grey-light;
+      }
+  }
+
+  &.mod-box{
+    cursor: pointer;
+    display: block;
+    position: relative;
+
+    .switch-wrap{
+      @include m-box-style();
+      align-items: center;
+      background-color: $grey-background;
+      border: 1px solid $grey-border-over;
+      box-shadow: none;
+      display: grid;
+      grid-template-columns: 90px auto;
+      margin-bottom: $margin-small;
+      padding: $margin-standard $margin-big;
+      transition: all $transition-fastest ease;
+
+      &::before {
+        background: $blue;
+        bottom: -1px;
+        content: "";
+        display: block;
+        height: 2px;
+        left: -1px;
+        opacity: 0;
+        position: absolute;
+        right: 100%;
+        transition: all $transition-fast ease;
+      }
+    }
+
+    .switch-content{}
+
+    .switch-title{
+      color: $grey;
+      transition: all $transition-fastest ease;
+    }
+
+    .switch-text{
+      color: $grey-light;
+      font-weight: 400;
+      font-size: $font-standard;
+      line-height: 22px;
+      padding-left: 0;
+      transition: all $transition-fastest ease;
+    }
+
+    .switch-label{
+      background: $dark-lightest;
+      border: 1px solid $dark-lightest;
+      color: white;
+      border-radius: 12px;
+      display: inline-block;
+      font-size: $font-small;
+      font-weight: 700;
+      height: 24px;
+      line-height: 21px;
+      margin: 0 $margin-tiny 2px $margin-tiny;
+      padding: 0 10px;
+      text-align: center;
+      transition: all $transition-fastest ease;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    &:hover{
+
+      .switch-wrap{
+        border-color: $grey-light;
+      }
+
+      .switch-text{
+        color: $grey;
+      }
+
+      .switch-state{
+        background: $grey-light;
+      }
+
+      .switch-label{
+        background: $blue;
+        border: 1px solid $blue;
+        color: white;
+      }
+    }
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+           SWITCH BOX MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+
+.switch{
+
+  &.mod-box{
+
+    &.mod-dropdown{
+
+      .switch-dropdown-content{
+        animation-fill-mode: forwards;
+        background: white;
+        bottom: 90%;
+        box-shadow: 0 10px 10px 0 rgba(0,0,0,.15);
+        display: block;
+        opacity: 0;
+        left: 50%;
+        margin: 0 0 0 -275px;
+        padding: $margin-big $margin-big $margin-standard;
+        position: absolute;
+        text-align: left;
+        transform: scale(0, 0);
+        transform-origin: center bottom;
+        transition: all $transition-faster cubic-bezier(0.565, -0.240, 0.710, 0.390);
+        width: 550px;
+        z-index: 59;
+
+        &:after{
+          border-style: solid;
+          border-width: 8px 8px 0 8px;
+          border-color: white transparent transparent transparent;
+          content: '';
+          height: 0;
+          left: 50%;
+          margin: 0 0 0 -8px;
+          position: absolute;
+          top: 100%;
+          width: 0;
+        }
+
+      }
+
+       &:hover{
+
+        .switch-dropdown-content{
+          opacity: 1;
+          transform: scale(1, 1);
+          transition: all $transition-faster cubic-bezier(0.280, 0.825, 0.535, 1.210);
+        }
+      }
+    }
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+            SWITCH STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.switch{
+
+  &.mod-block{
+
+    &.is-checked{
+
+      .switch-title{
+        color: $grey;
+      }
+
+      .switch-text{
+        color: $grey;
+      }
+    }
+  }
+
+
+  &.mod-box{
+
+    &.is-checked{
+
+      .switch-wrap{
+        background: white;
+        border-color: $grey-border-over;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+       &::before {
+          opacity: 1;
+          right: -1px;
+        }
+      }
+
+      .switch-title{
+        color: $blue;
+      }
+
+      .switch-text{
+        color: $grey;
+      }
+
+      .switch-label{
+        background: $blue;
+        border: 1px solid $blue;
+        color: white;
+      }
+    }
+  }
+}

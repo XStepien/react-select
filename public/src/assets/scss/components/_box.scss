@@ -1,0 +1,888 @@
+.box{
+  @include m-box-style();
+  margin-bottom: $margin-standard;
+  padding: 45px $margin-bigger;
+
+  &:hover{
+
+    .box-trash{
+      opacity: 1;
+    }
+  }
+}
+
+  .box-tick{
+    background: url(/src/assets/images/pages/channels/settings/tick-white.png) $blue no-repeat center;
+    border-radius: 50%;
+    border: 2px solid white;
+    bottom: 0;
+    height: 36px;
+    left: -18px;
+    margin: auto;
+    opacity: 0;
+    position: absolute;
+    transition: all $transition-fast ease;
+    top: 0;
+    width: 36px;
+  }
+
+  .box-illustration{
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .box-illustration-top{
+    border-radius: 50%;
+    height: 120px;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: -60px;
+    width: 120px;
+  }
+
+  .box-illustration-left{
+    bottom: 0;
+    left: 40px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+  }
+
+  .box-state-label {
+    color: white;
+    display: block;
+    font-size: 12px;
+    height: 28px;
+    left: -42px;
+    padding-top: 5px;
+    position: absolute;
+    text-align: center;
+    text-shadow: 0 1px rgba(255,255,25,0.1);
+    transform: rotateZ(-45deg);
+    top: 15px;
+    width: 140px;
+    z-index: 2;
+  }
+
+  .box-label{
+    border-left: auto;
+    border-right: auto;
+    bottom: -11px;
+    color: $grey;
+    left: 0;
+    font-size: $font-small;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    width: 100%;
+    z-index: 3;
+  }
+
+    .box-label-inner{
+      background: white;
+      border: 1px solid $grey-border;
+      border-radius: 10px;
+      display: inline-block;
+      height: 22px;
+      padding: 0 15px;
+    }
+
+  .box-ribbon{
+    bottom: 0;
+    height: 100px;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    width: 100px;
+  }
+
+    .box-ribbon-text{
+      background: $blue;
+      color: white;
+      font-size: $font-small;
+      font-weight: 600;
+      height: 21px;
+      line-height: 21px;
+      margin: 0;
+      position: absolute;
+      right: -60px;
+      text-align: center;
+      text-transform: uppercase;
+      top: 50px;
+      transform: rotate(-45deg);
+      width: 200px;
+    }
+
+  .box-expedition{
+    padding: 0 $margin-standard 50px;
+  }
+
+  .box-map{
+    background: $grey-background;
+    height: 300px;
+    overflow: hidden;
+    width: 100%;
+    border-top-right-radius: $border-radius;
+    pointer-events: none;
+  }
+
+  .box-avatar{
+    background-color: $grey-disabled;
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+    height: 80px;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: -40px;
+    width: 80px;
+  }
+
+    .box-avatar-activity{
+      background: $dark-lightest;
+      border-radius: 50%;
+      bottom: 3px;
+      height: 20px;
+      position: absolute;
+      right: 3px;
+      width: 20px;
+    }
+
+  .box-trash{
+    background: url(/src/assets/images/pages/settings/users/cancel-invitation.png) 0 -30px no-repeat;
+    height: 20px;
+    opacity: 0;
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    width: 18px;
+    transition: opacity $transition-fastest ease;
+
+    &:hover{
+      background: url(/src/assets/images/pages/settings/users/cancel-invitation.png) 0 0 no-repeat;
+    }
+  }
+
+  // Channel home
+
+  .box-channel-logo{
+    border-radius: $border-radius;
+    margin: auto;
+    max-width: 200px;
+    max-height: 80px;
+    vertical-align: middle;
+  }
+
+  .box-footer-channel{
+    border-top: 1px solid $grey-disabled;
+    bottom: 0;
+    color: $grey-light;
+    font-size: $font-small;
+    height: 40px;
+    left: 0;
+    line-height: 37px;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    text-align: center;
+  }
+
+  .box-footer{
+    padding: $margin-standard $margin-standard $margin-big;
+    background-color: $grey-step-bar;
+  }
+
+  .box-spliter{
+
+    &:after{
+      clear: both;
+      content: " ";
+      display: block;
+    }
+  }
+
+    .box-spliter-left{
+      position: relative;
+      float: left;
+      width: 50%;
+      padding: $margin-big $margin-bigger;
+    }
+
+    .box-spliter-right{
+      float: right;
+      padding: $margin-big $margin-bigger;
+      width: 50%;
+    }
+
+    .box-spliter-separator {
+      width: 1px;
+      background: $grey-border;
+      height: 100%;
+      position: absolute;
+      left: 50%;
+    }
+
+    .box-in-between {
+      position: absolute;
+      right: -20px;
+      padding: 10px;
+      top: 50%;
+      text-align: center;
+      border: 1px solid $grey-border;
+      background: $white;
+      font-weight: bold;
+      font-style: italic;
+      z-index: 1;
+    }
+
+  .box-footer-channel-custom{
+    bottom: 0;
+    height: 40px;
+    left: 0;
+    right: 0;
+    line-height: 37px;
+    position: absolute;
+    text-align: center;
+    transition: all $transition-fast ease;
+  }
+
+  .box-footer-channel-custom-delete,
+  .box-footer-channel-custom-copy{
+    background-color: transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    display: inline-block;
+    height: 30px;
+    opacity: 0;
+    position: absolute;
+    bottom: 5px;
+    right: -30px;
+    transition: all $transition-fastest ease;
+    width: 30px;
+
+    &:hover,
+    &:focus{
+      background-color: $grey-background;
+      cursor: pointer;
+      outline: none;
+      right: 10px;
+      text-decoration: none;
+
+      &:before{
+        color: $red;
+      }
+    }
+
+    &:before{
+      @include m-icon-lgw;
+      color: $grey-light;
+      content: unicode($icon-delete);
+      font-size: 18px;
+      font-weight: 900;
+      position: relative;
+      top: -2px;
+      left: 0px;
+    }
+  }
+
+  .box-footer-channel-custom-copy{
+
+    right: -10px;
+
+    &:before{
+      content: unicode($icon-copy);
+    }
+
+    &:hover,
+    &:focus{
+
+      &:before{
+        color: $blue;
+      }
+    }
+  }
+
+/* - - - - - - - - - - - - - - - - - - -
+
+           BOXES WRAP (LINK)
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.wrap-box{
+  cursor: pointer;
+
+  .box{
+    color: $grey;
+    top: 0;
+  }
+
+  &:hover,
+  &:focus{
+    text-decoration: none;
+
+    .box{
+      box-shadow: 0 -0.5px 1px rgba(0, 0, 0, .2), 0 10px 10px rgba(0, 0, 0, .2);
+      top: -6px;
+    }
+  }
+
+  /* - - - - - - - - - - - - - - - - - - -
+
+             BOXES WRAP (MODS)
+
+   - - - - - - - - - - - - - - - - - - - */
+  &.mod-channel-detail {
+    cursor:initial;
+
+    .box {
+      top:0;
+      box-shadow: 0 -0.5px 1px rgba(0, 0, 0, .2), 0 2px 2px rgba(0, 0, 0, .2);
+    }
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+              BOXES MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.box{
+
+  &.mod-small{
+    padding: $margin-small $margin-standard;
+  }
+
+  &.mod-small-margin{
+    margin-bottom: $margin-small;
+  }
+
+  &.mod-medium{
+    padding: $margin-small $margin-bigger;
+  }
+
+  &.mod-illustration-left{
+    padding-left: 130px;
+  }
+
+  &.mod-illustration-top{
+    margin-top: $margin-bigger;
+    padding-top: 85px;
+  }
+
+  &.mod-spliter{
+    padding: 0;
+  }
+
+  &.mod-dark{
+    background: $dark;
+    color: white;
+  }
+
+  &.mod-channel{
+    height: 260px;
+  }
+
+  &.mod-user{
+    height: 220px;
+    margin-top: $margin-standard;
+    padding: 60px $margin-small $margin-standard;
+    word-wrap: break-word;
+  }
+
+  &.mod-footer{
+    padding-bottom: 40px;
+  }
+
+  &.mod-app {
+    height: 230px;
+
+    @media (max-width: $lg) {
+      height: 240px;
+    }
+  }
+
+  &.mod-product-detail{
+    max-width: 1200px;
+    margin: 0 auto $margin-big;
+  }
+
+  &.mod-cms{
+    padding: 100px $margin-bigger $margin-biggest;
+  }
+
+  // Mod for channel home
+
+  &.mod-channel-logo{
+    background: white;
+    height: 80px;
+    padding: 0;
+    width: 200px;
+  }
+
+  &.mod-universe{
+    height:120px;
+
+    .box-channel-logo{
+      border-radius: $border-radius $border-radius 0 0;
+    }
+  }
+
+  &.mod-blue-sky{
+    background: $sky-lighter;
+    color: $dark-light;
+  }
+
+  &.mod-category-matching{
+
+    @media (max-width: $lg){
+      padding:{
+        left: $margin-standard;
+        right: $margin-standard;
+      }
+    }
+  }
+
+  &.mod-detail-order{
+
+    &:first-of-type{
+      margin-top: -35px;
+    }
+  }
+
+  &.mod-error-order{
+    background-color: $red-lightest;
+    padding: 30px 45px;
+  }
+
+
+  &.mod-sale-summary{
+    min-height: 150px;
+    padding-right: 300px;
+
+    .box-side-right{
+      background: $dark-light;
+      bottom: 0;
+      padding: 30px 40px;
+      position: absolute;
+      right: 0;
+      text-align: right;
+      top: 0;
+      width: 300px;
+    }
+  }
+
+  &.mod-amount-summary{
+    min-height: 150px;
+    display: grid;
+    grid-template-columns: auto 1fr 1fr 1fr;
+    align-items: center;
+    padding: 0;
+
+    .box-side-right{
+      background: $dark-light;
+      bottom: 0;
+      padding: 30px 40px;
+      position: absolute;
+      right: 0;
+      text-align: right;
+      top: 0;
+      width: 300px;
+    }
+
+    .box-side-left{
+      background: $dark;
+      border-top-left-radius: $border-radius;
+      border-bottom-left-radius: $border-radius;
+      padding: 30px 40px;
+      text-align: left;
+    }
+    .box-side-including{
+      left: 0;
+      position: absolute;
+      top: -30px;
+    }
+
+    &.mod-refunded {
+      grid-template-columns: auto 1fr 1fr 1fr 1fr;
+    }
+  }
+
+  &.mod-log-back{
+    background: $darker;
+    padding: 50px 45px 30px;
+    margin: auto;
+    top: 50%;
+    width: 550px;
+    -webkit-box-shadow: 0px 0px 20px 0px rgba(46, 51, 64, 0.5);
+       -moz-box-shadow:    0px 0px 20px 0px rgba(46, 51, 64, 0.5);
+            box-shadow:         0px 0px 20px 0px rgba(46, 51, 64, 0.5);
+    -webkit-transform: translateY(-50%); /* Safari */
+        -ms-transform: translateY(-50%); /* IE 9 */
+            transform: translateY(-50%);
+  }
+
+  &.mod-legal{
+    margin-bottom: $margin-standard;
+    padding: $margin-standard $margin-bigger $margin-standard 130px;
+
+    .box-legal-illu{
+      height: 73px;
+      left: 27px;
+      margin-top: -37px;
+      position: absolute;
+      top: 50%;
+    }
+  }
+
+  &.mod-channel-choice{
+    overflow: hidden;
+    padding: 0;
+
+    .box-inner-content{
+      max-height: calc(100vh - 223px);
+      overflow: auto;
+      padding: $margin-standard $margin-big $margin-standard;
+    }
+
+    .box-inner-footer{
+      box-shadow: 0px -1px 15px 0px rgba(0,0,0,0.05);
+      padding: $margin-standard;
+      position: relative;
+      text-align: center;
+    }
+  }
+
+  &.mod-pim{
+
+    .box-header{
+      background-color: $sky;
+      color: white;
+      display: block;
+      height: auto;
+      padding: $margin-standard $margin-bigger;
+      width: 100%;
+    }
+    .box-subheader{
+      border-bottom: 1px solid #eee;
+      display: block;
+      height: auto;
+      padding: $margin-standard $margin-bigger 20px;
+      width: 100%;
+    }
+
+    .box-header-error{
+      background-color: $red-lightest;
+      color: $red;
+      display: block;
+      height: auto;
+      padding: $margin-standard $margin-bigger;
+      width: 100%;
+    }
+
+    .box-header-warning{
+      background-color: $orange-lightest;
+      color: $orange-darkest;
+      display: block;
+      height: auto;
+      padding: $margin-standard $margin-bigger;
+      width: 100%;
+    }
+
+    .box-inner{
+      padding: $margin-standard $margin-bigger $margin-standard 70px;
+    }
+  }
+
+  &.mod-noshadow{
+    box-shadow: none;
+
+    .box-header-loading{
+      background: $grey-disabled;
+      height: 60px;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
+
+  &.mod-smarthome{
+    padding: 0 0 $margin-small 0;
+  }
+}
+
+/*
+  Universes stacks
+*/
+
+.wrap-box{
+
+  &.mod-stack{
+
+    .box{
+      box-shadow: 0 -0.5px 1px rgba(0, 0, 0, .2), 0 1px 1px rgba(0, 0, 0, .2);
+
+      &:after {
+        background: white;
+        border-radius: $border-radius;
+        bottom: -3px;
+        box-shadow: 0 -0.5px 1px rgba(0, 0, 0, .2), 0 1px 1px rgba(0, 0, 0, .2);
+        content: '';
+        height: 160px;
+        left: 5px;
+        position: absolute;
+        right: 5px;
+        transition: all $transition-fastest ease;
+        z-index: -1;
+      }
+
+      &:before {
+        background: white;
+        border-radius: $border-radius;
+        bottom: -6px;
+        box-shadow: 0 -0.5px 1px rgba(0, 0, 0, .2), 0 1px 1px rgba(0, 0, 0, .2);
+        content: '';
+        height: 160px;
+        left: 10px;
+        position: absolute;
+        right: 10px;
+        transition: all $transition-fastest ease;
+        z-index: -1;
+      }
+
+      &:hover,
+      &:focus{
+          box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+
+        &:after{
+          bottom: -8px;
+          box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+        }
+
+        &:before {
+          bottom: -16px;
+          box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+        }
+      }
+    }
+  }
+}
+
+/*
+  Online user
+*/
+
+.box-avatar-activity{
+
+  &.mod-online{
+    background: $green;
+  }
+}
+
+.box-state-custom{
+  display: none;
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+              BOXES STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.box{
+
+  &.is-disabled{
+    background: $grey-disabled;
+    color: $grey-light;
+  }
+
+  &.is-recommended{
+
+    .box-medal{
+      background: url(/src/assets/images/pages/apps/recommended.png) no-repeat;
+      height: 22px;
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      width: 16px;
+    }
+  }
+}
+
+/*
+  Ticks
+*/
+
+.box-tick{
+
+  &.is-selected{
+    opacity: 1;
+  }
+}
+
+/*
+  Disabled / Error box
+*/
+
+[data-enabled="0"],
+[data-error="1"]{
+  .box{
+    color:$grey-light;
+
+    &:before {
+      border-color: transparent transparent $red transparent;
+      border-style: solid;
+      border-width: 0 22px 22px 22px;
+      box-sizing: border-box;
+      content: "";
+      display: block;
+      height: 20px;
+      left: -24px;
+      position: absolute;
+      top: 17px;
+      transform: rotateZ(-45deg);
+      width: 104px;
+      z-index: 1;
+    }
+
+    &:after{
+      border-radius: $border-radius;
+      content: '';
+      position: absolute;
+      top:0;
+      left: 0;
+      right:0;
+      bottom:0;
+      background: rgba(0,0,0,.1);
+    }
+
+    .box-label-inner{
+      background: $grey-disabled;
+    }
+  }
+}
+
+/*
+  Draft box
+*/
+
+[data-draft="1"]{
+
+  .box{
+    color:$grey-light;
+
+    &:before {
+      border-color: transparent transparent $grey-border-over transparent;
+      border-style: solid;
+      border-width: 0 22px 22px 22px;
+      box-sizing: border-box;
+      content: "";
+      display: block;
+      height: 20px;
+      left: -24px;
+      position: absolute;
+      top: 17px;
+      transform: rotateZ(-45deg);
+      width: 104px;
+      z-index: 1;
+    }
+
+    &:after{
+      background: rgba(0,0,0,.1);
+      border-radius: $border-radius;
+      bottom: 0;
+      content: '';
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    .box-label-inner{
+      background: $grey-disabled;
+    }
+
+    .box-footer-channel-custom-copy,
+    .box-footer-channel-custom-delete{
+      z-index: 3;
+    }
+  }
+}
+
+/*
+  Installed box
+*/
+
+[data-installed="installed"]{
+
+  .box{
+
+    &:before {
+      border-color: transparent transparent $green transparent;
+      border-style: solid;
+      border-width: 0 20px 20px 20px;
+      box-sizing: border-box;
+      content: "";
+      display: block;
+      height: 20px;
+      left: -23px;
+      position: absolute;
+      top: 19px;
+      transform: rotateZ(-45deg);
+      width: 104px;
+      z-index: 1;
+    }
+  }
+}
+
+/*
+  Custom channel box
+*/
+
+[data-custom="1"]{
+
+  .box{
+
+    .box-state-custom{
+      background: url(/src/assets/images/pages/apps/my_custom_channel/custom-icon.png) no-repeat;
+      display: block;
+      height: 58px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 58px;
+      z-index: 1;
+    }
+
+    &:hover{
+
+      .box-footer-channel-custom{
+        bottom: -30px;
+        opacity: 0;
+      }
+
+      .box-footer-channel-custom-delete{
+        opacity: 1;
+        right: 10px;
+      }
+
+      .box-footer-channel-custom-copy{
+        opacity: 1;
+        right: 40px;
+      }
+    }
+  }
+}
+

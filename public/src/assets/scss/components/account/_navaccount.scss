@@ -1,0 +1,309 @@
+$navbar-height: 64px;
+
+.navaccount{
+  border: 0;
+  height: $navbar-height;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: background $transition-fastest ease;
+  width: $navbar-height;
+
+  &:hover{
+    background: $dark-light;
+  }
+}
+
+  .navaccount-toggle{
+    background-color: transparent;
+    height: $navbar-height;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    width: $navbar-height;
+    z-index: 4;
+  }
+
+  .navaccount-close{
+    background: url(/src/assets/images/components/account/cross-white.png) $dark-light center no-repeat;
+    height: $navbar-height;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    transform: scale(0);
+    transition: all $transition-fastest ease;
+    width: $navbar-height;
+    z-index: 3;
+  }
+
+  .navaccount-avatar{
+    height: $navbar-height;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: $navbar-height;
+  }
+
+    .navaccount-avatar-image{
+      background-position: center;
+      background-size: cover;
+      border-radius: 50%;
+      height: 48px;
+      left: 8px;
+      opacity: 1;
+      position: absolute;
+      top: 8px;
+      transition: all $transition-fastest ease;
+      width: 48px;
+      z-index: 1;
+    }
+
+  .navaccount-dropdown{
+    animation-fill-mode: forwards;
+    background: white;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.15);
+    color: $grey;
+    min-width: 400px;
+    overflow-x: hidden;
+    position: absolute;
+    right: 0;
+    left: initial;
+    top: $navbar-height;
+    transform: scale(0);
+    transform-origin: right top;
+    transition: all $transition-fast cubic-bezier(0.565, -0.240, 0.710, 0.390);
+    width: 400px;
+  }
+
+  .navaccount-current{
+    background: white;
+    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.15);
+    display: block;
+    float: right;
+    position: relative;
+    width: 400px;
+    z-index: 2;
+  }
+
+  .navaccounts-list{
+    background: white;
+    display: block;
+    height: 100%;
+    left: 0;
+    max-height: 100%;
+    opacity: 0;
+    overflow-y: auto;
+    position: absolute;
+    padding: $margin-big;
+    right: 400px;
+    z-index: 1;
+  }
+
+    .navaccounts-list-logo{
+      background-color: $dark-light;
+      border-radius: 50%;
+      box-shadow: 0px 0px 17px 0px rgba(9, 9, 84, 0.1);
+      height: 44px;
+      margin: 0;
+      overflow: hidden;
+      position: relative;
+      width: 44px;
+      z-index: 2;
+    }
+
+      .navaccounts-list-logo-img{
+        left: 50%;
+        max-width: 44px;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+      }
+
+
+    .navaccount-profile{
+      display: grid;
+      grid-template-columns: 85px auto;
+      align-items: center;
+      padding: 20px 20px $margin-small $margin-big;
+      text-decoration: none;
+
+      &.mod-switch{
+        padding-bottom: $margin-standard;
+
+        .navaccount-profile-role{
+          margin: 0;
+        }
+      }
+    }
+
+      .navaccount-profile-avatar{
+        float: left;
+        height: 70px;
+        margin-right: $margin-small;
+        position: relative;
+        width: 70px;
+      }
+
+        .navaccount-profile-avatar-photo{
+          background-color: $dark-light;
+          background-position: center;
+          background-size: cover;
+          border-radius: 50%;
+          height: 70px;
+          transition: all $transition-fastest ease;
+          width: 70px;
+        }
+
+      .navaccount-profile-title{
+        color: $grey;
+        margin: 11px 0 0;
+      }
+
+      .navaccount-profile-role{
+        color: $greyish;
+        font-size: $font-small;
+        margin: 7px 0 0;
+      }
+
+    .navaccount-list{
+      padding: 0;
+      margin: 0 0 $margin-standard;
+    }
+
+      .navaccount-list-item{
+        background: transparent;
+        display: block;
+      }
+
+        .navaccount-list-item-link{
+          display: block;
+          font-size: $font-small;
+          padding: 8px $margin-small 8px $margin-big;
+          transition: all $transition-fastest ease;
+          vertical-align: middle;
+
+          &:hover,
+          &:focus,
+          &:active{
+            background: $sky-lightest;
+            text-decoration: none;
+          }
+        }
+
+    .navaccount-company{
+      background-color: $grey-background;
+      display: block;
+      margin: 0 0 $margin-small 0;
+      padding: 0;
+
+      &:hover,
+      &:focus{
+        cursor: auto;
+        text-decoration: none;
+      }
+
+      .navaccount-profile{
+        padding-bottom: 20px;
+        pointer-events: none;
+        text-decoration: none;
+      }
+
+      .navaccount-switch{
+        color: $blue;
+        font-size: $font-small;
+        text-decoration: none;
+      }
+
+      &.mod-switch{
+        transition: all $transition-fast ease;
+
+        .navaccount-profile{
+          padding-bottom: $margin-standard;
+          pointer-events: auto;
+
+          .navaccount-profile-role{
+            margin: 0;
+          }
+
+          .navaccount-switch{
+            margin: 0;
+          }
+        }
+
+        &:hover,
+        &:focus{
+          background-color: $sky-lightest;
+          cursor: pointer;
+          text-decoration: none;
+
+          .navaccount-profile, .navaccount-profile-role, .navaccount-company-title{
+            text-decoration: none;
+          }
+
+          .navaccount-switch{
+            text-decoration: underline;
+          }
+
+          .navaccount-profile-role{
+            color: $dark-lighter;
+          }
+        }
+      }
+    }
+
+      .navaccount-company-title{
+        color: $grey;
+        margin: 0 $margin-big $margin-tiny 0;
+        text-decoration: none;
+      }
+
+    .navaccount-footer{
+      padding: 0px 0 $margin-small;
+    }
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+            ACCOUNT STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.navaccount{
+
+  &.is-open{
+
+    .navaccount-close{
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .navaccount-avatar{
+      background-color: $dark-light;
+    }
+
+      .navaccount-avatar-image{
+        opacity: 0;
+        transform: scale(0);
+      }
+
+    .navaccount-dropdown{
+      transform: scale(1);
+      transition: transform $transition-fast cubic-bezier(0.280, 0.825, 0.535, 1.210), width $transition-fast ease, opacity $transition-faster ease;
+    }
+
+    &.is-open-multicount{
+
+      .navaccount-dropdown{
+        width: 100vw;
+      }
+
+      .navaccounts-list{
+        opacity: 1;
+        transition: opacity $transition-faster ease $transition-fast;
+      }
+    }
+  }
+}

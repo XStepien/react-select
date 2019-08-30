@@ -1,0 +1,305 @@
+@font-face {
+  font-family: '#{$icomoon-font-family}';
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?6et83p');
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?6et83p#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?6et83p') format('truetype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?6et83p') format('woff'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?6et83p##{$icomoon-font-family}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.icon-lgw {
+  @include m-icon-lgw;
+
+  /* Custom =========== */
+  cursor: inherit;
+  margin: 0 5px;
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+              ICON-LGW MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.icon-lgw {
+
+  /*
+    Size
+  */
+
+  &.mod-smaller{
+    font-size: $font-smaller;
+  }
+
+  &.mod-small{
+    font-size: $font-small;
+  }
+
+  &.mod-big{
+    font-size: $font-big;
+  }
+
+  &.mod-bigger{
+    font-size: $font-bigger;
+  }
+
+  &.mod-biggest{
+    font-size: $font-biggest;
+  }
+
+  &.mod-kraken{
+    font-size: $font-kraken;
+  }
+
+  &.mod-krakener{
+    font-size: calc(#{$font-kraken} + 10px );
+  }
+
+  &.mod-circle{
+    border: 2px solid;
+    border-radius: 50%;
+    padding: 2px;
+  }
+
+  &.mod-contact{
+    margin: 0 5px 0 0;
+  }
+
+  /*
+  ** icon update
+  */
+
+  &.is-synchro{
+    padding-right: 30px;
+
+    &:after{
+      @include m-icon-lgw;
+      animation: iconSynchro 1.0s infinite linear;
+      content: unicode($icon-update);
+      font-size: $font-standard;
+      margin: 4px 0 0 7px;
+      position: absolute;
+      white-space: nowrap;
+    }
+  }
+
+  /*
+  ** icon warning in table orders
+  */
+
+  &.mod-warning-table{
+    display: inline-block;
+    height: 23px;
+    line-height: 21px;
+    margin-right: 7px;
+    vertical-align: middle;
+  }
+
+  &.mod-search{
+    display: inline-block;
+    font-size: 21px;
+    margin: 0 0 0 9px;
+    position: relative;
+    vertical-align: top;
+
+    &:after{
+      content: unicode($icon-search);
+    }
+  }
+
+  &.mod-matching-auto{
+    position: absolute;
+    top: 0;
+  }
+
+  /*
+  ** icon-auto
+  */
+  &.mod-auto{
+
+    &:after{
+      content: unicode($icon-active);
+    }
+  }
+
+  /*
+  ** icon-manual
+  */
+  &.mod-manual{
+
+    &:after{
+      content: unicode($icon-hand);
+      font-size: inherit;
+    }
+  }
+
+  &.mod-priority{
+
+    &:after{
+      content: unicode($icon-priority);
+      font-size: 30px;
+    }
+  }
+
+  &.mod-next{
+    right: 30px;
+
+    &:after{
+      content: unicode($icon-next);
+      font-size: 18px;
+      position: absolute;
+    }
+  }
+
+  &.mod-blank{
+
+    &:after{
+      content: unicode($icon-blank);
+      font-size: 18px;
+      position: absolute;
+    }
+  }
+
+  &.mod-chrono{
+    margin: -1px 0 0 1px;
+
+    &:after{
+      content: unicode($icon-chrono);
+      font-size: 20px;
+    }
+  }
+
+  &.mod-delivery{
+    margin: 0;
+
+    &:after{
+      content: unicode($icon-delivery);
+      font-size: 20px;
+    }
+  }
+
+  &.mod-pro{
+    margin: -1px 0 0 1px;
+
+    &:after{
+      content: unicode($icon-pro);
+      font-size: 20px;
+    }
+  }
+}
+
+/*
+  Icon double border
+*/
+
+.icon-rounded{
+  background-color: #00b0f0;
+  border: 2px solid #0abeff;
+  border-radius: 50%;
+  height: 82px;
+  margin: 0 auto;
+  position: relative;
+  transition: all 250ms ease;
+  width: 82px;
+
+  &.mod-blue-shiny{
+    background-color: transparent;
+    border: 2px solid $blue-shiny;
+
+    .icon-rounded-inner{
+      background-color: $blue-shiny;
+    }
+  }
+
+  &.mod-green-shiny{
+    background-color: transparent;
+    border: 2px solid $greenish;
+
+    .icon-rounded-inner{
+      background-color: $greenish;
+      color: $green-darkest;
+    }
+  }
+
+  &.mod-red-shiny{
+    background-color: transparent;
+    border: 2px solid $red-shiny;
+
+   .icon-rounded-inner{
+    background-color: $red-shiny;
+    color: $red-darkest;
+   }
+  }
+
+  &.mod-orange-shiny{
+    background-color: transparent;
+    border: 2px solid $orange;
+
+    .icon-rounded-inner{
+      background-color: $orange;
+      color: $orange-pitch-dark;
+    }
+  }
+}
+
+  .icon-rounded-inner{
+    @include m-icon-lgw;
+    background-color: #0abeff;
+    border-radius: 50%;
+    color: #0085c7;
+    font-size: 51px;
+    height: 66px;
+    margin: 6px;
+    padding: 7px;
+    width: 66px;
+
+    &:after{
+
+    }
+
+    &.mod-basket{
+
+      &:after{
+        content: unicode($icon-basket);
+      }
+    }
+
+    &.mod-shipment{
+
+      &:after{
+        content: unicode($icon-carrier);
+      }
+    }
+
+    &.mod-refund{
+
+      &:after{
+        content: unicode($icon-refund);
+      }
+    }
+    &.mod-error{
+
+      &:after{
+        content: unicode($icon-error);
+      }
+    }
+  }
+
+/* - - - - - - - - - - - - - - - - - - -
+
+        SYNCHRO ANIMATION
+
+ - - - - - - - - - - - - - - - - - - - */
+
+
+@keyframes iconSynchro {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

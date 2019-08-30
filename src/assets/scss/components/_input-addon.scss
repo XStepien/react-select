@@ -1,0 +1,201 @@
+.input-group{
+  border-collapse: separate;
+  display: table;
+  position: relative;
+
+  .input{
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+  }
+}
+
+  .input-group-addon {
+    background-color: #eee;
+    border: 0px solid transparent;
+    border-radius: $border-radius;
+    color: #555;
+    display: table-cell;
+    font-size: $font-small;
+    font-weight: 400;
+    line-height: 1;
+    padding: 0;
+    text-align: center;
+    transition: all $transition-fastest ease;
+    vertical-align: middle;
+    width: 1%;
+    white-space: nowrap;
+
+    button,
+    .addon-button {
+      background: white;
+      color: $blue;
+      border: 1px solid $blue;
+      padding: 14px 10px;
+      box-sizing: border-box;
+      border-top-right-radius: $border-radius;
+      border-bottom-right-radius: $border-radius;
+      margin-right: -1px;
+      margin-left: -2px;
+      position: relative;
+      z-index: 3;
+
+      &:hover {
+        background: $blue-lighter;
+        color: white;
+      }
+
+      &:active {
+        background: $blue-lighter;
+      }
+    }
+
+    /*
+      Value en input side, e.g. "€, % ..."
+    */
+
+    .unit{
+      border: 1px solid $grey-border;
+      border-left: 0;
+      border-radius: 0 $border-radius $border-radius 0;
+      height: $input-height;
+      line-height: $input-height;
+      margin: 0;
+      padding: 0 $margin-small;
+    }
+
+    &:first-child {
+      border-right: 0;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &:last-child {
+      border-left: 0;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          INPUT GROUP MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.input-group{
+
+  &.mod-left-addon{
+
+    .unit{
+      border-radius: $border-radius 0 0 $border-radius;
+      border: 1px solid $grey-border;
+      border-right: 0;
+    }
+
+    .input{
+      border-radius:3px;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+
+  &.mod-left-radio{
+    display: grid;
+    grid-template-columns: auto 240px;
+
+    .input-group-addon{
+      margin-left: -1px;
+      width: auto;
+    }
+  }
+
+  &.mod-left-monocheck{
+    display: grid;
+    grid-template-columns: auto 60px;
+
+    .input-group-addon{
+      margin-left: -1px;
+      width: auto;
+    }
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+        INPUT GROUP ADDON MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+ .input-group-addon{
+
+  /*
+    color-preview
+  */
+
+  &.mod-color{
+    overflow: hidden;
+    padding: 0;
+
+    .input-addon-color{
+      border-top-right-radius: 3px;
+      border-bottom-right-radius: 3px;
+      height: 44px;
+      width: 60px;
+    }
+  }
+
+  // Blue
+
+  &.blue{
+
+    button,
+    .addon-button{
+      background: $blue;
+      color:white;
+
+      &:hover {
+        background: $blue-lighter;
+      }
+
+      &:active {
+        background: $blue-lighter;
+      }
+    }
+  }
+
+  // Red
+
+  &.red{
+
+    button,
+    .addon-button{
+      background: $red;
+      border: 1px solid $red;
+      color:white;
+
+      &:hover {
+        background: $red-darker;
+      }
+
+      &:active {
+        background: $red-darker;
+      }
+    }
+  }
+
+  &.success{
+
+    button,
+    .addon-button{
+      background: $green;
+      border: 1px solid $green;
+      color: white;
+
+      &:hover,
+      &:active{
+        background: $green;
+      }
+    }
+  }
+}

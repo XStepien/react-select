@@ -1,0 +1,172 @@
+.textcomplete{
+  background: white;
+  box-shadow: 0 10px 10px 0 rgba(0,0,0,.15);
+  list-style: none;
+  max-height: 300px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 0;
+  position: absolute !important; // erase plugin's inline style
+  z-index: 100 !important; // erase plugin's inline style
+}
+
+  .textcomplete-item{
+    border-bottom: 1px solid $grey-disabled;
+  }
+
+    .textcomplete-item-link{
+      color: $grey;
+      cursor: pointer;
+      display: block;
+      min-height: 40px;
+      height: auto;
+      line-height: inherit;
+      max-width: 400px;
+      padding: 15px;
+      position: relative;
+      transition: all $transition-fastest ease;
+
+      &:hover,
+      &:focus{
+        background: $grey-background;
+        color: $grey;
+        text-decoration: none;
+      }
+    }
+
+    .textcomplete-item-link-infos {
+
+      &.mod-icon {
+        padding-left: 40px;
+      }
+
+      .textcomplete-item-link-infos-title{
+        line-height: 40px;
+      }
+      
+      .textcomplete-item-link-infos-subtitle{
+        color: $grey-light;
+        font-size: 11px;
+        margin-top: 3px;
+        margin-bottom: $margin-tiny;
+      }
+
+      .textcomplete-item-link-infos-icon{
+        background: url(/src/assets/images/components/textcomplete/field.png) no-repeat center center transparent;
+        height: 40px;
+        position: absolute;
+        left: 0;
+        top: 15px;
+        width: 40px;
+      }
+
+      .textcomplete-item-link-infos-sample{
+        color: $grey-light;
+        font-size: 13px;
+        font-style: italic;
+        margin-top: 10px;
+      }
+    }
+
+/* - - - - - - - - - - - - - - - - - - -
+
+           TEXTCOMPLETE MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+
+.textcomplete{
+
+  &.mod-appcolor{
+    display: inline-block;
+    position: relative !important;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+    border: 1px solid $grey-disabled;
+    z-index: 10!important;
+  }
+}
+
+.textcomplete-item-link-infos-icon{
+
+  /*
+    Functions
+  */
+
+  &.mod-function{
+    background: url(/src/assets/images/components/textcomplete/function.png) no-repeat center center transparent;
+  }
+
+  /*
+    App icons
+  */
+
+  &.mod-app{
+    background-size: cover;
+    height: 41px;
+    line-height: 35px;
+    text-align: center;
+  }
+
+  /*
+    App Lengow
+  */
+
+  &.mod-lgw{
+    background: url(/src/assets/images/components/textcomplete/logo-extrafield.png) no-repeat center center transparent;
+  }
+
+  &.mod-link{
+    background: url(/src/assets/images/components/textcomplete/link.png) no-repeat center center transparent;
+  }
+
+  &.mod-manual{
+    background: url(/src/assets/images/components/textcomplete/manual.png) no-repeat center center transparent;
+  }
+
+  &.mod-ftp{
+    background: url(/src/assets/images/components/textcomplete/ftp.png) no-repeat center center transparent;
+  }
+
+   &.mod-prestashop{
+    background: url(/src/assets/images/pages/import-catalog/import-choice/choice-prestashop.png) no-repeat center center transparent;
+    background-size: 30px;
+  }
+
+   &.mod-magento{
+    background: url(/src/assets/images/pages/import-catalog/import-choice/choice-magento.png) no-repeat center center transparent;
+    background-size: 30px;
+  }
+
+   &.mod-shopify{
+    background: url(/src/assets/images/pages/import-catalog/import-choice/choice-shopify.png) no-repeat center center transparent;
+    background-size: 30px;
+  }
+
+   &.mod-shopware{
+    background: url(/src/assets/images/pages/import-catalog/import-choice/choice-shopware.png) no-repeat center center transparent;
+    background-size: 30px;
+  }
+
+   &.mod-woocommerce{
+    background: url(/src/assets/images/pages/import-catalog/import-choice/choice-woocommerce.png) no-repeat center center transparent;
+    background-size: 30px;
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          TEXTCOMPLETE STATUS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.textcomplete-item{
+
+  &.active{
+
+    .textcomplete-item-link{
+      background: $grey-background;
+      text-decoration: none;
+    }
+  }
+}

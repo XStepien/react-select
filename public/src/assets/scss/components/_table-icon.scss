@@ -1,0 +1,37 @@
+.table-icon{
+  @include m-icon-lgw;
+
+  color: $sky;
+  display: inline-block;
+  font-size: 30px;
+  line-height: 15px;
+  margin-right: 5px;
+  width: 30px;
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+            TABLES ICON MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+ .table-icon{
+
+  &.mod-catalogue{
+
+    &:before{
+      content: unicode($icon-tag);
+      position: absolute;
+      top: 15px;
+    }
+  }
+
+  &.mod-channel{
+
+    &:before{
+      content: unicode($icon-shop);
+      position: absolute;
+      top: 15px;
+    }
+  }
+}

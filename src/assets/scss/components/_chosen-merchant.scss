@@ -1,0 +1,45 @@
+.chosen-merchant{
+
+  .chosen-container-single{
+
+    .chosen-results{
+
+      .active-result{
+        border-bottom: 1px solid $grey-disabled;
+        padding: 12px 15px 12px 50px;
+        position: relative;
+        word-break: break-word;
+
+        &:hover,
+        &:focus{
+          background: $grey-background;
+          color: $grey;
+          text-decoration: none;
+        }
+      }
+
+      .result-selected{
+
+        &:hover,
+        &:focus{
+          background: url(/src/assets/images/components/select/tick.png) $grey-background no-repeat 8px center;
+        }
+      }
+
+      .subtitle{
+        padding-left: 0;
+      }
+
+      .sample{
+        margin: 0;
+        padding-left: 0;
+      }
+    }
+  }
+
+  .chose-image-list{
+    left: 21px;
+    position: absolute;
+    top: 15px;
+  }
+}

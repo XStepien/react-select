@@ -1,0 +1,288 @@
+.getstarted-block{
+  padding:{
+    top: 130px;
+    bottom: 160px;
+  }
+  position: relative;
+  z-index: 1;
+}
+
+  .get-started-box {
+    @media screen and (max-width: $lg) {
+      min-height: 380px;
+    }
+  }
+
+    .get-started-box-content{
+      min-height: 140px;
+
+      @media (max-width:$lg) {
+        min-height: 180px;
+      }
+    }
+
+    .get-started-box-done{
+      border-top: 1px dotted $green;
+      margin-top: 50px;
+    }
+
+      .get-started-box-done-tick{
+        background: url(/src/assets/images/pages/get-started/tick-step.png) no-repeat white center center;
+        height: 20px;
+        margin: -10px auto 0;
+        width: 66px;
+      }
+
+  .get-started-next {
+    display: block;
+    height: 68px;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    top: 450px;
+    width: 100%;
+    z-index: 3;
+  }
+
+    .get-started-next-arrow {
+      background:url(/src/assets/images/pages/home/arrow.png) white center no-repeat;
+      border-radius: 34px;
+      display: inline-block;
+      height: 68px;
+      margin: 0 auto;
+      position: relative;
+      -webkit-box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.05);
+              box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.05);
+      width: 68px;
+    }
+
+  .get-started-background{
+    background: #f7f7f7;
+    bottom: 0;
+    position: absolute;
+    top: 620px;
+    width: 100%;
+  }
+
+.getstarted-nav{
+  position: fixed;
+  right: 10px;
+  top: 42%;
+  width: 16px;
+  z-index: 10;
+}
+
+  .getstarted-nav-link{
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 50%;
+    box-shadow: 0 3px 5px rgba(0,0,0,.2);
+    display: block;
+    height: 16px;
+    margin-bottom: 8px;
+    width: 16px;
+
+    &:hover{
+      background: rgba(255,255,255,.5);
+    }
+
+    &.is-active{
+      border: 8px solid white;
+    }
+  }
+
+.getstarted-scroll{
+  bottom: 30px;
+  left: 0;
+  height: 160px;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  width: 500px;
+
+  .getstarted-scroll-mouse{
+    height: 102px;
+    margin: 0 auto;
+    width: 38px;
+
+    >.getstarted-scroll-mouse-arrow{
+      height: 102px;
+      opacity: 0;
+      position: absolute;
+      width: 38px;
+    }
+
+    .getstarted-scroll-mouse-arrow:nth-child(1){
+      background: url(/src/assets/images/pages/launching/mouse-0.png);
+      opacity: 1;
+    }
+
+    .getstarted-scroll-mouse-arrow:nth-child(2){
+      background: url(/src/assets/images/pages/launching/mouse-1.png);
+    }
+
+    .getstarted-scroll-mouse-arrow:nth-child(3){
+      background: url(/src/assets/images/pages/launching/mouse-2.png);
+    }
+
+    .getstarted-scroll-mouse-arrow:nth-child(4){
+      background: url(/src/assets/images/pages/launching/mouse-3.png);
+    }
+  }
+}
+
+.getstarted-reports{
+  position: relative;
+}
+
+  .getstarted-reports-text{
+    opacity:0;
+    transition: all $transition-faster ease;
+  }
+
+    .getstarted-reports-text-arrow{
+      height:20px;
+      width:81px;
+      position:absolute;
+      top:18px;
+    }
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          GETSTARTED-BLOCK MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.getstarted-block{
+
+  &.mod-full-height{
+    min-height: 100vh;
+  }
+
+  &.mod-start{
+
+    @media (max-width: $xl) {
+      padding-top: 20px;
+    }
+  }
+
+  &.mod-gs-top{
+    padding-bottom: 220px;
+  }
+
+  &.mod-gs-clients{
+    background: $orange;
+  }
+
+  &.mod-gs-orders{
+    background: $sky-lighter;
+  }
+
+  &.mod-gs-sales{
+    background: $green;
+
+    @media (max-width: $xl){
+      padding-top: 70px;
+    }
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+      GETSTARTED-REPORTS-TEXT MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.getstarted-reports-text{
+
+  &.mod-reports-overview{
+    height: 100px;
+    position: absolute;
+    right: 0;
+    top: 17%;
+    width: 30%;
+  }
+
+  &.mod-reports-performance{
+    height: 100px;
+    left: 0;
+    position: absolute;
+    top: 43%;
+    width: 30%;
+  }
+
+  &.mod-reports-campaign{
+    height: 100px;
+    position: absolute;
+    right: 0;
+    top: 52.5%;
+    width: 30%;
+  }
+
+  &.mod-reports-details{
+    left: 0;
+    height: 100px;
+    position: absolute;
+    top: 82%;
+    width: 30%;
+  }
+
+  &.mod-text-left{
+    right: -50px;
+    text-align: left;
+
+    .getstarted-reports-text-arrow{
+      background: url(/src/assets/images/pages/launching/stats-arrow-right.png);
+      left: -95px;
+    }
+  }
+
+  &.mod-text-right{
+    left: -50px;
+    text-align: right;
+
+    .getstarted-reports-text-arrow{
+      background: url(/src/assets/images/pages/launching/stats-arrow-left.png);
+      right: -95px;
+    }
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+    GETSTARTED-REPORTS-TEXT STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.getstarted-reports-text{
+
+  &.is-visible{
+    opacity: 1;
+
+    &.mod-text-left{
+      right: -4px;
+
+      @media (max-width: $xl){
+        right: -28px;
+      }
+
+      @media (max-width: $lg){
+        right: -62px;
+      }
+    }
+
+    &.mod-text-right{
+      left: -4px;
+
+      @media (max-width: $xl){
+        left: -28px;
+      }
+
+      @media (max-width: $lg){
+        left: -62px;
+      }
+    }
+  }
+}

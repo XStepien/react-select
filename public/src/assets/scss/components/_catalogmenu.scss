@@ -1,0 +1,165 @@
+.catalogmenu{
+  background: white;
+  border-bottom: 1px solid $grey-border;
+  height: $navbar-height;
+  position: absolute;
+  top: calc(#{$navbar-height} + #{$catalogheader-height});
+  width: 100%;
+  z-index: 2;
+}
+
+  .catalogmenu-left{
+    float: left;
+    padding: 0;
+    margin: 0;
+  }
+
+    .catalogmenu-item{
+      border: 0;
+      display: inline-block;
+      float: left;
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      list-style: none;
+      padding: 0;
+      position: relative;
+      transition: all $transition-fast ease;
+
+      &:before{
+        background-color: transparent;
+        bottom: 0;
+        content: '';
+        left: 0;
+        position: absolute;
+        right: 0;
+        transition: all $transition-fast ease;
+        height: 3px;
+      }
+    }
+
+      .catalogmenu-item-link{
+        color: $font-rkt-grey;
+        display: block;
+        padding: 21px 25px;
+        text-decoration: none;
+        transition: all $transition-fast ease;
+
+        &:hover,
+        &:focus{
+          background-color: $silver-rkt-lighter;
+          color: $blue;
+          text-decoration: none;
+        }
+      }
+
+  .catalogmenu-iconlink{
+    align-items: center;
+    background: white;
+    // border-left: 1px solid $grey-background;
+    // border-right: 1px solid $grey-background;
+    display: flex;
+    float: right;
+    justify-content: center;
+    height: $navbar-height - 1px;
+    width: $navbar-height;
+
+    &:hover{
+      background: $grey-background;
+
+      &:before{
+        color: $blue;
+      }
+    }
+
+    &:before{
+      @include m-icon-lgw;
+      color: $grey;
+      font-size: 24px;
+      position: absolute;
+    }
+  }
+
+/* - - - - - - - - - - - - - - - - - - -
+
+       CATALOGMENU-ICONLINK MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.catalogmenu-iconlink{
+
+  &.mod-delete{
+    margin-left: -1px;
+
+    &:before{
+      content: unicode($icon-delete);
+    }
+  }
+
+  &.mod-activation{
+
+    &:before{
+      content: unicode($icon-pause);
+      font-size: 22px;
+    }
+
+    &.is-inactive{
+
+      &:before{
+        content: unicode($icon-play);
+        font-size: 25px;
+        margin-top: 1px;
+      }
+    }
+  }
+
+  &.mod-origin{
+    margin-right: -1px;
+
+    &:before{
+      content: unicode($icon-origin);
+      font-size: 25px;
+      padding-top: 2px;
+    }
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+       CATALOGMENU-ICONLINK STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.catalogmenu-iconlink{
+
+  &.is-disabled{
+
+    &:hover{
+      cursor: default;
+    }
+
+    &:before{
+      color: $grey-light;
+    }
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+        CATALOGMENU-ITEM STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.catalogmenu-item{
+
+  &.is-active {
+
+    &:before{
+      background-color: $blue;
+    }
+
+    .catalogmenu-item-link{
+      color: $blue;
+    }
+  }
+}

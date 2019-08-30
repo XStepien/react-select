@@ -1,0 +1,184 @@
+.timeline{
+  display: inline-block;
+  height: $footer-height;
+}
+
+  .timeline-arrow{
+    background: url(/src/assets/images/layout/footer/timeline-next.png) center no-repeat;
+    border-bottom: 2px solid $sky-lighter;
+    display: inline-block;
+    height: $footer-height;
+    text-align: center;
+    vertical-align: middle;
+    width: 26px;
+
+    &:first-child{
+      display: none;
+    }
+  }
+
+  .timeline-step.is-active + .timeline-arrow,
+  .timeline-step.is-disabled + .timeline-arrow,
+  .timeline-step.is-next-step + .timeline-arrow,{
+    border-bottom: 0;
+  }
+
+  .timeline-channel{
+    color: white;
+    display: inline-block;
+    font-size: $font-small;
+    font-weight: 600;
+    height: $footer-height;
+    line-height: 1.2;
+    max-width: 200px;
+    padding: 20px 15px 0 45px;
+    overflow: hidden;
+    pointer-events: none;
+    text-align: left;
+    vertical-align: middle;
+    white-space: nowrap;
+
+    &.mod-duo{
+      padding: 12px 15px 0 45px;
+    }
+  }
+
+    .timeline-channel-flag{
+      left: 66px;
+      position: absolute;
+      top: 20px;
+    }
+
+
+  .timeline-step{
+    border-bottom: 2px solid $sky-lighter;
+    color: white;
+    display: inline-block;
+    height: $footer-height;
+    font-size: $font-small;
+    font-weight: 600;
+    line-height: .8;
+    padding: 22px 15px 0px;
+    text-align: left;
+    text-decoration: none;
+    vertical-align: middle;
+
+    &:hover,
+    &:focus{
+      background: $dark-light;
+      color: white;
+      text-decoration: none;
+    }
+  }
+
+    .timeline-step-item{
+      padding-top: 10px;
+      text-decoration: none;
+
+      &:hover{
+        text-decoration: none;
+      }
+    }
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          TIMELINE-STEP STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.timeline-step{
+
+  &.is-disabled{
+    border-bottom: 0;
+    color: $dark-lighter!important;
+
+    &:hover{
+      background: transparent;
+      color: $dark-lighter!important;
+      cursor: default;
+    }
+  }
+
+  &.is-next-step {
+    border-bottom: 0;
+    color: $dark-lighter;
+
+    &:hover{
+      color: white;
+    }
+  }
+
+  &.is-active{
+    background: $darker;
+    border-bottom: 2px solid $blue-lighter;
+    cursor: default;
+    position: relative;
+
+    &:hover{
+      color: white;
+    }
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          TIMELINE-STEP MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.timeline{
+
+  &.mod-white{
+
+    .timeline-step{
+      color: $dark-light;
+      border-bottom: 0;
+      border-top: 2px solid $sky;
+
+      &:hover,
+      &:focus{
+        background: $sky;
+        color: white;
+      }
+
+      &.is-next-step {
+        border-top: 0;
+        color: $dark-lightest;
+
+        &:hover,
+        &:focus{
+          color: white;
+        }
+      }
+
+      &.is-active{
+        background: $sky-lightest;
+        border-top: 2px solid $blue;
+        color: $dark-light;
+      }
+
+      &.is-disabled{
+        border-top: 0;
+        color: $grey-light!important;
+
+        &:hover,
+        &:focus{
+          background: transparent;
+          color: $grey-light!important;
+        }
+      }
+    }
+    .timeline-arrow{
+      border-bottom: 0;
+      border-top: 2px solid $sky;
+
+    }
+
+    .timeline-step.is-active + .timeline-arrow,
+    .timeline-step.is-disabled + .timeline-arrow,
+    .timeline-step.is-next-step + .timeline-arrow,{
+      border-top: 0;
+    }
+  }
+}

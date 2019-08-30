@@ -1,0 +1,60 @@
+/* - - - - - - - - - - - - - - - - - - -
+
+            TABLE-CATALOG MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+
+.table-catalog{
+
+  &.mod-sticky{
+    /*display: flex;
+    flex-wrap: nowrap;*/
+
+    .table-catalog-headcell{ /* grid-item--header */
+      align-items: center;
+      background: $grey-disabled;
+      height: 100%;
+      line-height: inherit;
+      min-height: 40px;
+      padding: 4px 10px;
+      white-space: nowrap;
+
+      &.mod-sticky-top{
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        z-index: 2;
+
+        &.mod-sticky-left{
+          box-shadow: 5px 0 5px rgba(0, 0, 0, 0);
+          position: -webkit-sticky;
+          position: sticky;
+          left: 0;
+          transition: box-shadow $transition-fast ease;
+          z-index: 4;
+
+          &.is-scrolled{
+            box-shadow: 5px 0 5px rgba(0, 0, 0, 0.05);
+          }
+        }
+      }
+
+    }
+
+    .table-catalog-body-cell{
+
+      &.mod-sticky-left{
+        box-shadow: 5px 0 5px rgba(0, 0, 0, 0.0);
+        position: -webkit-sticky;
+        position: sticky;
+        left: 0;
+        z-index: 3;
+
+        &.is-scrolled{
+          box-shadow: 5px 0 5px rgba(0, 0, 0, 0.05);
+        }
+      }
+    }
+  }
+}

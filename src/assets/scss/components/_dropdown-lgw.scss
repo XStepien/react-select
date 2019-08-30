@@ -1,0 +1,1918 @@
+.dropdown-lgw{
+  display: inline-block;
+  position: relative;
+}
+
+  .dropdown-lgw-toggle{
+    background-color: white;
+    border-radius: $border-radius;
+    border: 1px solid $grey-border;
+    cursor: pointer;
+    display: block;
+    height: 40px;
+    padding: 0 $margin-small;
+    position: relative;
+    transition: all $transition-fastest ease;
+
+    &:hover{
+      background-color: $grey-background;
+    }
+  }
+
+    .dropdown-lgw-toggle-alert{
+      background: $red;
+      border-radius: 8px;
+      box-shadow: -1px 1px 0px 0px rgba(25,27,22,0.5);
+      color: white;
+      display: block;
+      font-size: $font-smaller;
+      height: 16px;
+      line-height: 16px;
+      min-width: 16px;
+      padding: 0 4px;
+      position: absolute;
+      right: -2px;
+      text-align: center;
+      top: 0px;
+    }
+
+  .dropdown-lgw-content{
+    animation-fill-mode: forwards;
+    background: white;
+    box-shadow: 0 10px 10px 0 rgba(0,0,0,.15);
+    display: block;
+    opacity: 0;
+    margin: 0;
+    padding: $margin-big;
+    overflow-x: hidden;
+    position: absolute;
+    top:40px;
+    transform: scale(0, 0);
+    transform-origin: left top;
+    transition: all $transition-faster ease-out;
+    width: 350px;
+    z-index: 58;
+  }
+
+    .dropdown-lgw-content-item{
+      list-style: none;
+    }
+
+      // Update when footer is refacted
+      .dropdown-lgw-content-item-link.dropdown-lgw-content-item-link{
+        border-bottom: 1px solid $grey-disabled;
+        color: $grey;
+        display: block;
+        font-weight: inherit;
+        font-size: inherit;
+        height: auto;
+        line-height: inherit;
+        padding: 10px 30px 15px 18px;
+
+        &:hover,
+        &:focus,
+        &:active{
+          background: $grey-background;
+          color: $grey;
+          text-decoration: none;
+        }
+      }
+
+    .dropdown-lgw-content-order{
+      padding: $margin-standard $margin-standard $margin-small;
+      text-align: center;
+    }
+
+    .dropdown-lgw-content-close{
+      @include m-icon-lgw;
+      color: $grey;
+      content: unicode($icon-close);
+      position: absolute;
+      right: $margin-small;
+      text-decoration: none;
+      top: $margin-small;
+
+      &:hover,
+      &:focus{
+        color: $blue;
+        text-decoration: none;
+      }
+    }
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+            DROPDOWN MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.dropdown-lgw{
+
+  /*
+    Open hover
+  */
+
+  &.mod-over{
+
+    .dropdown-lgw-content{
+      z-index: 59;
+    }
+
+    &:hover{
+
+      .dropdown-lgw-toggle{
+        background-color: $darker;
+      }
+
+      .dropdown-lgw-content{
+        opacity: 1;
+        transform: scale(1, 1);
+        transition: all $transition-faster ease-out;
+      }
+    }
+  }
+
+  /*
+    Big dropdown
+  */
+
+  &.mod-big{
+
+    .dropdown-lgw-content{
+      width: 450px;
+    }
+  }
+
+  /*
+    Select period
+  */
+
+  &.mod-period{
+
+    .dropdown-lgw-toggle{
+      background: url(/src/assets/images/components/dropdown/carret.png) right 10px center no-repeat;
+      border: 0;
+      border-radius: $border-radius;
+      color: $grey;
+      font-size: $font-small;
+      font-weight: 600;
+      height: 34px;
+      line-height: 34px;
+      margin-top: 12px;
+      padding-right: 25px;
+
+      &:hover{
+        background-color:  $grey-background;
+      }
+    }
+
+    .dropdown-lgw-content{
+      padding: $margin-standard $margin-small $margin-small $margin-small;
+      top: 45px;
+      width: 990px;
+    }
+  }
+
+  /*
+    Filter
+  */
+
+  &.mod-filter{
+
+    .dropdown-lgw-toggle{
+      background: url(/src/assets/images/components/dropdown/carret.png) right 10px center no-repeat;
+      border: 0;
+      border-radius: 0;
+      color: $grey;
+      font-size: $font-small;
+      font-weight: 600;
+      height: 34px;
+      line-height: 34px;
+       margin-top: 12px;
+      padding-right: 25px;
+
+      &:hover{
+        background-color:  $grey-background;
+      }
+    }
+
+    .dropdown-lgw-content{
+      top: 57px;
+    }
+  }
+
+  /*
+    Filter-box
+  */
+
+  &.mod-filter-box{
+
+    @extend .mod-filter;
+
+    .dropdown-lgw-toggle{
+
+      &:hover,
+      &:focus{
+        background-color:  $grey-background;
+        text-decoration: none;
+      }
+    }
+
+    .dropdown-lgw-content{
+      border-top: 1px solid $grey-border;
+      overflow-y: hidden;
+      padding: 0 0 57px 0;
+      top: 45px;
+      width: 350px;
+    }
+
+    .dropdown-lgw-content-inner{
+      max-height: 400px;
+      overflow-y: auto;
+      padding: $margin-standard $margin-big 0;
+    }
+
+    .dropdown-lgw-footer{
+      box-shadow: 0 -3px 10px 0 rgba(0, 0, 0, 0.08);
+      border-top: 1px solid $grey-border;
+      height: 57px;
+      padding: 0 $margin-big;
+      position: absolute;
+      left: 0;
+      right: 0;
+    }
+  }
+
+  /*
+    Add catalog > ugrade
+  */
+
+  &.mod-catalog-upgrade{
+
+    .dropdown-lgw-content{
+      min-height: 300px;
+      right: 0;
+      top: 50px;
+      transform-origin: right top;
+    }
+  }
+
+  /*
+    Add app > ugrade
+  */
+
+  &.mod-app-upgrade{
+
+    .dropdown-lgw-content{
+      min-height: 300px;
+      right: 0;
+      top: 66px;
+      transform-origin: right top;
+    }
+  }
+
+  &.mod-app-upgrade-scrollbar{
+
+    .dropdown-lgw-content{
+      min-height: 300px;
+      right: 0;
+      top: 40px;
+      transform-origin: right top;
+    }
+  }
+
+  &.mod-app-account-hybrid{
+
+    .dropdown-lgw-content{
+      right: 0;
+      top: 66px;
+      transform-origin: right top;
+    }
+  }
+
+  &.mod-app-account-hybrid-scrollbar{
+
+    .dropdown-lgw-content{
+      right: 0;
+      top: 40px;
+      transform-origin: right top;
+    }
+  }
+  /*
+    Select period dark
+  */
+
+  &.mod-period-dark{
+
+    .dropdown-lgw-toggle{
+      background: url(/src/assets/images/components/dropdown/carret-white.png) $darkest right 10px center no-repeat;
+      border: 0;
+      border-radius: $border-radius;
+      color: white;
+      font-size: $font-small;
+      font-weight: 600;
+      height: 34px;
+      line-height: 34px;
+      margin-top: 12px;
+      padding-right: 25px;
+
+      &:hover{
+        background-color: $dark;
+      }
+    }
+
+    .dropdown-lgw-content{
+      background: $dark;
+      padding: $margin-standard $margin-small;
+      top: 45px;
+      width: 900px;
+    }
+  }
+
+  /*
+    Open right to left
+  */
+
+  &.mod-top-right{
+
+    .dropdown-lgw-content{
+      right: 0;
+      transform-origin: right top;
+    }
+  }
+
+  /*
+    In navbar
+  */
+
+  &.mod-navbar-icon{
+    float: right;
+    margin-left: 5px;
+    margin-top: 14px;
+
+    .dropdown-lgw-toggle{
+      background-color: transparent;
+      border: 0;
+      border-radius: 50%;
+      height: 37px;
+      width: 37px;
+
+      &:hover{
+        background-color: $dark-light;
+      }
+    }
+
+    .dropdown-lgw-content{
+      padding: 0;
+      position: fixed;
+      right: 0;
+      top: $navbar-height;
+      width: 550px;
+    }
+  }
+
+  /*
+    In Footer
+  */
+
+  &.mod-footer-icon{
+    margin-right: 10px;
+    margin-top: 9px;
+
+    .dropdown-lgw-toggle{
+      background-color: transparent;
+      border: 0;
+      border-radius: 50%;
+      height: 36px;
+      width: 36px;
+
+      &:hover{
+        background-color: $dark-light;
+      }
+    }
+
+    .dropdown-lgw-content{
+      bottom: $footer-height;
+      padding: 0;
+      position: fixed;
+      right: 0;
+      top: initial;
+      transform-origin: 100% 100%;
+      width: 550px;
+    }
+  }
+
+  /*
+    In home page
+  */
+
+  &.mod-home{
+
+    .dropdown-lgw-content{
+      right: 520px;
+
+      @media (min-width: $md) and (max-width: $lg) {
+        width: 400px;
+      }
+
+      @media (max-width: $md) {
+        right: 0;
+      }
+    }
+  }
+
+  /*
+    Notify icon
+  */
+
+  &.mod-notify{
+
+    .dropdown-lgw-toggle{
+
+      &:before {
+        @include m-icon-lgw;
+        color: white;
+        content: unicode($icon-bell);
+        font-size: 21px;
+        position: absolute;
+        top: 8px;
+        left: 8px;
+      }
+    }
+  }
+
+  /*
+    Help icon
+  */
+
+  &.mod-help{
+
+    .dropdown-lgw-toggle{
+
+      &:before {
+        @include m-icon-lgw;
+        color: white;
+        content: unicode($icon-help); 
+        font-size: 21px;
+        position: absolute;
+        top: 8px;
+        left: 8px;
+      }
+    }
+  }
+
+  /*
+    Mod search & replace
+  */
+
+  &.mod-search-replace{
+
+    .dropdown-lgw-toggle{
+      background: url(/src/assets/images/layout/filters/find-replace.png) center no-repeat;
+      border: 0;
+      border-radius: 0;
+      display: block;
+      float: right;
+      height: 57px;
+      width: 57px;
+
+      &:hover{
+        background-color: $grey-background;
+      }
+    }
+
+    .dropdown-lgw-content{
+      padding: 0;
+      right: 0;
+      transform-origin: right top;
+      top: 57px;
+    }
+  }
+
+  /*
+    Mod Report > Add view
+  */
+
+  &.mod-report-add-view{
+    margin-left: 5px;
+
+    .dropdown-lgw-toggle{
+      background: transparent;
+      border: 0;
+      color: $dark-lightest;
+      display: inline-block;
+      height: 36px;
+      line-height: 36px;
+      padding: 0 10px;
+      position: relative;
+      text-decoration: none;
+
+      &:hover{
+        background: $dark;
+        color: white;
+      }
+    }
+
+    .dropdown-lgw-content{
+      background: $darker;
+      color: white;
+      overflow-x: initial;
+      top: 36px;
+      width: 550px;
+    }
+  }
+
+  /*
+    Mod select
+  */
+
+  &.mod-select{
+
+    .dropdown-lgw-toggle{
+      background: url(/src/assets/images/components/dropdown/carret.png) $grey-input no-repeat right 12px center;
+      font-size: $font-small;
+      font-weight: 600;
+      height: 33px;
+      line-height: 33px;
+      padding-right: 27px;
+
+      &:hover{
+        background-color: $grey-background;
+      }
+    }
+
+    .dropdown-lgw-content{
+      padding: 0;
+      top: 33px;
+      width: 200px;
+    }
+  }
+
+  /*
+    Mod footer drop up
+  */
+
+  &.mod-footer-dropup-center{
+
+    &:hover{
+
+      .dropdown-lgw-toggle{
+        background-color: $darker;
+      }
+
+      .dropdown-lgw-content{
+        opacity: 1;
+        transform: scale(1, 1);
+        transition: all $transition-faster ease-out;
+      }
+
+      &:after{
+        border-style: solid;
+        border-width: 8px 8px 0 8px;
+        border-color: white transparent transparent transparent;
+        content: '';
+        height: 0;
+        left: 19px;
+        margin: 0;
+        position: absolute;
+        top: 0;
+        width: 0;
+        z-index: 111;
+      }
+    }
+
+    .dropdown-lgw-toggle{
+      background-color: transparent;
+      border: 0;
+      border-radius: 0;
+      height: 54px;
+      width: 54px;
+
+      &:hover{
+        background-color: $darker;
+      }
+    }
+
+    .dropdown-lgw-content{
+      bottom: 54px;
+      box-shadow: 0 0 10px 0 rgba(0,0,0,.15);
+      display: block;
+      left: -225px;
+      min-width: 500px;
+      padding: 0;
+      top: inherit;
+      transform-origin: center bottom;
+      width: auto;
+      z-index: 59;
+    }
+  }
+
+  &.mod-footer-dropup-right{
+
+    @extend .mod-footer-dropup-center;
+
+    .dropdown-lgw-content{
+      bottom: 54px;
+      left: initial;
+      min-width: 250px;
+      padding: 0;
+      right: 0;
+      top: initial;
+      transform-origin: right bottom;
+      width: auto;
+    }
+  }
+
+  /*
+    Mod icon more
+  */
+
+  &.mod-icon-more{
+
+    .dropdown-lgw-toggle{
+      background-image: url(/src/assets/images/components/dropdown/more.png);
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+
+    /*
+    Mod icon previous
+  */
+
+  &.mod-icon-prev{
+
+    .dropdown-lgw-toggle{
+
+      &:hover {
+        background-color: $dark-light;
+      }
+
+      &:before {
+        @include m-icon-lgw;
+        color: white;
+        content: unicode($icon-previous);
+        font-size: 28px;
+        position: absolute;
+        top: 12px;
+        left: 14px;
+      }
+    }
+  }
+
+  /*
+    Mod icon next
+  */
+
+  &.mod-icon-next{
+
+    .dropdown-lgw-toggle{
+
+      &:hover {
+        background-color: $dark-light;
+      }
+
+      &:before {
+        @include m-icon-lgw;
+        color: white;
+        content: unicode($icon-next);
+        font-size: 28px;
+        position: absolute;
+        top: 12px;
+        left: 14px;
+      }
+    }
+  }
+
+  /*
+    Mod icon logs
+  */
+
+   &.mod-icon-logs{
+    position: absolute;
+    right: 108px;
+    top: 0;
+
+    .dropdown-lgw-toggle{
+
+      &:hover {
+        background-color: $dark-light;
+      }
+
+      &:before {
+        @include m-icon-lgw;
+        color: white;
+        content: unicode($icon-logs);
+        font-size: 26px;
+        position: absolute;
+        top: 14px;
+        left: 14px;
+      }
+    }
+
+   .dropdown-lgw-content{
+     padding: 15px;
+   }
+  }
+
+  /*
+    Mod icon keyboard
+  */
+
+   &.mod-icon-keyboard{
+    position: absolute;
+    right: 54px;
+    top: 0;
+
+    .dropdown-lgw-toggle{
+
+      &:hover {
+        background-color: $dark-light;
+      }
+
+      &:before {
+        @include m-icon-lgw;
+        color: white;
+        content: unicode($icon-keyboard);
+        font-size: 26px;
+        position: absolute;
+        top: 14px;
+        left: 14px;
+      }
+    }
+
+   .dropdown-lgw-content{
+     padding: 15px;
+   }
+  }
+
+  /*
+    Mod icon export
+  */
+
+   &.mod-icon-export{
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    .dropdown-lgw-toggle{
+
+      &:hover {
+        background-color: $dark-light;
+      }
+
+      &:before {
+        @include m-icon-lgw;
+        color: white;
+        content: unicode($icon-download);
+        font-size: 26px;
+        position: absolute;
+        top: 14px;
+        left: 14px;
+      }
+    }
+  }
+
+  /*
+    Mod icon app nav
+  */
+
+  &.mod-icon-app-nav{
+
+    .dropdown-lgw-toggle{
+      background-image: url(/src/assets/images/pages/logistics/more.png);
+      background-position: center;
+      background-repeat: no-repeat;
+      border: 0 !important;
+      height: 64px;
+      margin: 0;
+      width: 64px;
+    }
+
+    .dropdown-lgw-content{
+      padding: 0;
+      width: auto;
+      top: 66px;
+    }
+
+      .dropdown-lgw-content-item{
+        display: inline-block;
+        white-space: nowrap;
+      }
+
+        .dropdown-lgw-content-item-link{
+          padding: 10px 30px;
+        }
+  }
+
+  /*
+    Mod batch
+  */
+
+  &.mod-order-batch{
+    float: left;
+    margin-top: 11px;
+
+    .dropdown-lgw-toggle{
+      background-color: transparent;
+      border-radius: 50%;
+      border: 0;
+      display: block;
+      height: 36px;
+      margin:0;
+      margin-left: 8px;
+      padding:0;
+      width: 36px;
+
+      &:hover{
+        background-color: $sky-lightest;
+      }
+    }
+
+    &:last-child{
+      margin-right: $margin-small;
+
+      .dropdown-lgw-toggle{
+        border-right-width: 1px;
+      }
+    }
+  }
+
+  &.mod-batch-export{
+
+    .dropdown-lgw-toggle{
+
+      &:before{
+
+        @include m-icon-lgw;
+        color: $dark-light;
+        content: unicode($icon-download);
+        font-size: 21px;
+        left: 7px;
+        position: absolute;
+        top: 7px;
+      }
+    }
+
+    .dropdown-lgw-content{
+      width: auto;
+    }
+
+    .dropdown-lgw-content-item-link{
+      white-space: nowrap;
+    }
+  }
+
+  &.mod-batch-accept{
+
+    .dropdown-lgw-toggle{
+
+      &:before{
+        @include m-icon-lgw;
+        color: $dark-light;
+        content: unicode($icon-checked);
+        font-size: 21px;
+        left: 7px;
+        position: absolute;
+        top: 7px;
+      }
+    }
+  }
+
+  &.mod-batch-deny{
+
+    .dropdown-lgw-toggle{
+      background:url(/src/assets/images/layout/filters/icon-deny.png) no-repeat center;
+    }
+  }
+
+  /*
+    Products covered
+  */
+
+  &.mod-products-covered{
+    opacity: 1;
+    visibility: visible;
+    max-width: 100%;
+    transition: max-width 500ms ease-in-out, opacity 500ms ease-in-out;
+
+    .dropdown-lgw-toggle{
+      background-color: white;
+      border: 0;
+      border-bottom: 1px solid $grey-border;
+      border-radius: 0;
+      display: inline-block;
+      float: right;
+      height: $modal-head-height;
+      padding-right: 55px;
+      position: relative;
+      transition: background-color $transition-fastest ease;
+      z-index: 11;
+
+      &:hover {
+        background: $grey-background;
+        text-decoration: none;
+
+        .dropdown-lgw-toggle-icon{
+          background: url(/src/assets/images/components/buttons/preview.png) white no-repeat center;
+        }
+      }
+
+      &.is-disabled {
+        cursor:default;
+        background: $grey-background;
+
+        .dropdown-lgw-toggle-icon {
+          background: url(/src/assets/images/components/buttons/preview.png) $grey-background no-repeat center;
+        }
+      }
+    }
+
+    .dropdown-lgw-toggle-icon{
+      background: url(/src/assets/images/components/buttons/preview.png) $grey-background no-repeat center;
+      border-radius: 50%;
+      height: 48px;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      width: 48px;
+    }
+
+    .dropdown-lgw-content{
+      box-shadow: -3px 0 10px rgba(0, 0, 0, 0.15);
+      height: calc(100vh - #{$footer-height} - #{$modal-head-height} );
+      overflow: auto;
+      padding: 0px 15px 80px 30px;
+      position: fixed;
+      right: 0;
+      top: $modal-head-height;
+      transform-origin: right top;
+      width: 50%;
+      z-index: 50;
+
+      @media (max-width: $lg) {
+        padding: 0px 15px 70px 20px;
+      }
+    }
+
+    &.is-hidden {
+      opacity: 0;
+      max-width: 0px;
+    }
+  }
+
+
+  &.mod-highlight{
+
+    .dropdown-lgw-content-item{
+      position: relative;
+      white-space: nowrap;
+    }
+
+    .dropdown-lgw-content-item-link{
+      transition: all $transition-fast ease;
+
+      &:before{
+        background: transparent;
+        bottom: 0;
+        content: '';
+        display: block;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 2px;
+      }
+
+      &:hover{
+        color: $blue;
+
+        &:before{
+          background: $blue;
+        }
+      }
+
+      &.mod-red{
+
+        &:hover{
+          color: $red;
+
+          &:before{
+            background: $red;
+          }
+        }
+      }
+    }
+  }
+
+  &.mod-icon-item{
+
+    .dropdown-lgw-content-item-link{
+      display: grid;
+      grid-template-columns: 40px auto;
+      padding: 18px 30px 18px 18px;
+      align-items: center;
+    }
+
+    &.mod-nav{
+
+      .dropdown-lgw-content-item-link{
+        grid-template-columns: 40px auto 20px;
+        padding: 18px 20px 18px 18px;
+      }
+    }
+  }
+
+  &.mod-gauge{
+
+    .dropdown-lgw-toggle{
+      border-left: 1px solid $grey-border;
+      border-right: 0;
+      border-top: 0;
+      height: $modalhead-secundary;
+      margin: 0;
+      padding-right: 30px;
+      border-radius: 0;
+
+
+      &:before{
+        @include m-icon-lgw;
+        color: $grey;
+        content: unicode($icon-carret);
+        font-size: 18px;
+        position: absolute;
+        top: 26px;
+        text-decoration: none;
+        right: 15px;
+      }
+
+      &:hover,
+      &:focus {
+        background-color: $grey-background;
+        text-decoration: none;
+      }
+    }
+
+    .dropdown-lgw-content{
+      box-shadow: -3px 0 10px rgba(0, 0, 0, 0.15);
+      height: auto;
+      max-height: calc(100vh - 249px);
+      overflow-x: hidden;
+      overflow-y: auto;
+      padding: 0;
+      position: fixed;
+      right: 0;
+      top: calc(#{$modalhead-secundary} + #{$modal-head-height});
+      transform-origin: right top;
+      transition: all $transition-faster ease;
+      width: 400px;
+      z-index: 50;
+    }
+
+    .u-overflow-auto{
+      overflow: auto;
+    }
+
+    .dropdown-lgw-content-preview{
+      padding: 0px 15px 80px 30px;
+    }
+
+    &.is-col-4{
+
+      .dropdown-lgw-content{
+        width: 60%;
+      }
+    }
+
+    &.is-col-5{
+
+      .dropdown-lgw-content{
+        width: 65%;
+      }
+    }
+
+    &.is-col-6{
+
+      .dropdown-lgw-content{
+        width: 70%;
+      }
+    }
+
+    &.is-col-7{
+
+      .dropdown-lgw-content{
+        width: 75%;
+      }
+    }
+
+    &.is-col-8{
+
+      .dropdown-lgw-content{
+        width: 85%;
+      }
+    }
+
+    &.is-col-9{
+
+      .dropdown-lgw-content{
+        width: 95%;
+      }
+    }
+  }
+
+  /*
+    ACL Footer
+  */
+
+  &.mod-footer-button{
+    float: right;
+
+    &:hover{
+
+      .dropdown-lgw-toggle{
+      }
+
+      .dropdown-lgw-content{
+        opacity: 1;
+        transform: scale(1, 1);
+        transition: all $transition-faster ease-out;
+      }
+    }
+
+    .dropdown-lgw-content{
+      bottom: 54px;
+      box-shadow: 0 0 10px 0 rgba(0,0,0,.15);
+      display: block;
+      left: inherit;
+      right: 0;
+      top: inherit;
+      transform-origin: right bottom;
+      z-index: 59;
+    }
+  }
+
+  &.mod-status-product{
+
+    .dropdown-lgw-toggle-status-product{
+
+      &.is-active{
+        background: $green;
+        border-radius: 50%;
+        height: 12px;
+        margin: 0 auto;
+        width: 12px;
+      }
+
+      &.is-inactive{
+        background: $grey-disabled;
+        border-radius: 50%;
+        height: 12px;
+        margin: 0 auto;
+        width: 12px;
+      }
+    }
+  }
+
+  /*
+    ACL Plan
+  */
+
+  &.mod-plan-restriction{
+    display: block;
+
+    .dropdown-lgw-content {
+      top: 51px;
+    }
+  }
+
+  &.mod-option-restriction{
+    margin-left: -8px;
+    position: relative;
+
+    .dropdown-lgw-content {
+      bottom: 41px;
+      box-shadow: -2px -1px 10px 0 rgba(0, 0, 0, 0.15);
+      left: initial;
+      position: absolute;
+      right: -7px;
+      top: initial;
+      transform-origin: right bottom;
+    }
+  }
+
+  &.mod-edit-order{
+
+    .dropdown-lgw-toggle{
+      border: 1px solid $blue;
+      color: $blue;
+      cursor: pointer;
+      padding-top: 10px;
+
+      &:hover,
+      &:focus{
+        background-color: $blue;
+        color: white;
+        text-decoration: none;
+      }
+    }
+  }
+
+  /*
+   Account Hybrid
+   */
+
+  &.mod-account-hybrid-nocontent{
+
+    .dropdown-lgw-content {
+      top: 57px;
+    }
+  }
+
+  &.mod-account-hybrid{
+
+    .dropdown-lgw-content {
+      top: 51px;
+    }
+  }
+
+  /*
+   Switch catalog in Pim
+   */
+
+  &.mod-switch-catalog{
+    display: block;
+    float: left;
+    margin-top: 5px;
+
+    .dropdown-lgw-toggle {
+      background: transparent;
+      border: 0;
+      height: initial;
+      margin-top: -9px;
+      padding: 0 25px 5px 0;
+
+      &:hover{
+        text-decoration: underline;
+
+        .dropdown-lgw-toggle-carret{
+          text-decoration: none;
+        }
+
+      }
+    }
+
+    .dropdown-lgw-toggle-carret{
+      display: inline-block;
+      margin-left: $margin-tiny;
+
+      &:before{
+        @include m-icon-lgw;
+        color: $blue;
+        content: unicode($icon-carret);
+        font-size: 18px;
+        font-weight: 700;
+        position: absolute;
+        top: 4px;
+        text-decoration: none;
+      }
+    }
+
+    .dropdown-lgw-content{
+      border: 1px solid $grey-border;
+      left: -89px;
+      max-height: 350px;
+      padding: 0;
+      top: 27px;
+      transform-origin: center top;
+    }
+
+    .dropdown-lgw-content-item{
+      transition: all $transition-fast ease;
+      position: relative;
+
+      .dropdown-lgw-content-item-link{
+
+        .dropdown-lgw-products{
+          color: $grey-light;
+        }
+
+        &:before{
+          background: transparent;
+          bottom: 0;
+          content: '';
+          display: block;
+          left: 0;
+          position: absolute;
+          top: 0;
+          width: 2px;
+        }
+
+        &:hover{
+          color: $blue;
+
+          &:before{
+            background: $blue;
+          }
+
+          .dropdown-lgw-products{
+            color: $blue;
+          }
+        }
+      }
+
+      &.mod-draft,
+      &.mod-disabled{
+
+        .dropdown-lgw-content-item-link{
+          background: $grey-background;
+
+          &:hover{
+
+            &:before{
+              background: $blue;
+            }
+
+            .dropdown-lgw-products{
+              color: $blue;
+            }
+          }
+        }
+      }
+
+      &.mod-error{
+
+        .dropdown-lgw-content-item-link{
+          background-color: $red-lightest;
+
+          .dropdown-lgw-products{
+            color: $grey;
+          }
+
+          &:hover{
+            color: initial;
+            background-color: $red-lightish;
+
+            &:before{
+              background: $red;
+            }
+
+            .dropdown-lgw-products{
+              color: initial;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /*
+   Show channels in rules header
+  */
+
+  &.mod-show-channels{
+    display: block;
+    float: right;
+
+    .dropdown-lgw-toggle {
+      background: transparent;
+      border: 0;
+      border-left: 1px solid $grey-border;
+      border-radius: 0;
+      color: $grey;
+      font-size: $font-small;
+      height: 69px;
+      padding: 24px 25px 15px 15px;
+
+      &:hover,
+      &:focus{
+        background-color: $grey-background;
+        color: $grey;
+        text-decoration: none;
+
+        .dropdown-lgw-toggle-carret{
+          text-decoration: none;
+        }
+      }
+    }
+
+    .dropdown-lgw-toggle-carret{
+      display: inline-block;
+      margin-left: $margin-tiny;
+
+      &:before{
+        @include m-icon-lgw;
+        color: $grey;
+        content: unicode($icon-carret);
+        font-size: 16px;
+        font-weight: 400;
+        position: absolute;
+        right: 12px;
+        top: 27px;
+        text-decoration: none;
+      }
+    }
+
+    .dropdown-lgw-content{
+      border: 1px solid $grey-border;
+      left: 0;
+      max-height: 350px;
+      padding: 0;
+      top: 69px;
+      transform-origin: left top;
+      width: 400px;
+    }
+
+    &.mod-dark{
+
+      .dropdown-lgw-toggle{
+        background: $dark;
+        border-left: 1px solid $dark-light;
+        color: white;
+
+        &:hover,
+        &:focus{
+          background: $dark-light;
+          color: white;
+        }
+      }
+
+      .dropdown-lgw-toggle-carret{
+
+        &:before{
+          @include m-icon-lgw;
+          color: white;
+        }
+      }
+    }
+  }
+
+  /*
+    Pim retreat restrictions
+  */
+
+  &.mod-retreated{
+    float: right;
+
+    .dropdown-lgw-content{
+      left: initial;
+      right: 0;
+      top: 64px;
+      transform-origin: right top;
+    }
+  }
+
+  /*
+    Pim icon ation
+  */
+
+  &.mod-icon-action{
+    display: inline-block;
+    min-height: 100%;
+    position: absolute;
+    right: 0;
+
+    .dropdown-lgw-toggle{
+      background-color: inherit;
+      border: 0;
+      border-radius: $border-radius;
+      color: inherit;
+      height: 37px;
+      position: absolute;
+      right: 25px;
+      width: 37px;
+      transition: all $transition-fast;
+      top: 35px;
+
+      &:before{
+        @include m-icon-lgw;
+        content: unicode($icon-action);
+        font-size: 18px;
+        font-weight: 700;
+        left: 9px;
+        position: absolute;
+        top: 10px;
+        text-decoration: none;
+      }
+
+      &:hover{
+        background-color: white;
+        color: $blue;
+        cursor: pointer;
+      }
+    }
+
+    .dropdown-lgw-content{
+      left: initial;
+      right: 25px;
+      top: 70px;
+      transform-origin: right top;
+      width: auto;
+
+    }
+    .dropdown-lgw-content-item{
+      position: relative;
+      white-space: nowrap;
+    }
+
+    .dropdown-lgw-content-item-link{
+      display: grid;
+      grid-template-columns: 40px auto;
+
+      .icon-circle:first-child{
+        margin-top: 2px;
+      }
+
+      &:before{
+        background: transparent;
+        bottom: 0;
+        content: '';
+        display: block;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 2px;
+      }
+
+      &:hover{
+        color: $blue;
+
+        &:before{
+          background: $blue;
+        }
+      }
+
+      &.mod-red{
+
+        &:hover{
+          color: $red;
+
+          &:before{
+            background: $red;
+          }
+        }
+      }
+    }
+  }
+
+  &.mod-segment-list{
+
+    @extend .mod-icon-action;
+    align-self: center;
+    display: flex;
+    justify-self: flex-end;
+    position: relative;
+    min-height: 37px;
+
+    .dropdown-lgw-toggle{
+      align-self: center;
+      position: relative;
+      right: 0;
+      top: initial;
+    }
+
+    .dropdown-lgw-content{
+      right: 0;
+      top: 37px;
+    }
+  }
+}
+
+
+
+.dropdown-lgw-toggle-alert{
+
+  &.mod-search-replace{
+    background: $blue;
+    box-shadow: none;
+    right: 30px;
+    top: 12px;
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+            DROPDOWN STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.dropdown-lgw{
+
+  /*
+    Open dropdown
+  */
+
+  &.is-open{
+
+    .dropdown-lgw-toggle{
+      opacity: 1;
+    }
+
+    .dropdown-lgw-content{
+      opacity: 1;
+      transform: scale(1, 1);
+      transition: all $transition-faster ease-out;
+    }
+
+    /*
+      In navbar
+    */
+
+    &.mod-navbar-icon{
+
+      .dropdown-lgw-toggle{
+         background-color: $dark-light;
+
+        &:before {
+          @include m-icon-lgw;
+          color: white;
+          content: unicode($icon-close);
+          font-size: 21px;
+          left: 8px;
+          position: absolute;
+          top: 8px;
+        }
+      }
+    }
+
+    /*
+      In footer
+    */
+
+    &.mod-footer-icon{
+
+      .dropdown-lgw-toggle{
+        background-color: $dark-light;
+
+        &:before{
+          @include m-icon-lgw;
+          color: white;
+          content: unicode($icon-close);
+          font-size: 21px;
+          left: 8px;
+          position: absolute;
+          top: 8px;
+        }
+      }
+
+      .dropdown-lgw-content{
+        box-shadow: 0 -2px 10px 0 rgba(0, 0, 0, 0.15);
+      }
+    }
+
+    /*
+      Search & remplace
+    */
+
+    &.mod-search-replace{
+
+      .dropdown-lgw-toggle{
+        background-color: $grey-background;
+      }
+    }
+
+    /*
+      Period
+    */
+
+    &.mod-period{
+
+      .dropdown-lgw-toggle{
+        background-color: $grey-background;
+        background-image: url(/src/assets/images/components/dropdown/carret-open.png);
+      }
+    }
+
+    /*
+      Filter
+    */
+
+    &.mod-filter{
+
+      .dropdown-lgw-toggle{
+        background-color: $grey-background;
+        background-image: url(/src/assets/images/components/dropdown/carret-open.png);
+      }
+    }
+
+    /*
+      Period dark
+    */
+
+    &.mod-period-dark{
+
+      .dropdown-lgw-toggle{
+        background-color: $dark;
+        background-image: url(/src/assets/images/components/dropdown/carret-white-open.png);
+      }
+    }
+
+    /*
+      Mod Report > Add view
+    */
+
+    &.mod-report-add-view{
+
+      .dropdown-lgw-toggle{
+        background-color: $dark;
+      }
+    }
+
+    /*
+      Mod Report > Add view
+    */
+
+    &.mod-select{
+
+      .dropdown-lgw-toggle{
+        background-image: url(/src/assets/images/components/dropdown/carret-open.png);
+        background-color: $grey-background;
+      }
+    }
+
+     /*
+      Mod batch
+    */
+
+    &.mod-order-batch{
+
+      .dropdown-lgw-toggle{
+        background-color: white;
+      }
+    }
+
+
+    /*
+    Products covered
+    */
+
+    &.mod-products-covered{
+
+      .dropdown-lgw-toggle{
+        background-color: $grey-background;
+
+        &:hover {
+          background-color: $grey-disabled;
+
+          .dropdown-lgw-toggle-icon{
+            background: url(/src/assets/images/layout/modal/modal-close.png) white no-repeat center;
+          }
+        }
+
+        .dropdown-lgw-toggle-icon{
+          background: url(/src/assets/images/layout/modal/modal-close.png) white no-repeat center;
+        }
+      }
+
+      /*
+      Columns number in products covered preview table
+      */
+
+      &.is-col-4{
+
+        .dropdown-lgw-content{
+          width: 60%;
+        }
+      }
+
+      &.is-col-5{
+
+        .dropdown-lgw-content{
+          width: 65%;
+        }
+      }
+
+      &.is-col-6{
+
+        .dropdown-lgw-content{
+          width: 70%;
+        }
+      }
+
+      &.is-col-7{
+
+        .dropdown-lgw-content{
+          width: 75%;
+        }
+      }
+      &.is-col-8{
+
+        .dropdown-lgw-content{
+          width: 85%;
+        }
+      }
+
+      &.is-col-9{
+
+        .dropdown-lgw-content{
+          width: 95%;
+        }
+      }
+    }
+
+    &.mod-notify {
+
+      .dropdown-lgw-toggle{
+
+        &.is-new-message{
+
+          &:before {
+            transform: rotate(0deg);
+          }
+        }
+      }
+    }
+
+    &.mod-icon-action{
+
+      .dropdown-lgw-toggle{
+        background-color: white;
+        color: $blue;
+      }
+    }
+
+    &.mod-gauge{
+
+      .dropdown-lgw-toggle{
+        background-color: $grey-background;
+
+        &:before{
+          transform: rotate(180deg);
+
+        }
+      }
+    }
+  }
+
+  &.is-disabled{
+
+    &.mod-footer-dropup-center,
+    &.mod-footer-dropup-right{
+
+      &:after{
+        border-color: transparent transparent transparent transparent;
+      }
+
+      .dropdown-lgw-toggle{
+        background-color: $dark;
+        pointer-events: none;
+
+        &:before{
+          color: $dark-lighter;
+        }
+      }
+    }
+  }
+}
+
+/*
+  Help > has new messages from support
+*/
+
+.dropdown-lgw {
+
+  &.mod-notify {
+
+    .dropdown-lgw-toggle{
+
+      &.is-new-message{
+
+        &:before {
+          transform: rotate(30deg);
+        }
+
+        &:hover {
+          background-color: $dark-light;
+        }
+      }
+
+      &.is-release-note{
+        animation: pulsar 5s infinite ease;
+      }
+    }
+  }
+}
+
+.dropdown-lgw {
+
+  &.mod-switch-catalog,
+  &.mod-show-channels{
+
+    &.is-open{
+
+      .dropdown-lgw-toggle {
+
+        .dropdown-lgw-toggle-carret{
+
+          &:before{
+            transform: rotate(180deg);
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes pulsar{
+  0% {background-color: transparent}
+  50% {background-color: $blue}
+  100% {background-color: transparent}
+}

@@ -1,0 +1,29 @@
+.injection-rule{
+  max-height: calc(100vh - 111px);
+  overflow-y: auto;
+}
+
+  .injection-rule-list{
+    list-style: none;
+    padding:0;
+  }
+
+    .injection-rule-list-item{
+      border-top: 1px solid $grey-background;
+      font-size: $font-small;
+      padding: $margin-small 80px $margin-small $margin-standard;
+      position: relative;
+    }
+
+      .injection-rule-list-item-icons{
+        bottom: 0;
+        height: 13px;
+        margin: auto;
+        position: absolute;
+        right: 30px;
+        top: 0;
+      }
+
+    .injection-rule-list-nocontent{
+      padding: $margin-standard;
+    }

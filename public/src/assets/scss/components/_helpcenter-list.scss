@@ -1,0 +1,29 @@
+.helpcenter-list{
+  margin: 0;
+  max-height: calc(100vh - 380px - #{$navbar-height} );
+  overflow-y: auto;
+  padding: $margin-standard 0 0;
+}
+
+  .helpcenter-list-item{
+  }
+
+    .helpcenter-list-item-link{
+      display: block;
+      padding: 7px $margin-big;
+      transition: all $transition-fastest ease;
+
+      &:hover,
+      &:focus{
+        background: $grey-background;
+        text-decoration: none;
+      }
+    }
+
+      .helpcenter-list-item-link-title{
+        margin: 0;
+      }
+
+      .helpcenter-list-item-link-desc{
+        color: $grey-light;
+      }

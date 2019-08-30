@@ -1,0 +1,9 @@
+.logo-inactive{
+  background: url(/src/assets/images/logos/lengow-white.png) center no-repeat;
+  display: block;
+  height: $navbar-height;
+  position: absolute;
+  top: 0;
+  width: 150px;
+  z-index: 60;
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.4, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1024 1024" style="enable-background:new 0 0 1024 1024;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;stroke:#464646;stroke-width:33.7421;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st1{fill:#D7D7D7;stroke:#464646;stroke-width:33.742;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st2{fill:none;stroke:#464646;stroke-width:33.742;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st3{fill:none;stroke:#464646;stroke-width:33.7421;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+</style>
+<g>
+	<circle class="st0" cx="830.4" cy="742.8" r="42.9"/>
+	<g>
+		<polyline class="st1" points="406.1,742.8 350.8,742.8 350.8,705.4 350.8,622.7 350.8,400.9 728.7,400.9 728.7,742.8 585.2,742.8 
+					"/>
+		<line class="st2" x1="750.6" y1="742.8" x2="728.7" y2="742.8"/>
+		<polyline class="st3" points="728.7,478.6 837,478.6 925.4,599.1 925.4,742.8 914.7,742.8 		"/>
+		<polyline class="st0" points="796.2,480.3 796.2,634.9 925.4,634.9 		"/>
+	</g>
+	<g>
+		<circle class="st0" cx="452.5" cy="398.1" r="159.9"/>
+		<polyline class="st3" points="395.4,379.1 448.7,436.2 529.2,346.1 		"/>
+	</g>
+	<line class="st3" x1="147.9" y1="622" x2="247.3" y2="622"/>
+	<circle class="st0" cx="494.8" cy="742.8" r="42.9"/>
+	<line class="st3" x1="98.6" y1="538.2" x2="247.3" y2="538.2"/>
+	<line class="st3" x1="206.8" y1="705.8" x2="247.3" y2="705.8"/>
+</g>
+</svg>

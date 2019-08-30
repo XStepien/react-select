@@ -1,0 +1,91 @@
+.iconlist{
+  border-bottom: 1px solid #eee;
+  list-style: none;
+  margin: 0 0 $margin-standard;
+  padding: 0;
+}
+
+  .iconlist-item{
+    border-top: 1px solid #eee;
+    padding: 15px 0 15px 40px;
+  }
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+            ICONLIST MODS
+
+- - - - - - - - - - - - - - - - - - - */
+
+
+.iconlist{
+
+  &.mod-check{
+    border-bottom: 0;
+    margin: 0;
+
+     .iconlist-item{
+      border-top: 0;
+      padding: 0 0 0 24px;
+      position: relative;
+
+      &:before{
+        @include m-icon-lgw;
+        color: $green;
+        content: unicode($icon-checked);
+        font-size: $font-standard;
+        font-weight: 700;
+        left: 0;
+        position: absolute;
+        top: 3px;
+      }
+    }
+  }
+
+  &.mod-arrow{
+    @extend .mod-check;
+
+    .iconlist-item{
+      font-size: $font-small;
+      font-weight: 700;
+
+      &:before{
+        content: unicode($icon-next);
+      }
+    }
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+            ICONLIST ITEM MODS
+
+- - - - - - - - - - - - - - - - - - - */
+
+  .iconlist-item{
+
+    &.mod-accounts{
+      background: url(/src/assets/images/pages/apps/icons/account.png) left 13px no-repeat;
+    }
+
+    &.mod-catalogs{
+      background: url(/src/assets/images/pages/apps/icons/catalog.png) left 13px no-repeat;
+    }
+
+    &.mod-channels{
+      background: url(/src/assets/images/pages/apps/icons/channel.png) left 13px no-repeat;
+    }
+
+    &.mod-orders{
+      background: url(/src/assets/images/pages/apps/icons/order.png) left 13px no-repeat;
+    }
+
+    &.mod-stats{
+      background: url(/src/assets/images/pages/apps/icons/stats.png) left 13px no-repeat;
+    }
+
+    &.mod-launch{
+      background: url(/src/assets/images/pages/apps/icons/launch.png) left 13px no-repeat;
+    }
+  }

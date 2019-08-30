@@ -1,0 +1,556 @@
+.status-header{
+  background: $blue;
+  color: white;
+  padding: $margin-bigger 0 80px;
+}
+  .status-header-maindate{
+    margin-top: -5px;
+  }
+
+  .status-header-progress{
+    margin-top: $margin-small;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .status-header-progress-line{
+    background: $blue-lighter;
+    height: 4px;
+    left: 0;
+    position: absolute;
+    top: 40px;
+    width: 100%;
+  }
+
+  .status-header-progress-step{
+    background-color: $blue;
+    border: 2px solid $blue-lighter;
+    border-radius: 50%;
+    height: 82px;
+    margin: 0 auto $margin-small;
+    position: relative;
+    transition: all $transition-slow ease;
+    transform: scale(1);
+    width: 82px;
+
+    &:before{
+      transition: all 600ms ease;
+    }
+
+    &:after{
+      transition: width 1200ms ease 0.8s;
+    }
+  }
+
+    .status-header-progress-step-icon{
+      @include m-icon-lgw;
+      background-color: $blue-lighter;
+      border-radius: 50%;
+      color: $sea;
+      font-size: 55px;
+      height: 66px;
+      margin: 6px;
+      width: 66px;
+    }
+
+    .status-header-progress-step-status{
+      @include m-icon-lgw;
+      background-color: white;
+      border-radius: 50%;
+      color: $dark-light;
+      font-size: 18px;
+      box-shadow: 0 3px 3px rgba(0,0,0,.1);
+      height: 24px;
+      position: absolute;
+      right: -1px;
+      top: -1px;
+      width: 24px;
+    }
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+  STATUS HEADER PORGRESS STEP MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.status-header-progress-step{
+
+  &.mod-first{
+    z-index: 10;
+  }
+
+  &.mod-second{
+    z-index: 9;
+  }
+
+  &.mod-third{
+    z-index: 8;
+  }
+
+  &.mod-fourth{
+    z-index: 7;
+  }
+
+  &.mod-partial-firt{
+    border: 2px solid white;
+    height:40px;
+    left: 0px;
+    position: absolute;
+    width:40px;
+    top: 20px;
+    z-index: 11;
+  }
+
+  &.mod-partial-second{
+    @extend .mod-partial-firt;
+    left: 40px;
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+  STATUS HEADER PROGRESS STEP ICON MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.status-header-progress-step-icon{
+
+  &.mod-basket{
+    padding-top: 5px;
+
+    &:after{
+      content: unicode($icon-basket);
+    }
+  }
+
+  &.mod-shipment{
+    padding-top: 4px;
+
+    &:after{
+      content: unicode($icon-carrier);
+      font-size: 53px;
+    }
+  }
+
+  &.mod-refunding{
+    padding-top: 4px;
+
+    &:after{
+      content: unicode($icon-refund);
+      font-size: 56px;
+    }
+  }
+
+  &.mod-return{
+    padding-top: 4px;
+
+    &:after{
+      content: unicode($icon-return);
+      font-size: 56px;
+    }
+  }
+
+  &.mod-package{
+    height: 30px;
+    margin: 3px;
+    position: absolute;
+    width: 30px;
+
+    &:after{
+      content: unicode($icon-package);
+      font-size: 25px;
+      position: absolute;
+      left: 3px;
+      top: 3px;
+    }
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+  STATUS HEADER PROGRESS STEP STATUS MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.status-header-progress-step-status{
+
+  &.mod-synchro{
+
+    &:after{
+      animation: statusAnimation 1.0s infinite linear;
+      content: unicode($icon-update);
+      left: 3px;
+      position: absolute;
+      top: 3px;
+    }
+  }
+
+  &.mod-checked{
+    color: white;
+    background-color: $dark-light;
+
+    &:after{
+      content: unicode($icon-checked);
+      left: 3px;
+      position: absolute;
+      top: 2px;
+    }
+  }
+
+  &.mod-canceled{
+    color: white;
+    background-color: $dark-light;
+    font-size: 16px;
+
+    &:after{
+      content: unicode($icon-close);
+      left: 4px;
+      position: absolute;
+      top: 4px;
+    }
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          STATUS HEADER STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.status-header{
+
+  &.mod-remove-padding{
+    margin-top: -101px;
+  }
+
+  /*
+    Red
+  */
+
+  &.is-red{
+    background: $red;
+
+    .status-header-progress-line{
+      background: $red-darker;
+    }
+
+    .status-header-progress-step{
+      background-color: $red;
+      border-color: $red-darker;
+
+      &.is-current{
+        border-color: white;
+
+        .status-header-progress-step-icon{
+          background-color: white;
+          color: $red-darkest;
+        }
+      }
+
+      &.is-synchro{
+        border-color: white;
+        border-style: dashed;
+
+        &:before {
+          border-bottom: 4px solid white;
+        }
+
+        .status-header-progress-step-icon{
+          background-color: white;
+          color: $red-darkest;
+        }
+      }
+
+      &.is-completed{
+        background: $red;
+        border-color: $red-darkest;
+
+        &:before {
+          border-bottom: 4px solid $red-darkest;
+        }
+
+        .status-header-progress-step-icon {
+          color:$red-darkest;
+        }
+      }
+
+      &.is-completed-last{
+
+        &:after {
+          border-bottom: 4px solid $red-darkest;
+        }
+      }
+    }
+
+      .status-header-progress-step-icon {
+        background-color: $red-darker;
+        color:$red-darker-fade;
+      }
+
+      .status-header-progress-step-status{
+
+        &.mod-synchro{
+          background-color: white;
+          color: $red-darkest;
+        }
+
+        &.mod-checked{
+          background-color: $red-darkest;
+          color: white;
+        }
+
+        &.mod-canceled{
+          background-color: $red-darkest;
+          color: white;
+        }
+      }
+  }
+
+  /*
+    Green
+  */
+
+   &.is-green{
+    background: $green;
+
+    .status-header-progress-line{
+      background: $green-darker;
+    }
+
+    .status-header-progress-step{
+
+      &.is-completed{
+        border-color: $green-darkest;
+        background: $green;
+
+        &:before {
+          border-bottom: 4px solid $green-darkest;
+        }
+
+        .status-header-progress-step-icon{
+          color: $green-darkest;
+        }
+      }
+
+      &.is-completed-last{
+
+        &:after {
+          border-bottom: 4px solid $green-darkest;
+        }
+      }
+
+      &.is-partially-completed{
+        border-color: $green-darkest;
+        background: $green;
+
+        .status-header-progress-step-icon{
+          color: $green-darkest;
+        }
+      }
+
+      &.is-partially-completed-last{
+
+        &:before {
+          border-bottom: 4px solid $green-darkest;
+          top: 18px;
+        }
+      }
+    }
+
+    .status-header-progress-step-icon {
+      background-color: $green-darker;
+      color: $green-darkest;
+    }
+
+    .status-header-progress-step-status{
+
+        &.mod-synchro{
+          background-color: white;
+          color: $green-darkest;
+        }
+
+        &.mod-checked{
+          background-color: $green-darkest;
+          color: white;
+        }
+      }
+  }
+
+  /*
+    Layout loading
+  */
+  &.is-layout-loading{
+    background-color: white;
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+    STATUS HEADER PROGRESS STEP STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.status-header-progress-step{
+
+  &.is-current{
+    color: $dark-light;
+    border-color: white;
+
+    &:before {
+      border-bottom: 4px solid white;
+      bottom:36px;
+      content: '';
+      display: block;
+      margin-right: 100%;
+      position: absolute;
+      right: 0;
+      width: 9999px;
+    }
+
+    .status-header-progress-step-icon{
+      background-color: white;
+      color: $dark-light;
+    }
+  }
+
+  &.is-synchro{
+    color: $dark-light;
+    border-color: white;
+    border-style: dashed;
+
+    &:before {
+      border-bottom: 4px solid $dark-light;
+      bottom:36px;
+      content: '';
+      display: block;
+      margin-right: 100%;
+      position: absolute;
+      right: 0;
+      width: 9999px;
+    }
+
+    .status-header-progress-step-icon{
+      background-color: white;
+      color: $dark-light;
+    }
+  }
+
+  &.is-partially-synchro{
+    color: $dark-light;
+    border-color: white;
+    border-style: dashed;
+
+    .status-header-progress-step-icon{
+      background-color: white;
+      color: $dark-light;
+    }
+  }
+
+  &.is-completed{
+    border-color: $dark-light;
+    color: $dark-light;
+
+    &:before {
+      border-bottom: 4px solid $dark-light;
+      bottom:36px;
+      content: '';
+      display: block;
+      margin-right: 100%;
+      position: absolute;
+      right: 0;
+      width: 9999px;
+    }
+
+    .status-header-progress-step-icon{
+      color: $dark-light;
+    }
+  }
+
+  &.is-completed-last{
+
+    &:after {
+      border-bottom: 4px solid $dark-light;
+      bottom:36px;
+      content: '';
+      display: block;
+      margin-left: 100%;
+      position: absolute;
+      left: 0;
+      width: 3000px;
+    }
+
+    .status-header-progress-step-icon{
+      color: $dark-light;
+    }
+  }
+
+  &.is-partially-completed{
+    border-color: $dark-light;
+    color: $dark-light;
+
+    .status-header-progress-step-icon{
+      color: $dark-light;
+    }
+  }
+
+  &.is-partially-completed-last{
+    @extend .is-partially-completed;
+    z-index: 6;
+
+    &:before {
+      border-bottom: 4px solid $dark-light;
+      bottom:36px;
+      content: '';
+      display: block;
+      margin-right: 100%;
+      position: absolute;
+      right: 0;
+      width: 9999px;
+    }
+  }
+
+  &.is-soon{
+
+    &:before {
+      border-bottom: 4px dotted white;
+      bottom:36px;
+      content: '';
+      display: block;
+      margin-right: 100%;
+      position: absolute;
+      right: 0;
+      width: 9999px;
+    }
+  }
+
+  &.is-soon-last{
+
+    &:after {
+      border-bottom: 4px dotted white;
+      bottom:36px;
+      content: '';
+      display: block;
+      margin-left: 100%;
+      position: absolute;
+      left: 0;
+      width: 9999px;
+    }
+  }
+
+  &.is-scaling{
+    transform: scale(0);
+
+    &:before{
+      right: 4500px;
+    }
+
+    &:after{
+      width: 0;
+    }
+  }
+}

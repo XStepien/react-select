@@ -1,0 +1,135 @@
+.page-split{
+  background:white;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+  .page-split-left{
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 38.2%;
+  }
+
+  .page-split-right{
+    bottom: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 61.8%;
+  }
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+              PAGE-SPLIT MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.page-split{
+
+  /*
+    Registration
+  */
+
+  &.mod-registration{
+
+    .page-split-left{
+      width: 61.8%;
+
+      @media (max-width: $md){
+        width: 100%;
+      }
+    }
+
+    .page-split-right{
+      width: 38.2%;
+
+      @media (max-width: $md){
+        display: none;
+      }
+    }
+  }
+
+  /*
+    Loin
+  */
+
+  &.mod-join{
+
+    .page-split-left{
+      width: 61.8%;
+
+      @media (max-width: $md){
+        width: 100%;
+      }
+    }
+
+    .page-split-right{
+      overflow: hidden;
+      width: 38.2%;
+
+      @media (max-width: $md){
+        display: none;
+      }
+    }
+  }
+
+  /*
+    Checkout
+  */
+
+  &.mod-checkout{
+
+    .page-split-left{
+      left: $stepWidth;
+      width: calc(50% - #{$stepWidth});
+    }
+
+    .page-split-right{
+      width: 50%;
+    }
+
+    @media (max-width: $md){
+
+      .page-split-left{
+        left: $stepWidth;
+        width: calc(38.2% - #{$stepWidth});
+      }
+
+      .page-split-right{
+        width: 61.8%;
+      }
+    }
+  }
+
+  &.mod-call-back{
+
+    .page-split-left{
+      overflow-x: hidden;
+    }
+  }
+
+  /*
+    with headnav
+  */
+
+  &.mod-headnav{
+    top: $navbar-height;
+  }
+
+  /*
+    background-grey
+  */
+
+  &.mod-left-grey{
+
+    .page-split-left{
+      background-color: $grey-background;
+    }
+  }
+}

@@ -1,0 +1,230 @@
+.search{
+  border: 0;
+  float: left;
+  height: 34px;
+  line-height: 34px;
+  margin: 12px 10px $margin-small 0;
+  position: relative;
+
+  &.floatless {
+    float:none;
+  }
+}
+
+  .search-input{
+    background: url(/src/assets/images/components/search/search.png) $grey-background no-repeat 10px center;
+    border: 0;
+    border-radius: $border-radius;
+    height: 34px;
+    line-height: 34px;
+    outline: none;
+    padding: 0 30px 0 35px;
+    transition: all $transition-fast ease;
+    width: 180px;
+
+    &:focus{
+      background-color: white;
+      box-shadow: inset 0 0 0 1px $sky;
+    }
+  }
+
+  .search-empty{
+    background: url(/src/assets/images/components/search/deny.png) no-repeat center;
+    border: 0;
+    bottom: 0;
+    height: 30px;
+    opacity: 0;
+    margin: auto;
+    right: 2px;
+    top: 0;
+    transition: all $transition-fast ease;
+    transform: scale(0);
+    position: absolute;
+    width: 30px;
+  }
+
+/* - - - - - - - - - - - - - - - - - - -
+
+              SEARCH MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.search{
+
+  &.mod-large{
+
+    .search-input{
+      width: 300px;
+
+      @media (max-width: $lg) {
+        width: 250px;
+      }
+    }
+  }
+
+  &.mod-large-xl{
+
+    .search-input{
+      width: 300px;
+
+      @media (max-width: $xl) {
+        width: 180px;
+      }
+    }
+  }
+
+  &.mod-block{
+    width: 100%;
+
+    .search-input{
+      width: 100%;
+    }
+  }
+
+  &.mod-table-overhead{
+    margin: 0 0 15px 0;
+  }
+
+  &.mod-minimal{
+    transition: all $transition-fastest ease;
+
+    .search-input{
+      background-color: transparent;
+      cursor: pointer;
+      padding: 0 0 0 35px;
+      transition: all $transition-fastest ease;
+      width: 0;
+
+      &:focus{
+        box-shadow: none;
+      }
+    }
+
+    &:hover{
+      opacity: .66;
+    }
+  }
+
+  &.mod-white{
+
+    .search-input{
+      background-color: white;
+    }
+  }
+
+  &.mod-dark{
+    margin: 3px 0 0 20px;
+
+    .search-input{
+      background-color: $dark-lighter;
+      background-image: url(/src/assets/images/components/search/search-white.png);
+      color: white;
+      width: 200px;
+
+      &::-moz-placeholder{
+        color: white;
+      }
+      &:-ms-input-placeholder{
+        color: white;
+      }
+      &::-webkit-input-placeholder{
+        color: white;
+      }
+    }
+
+    .search-empty{
+      background: url(/src/assets/images/components/search/deny-white.png) no-repeat center;
+    }
+  }
+
+  &.mod-darker{
+
+    .search-input{
+      background-color: $dark;
+      background-image: url(/src/assets/images/components/search/search-white.png);
+      color: white;
+
+      &:hover{
+        background-color: $dark-light;
+      }
+
+      &:focus{
+        background-color: $dark-light;
+        box-shadow: inset 0 0 0 1px $dark-lighter;
+      }
+
+      &::-moz-placeholder{
+        color: white;
+      }
+      &:-ms-input-placeholder{
+        color: white;
+      }
+      &::-webkit-input-placeholder{
+        color: white;
+      }
+    }
+
+    .search-empty{
+      background: url(/src/assets/images/components/search/deny-white.png) no-repeat center;
+    }
+  }
+
+  &.mod-clear{
+    float: none;
+    max-width: 180px;
+  }
+
+  &.mod-dockable{
+
+    .search-input{
+      background-color: white;
+    }
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+             SEARCH STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.search{
+
+  &.is-loading{
+    background-image: url(/src/assets/images/components/search/loading.gif);
+    background-position: 5px 5px;
+  }
+
+  &.is-notempty {
+
+    .search-empty{
+      display: block;
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  &.is-focus{
+
+    &.mod-minimal{
+      opacity: 1;
+
+      .search-input{
+        cursor: inherit;
+        padding: 0 30px 0 35px;
+        width: 180px;
+      }
+    }
+  }
+
+  &.is-docked{
+
+    .search-input{
+      background-color: $grey-background;
+
+      &:focus{
+        background-color: white;
+      }
+    }
+  }
+}

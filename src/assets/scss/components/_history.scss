@@ -1,0 +1,73 @@
+.history-line {
+  background: $grey-border;
+  bottom: 30px;
+  left: 0;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 2px;
+}
+
+
+.history-box{
+  @include m-box-style();
+  margin: 0 auto $margin-standard !important;
+  padding: 0 30px 5px;
+  text-align: center;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.history-day{
+  background: $grey-background;
+  border: 1px solid $grey-border;
+  border-radius: 20px;
+  color: $grey-light;
+  display: inline-block;
+  font-size: $font-small;
+  font-weight: 600;
+  height: 30px;
+  margin-bottom: $margin-standard;
+  line-height: 30px;
+  padding: 0 15px;
+  position: relative;
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          HISTORY INNER - MODS
+
+- - - - - - - - - - - - - - - - - - - */
+
+.history-inner {
+
+  &.mod-more-stats {
+    padding-bottom: $margin-standard;
+
+    .history-line{
+      bottom: 0;
+    }
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          HISTORY BOX - STATES
+
+- - - - - - - - - - - - - - - - - - - */
+
+.history-box{
+
+  &.is-processing-upload{
+
+    .spinner-label{
+      margin-bottom: 30px;
+    }
+  }
+}

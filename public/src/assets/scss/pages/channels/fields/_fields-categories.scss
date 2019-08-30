@@ -1,0 +1,153 @@
+//////////////////////////////
+// SELECT FIELDS CATEGORY
+
+$padding-tree: 10px;
+
+.aside.mod-transfo{
+
+  >ul>li{
+    >a{
+      font-weight:700;
+      padding-left:$padding-tree;
+    }
+    >ul>li{
+      >a{
+        padding-left:$padding-tree * 2;
+      }
+      >ul>li{
+        >a{
+          padding-left:$padding-tree * 3;
+        }
+        >ul>li{
+          >a{
+            padding-left:$padding-tree * 4;
+          }
+          >ul>li{
+            a{
+              padding-left:$padding-tree * 5;
+            }
+            >ul>li{
+              a{
+                padding-left:$padding-tree * 6;
+              }
+              >ul>li{
+                a{
+                  padding-left:$padding-tree * 7;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  ul{
+    margin:0;
+    padding:0;
+    list-style: none;
+    font-size: $font-small;
+    li{
+      &.not-allowed{
+        cursor: not-allowed;
+      }
+      a{
+        padding:{
+          top:8px;
+          bottom:8px;
+          right:6px;
+        }
+        border-bottom: 1px solid $grey-background;
+        transition: all $transition-fastest ease;
+        display:block;
+        text-decoration:none;
+        &:hover{
+          background: $sky-lighter;
+          color: $navy;
+          border-color:$sky-lighter;
+          .badge{
+            background:$sky;
+            color:white;
+          }
+        }
+        &.disabled{
+          color:$grey-placeholder;
+          pointer-events:none;
+        }
+      }
+    }
+  }
+  a{
+    color: $grey;
+  }
+  .active{
+    background: $sky-lighter;
+    color: $navy;
+    border-color:$sky-lighter;
+    .badge{
+      background:$sky;
+      color:white;
+    }
+  }
+  .badge{
+    background:$grey-disabled;
+    color:$grey;
+    margin-left:6px;
+    font-style: normal !important;
+    transition: all $transition-fastest ease;
+    &.ok{
+      background:$green !important;
+      color: white !important;
+    }
+  }
+}
+
+
+//////////////////////////////
+// ASIDE ATTRIBUTES
+
+#categories-select{
+  display:none;
+  p{
+    margin:0;
+  }
+  .left{
+    display:inline-block;
+  }
+}
+
+.aside.mod-transfo.open .fields-categories{
+  display:block;
+}
+
+@media (max-width: $lg) {
+
+  .aside.mod-transfo{
+    position:fixed;
+    width:100%;
+    padding:0;
+    bottom:inherit !important;
+    overflow-y: inherit !important;
+    ul li a{
+      padding:{
+        top:15px;
+        bottom:15px;
+      }
+    }
+  }
+  .fields-categories{
+    display:none;
+    max-height:60vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 10px rgba(0,0,0,.15);
+  }
+  #categories-select{
+    display:block;
+    background:url(/src/assets/images/components/select/arrow-down.png) no-repeat center right $padding-tree white;
+    text-decoration:none;
+    padding:$margin-small 25px;
+    border-bottom:1px solid $grey-disabled;
+    &:hover{
+      background-color:$grey-background;
+    }
+  }
+}

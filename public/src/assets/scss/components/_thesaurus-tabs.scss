@@ -1,0 +1,64 @@
+.thesaurus-tabs{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+  .thesaurus-tabs-item{
+    display: inline-block;
+  }
+
+  .thesaurus-tabs-item-link{
+    background: $grey-background;
+    border: 1px solid $grey-disabled;
+    border-bottom: 0;
+    color: $grey;
+    display: inline-block;
+    font-size: $font-small;
+    padding: 10px 15px;
+    position: relative;
+    text-decoration: none;
+    transition: all $transition-fast ease;
+
+    &:hover, &:focus{
+      text-decoration: none;
+    }
+
+    &::after{
+      background: transparent;
+      bottom: -1px;
+      content: '';
+      height: 2px;
+      left: -1px;
+      position: absolute;
+      right: 100%;
+      transition: all $transition-fast ease;
+      z-index: 2;
+    }
+  }
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+    THESAURUS-TABS-ITEM-LINK STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.thesaurus-tabs-item-link{
+
+  &.is-active{
+    background: white;
+    color: $navy;
+
+    &::after{
+      background: $blue;
+      right: -1px;
+    }
+  }
+
+  &.is-disabled{
+    background: $grey-disabled;
+    color: $grey-light;
+    cursor: not-allowed;
+  }
+}

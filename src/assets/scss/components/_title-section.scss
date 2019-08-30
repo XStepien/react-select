@@ -1,0 +1,44 @@
+.title-section{
+  margin-bottom: $margin-bigger;
+
+  h1, h2{
+    margin-bottom: 10px;
+  }
+  h3, h4, h5, h6{
+    margin-bottom: $margin-tiny;
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          TITLE SECTION MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.title-section{
+
+  &.mod-small{
+    margin-bottom: $margin-standard;
+  }
+
+  &.mod-help-center{
+    background: url(/src/assets/images/pages/support/helpcenter.gif) no-repeat;
+    color: white;
+    height: 206px;
+    margin: 0;
+    padding: $margin-standard $margin-big 0px;
+    width: 100%;
+
+    h2{
+      margin-top: 0;
+    }
+  }
+
+  &.mod-height-45{
+    height: $margin-big;
+  }
+
+  &.mod-height-60{
+    height: $margin-bigger;
+  }
+}

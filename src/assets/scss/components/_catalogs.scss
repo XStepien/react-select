@@ -1,0 +1,100 @@
+.catalogs{
+  position: relative;
+}
+  .catalogs-input{
+    background-color: $grey-input;
+    background-image: url(/src/assets/images/components/select/arrow-down.png);
+    background-position: center right 7px;
+    background-repeat: no-repeat;
+    background-size: inherit !important;
+    border:1px solid $grey-border;
+    border-radius: $border-radius;
+    box-shadow: inset 0 3px 3px rgba(0,0,0,0.05);
+    color: $grey;
+    display: block;
+    font-size: $font-standard;
+    height: 44px;
+    line-height: 42px;
+    outline: none;
+    padding: 0 $margin-standard 0 $margin-small;
+    transition: all $transition-fastest ease;
+    width: 100%;
+
+    &::-ms-clear {
+      display: none;
+    }
+
+    &:hover{
+      border-color: $grey-border-over;
+    }
+
+    &:focus{
+      background-color: white;
+      border-color: $sky;
+      outline: none;
+    }
+  }
+
+  .catalogs-dropdown{
+    background: white;
+    border: 1px solid $grey-border;
+    border-top: 0;
+    box-shadow: 0 10px 10px 0 rgba(0,0,0,.15);
+    line-height: 0;
+    opacity: 0;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    transform: scale(1, 0);
+    transform-origin: top;
+    transition: all $transition-faster ease;
+    width: 100%;
+    z-index: 1;
+  }
+
+    .catalogs-dropdown-item{
+      border-bottom: 1px solid #eee;
+      display: inline-block;
+      list-style: none;
+      padding: 10px 15px 0px;
+      white-space: nowrap;
+      width: 100%;
+      transition: background-color $transition-faster ease;
+
+      &:hover{
+        cursor: pointer;
+        background: $sky-lightest;
+      }
+    }
+
+      .catalogs-dropdown-item-name{
+        font-weight: 700;
+        margin: 0 0 0 -18px;
+      }
+
+      .catalogs-dropdown-item-source{
+        margin: 2px 0 0 -5px;
+      }
+
+      .catalogs-dropdown-item-url{
+        white-space: normal;
+        word-wrap: break-word;
+        margin: 0 0 7px -17px;
+      }
+
+
+.catalogs{
+
+  &.is-open{
+
+    .catalogs-dropdown{
+      opacity: 1;
+      transform: scale(1);
+      transition: all $transition-faster ease;
+    }
+
+    .catalogs-input{
+      background-image: url(/src/assets/images/components/select/arrow-up.png);
+    }
+  }
+}

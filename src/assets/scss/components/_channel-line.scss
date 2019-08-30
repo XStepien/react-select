@@ -1,0 +1,35 @@
+.channel-line{
+  display: inline-block;
+}
+  .channel-line-logo{
+    display: inline-block;
+    float: left;
+    margin-right: 7px;
+    width: 100px;
+  }
+
+  .channel-line-flag{
+    display: inline-block;
+    float: left;
+    margin: 0 17px 0 0;
+  }
+
+  .channel-line-txt{
+    display: inline-block;
+    float: left;
+  }
+
+    .channel-line-txt-main{
+      font-weight: 700;
+      float: left;
+      width: 100%;
+      white-space: nowrap;
+    }
+
+    .channel-line-txt-secundary{
+      color: $grey-light;
+      display: inline-block;
+      float: left;
+      width: 100%;
+      white-space: nowrap;
+    }

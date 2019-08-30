@@ -1,0 +1,179 @@
+/*
+  Button chosen height
+*/
+
+$button-chosen-height-small: 34px;
+$button-chosen-height-standard: 44px;
+
+
+/*
+  Style for chosen's plugin
+  Classes are nested beacause of plugin's CSS specificity
+*/
+
+
+.button-chosen-wrap {
+
+  .chosen-container-single{
+    float:left;
+    width: auto !important;
+
+    .chosen-single{
+      background: $grey-input;
+      border: 1px solid $grey-border;
+      border-radius: $border-radius;
+      box-shadow: none !important;
+      color: $grey;
+      font-size: $font-small;
+      font-weight: 600;
+      height: $button-chosen-height-standard;
+      line-height: $button-chosen-height-standard;
+      max-width: 190px;
+      padding: 0 10px;
+      transition: all $transition-fastest ease;
+
+      @media (max-width: $lg){
+        max-width: 120px;
+        padding: 0 10px;
+      }
+
+      span{
+        display: inline-block;
+        margin-right: 18px;
+        width: 90%;
+
+        img.chose-image-small {
+          display: none;
+        }
+      }
+
+      div{
+        right: 12px;
+        width: 9px;
+
+        @media (max-width: $lg){
+          right: 12px;
+        }
+
+        b{
+          background: url(/src/assets/images/layout/filters/carret.png) no-repeat center !important;
+        }
+      }
+
+      &:hover{
+        background: $grey-background;
+      }
+    }
+
+    .chosen-drop{
+      margin-top: -1px;
+
+      .chosen-results{
+        border: 1px solid $grey-border;
+        border-radius: 3px;
+      }
+    }
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+              BUTTONS MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.button-chosen-wrap {
+
+  /*
+    No search chosen-button
+  */
+
+  &.mod-no-search{
+
+    .chosen-search{
+      display: none;
+    }
+  }
+
+  /*
+    small
+  */
+
+  &.mod-small{
+
+    .chosen-single{
+      height: $button-chosen-height-small;
+      line-height: $button-chosen-height-small - 1px;
+
+      div{
+        right: 11px;
+      }
+    }
+
+    .chosen-results li{
+      font-size: $font-small;
+    }
+  }
+
+  /*
+    button hidden column in preview
+  */
+
+  &.mod-hidden-column{
+    display: inline-block;
+    position: relative;
+
+    .chosen-single{
+      background: white;
+      border: 0;
+      border-radius: 0;
+      height: 57px;
+      position: relative;
+      width: 57px;
+
+      &:before{
+        @include m-icon-lgw;
+        color: $grey;
+        content: unicode($icon-hidden);
+        display: block;
+        font-size: 25px;
+        left: 17px;
+        position: absolute;
+        top: 17px;
+      }
+
+      &:hover,
+      &:focus{
+        background: $grey-background;
+      }
+
+      span{
+        display: none;
+      }
+
+      div {
+
+        b{
+          display: none;
+        }
+      }
+    }
+
+    .chosen-with-drop,
+    .chosen-container-active{
+
+      .chosen-single{
+        background: $grey-background;
+      }
+
+      .chosen-results {
+        margin-top: -1px;
+      }
+    }
+
+    .chosen-select{
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,126 @@
+.catalogs-info{
+  list-style: none;
+  margin: 0 0 30px 0;
+  padding: 0;
+}
+
+  .catalogs-info-item{
+    font-size: $font-small;
+    margin-bottom: 9px;
+    position: relative;
+    clear: left;
+    height: 20px;
+  }
+
+    .catalogs-info-item-link{
+      color: $grey-light;
+      transition: all $transition-fast ease;
+
+      &:hover,
+      &:focus{
+        color: $blue;
+        text-decoration: none;
+
+        .catalogs-info-item-count{
+          background: $blue;
+          color: white;
+        }
+      }
+
+      &.is-disabled{
+        pointer: text;
+        pointer-events: none;
+      }
+    }
+
+    .catalogs-info-item-count{
+      background: $grey-disabled;
+      border-radius: 10px;
+      color: $grey-light;
+      display: inline-block;
+      font-size: $font-smaller;
+      font-weight: 600;
+      line-height: 1;
+      margin-right: 5px;
+      padding: 3px 7px;
+      text-align: center;
+      transition: all $transition-fast ease;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+.catalog-source-icon {
+  border-radius: 50%;
+  left: -45px;
+  height: 36px;
+  margin-top: -6px;
+  position: absolute;
+  width: 36px;
+
+  @media screen and (min-width: 0px) and (max-width: 1272px){
+    display: none;
+  }
+}
+
+  .catalogs-info-update{
+    display: grid;
+    grid-template-columns: 45px auto;
+    align-items: center;
+    margin: 8px 0;
+  }
+
+/* - - - - - - - - - - - - - - - - - - -
+
+        CATALOGS INFO MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.catalogs-info{
+
+  &.mod-header{
+
+    .catalogs-info-item{
+      height: 15px;
+    }
+  }
+}
+/* - - - - - - - - - - - - - - - - - - -
+
+        CATALOGS SOURCE ICON MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.catalog-source-icon {
+
+  &.mod-ftp{
+    background:url(/src/assets/images/pages/import-catalog/import-choice/choice-ftp.png) $grey-background no-repeat center;
+  }
+
+  &.mod-magento{
+    background:url(/src/assets/images/pages/import-catalog/import-choice/choice-magento.png) #EF672F no-repeat center;
+  }
+
+  &.mod-woocommerce{
+    background:url(/src/assets/images/pages/import-catalog/import-choice/choice-woocommerce.png) #9b5c8f no-repeat center;
+  }
+
+  &.mod-prestashop{
+    background:url(/src/assets/images/pages/import-catalog/import-choice/choice-prestashop.png) #9fdbea no-repeat center;
+  }
+
+  &.mod-shopware{
+    background:url(/src/assets/images/pages/import-catalog/import-choice/choice-shopware.png) $grey-background no-repeat center;
+  }
+
+  &.mod-shopify{
+    background:url(/src/assets/images/pages/import-catalog/import-choice/choice-shopify.png) $grey-background no-repeat center;
+  }
+
+  &.mod-link{
+    background:url(/src/assets/images/pages/import-catalog/import-choice/choice-link.png) $grey-background no-repeat center;
+  }
+
+  &.mod-manual{
+    background:url(/src/assets/images/pages/import-catalog/import-choice/choice-manual.png) $grey-background no-repeat center;
+  }
+}

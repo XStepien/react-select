@@ -1,0 +1,25 @@
+.appstore-sidebar {}
+
+  .appstore-sidebar-item {
+    color: $grey;
+
+    &:hover,
+    &:focus {
+      color: $grey;
+      text-decoration: underline;
+    }
+
+    /*
+      Active
+    */
+
+    &.is-active {
+      color: $blue;
+
+      &:hover,
+      &:focus {
+        color: $blue;
+        text-decoration: none;
+      }
+    }
+  }

@@ -1,0 +1,79 @@
+.rule-name{
+  margin-bottom: $margin-standard;
+  max-width: 300px;
+  position: relative;
+
+  &:before{
+    background-image: url(/src/assets/images/components/edit-title/edit-dark.png);
+    background-position: right center;
+    background-repeat: no-repeat;
+    bottom: 0;
+    content: "";
+    height: 14px;
+    margin: auto;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: -10px;
+    transition: all $transition-faster ease;
+    width: 14px;
+  }
+
+  &:after{
+    background: white;
+    bottom: 0;
+    content: "";
+    left: 0;
+    height: 2px;
+    position: absolute;
+    transition: width $transition-fast ease,
+                background $transition-fast ease;
+    width: 0;
+  }
+
+  &:hover{
+
+    &:before{
+      opacity: 1;
+      top: 0;
+    }
+
+    &:after{
+      width: 100%;
+    }
+  }
+}
+
+  .rule-name-input{
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    font-size: $font-bigger;
+    outline: none;
+    padding: 0 30px 5px 0;
+    position: relative;
+  }
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+             RULE NAME STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.rule-name{
+
+  &.is-focused{
+    color: $blue;
+
+    &:before{
+      opacity: 0;
+    }
+
+    &:after{
+      background: $blue;
+      width: 100%;
+    }
+  }
+}

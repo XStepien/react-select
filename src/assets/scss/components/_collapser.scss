@@ -1,0 +1,48 @@
+.collapser{
+  margin: $margin-standard 0;
+}
+
+  .collapser-toggle{
+    color: $blue;
+    display: inline-block;
+    margin-bottom: $margin-small;
+
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+
+  .collapser-carret{
+    background: url(/src/assets/images/components/collapser/carret.png) no-repeat center;
+    height: 11px;
+    float: left;
+    margin: 5px 7px 0 0;
+    transition: transform 500ms cubic-bezier(0.680, -0.550, 0.265, 1.550);
+    width: 11px;
+  }
+
+  .collapser-target{
+    background: white;
+    border: 1px solid $grey-border;
+    border-radius: $border-radius;
+    display: none;
+    padding: $margin-standard $margin-big;
+    position: relative;
+  }
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+           COLLAPSER STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.collapser{
+
+  &.is-open{
+
+    .collapser-carret{
+      transform: rotate( -180deg );
+    }
+  }
+}

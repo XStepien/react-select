@@ -1,0 +1,72 @@
+$nav-width: 245px;
+
+.aside-layout{
+  min-height: 450px;
+  padding-left: $nav-width;
+}
+
+  .aside-layout-aside{
+    left: $margin-small;
+    position: absolute;
+    top: 0;
+    width: 200px;
+  }
+
+  .aside-layout-content{
+  }
+
+/* - - - - - - - - - - - - - - - - - - -
+
+                  MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.aside-layout{
+
+  &.mod-trial-bar{
+
+    .aside-layout-aside{
+
+      &.is-fixed{
+        top: calc(#{$trial-bar-height} + 130px);
+      }
+    }
+  }
+
+  &.mod-dev-center{
+
+    @media (max-width: $lg) {
+        padding-left: 215px;
+    }
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+                 STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.aside-layout-aside{
+
+  &.is-fixed{
+    left: inherit;
+    margin-left: -$nav-width;
+    position: fixed;
+    top: 130px;
+  }
+
+  &.is-bottom{
+    bottom: 0;
+    position: absolute;
+    top: inherit;
+  }
+
+  &.is-fixed-bottom{
+    bottom: $margin-bigger;
+    left: inherit;
+    margin-left: -$nav-width;
+    top: inherit;
+    position: fixed;
+  }
+}

@@ -1,0 +1,39 @@
+.trial-bar{
+  background-color: $sky-lightest;
+  color: $navy;
+  min-height: $trial-bar-height;
+  padding: 7px $margin-small 0 $margin-standard;
+  position: fixed;
+  top: $navbar-height;
+  width: 100%;
+  z-index: 36;
+}
+
+  .trial-bar-txt{
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+                  MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.trial-bar{
+
+  /*&.mod-home{
+    padding-left: $margin-small;
+    padding-right: 535px;
+
+    @media (max-width: $md) {
+      padding-right: $margin-small;
+    }
+
+    .trial-bar-txt{
+      margin-bottom: 8px;
+      text-align: left;
+    }
+  }*/
+}

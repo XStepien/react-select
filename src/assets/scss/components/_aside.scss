@@ -1,0 +1,103 @@
+$aside-width: 420px;
+$aside-width-small: 300px;
+$aside-width-home: 520px;
+
+.aside{
+  background: white;
+  bottom: 0;
+  box-shadow: 0 0 1px rgba(0,0,0,.15);
+  left: 0;
+  overflow-x: hidden;
+  padding: 40px 40px 0;
+  position: fixed;
+  top: 0;
+  width: $aside-width;
+  z-index: 50;
+
+  @media (max-width: $lg) {
+    width: $aside-width-small;
+  }
+}
+
+  .aside-content{
+    bottom: 0;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+    .aside-content-section{
+      padding: 30px 40px;
+    }
+
+      .aside-content-section-title{
+        border-bottom: 1px solid $grey-disabled;
+        margin-top: 0;
+        padding-bottom: $margin-small;
+      }
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+              ASIDE MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.aside{
+
+  &.mod-right{
+    left: auto;
+    right: 0;
+  }
+
+  &.mod-home{
+    padding: $margin-standard 0;
+    width: $aside-width-home;
+    z-index: 100;
+
+    @media (max-width: $md) {
+      display: none;
+    }
+  }
+
+  &.mod-setup-matching{
+    height: calc(100vh - #{$footer-height} );
+
+    @media (max-width: $md) {
+      display: none;
+    }
+  }
+
+  &.mod-transfo{
+    bottom: $footer-height;
+    padding: 0;
+    width: $aside-width-small;
+
+    @media (max-width: $lg) {
+      overflow-x: inherit;
+    }
+  }
+
+  &.mod-categories{
+    bottom: $footer-height;
+    box-shadow: 10px 0px 15px 0 rgba(0, 0, 0, 0.12);
+    padding: 0;
+    width: 450px;
+
+    .aside-header{
+      background-color: white;
+      padding: $margin-big;
+    }
+  }
+
+  &.mod-footer{
+    bottom: $footer-height;
+  }
+
+  &.mod-headnav{
+    top: $navbar-height;
+  }
+}

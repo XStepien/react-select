@@ -1,0 +1,44 @@
+.modalhead-secundary{
+  background: white;
+  border-bottom: 1px solid $grey-border;
+  min-width: 970px;
+  height: $modalhead-secundary;
+  padding: 0;
+  position: fixed;
+  top: $modal-head-height;
+  transition: all $transition-fast ease;
+  width: 100%;
+  z-index: 30;
+}
+
+.modalhead-secundary-container{
+  align-items: center;
+  display: grid;
+  grid-template-columns: auto auto;
+  padding: 0;
+
+  &:before{
+    content: none;
+  }
+}
+
+  .modalhead-secundary-left{
+    margin-left: 23px;
+  }
+
+  .modalhead-secundary-right{
+    justify-self: end;
+    display: grid;
+    align-items: center;
+    grid-template-columns: auto auto auto;
+  }
+
+    .modalhead-secundary-update{
+      border-left: 1px solid $grey-border;
+      float: right;
+      height: 67px;
+      padding: 13px 10px 0px 20px;
+      position: relative;
+      text-align: right;
+      vertical-align: top;
+    }

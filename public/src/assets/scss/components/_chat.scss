@@ -1,0 +1,147 @@
+.chat{
+  background: white;
+}
+
+  .chat-header{
+    border-bottom: 1px solid $grey-separator;
+    height: auto;
+    min-height: 65px;
+    padding: $margin-small 0 0 $margin-big;
+  }
+
+    .chat-header-id{
+      color: $grey-light;
+      opacity: 0;
+      text-align: center;
+      transition: opacity $transition-fast ease;
+    }
+
+  .chat-comments{
+    opacity: 0;
+    transition: opacity $transition-fast ease;
+  }
+
+  .chat-list{
+    font-size: $font-small;
+    margin: 0;
+    max-height: calc(100vh - 220px - #{$navbar-height} );
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 0;
+  }
+
+    .chat-list-item{
+      display: block;
+      margin: $margin-small 0 $margin-standard;
+      padding: 0 45px;
+    }
+
+      .chat-list-item-bubble{
+        background: $grey-background;
+        border-radius: $border-radius * 3;
+        color: $grey;
+        padding: $margin-small $margin-small;
+        word-break: break-word;
+
+        &:after{
+          background: url(/src/assets/images/layout/support/bubble.png);
+          bottom: -17px;
+          content: "";
+          height: 17px;
+          position: absolute;
+          right: 30px;
+          width: 46px;
+        }
+      }
+
+        .chat-list-item-bubble-attachment{
+          display: block;
+          padding: 0;
+          list-style: none;
+        }
+
+      .chat-list-item-avatar{
+        box-shadow: 0 5px 5px 0 rgba(0,0,0,.05);
+        height: 48px;
+        position: relative;
+        width: 48px;
+      }
+
+      .chat-list-item-author{
+        margin: $margin-small 0 0 -21px;
+      }
+
+  .chat-footer{
+    background: $grey-background;
+    border-top: 1px solid $grey-separator;
+    height: 70px;
+    text-align: center;
+  }
+
+    .chat-footer-inner{
+      padding: $margin-standard $margin-bigger;
+      transform: translate(0, 50px);
+      transition: transform $transition-fast ease;
+    }
+
+  .chat-error{
+    margin-bottom: $margin-bigger;
+    padding: 0 $margin-big;
+    text-align: center;
+  }
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+               CHAT MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.chat-list-item-bubble{
+
+  /*
+    Blue bubble
+  */
+
+  &.mod-lengow{
+    background: #cdf1ff;
+    color: $darker;
+
+    &:after{
+      right:inherit;
+      left:30px;
+      background:url(/src/assets/images/layout/support/bubble-lengow.png);
+    }
+
+    hr{
+      border-color: #bae7f8;
+    }
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+              CHAT STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.chat{
+
+  &.is-extended{
+
+    .chat-list{
+      padding: 0;
+      max-height: calc(100vh - 590px - #{$navbar-height} );
+    }
+
+    .chat-footer{
+      height:480px;
+      overflow: auto;
+    }
+
+    .chat-footer-inner{
+      transform: translate(0);
+    }
+  }
+}

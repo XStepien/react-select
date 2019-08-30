@@ -1,0 +1,48 @@
+.boxlist-field-wrap{
+}
+  .boxlist-field-wrap-header{
+    color: $grey;
+    font-weight: 700;
+    margin-bottom: 0;
+    padding: $margin-small $margin-small $margin-small 65px;
+    width: 100%;
+  }
+
+.boxlist-field{
+  @include m-box-style();
+  margin-bottom: $margin-small;
+  min-height: 55px;
+  padding: $margin-small $margin-small $margin-small 65px;
+
+  .form-group{
+    margin: 0;
+  }
+}
+
+  .boxlist-field-drag {
+    background: url(/src/assets/images/pages/channels/fields/advanced/drag.png) no-repeat center center;
+    border-right: 1px solid #e1e1e1;
+    bottom: 0;
+    cursor: move;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 50px;
+  }
+
+/* - - - - - - - - - - - - - - - - - - -
+
+        BOXLIST-FIELDS STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+ .boxlist-field{
+
+  &.is-editing{
+
+  }
+
+  &.is-done{
+
+  }
+ }

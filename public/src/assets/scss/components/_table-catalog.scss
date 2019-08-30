@@ -1,0 +1,424 @@
+.table-catalog-wrap{
+  bottom: $footer-height;
+  left: 0;
+  overflow: auto;
+  position: absolute;
+  right: 0;
+  top: $filter-height;
+
+  &::-webkit-scrollbar {
+     height: 30px;
+     width: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+      background: $grey-border-over;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+      background: $grey-border;
+  }
+}
+
+  .table-catalog{
+    border-collapse: inherit;
+    border-spacing: 0;
+    display: table;
+    margin: 0;
+    width: 100%;
+  }
+
+    .table-catalog-head{
+      display: table-header-group;
+    }
+
+    .table-catalog-head-line{
+      display: table-row;
+    }
+
+      .table-catalog-headcell{
+        background: $grey-disabled;
+        border: 0;
+        display: table-cell;
+        font-family: 'Lato', sans-serif;
+        font-size: $font-standard;
+        max-width: 250px;
+        padding:0;
+        position: relative;
+        text-align: left;
+      }
+
+    .table-catalog-body{
+      display: table-row-group;
+    }
+
+    .table-catalog-body-line{
+      background: white;
+      color: $grey;
+      display: table-row;
+      position: relative;
+
+      &:hover,
+      &:focus{
+        text-decoration: none;
+      }
+    }
+
+      .table-catalog-body-cell{
+        background: white;
+        border: 0;
+        border-bottom: 1px solid #eee;
+        display: table-cell;
+        font-size: $font-small;
+        max-width: 250px;
+        min-width:150px;
+        padding: 17px 10px;
+        position: relative;
+        vertical-align: middle;
+        word-break: break-word;
+      }
+
+        .table-catalog-body-cell-wrap-image{
+          height: 40px;
+          position: relative;
+        }
+
+        .table-catalog-body-cell-image{
+          max-height: 40px;
+        }
+
+        .table-catalog-body-cell-img{
+          max-height: 40px;
+          position: absolute;
+        }
+
+
+        .table-catalog-error-link{
+          color: $grey;
+          text-decoration: underline;
+
+          &:hover,
+          &:active{
+            color: $grey;
+          }
+        }
+
+  /*
+  HEAD CELL WHICH DOCK ON X AND Y, ID, IMG, TITLE
+  */
+
+  .table-catalog-corner{
+    padding: 0;
+  }
+
+    .table-catalog-corner-wrap1{
+      height: 100%;
+      position: relative;
+      z-index: 3;
+    }
+
+      .table-catalog-corner-wrap2{
+        align-items: center;
+        background: $grey-disabled;
+        display: flex;
+        flex-wrap: wrap;
+        min-height: 40px;
+        height: 100%;
+        line-height: inherit;
+        padding: 0 10px;
+        transition: box-shadow $transition-fast ease;
+        white-space: nowrap;
+      }
+
+  /*
+  HEAD CELL WHICH DOCK ON Y
+  */
+
+  .table-catalog-headcell-wrap1{
+    height: 100%;
+    position: relative;
+    z-index: 2;
+  }
+
+    .table-catalog-headcell-wrap2{
+      align-items: center;
+      display: flex;
+      background: $grey-disabled;
+      flex-wrap: wrap;
+      height: 100%;
+      min-height: 40px;
+      line-height: inherit;
+      padding: 0 10px;
+      white-space: nowrap;
+    }
+
+  /*
+  CELL WITCH DOCK ON X
+  */
+
+  .table-catalog-cell-wrap1{
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+  }
+
+    .table-catalog-cell-wrap2{
+      align-items: center;
+      background: white;
+      bottom: 0;
+      display: flex;
+      left: 0;
+      padding: 10px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transition: box-shadow $transition-fast ease;
+      vertical-align: middle;
+
+      &:hover{
+        background: $grey-background;
+      }
+    }
+
+/*
+TABLE ACCORDION
+*/
+
+.table-catalog-accordion{
+  background: url(/src/assets/images/pages/channels/injection/accordion.png) repeat-y $grey-background;
+  border: 0;
+  cursor: pointer;
+  min-width: 36px !important;
+  position: relative;
+  transition: all $transition-fastest ease;
+  width: 36px;
+
+  &:hover:not(.mod-no-edit){
+    background: url(/src/assets/images/pages/channels/injection/accordion.png) repeat-y $grey-background;
+  }
+}
+
+      .table-catalog-field-label-main{
+        font-family: 'Lato', sans-serif;
+        font-size: $font-standard;
+        text-align: left;
+      }
+
+      .table-catalog-field-label-secundary{
+        color: $grey-light;
+        font-size: $font-small;
+        font-weight: 400;
+        text-align: left;
+      }
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+        TABLE CATALOG WRAP MODS
+
+- - - - - - - - - - - - - - - - - - - */
+
+.table-catalog-wrap{
+
+  &.mod-preview {
+    bottom: 0;
+    top: calc(114px + 57px);
+  }
+
+  &.mod-modal{
+    bottom: 0;
+    top: 0;
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+      TABLE CATALOG - HEADCELL MODS
+
+- - - - - - - - - - - - - - - - - - - */
+
+.table-catalog-headcell{
+
+  &.mod-toggle{
+    display: none;
+
+    &:last-child {
+      display: table-cell;
+    }
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+      TABLE CATALOG - CELL MODS
+
+- - - - - - - - - - - - - - - - - - - */
+
+.table-catalog-body-cell{
+
+  &:hover:not(.mod-no-edit){
+    background:$grey-background;
+    cursor:pointer;
+  }
+
+  &.mod-id{
+    min-width: 100px !important;
+  }
+
+  &.mod-img{
+    min-width: 60px !important;
+  }
+
+  &.mod-title{
+    min-width: 150px !important;
+  }
+
+  &.mod-description{
+    min-width: 400px !important;
+  }
+
+  /*
+  Cell hidden by default (showed by accordion)
+  */
+
+  &.mod-toggle{
+    display: none;
+    
+    &:last-child {
+      display: table-cell;
+    }
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+    TABLE CATALOG CELL WRAP2 STATES
+
+- - - - - - - - - - - - - - - - - - - */
+
+.table-catalog-headcell-wrap2{
+
+  &.mod-custom-field{
+    background: $sky-lightest;
+    color: $dark;
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+      TABLE CATALOG - CELL STATES
+
+- - - - - - - - - - - - - - - - - - - */
+
+.table-catalog-body-cell{
+
+  &.is-disabled {
+    background: $grey-disabled;
+    cursor: not-allowed;
+  }
+
+  &.is-visible{
+
+    &.mod-toggle{
+      display: table-cell;
+    }
+  }
+
+  /*
+  Blue triangle
+  */
+
+  &.is-injected{
+    background-image: url(/src/assets/images/components/table/injected.png);
+    background-repeat: no-repeat;
+    background-position: top left;
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+    TABLE CATALOG - HEADCELL STATES
+
+- - - - - - - - - - - - - - - - - - - */
+
+.table-catalog-headcell{
+
+  &.is-visible{
+
+    &.mod-toggle{
+      display: table-cell;
+    }
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+    TABLE CATALOG CORNER WRAP2 STATES
+
+- - - - - - - - - - - - - - - - - - - */
+
+.table-catalog-corner-wrap2{
+
+  &.is-scrolled{
+    box-shadow:5px 0 5px rgba(0,0,0,.05);
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+    TABLE CATALOG CELL WRAP2 STATES
+
+- - - - - - - - - - - - - - - - - - - */
+
+.table-catalog-cell-wrap2{
+
+  &.is-scrolled{
+    box-shadow: 5px 0 5px rgba(0,0,0,.05);
+  }
+  &.is-injected{
+    background-image: url(/src/assets/images/components/table/injected.png);
+    background-repeat: no-repeat;
+    background-position: top left;
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+    TABLE CATALOG FIELD LABEL STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+ .table-catalog-field-label-main, .table-catalog-field-label-secundary{
+
+   &.is-ellipsed{
+    cursor: pointer;
+
+    &:hover{
+      color: $grey-light;
+    }
+  }
+
+  &.is-full-length{
+    cursor: pointer;
+    white-space: normal;
+    word-break: break-all;
+
+    &:hover{
+      color: $grey-light;
+    }
+  }
+
+  &.is-hidden{
+    display: none;
+  }
+}

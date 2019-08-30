@@ -1,0 +1,244 @@
+
+.layout-loading{
+  background: $neutral-10;
+  border: 0;
+  display: block;
+  height: 2px;
+  margin: 0 auto 25px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.layout-loading:after {
+  animation: placeHolderShimmer 1s cubic-bezier(0.860, 0.000, 0.070, 1.000) infinite;
+  background: $neutral-15;
+  background: linear-gradient(to right, $neutral-10 0%, $neutral-15 10%, $neutral-15 90%, $neutral-10 100%);
+  border-radius: 0px;
+  content: " ";
+  display: block;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 400%;
+  z-index: 2;
+}
+
+@keyframes placeHolderShimmer{
+  from {
+      left:-400%;
+  }
+  to {
+      left:100%;
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          LAYOUT LOADING MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+ .layout-loading{
+
+  /*
+    Orders
+  */
+
+  &.mod-title{
+    height: 10px;
+    width: 250px;
+  }
+
+  &.mod-subtitle{
+    height: 10px;
+    width: 150px;
+  }
+
+  &.mod-progress-line{
+    height: 4px;
+    left: 0;
+    position: absolute;
+    top: 40px;
+    width: 100%;
+  }
+
+  &.mod-step{
+    border-radius: 50%;
+    height: 62px;
+    margin: 10px auto 15px;
+    position: relative;
+    width: 62px;
+  }
+
+  &.mod-content-head{
+    height: 10px;
+    width: 250px;
+    margin: 0 0 25px;
+  }
+
+  &.mod-content{
+    height: 10px;
+    width: 150px;
+    margin: 0 0 25px;
+  }
+
+  &.mod-box-map{
+    height: 300px;
+    width: 100%;
+    border-top-right-radius: 3px;
+    margin: 0;
+
+    &:after{
+      animation: initial;
+      background: #fdfdfd;
+    }
+  }
+
+  &.mod-empty{
+    height: 300px;
+    width: 100%;
+    margin: 0;
+
+    &:after{
+      animation: initial;
+      background: #ffffff;
+    }
+  }
+
+  /*
+    Smarthome
+  */
+
+  &.mod-smart-header-title{
+    background: white;
+    height: 10px;
+    width: 170px;
+    margin: 10px 0 40px;
+
+    &:after{
+      background: $neutral-5;
+      background: linear-gradient(to right, white 0%, $neutral-5 10%, $neutral-5 90%, white 100%);
+    }
+  }
+
+  &.mod-smart-header-subtitle{
+    background: white;
+    height: 10px;
+    width: 335px;
+    margin: 0 0 20px;
+
+    &:after{
+      background: $neutral-5;
+      background: linear-gradient(to right, white 0%, $neutral-5 10%, $neutral-5 90%, white 100%);
+    }
+  }
+
+  &.mod-categ-header-title{
+    background: $neutral-15;
+    height: 10px;
+    width: 170px;
+    margin: 10px 0 40px;
+
+    &:after{
+      background: $neutral-10;
+      background: linear-gradient(to right, $neutral-15 0%, $neutral-10 10%, $neutral-10 90%, $neutral-15 100%);
+    }
+  }
+
+  &.mod-categ-header-subtitle{
+    background: $neutral-15;
+    height: 10px;
+    width: 335px;
+    margin: 0 0 20px;
+
+    &:after{
+      background: $neutral-10;
+      background: linear-gradient(to right, $neutral-15 0%, $neutral-10 10%, $neutral-10 90%, $neutral-15 100%);
+    }
+  }
+
+  &.mod-smart-step{
+    border-radius: 50%;
+    height: 62px;
+    margin: 10px 0 15px;
+    position: relative;
+    width: 62px;
+  }
+
+  &.mod-smart-step-45{
+    border-radius: 50%;
+    height: 45px;
+    margin: 0px 0 10px;
+    position: relative;
+    width: 45px;
+  }
+
+  &.mod-smart-step-squared{
+    border-radius: 5%;
+    height: 45px;
+    margin: 0px 0 10px;
+    position: relative;
+    width: 45px;
+  }
+
+  &.mod-content-full{
+    height: 10px;
+    margin: 0 0 25px;
+    min-width: 100px;
+    width: 100%;
+  }
+
+  &.mod-content-90{
+    height: 10px;
+    margin: 0 0 25px;
+    width: 90%;
+  }
+
+  &.mod-content-80{
+    height: 10px;
+    margin: 0 0 25px;
+    width: 80%;
+  }
+
+  &.mod-content-full-line{
+    height: 10px;
+    margin: 0 0 8px;
+    min-width: 100px;
+    width: 100%;
+  }
+}
+
+.layout-loading-wrap{
+  position: relative;
+  width: 100%;
+
+  &.mod-header{
+    padding: $margin-small 0 7px;
+  }
+
+  &.mod-catalog{
+    padding: $margin-standard $margin-big;
+  }
+}
+
+.layout-loading-header{
+  background: $neutral-15;
+  height: 320px;
+  position: absolute;
+  width: 100%;
+}
+
+.layout-loading-graf{
+  background: $neutral-5;
+  height: 270px;
+  width: 100%;
+}
+
+.layout-loading-step-wrap{
+  width: 85px;
+}
+
+.layout-loading-content-wrap{
+  padding: 0 $margin-standard 0 0;
+}

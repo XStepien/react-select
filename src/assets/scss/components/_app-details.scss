@@ -1,0 +1,153 @@
+/* - - - - - - - - - - - - - - - - - - -
+
+           APP DETAIL HEADER
+
+ - - - - - - - - - - - - - - - - - - - */
+
+$preview-height: 60px;
+
+.app-detail-header{
+
+  &.is-preview {
+    margin-top: calc(#{$navbar-height} + #{$preview-height});
+  }
+}
+  .app-detail-header-visual{
+    margin-bottom: -120px;
+    min-height: 150px;
+  }
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+           APP DETAIL OVERVIEW
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.app-detail-overview{
+  padding: 150px 0 $margin-small;
+  background: white;
+  border:{
+    bottom:1px solid $grey-separator;
+    top:1px solid $grey-separator;
+  }
+}
+
+  .app-detail-overview-logo{
+    max-height: 54px;
+    width: auto;
+    background: white;
+  }
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          APP DETAIL SCROLLBAR
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.app-detail-scrollbar {
+  background: white;
+  border-bottom: 1px solid $grey-border;
+  font-size: $font-small;
+  height: $navbar-height;
+  padding-top: 5px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  transition: all $transition-fast ease;
+  width: 100%;
+  z-index: 10;
+
+  &.is-scrolled{
+    top: $navbar-height;
+
+    &.is-preview{
+       top: calc(#{$navbar-height} + #{$preview-height});
+    }
+
+    &.mod-trial-bar{
+      top: calc(#{$navbar-height} + #{$trial-bar-height});
+    }
+  }
+}
+
+  .app-detail-scrollbar-logo{
+    height: 35px;
+    width: auto;
+    background: white;
+    margin-top: 5px;
+  }
+
+  .app-detail-scrollbar-txt{
+    margin-top: 2px;
+  }
+
+  .app-detail-scrollbar-tag {
+    margin-top: 0;
+    padding-top: 8px;
+  }
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+           APP DETAIL CONTACT
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.app-detail-contact{
+  background: url(/src/assets/images/pages/channels/choose-channel/contact/mail-blue.png) left center no-repeat;
+  color: $blue;
+  padding: 0 0 0 25px;
+
+  &.mod-web{
+    background-image: url(/src/assets/images/pages/channels/choose-channel/contact/web-blue.png);
+  }
+
+  &.mod-phone{
+    background-image: url(/src/assets/images/pages/channels/choose-channel/contact/phone-blue.png);
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+        APP DETAIL PREVIEW MODE
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.app-preview-bar {
+  background-color: $blue;
+  color: #fff;
+  display: block;
+  height: $preview-height;
+  position: fixed;
+  text-align: center;
+  top: $navbar-height;
+  width: 100%;
+  z-index: 1500;
+}
+
+  .app-preview-bar-txt {
+    line-height: inherit;
+    font-weight: normal;
+  }
+
+  .app-preview-bar-link {
+    font-weight: bold;
+    margin: 0 0 0 10px;
+  }
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+           APP DETAIL CONTENT
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.app-content{
+
+  &.is-preview {
+    margin-top: calc(#{$navbar-height} + #{$preview-height});
+  }
+}

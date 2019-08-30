@@ -1,0 +1,923 @@
+.table{
+  border-collapse: inherit;
+  border-spacing: 0;
+  display: table;
+  margin-bottom: $margin-standard;
+  width: 100%;
+}
+
+  .table-head{
+    display: table-header-group;
+  }
+
+    .table-head-line{
+      border: 0;
+      display: table-row;
+    }
+
+      .table-head-cell{
+        background: $grey-disabled;
+        border: 0;
+        display: table-cell;
+        font-family: 'Lato', sans-serif;
+        font-size: $font-standard;
+        font-weight: bold;
+        padding: 10px;
+        position: relative;
+        text-align: left;
+        vertical-align: middle;
+      }
+
+    .table-body{
+      display: table-row-group;
+    }
+
+      .table-body-line{
+        background: white;
+        color: $grey;
+        display: table-row;
+        position: relative;
+
+        &:hover,
+        &:focus,
+        &:active{
+          text-decoration: none;
+
+          .table-body-cell-showover{
+            opacity: 1;
+          }
+        }
+      }
+
+        .table-body-cell{
+          background: white;
+          border: 0;
+          border-bottom: 1px solid #eee;
+          display: table-cell;
+          font-size: $font-small;
+          max-width: 250px;
+          padding: 17px 10px;
+          position: relative;
+          vertical-align: middle;
+          word-break: break-word;
+        }
+
+          .table-body-cell-image{
+            max-height: 40px;
+          }
+
+          /*
+            SHOWOVER
+            Show hidden table content when hover a table line
+          */
+
+          .table-body-cell-showover{
+            opacity: 0;
+            transition: all $transition-fastest ease;
+          }
+
+          .table-line-drag {
+            border-right: 1px solid $grey-separator;
+            bottom: 0;
+            cursor: move;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &:before{
+              @include m-icon-lgw;
+              color: $grey;
+              content: unicode($icon-drag);
+              font-size: 21px;
+              position: absolute;
+              width: 50px;
+              left: 14px;
+            }
+          }
+
+
+/*
+  OVERHEAD
+  Box over table head (search, title, etc.)
+  e.g. stats > categories > products
+*/
+
+.table-overhead{
+  padding: $margin-small;
+  min-height: 64px;
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+              TABLES MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+
+.table{
+
+  /*
+    with border
+  */
+
+  &.mod-border{
+    border: 1px solid $grey-border;
+  }
+
+  /*
+    STRIPED TABLE
+  */
+
+  &.mod-striped{
+
+    .table-body-line:nth-of-type(even) {
+      background-color: $grey-background;
+    }
+
+    .table-body-line{
+
+      &.mod-clickable{
+
+        &:hover{
+
+          .table-body-cell{
+            background-color: $sky-lightest;
+          }
+        }
+      }
+    }
+
+    .table-body-cell {
+      background-color: transparent;
+    }
+  }
+
+  /*
+    THIN TABLE
+  */
+
+  &.mod-thin{
+
+    .table-body-cell{
+      padding: 7px;
+    }
+  }
+
+  /*
+    CATALOG TABLE
+  */
+
+  &.mod-catalog{
+
+    .table-head-line-cell{
+      padding: 0;
+    }
+  }
+
+  /*
+    CATALOGS LIST TABLE
+  */
+
+  &.mod-catalogs{
+    border: 1px solid $grey-border;
+    border-bottom: 0;
+    margin-bottom: 0;
+
+    .table-body-line{
+      height: 93px;
+
+      &[data-draft="1"],&[data-disabled="1"]{
+
+        .table-body-cell{
+          background: $grey-disabled;
+          color: $grey-light;
+        }
+
+        &.mod-error{
+
+          .table-body-cell{
+            background-color: $red-lightest;
+            color: $grey;
+
+            &.mod-grey-light{
+
+              .span-grey-light{
+                color: $grey;
+              }
+            }
+          }
+
+          &:hover{
+            color: initial;
+
+            .table-body-cell{
+              background-color: $red-lightish;
+              color: initial;
+
+              &:first-child{
+
+                &:before {
+                  background: $red;
+                  bottom: 0;
+                  content: '';
+                  display: block;
+                  left: 0;
+                  position: absolute;
+                  top: 0;
+                  width: 2px;
+                }
+              }
+
+              &.mod-grey-light{
+                color: initial;
+
+                .span-grey-light{
+                  color: $grey;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .table-body-cell{
+      font-size: $font-small;
+      border-color: $grey-border;
+      padding: 22px 10px;
+    }
+
+    .table-body-cell:first-child{
+      padding-left: $margin-standard;
+    }
+
+    .table-body-cell:last-child{
+      padding-right: $margin-standard;
+    }
+
+    &.mod-source{
+
+      .table-body-cell:first-child{
+        padding-left: 20px;
+      }
+    }
+
+    &.mod-noevent{
+      box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.1);
+      pointer-events: none;
+    }
+  }
+
+  /*
+    CHANNEL LIST TABLE
+  */
+
+  &.mod-channels{
+    border: 1px solid $grey-border;
+    border-bottom: 0;
+    margin-bottom: 0;
+
+    .table-body-line{
+      height: 83px;
+
+      &[data-draft="1"], &[data-enabled="0"]{
+
+        .table-body-cell{
+          background: $grey-disabled;
+          color: $grey-light;
+        }
+
+        &:hover{
+
+          .table-body-cell{
+             color: $blue;
+          }
+        }
+      }
+
+      &[data-custom="1"]{
+
+        .table-body-cell{
+
+          &.mod-custom{
+
+            .table-body-cell-custom{
+              background: url(/src/assets/images/pages/apps/my_custom_channel/custom-icon.png) no-repeat;
+              display: inline-block;
+              height: 58px;
+              position: absolute;
+              right: 0;
+              top: 0;
+              width: 58px;
+              z-index: 1;
+            }
+          }
+        }
+      }
+    }
+
+    .table-body-cell{
+      border-color: $grey-border;
+      padding: 17px 10px;
+
+      &.mod-logo{
+        width: 197px;
+      }
+
+      &:first-child{
+        max-width: 185px;
+      }
+
+      &.mod-custom{
+        position: relative;
+        width: 58px;
+      }
+    }
+
+    &.mod-small-drop{
+      display: block;
+      height: auto;
+      max-height: calc(100vh - 500px);
+      overflow: auto;
+
+      .table-body-line{
+        height: 67px;
+      }
+
+      .table-body-cell{
+        line-height: 1;
+        padding: 0px 10px;
+
+        &:first-child{
+          padding-left: $margin-standard;
+          width: 115px;
+        }
+
+        &:nth-child(2){
+          padding: 15px 10px;
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  /*
+    DETAIL ORDER TABLE
+  */
+
+  &.mod-detail-order{
+    margin-bottom: 0;
+
+    .table-head-cell{
+      background-color: white;
+      border-bottom: 1px solid #eee;
+      border-top: 1px solid #eee;
+      color: $grey;
+      padding: 20px 10px;
+    }
+
+    .table-body-cell {
+      font-size: 13.5px;
+    }
+  }
+
+  /*
+    TABLE STRUCTURE
+  */
+
+  &.mod-structure{
+    border: 0;
+    font-size: inherit;
+    box-shadow: none;
+
+    .table-body-line{
+      background: transparent;
+    }
+
+    .table-body-cell{
+      background: transparent;
+      padding: 0!important;
+      vertical-align: bottom !important;
+      border-bottom: 0px;
+    }
+  }
+
+  &.mod-smarthome{
+
+    .table-head-cell:first-child,
+    .table-body-cell:first-child{
+      padding-left: $margin-bigger;
+    }
+
+    .table-head-cell:last-child,
+    .table-body-cell:last-child{
+      padding-right: $margin-bigger;
+    }
+
+    .table-body-line{
+      height: 93px;
+
+      &:last-child{
+
+        .table-body-cell{
+          border-bottom: 0;
+        }
+      }
+
+      .table-body-cell{
+
+        &.mod-custom{
+          position: relative;
+          width: 60px;
+        }
+      }
+
+      &[data-custom="1"]{
+
+        .table-body-cell{
+
+          &.mod-custom{
+
+            .table-body-cell-custom{
+              background: url(/src/assets/images/pages/apps/my_custom_channel/custom-icon.png) no-repeat;
+              display: inline-block;
+              height: 58px;
+              position: absolute;
+              right: 0;
+              top: 0;
+              width: 58px;
+              z-index: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.table-body{
+
+  /*
+    TOGGLE TABLE
+    e.g. Stats > by channel type
+  */
+
+  &.mod-toggle{
+    cursor: pointer;
+
+    .table-body-line{
+      font-weight: 600;
+    }
+
+    .table-body-carret{
+      background: url(/src/assets/images/components/table/down.png) no-repeat 10px center;
+      border: 0;
+      border-bottom: 1px solid $grey-background;
+      position: relative;
+    }
+
+    &:hover{
+
+      .table-body-carret:before{
+        background: $blue;
+        bottom: 0;
+        content: '';
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 2px;
+      }
+    }
+
+    &.is-open{
+
+      .table-body-carret{
+        background-image: url(/src/assets/images/components/table/up.png);
+      }
+    }
+  }
+
+  &.mod-toggle-target{
+
+    .table-body-line{
+      background: #fbfbfb;
+    }
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+           TABLES LINE MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.table-body-line{
+
+  /*
+    CLICKABLE TABLE
+    e.g. orders
+  */
+
+  &.mod-clickable{
+    transition: all $transition-fast ease;
+
+    &:hover {
+      cursor: pointer;
+
+      .table-body-cell{
+        background: $sky-white;
+
+        &.mod-grey-light{
+
+          .span-grey-light{
+            color: $blue;
+          }
+        }
+      }
+
+      .table-body-cell:first-child:before {
+        background: $blue;
+        bottom: 0;
+        content: '';
+        display: block;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 2px;
+      }
+
+      &.mod-red{
+
+        .table-body-cell{
+          background:  $red-lightish;
+        }
+      }
+
+    }
+
+    &.is-disabled{
+      pointer-events: none;
+
+      .table-body-cell{
+        background: $grey-background;
+      }
+    }
+
+    &.mod-red{
+
+      .table-body-cell{
+        background:  $red-lightest;
+      }
+    }
+
+    &.mod-error{
+
+      .table-body-cell{
+        background-color: $red-lightest;
+
+        &.mod-grey-light{
+
+          .span-grey-light{
+            color: $grey;
+          }
+        }
+      }
+
+      &:hover{
+        color: initial;
+
+        .table-body-cell{
+          background-color: $red-lightish;
+
+          &:first-child{
+
+            &:before {
+              background: $red;
+              bottom: 0;
+              content: '';
+              display: block;
+              left: 0;
+              position: absolute;
+              top: 0;
+              width: 2px;
+            }
+          }
+
+          &.mod-grey-light{
+
+            .span-grey-light{
+              color: $grey;
+            }
+          }
+        }
+      }
+
+      &:focus {
+        color: initial;
+      }
+
+      &.is-selected, &.is-not-selected{
+        transition: all $transition-fast ease;
+
+        .table-body-cell{
+          &.mod-grey-light{
+
+            .span-grey-light{
+              color: inherit;
+            }
+          }
+        }
+
+        &:hover{
+
+          .table-body-cell{
+            color: initial;
+
+            &.mod-grey-light{
+
+              .span-grey-light{
+                color: $grey;
+              }
+            }
+          }
+        }
+      }
+
+      .table-line-drag {
+        border-right: 1px solid #e0bfbf;
+      }
+    }
+  }
+
+  &.mod-border-top {
+
+    .table-body-cell{
+      border-top: 1px solid #eee;
+    }
+  }
+}
+
+/*
+  ::selection
+*/
+
+.table-body-line.mod-clickable .table-body-cell::selection {
+  background: transparent;
+}
+
+.table-body-line.mod-clickable .table-body-cell::-moz-selection {
+  background: transparent;
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+           TABLES CELL MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.table-body-cell{
+
+  &.mod-select-line{
+    padding: 0 0 0 10px;
+    width: 20px;
+  }
+
+  &.mod-grey-separator{
+    background-color: $grey-separator;
+  }
+
+  &.mod-sky-lighter{
+    background-color: $sky-lightest;
+    border-bottom: 1px solid white;
+    color: $navy-lighter;
+  }
+
+  &.mod-publishing{
+    text-align: center;
+    min-height: 300px;
+  }
+
+  &.mod-divider{
+    border-left: 4px double #eee;
+  }
+
+  &.mod-radio{
+    width: 25px;
+    padding-left: $margin-small;
+  }
+
+  &.mod-red{
+    color: $red !important;
+  }
+
+  &.mod-grey-light{
+
+    .span-grey-light{
+      color: $grey-light;
+    }
+  }
+
+  &.mod-source{
+    width: 50px;
+  }
+}
+
+.table-head-cell{
+
+  &.mod-divider{
+    border-left: 4px double white;
+  }
+
+  /*
+    ORDER BY
+  */
+
+  &.mod-order-by{
+    cursor: pointer;
+    transition: background-color $transition-fastest ease;
+
+    &:hover{
+      background-color: $grey-background;
+    }
+
+    &.is-active{
+      background: url(/src/assets/images/components/table/down.png) $grey-disabled no-repeat right 5px center;
+      color: $grey;
+      padding-right: 18px;
+
+      &[data-order="asc"]{
+        background: url(/src/assets/images/components/table/up.png) no-repeat right 5px center;
+      }
+
+      &:before{
+        background: $blue;
+        bottom: 0;
+        content: "";
+        height: 2px;
+        left: 0;
+        position: absolute;
+        right: 0;
+      }
+
+      &:hover{
+        background-color: $grey-background;
+      }
+    }
+  }
+
+  &.mod-sky{
+    background-color: $sky;
+    color: white;
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          TABLE HEAD CELLS MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.table-head-cell  {
+
+  &.mod-download{
+    width: 51px;
+  }
+
+  &.mod-country{
+    width: 77px;
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          TABLES LINE STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.table-body-line{
+
+  &.is-complete{
+
+    .table-body-cell:first-child:before{
+      background: $green;
+      bottom: 0;
+      content: '';
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 2px;
+    }
+  }
+
+  &.is-error{
+
+    .table-body-cell:first-child:before{
+      background: $red;
+      bottom: 0;
+      content: '';
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 2px;
+    }
+  }
+
+  &.is-warning{
+
+    .table-body-cell:first-child:before{
+      background: $orange;
+      bottom: 0;
+      content: '';
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 2px;
+    }
+  }
+
+  &.is-not-selected{
+
+    .table-body-cell{
+      color: $grey-placeholder;
+    }
+    
+    &:hover{
+
+      .table-body-cell{
+        color: $blue;
+      }
+    }
+  }
+
+  &.is-selected{
+    -webkit-user-select: none;
+            user-select: none;
+
+    .table-body-cell{
+      background-color: $sky-lightest;
+      border-bottom: 1px solid hsl(197, 90%, 97%);
+      color: $grey;
+      
+      &.mod-grey-light{
+
+        .span-grey-light{
+          color: $grey;          
+        }
+      }
+    }
+
+    &:hover{
+
+      .table-body-cell{
+        background-color: hsl(197, 90%, 97%);
+        color: $blue;
+      }
+    }
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          TABLES DOCKABLE STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.table {
+
+  &.mod-table-head-dockable{
+
+    &.is-fixed{
+      border:none;
+      box-shadow: 0 0 1px rgba(0, 0, 0, 0.35);
+      display:none;
+      position:fixed;
+      width:auto;
+      top:125px;
+      z-index: 2;
+    }
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          TABLE-HEAD STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.table-head  {
+
+  &.is-hidden{
+    height: 0;
+    .table-head-cell{
+      padding: 0;
+    }
+  }
+}

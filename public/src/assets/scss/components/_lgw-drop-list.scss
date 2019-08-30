@@ -1,0 +1,260 @@
+.lgw-drop-list{
+  display: inline-block;
+  position: relative;
+  user-select: none;
+  vertical-align: middle;
+  width: 100%;
+}
+
+  .lgw-drop-list-selected{
+    background: $grey-input;
+    border: 1px solid $grey-border;
+    border-radius: $border-radius;
+    box-shadow: inset 0 3px 3px rgba(0,0,0,0.05);
+    color: $grey;
+    cursor: pointer;
+    display: block;
+    font-size: $font-standard;
+    height:44px;
+    line-height: 44px;
+    padding:0 15px;
+    position: relative;
+    outline: none;
+    overflow: hidden;
+    text-decoration: none;
+    white-space: nowrap;
+    width: 100%;
+
+    &:hover,
+    &:focus{
+      border-color:$grey-border-over;
+      color: $grey;
+      cursor: pointer;
+      text-decoration: none;
+    }
+  }
+
+    .lgw-drop-list-selected-txt{
+      display: block;
+      overflow: hidden;
+      margin-right: 26px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+  .lgw-drop-list-carret{
+    background: url(/src/assets/images/components/select/arrow-down.png) no-repeat center center;
+    background-size: inherit !important;
+    display: block;
+    height: 44px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 44px;
+  }
+
+  .lgw-drop-list-drop{
+    background: white;
+    border: 0;
+    box-shadow: 0 10px 10px 0 rgba(0,0,0,.15);
+    left: 0;
+    margin-top: -1px;
+    min-width: 300px;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 100%;
+    transform-origin: right top;
+    transform: scale(1, 0);
+    transition: transform $transition-faster ease,
+                opacity $transition-faster ease;
+    width: 100%;
+    z-index: 70;
+  }
+
+    .lgw-drop-list-results{
+      border-top: 1px solid $grey-border;
+      margin:0;
+      max-height: 220px;
+      padding:0;
+      position: relative;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+      .lgw-drop-list-option{
+        color: $grey;
+        cursor: pointer;
+        display: list-item;
+        font-size: $font-standard;
+        line-height: 1.5;
+        list-style: none;
+        margin: 0;
+        min-height: 44px;
+        padding: 12px 15px 12px 25px;
+        transition: all $transition-faster ease;
+        word-wrap: normal;
+
+        &:hover{
+          background-color: $sky-lightest;
+        }
+      }
+
+      .lgw-drop-list-group-label{
+        padding: 12px 15px 12px 25px;
+        color: $blue;
+        cursor: pointer;
+        display: none;
+        list-style: none;
+
+        &:hover,
+        &:focus{
+          color: $blue-lighter;
+        }
+      }
+
+      .lgw-drop-list-grouplabel{
+        font-size: $font-big;
+        font-weight: 700;
+        line-height: 1.4;
+        list-style: none;
+        margin: 25px 15px 0 0;
+        padding: 0 15px 0 25px;
+      }
+
+      .lgw-drop-list-group{
+        display: list-item;
+      }
+
+        .lgw-drop-list-group-results{
+          margin: 0;
+          padding: 0;
+        }
+/* - - - - - - - - - - - - - - - - - - -
+
+      LGW DROP LIST MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.lgw-drop-list{
+
+  &.mod-large{
+
+    .lgw-drop-list-drop{
+      min-width: 602px;
+
+
+      @media (max-width: $xl) {
+        min-width: 532px;
+      }
+
+      @media (max-width: $lg) {
+        min-width: 495px;
+      }
+
+      .lgw-drop-list-results{
+        max-height: 350px;
+      }
+    }
+
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+      LGW DROP LIST STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.lgw-drop-list{
+
+  &.is-open{
+
+    .lgw-drop-list-drop{
+      transform: scale(1);
+      transition: transform 200ms ease, opacity 200ms ease;
+      opacity: 1;
+      pointer-events: inherit;
+    }
+
+    .lgw-drop-list-carret{
+      background:url(/src/assets/images/components/select/arrow-up.png) no-repeat center center;
+        background-size: inherit !important;
+    }
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+      LGW DROP LIST SLECTED STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.lgw-drop-list-selected{
+
+  &.is-placeholder{
+    color: $grey-placeholder;
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+      LGW DROP LIST OPTION MODS/STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.lgw-drop-list-option{
+
+  &.mod-option-placeholder{
+    color: $grey-placeholder;
+  }
+
+  &.is-selected{
+    background:url(/src/assets/images/components/select/tick.png) no-repeat 8px center;
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+        LGW DROP LIST GROUP STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+ .lgw-drop-list-group{
+
+    &.is-expandable{
+      display: none;
+
+    }
+
+    &.is-open{
+      display: list-item;
+    }
+  }
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+    LGW DROP LIST GROUP LABEL STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+ .lgw-drop-list-group-label{
+
+  &.is-expandable{
+    display: list-item;
+  }
+
+  &.is-open{
+    display: list-item;
+    cursor: default;
+
+    &:hover {
+      color: $blue;
+    }
+  }
+}

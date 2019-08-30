@@ -1,0 +1,176 @@
+.alert{
+  background: $blue-lightest;
+  border: 1px solid $blue-lighter;
+  border-radius: $border-radius;
+  color: $blue-darker;
+  margin-bottom: $margin-small;
+  padding: 20px $margin-standard;
+  position: relative;
+
+  a{    /*  Not good practice ! >> to refacto */
+    text-decoration: underline;
+  }
+}
+
+  .alert-close{
+    background: $blue-lighter;
+    border-radius: 50%;
+    height: 20px;
+    position: absolute;
+    right: 7px;
+    top: 7px;
+    transition: all $transition-fastest ease;
+    width: 20px;
+
+    &:before{
+      @include m-icon-lgw;
+      color: white;
+      position: absolute;
+      content: unicode($icon-close);
+      font-size: 12px;
+      left: 4px;
+      top: 4px;
+      font-weight: 900;
+    }
+
+    &:hover{
+      background-color: $red;
+    }
+  }
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+              ALERTS MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+
+.alert{
+
+  /*
+    SUCCESS
+  */
+
+  &.mod-success{
+    background-color: $green-lightest;
+    border-color: $green-lighter;
+    color: $green-darkest;
+
+    .alert-close{
+      background-color: $green-lighter;
+
+      &:hover{
+        background-color: $red;
+      }
+    }
+  }
+
+  &.mod-icon-success{
+      padding: 5px 30px 5px 75px;
+      background: url(/src/assets/images/components/alerts/success.png) $green-lightest no-repeat 15px center;
+  }
+
+  /*
+    DANGER
+  */
+
+  &.mod-danger{
+    background-color: $red-lightest;
+    border-color: $red-lighter;
+    color: $red-darker;
+
+    .alert-close{
+      background-color: $red-lighter;
+
+      &:hover{
+        background-color: $red;
+      }
+    }
+  }
+
+  &.mod-icon-danger{
+      padding: 5px 30px 5px 75px;
+      background: url(/src/assets/images/components/alerts/danger.png) $red-lightest no-repeat 15px center;
+  }
+
+  /*
+    WARNING
+  */
+
+  &.mod-warning{
+    background-color: $orange-lightest;
+    border-color: $orange-lighter;
+    color: $orange-darkest;
+
+    .alert-close{
+      background-color: $orange-lighter;
+
+      &:hover{
+        background-color: $red;
+      }
+    }
+  }
+
+  &.mod-icon-warning{
+      padding: 5px 30px 5px 75px;
+      background: url(/src/assets/images/components/alerts/warning.png) $orange-lightest no-repeat 15px center;
+  }
+
+  /*
+    FOR DARK BACKGROUND
+  */
+
+  &.mod-dark{
+    background-color:hsla(196, 100%, 47%, .5);
+    color: white;
+
+    a{
+      color: white;
+    }
+
+    /*
+      DARK SUCCESS
+    */
+
+    &.mod-success{
+      background-color: hsla(119, 37%, 62%, .5);
+    }
+
+     /*
+      DARK WARNING
+    */
+
+    &.mod-warning{
+      background-color: hsla(41, 96%, 57%, .5);
+    }
+
+    /*
+      DARK DANGER
+    */
+
+    &.mod-danger{
+      background-color: hsla(5, 75%, 60%, .5);
+    }
+  }
+
+  /*
+    Login
+  */
+
+  &.mod-login{
+    width: 420px;
+    margin:{
+      left: auto;
+      right: auto;
+    }
+  }
+
+  /*
+    Misc
+  */
+
+  p:last-of-type{
+    margin-bottom: 0;
+  }
+}

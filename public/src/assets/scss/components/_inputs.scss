@@ -1,0 +1,236 @@
+$input-height: 44px;
+
+.input{
+  background: $grey-input;
+  border:1px solid $grey-border;
+  border-radius: $border-radius;
+  box-shadow: inset 0 3px 3px rgba(0,0,0,0.05);
+  color: $grey;
+  display: block;
+  font-size: $font-standard;
+  height: $input-height;
+  line-height: calc(#{$input-height} - 2px);
+  outline: none;
+  padding: 0 $margin-small;
+  transition: all $transition-fastest ease;
+  width: 100%;
+
+  &::-ms-clear {
+    display: none;
+  }
+
+  &:hover{
+    border-color: $grey-border-over;
+  }
+
+  &:focus{
+    background-color: white;
+    border-color: $sky;
+    outline: none;
+  }
+}
+
+/*
+  Password switch
+*/
+
+.wrap-input{
+  position: relative;
+}
+
+.input-password-switch{
+  background: url(/src/assets/images/components/input/show-password.png) no-repeat;
+  height: 21px;
+  position: absolute;
+  right: 10px;
+  top: 11px;
+  width: 24px;
+
+  &:hover{
+    opacity: .75;
+  }
+}
+
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+              INPUTS MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.input{
+
+  /*
+    WHITE BACKGROUND
+  */
+
+  &.mod-white{
+    background: white;
+  }
+
+  /*
+    SMALL
+  */
+
+  &.mod-small{
+    height: 34px;
+    line-height: 32px;
+    margin: 0;
+  }
+
+  /*
+    REMOVE NUMBER SPINNER (+/-)
+  */
+
+  &.mod-no-spinner{
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      -moz-appearance:textfield;
+      -webkit-appearance: none;
+    }
+  }
+
+  /*
+    Password switch
+  */
+
+  &.mod-password-switch{
+    padding-right: 40px;
+  }
+
+  &.mod-dark{
+    background: $dark-light;
+    border: 1px solid $dark-light;
+    color: white;
+
+    &:hover{
+      border-color: $dark-light;
+    }
+
+    &:focus{
+      background: $dark-light;
+      border-color: $blue;
+    }
+
+    &::-moz-placeholder{
+      color: $dark-lightest;
+    }
+    &:-ms-input-placeholder{
+      color: $dark-lightest;
+    }
+    &::-webkit-input-placeholder{
+      color: $dark-lightest;
+    }
+  }
+
+  /*
+    Inline number 2 digits
+  */
+
+  &.mod-number{
+    width: 40px;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: center;
+    display: inline-block;
+
+    &[type=number] {
+      -moz-appearance:textfield;
+
+      &::-webkit-inner-spin-button,
+      &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    }
+  }
+}
+
+.wrap-input{
+
+  &.mod-mail{
+
+    .input{
+      padding-left: $input-height;
+    }
+
+    &:before{
+      background: url(/src/assets/images/pages/login/icon-mail.png) no-repeat center;
+      content: "";
+      height: $input-height;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: $input-height;
+    }
+  }
+
+  &.mod-password{
+
+    .input{
+      padding-left: $input-height;
+    }
+
+    &:before{
+      background: url(/src/assets/images/pages/login/icon-password.png) no-repeat center;
+      content: "";
+      height: $input-height;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: $input-height;
+    }
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+            INPUTS STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.input{
+
+  &[disabled],
+  &[readonly]{
+    background: $grey-disabled;
+    border-color:$grey-border;
+    color:$grey-light;
+    cursor: not-allowed;
+
+    &:focus{
+      background:#eee;
+    }
+  }
+
+  &.is-discrete{
+    color: $grey;
+    border-color: transparent;
+    background-color: transparent;
+    box-shadow: none;
+
+    &:hover{
+      border-color: $grey-border-over;
+      box-shadow: inset 0 3px 3px rgba(0,0,0,0.05);
+    }
+
+    &:focus{
+      background-color: white;
+      border-color: $sky;
+      box-shadow: inset 0 3px 3px rgba(0,0,0,0.05);
+      outline: none;
+    }
+  }
+}
+
+.wrap-input{
+
+  &.is-visible{
+
+    .input-password-switch{
+      background-position: 0 -21px;
+    }
+  }
+}

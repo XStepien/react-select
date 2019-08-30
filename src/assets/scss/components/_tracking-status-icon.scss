@@ -1,0 +1,40 @@
+.tracking-status-icon {
+  display: block;
+  height: 20px;
+  opacity: 0; // hide for tabs not loaded
+  pointer-events: auto;
+  position: absolute;
+  right: 15px;
+  top: -9px;
+  width: 20px;
+}
+
+/*
+  show icon after tabs loaded
+*/
+
+.ui-tabs-nav .tracking-status-icon {
+  opacity: 1;
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+      TRACKING STATUS ICON STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.tracking-status-icon {
+
+  &.is-active {
+    background: url(/src/assets/images/pages/settings/performance/active.png)  no-repeat;
+  }
+
+  &.is-inactive {
+    background: url(/src/assets/images/pages/settings/performance/inactive.png)  no-repeat;
+  }
+
+  &.is-unverified {
+    background: url(/src/assets/images/pages/settings/performance/unverified.png)  no-repeat;
+  }
+}

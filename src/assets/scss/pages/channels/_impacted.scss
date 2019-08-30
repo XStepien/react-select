@@ -1,0 +1,13 @@
+.impacted{
+    display: inline-block;
+    height: 69px;
+    float: right;
+    min-width: 232px;
+    position: relative;
+    width: auto;
+    z-index: 11;
+
+    &:hover {
+        background: $grey-background;
+    }
+}

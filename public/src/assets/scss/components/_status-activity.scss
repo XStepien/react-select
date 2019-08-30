@@ -1,0 +1,59 @@
+.status-activity{
+  display: inline-block;
+  margin: 5px;
+  padding-left: 13px;
+  position: relative;
+}
+
+  .status-activity-led{
+    background-color: $red;
+    border-radius: 50%;
+    height: 5px;
+    left: 0;
+    position: absolute;
+    top: 8px;
+    width: 5px;
+  }
+
+  .status-activity-label{
+    color: $grey-light;
+    font-size: $font-small;
+  }
+
+    .status-activity-label-active{
+      display: none;
+    }
+
+    .status-activity-label-inactive{
+      display: inline-block;
+    }
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          STATUS ACTIVITY STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+
+.status-activity{
+
+  /*
+    Active
+  */
+
+  &.is-active {
+
+    .status-activity-led{
+      background-color: $green;
+    }
+
+    .status-activity-label-active{
+      display: inline-block;
+    }
+
+    .status-activity-label-inactive{
+      display: none;
+    }
+  }
+
+}

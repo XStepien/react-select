@@ -1,0 +1,80 @@
+.avatar-upload{
+  background-color: white;
+  background-position: center;
+  background-size: cover;
+  border: 2px solid white;
+  border-radius: 50%;
+  box-shadow: 0 3px 16px rgba(0,0,0,.1);
+  display: table;
+  height: 104px;
+  margin: 0 auto;
+  width: 104px;
+}
+  .avatar-upload-input[type="file"]{
+    display: none;
+  }
+
+  .avatar-upload-link{
+    background: rgba(255,255,255,.9);
+    border-radius: 50%;
+    color: $blue;
+    display: table-cell;
+    font-size: $font-small;
+    height: 100px;
+    line-height: normal;
+    opacity: 0;
+    text-decoration: none;
+    transform: scale(1);
+    transition: all $transition-fast ease;
+    vertical-align: middle;
+    width: 100px;
+
+    &:hover{
+      color: $blue;
+      opacity: 1;
+      text-decoration: none;
+      transform: scale(1.01);
+    }
+  }
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          AVATAR-UPLOAD MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.avatar-upload{
+
+  &.mod-dev-center{
+    overflow: hidden;
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          AVATAR-UPLOAD STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.avatar-upload{
+
+  &.is-default{
+    background-color: $dark;
+  }
+
+  &.is-loading {
+    background-image: url(/src/assets/images/pages/settings/users/loading-avatar.gif) !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: unset;
+  }
+
+  &.is-visible {
+
+    //In modules - modale new account, avatar with no default image
+    .avatar-upload-link{
+      opacity: 1;
+    }
+  }
+}

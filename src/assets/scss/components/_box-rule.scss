@@ -1,0 +1,111 @@
+/* - - - - - - - - - - - - - - - - - - -
+
+              BOXES MOD-RULE
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.box{
+
+  /*
+    RULE LIST
+  */
+
+  &.mod-rule{
+    cursor: pointer;
+    padding: 0;
+
+    .box-header{
+      border-bottom: 1px solid $grey-separator;
+      padding: 10px 30px 10px 100px;
+      position: relative;
+    }
+    .box-sides{
+      min-height: 60px;
+      padding-left: 20%;
+    }
+
+      .box-side-left{
+        border-right: 1px solid $grey-separator;
+        left: 0;
+        position: absolute;
+        height: 100%;
+        padding: $margin-small;
+        top: 0;
+        width: 20%;
+        word-break: break-all;
+      }
+      .box-side-right{
+
+      }
+
+        .box-side-right-content{
+          padding: $margin-small $margin-standard;
+        }
+
+      .box-header-title{
+        line-height: 1;
+        margin: 4px 0;
+      }
+
+      .box-header-id{
+        font-weight: bold;
+        left: 0px;
+        position: absolute;
+        text-align: center;
+        top: 10px;
+        width: 50px;
+      }
+
+      .box-header-by{
+        margin-top:3px !important;
+      }
+
+    .box-content{
+      padding: 10px 30px 20px 100px;
+      position: relative;
+    }
+
+      .box-content-drag{
+        background: url(/src/assets/images/pages/channels/fields/advanced/drag.png) no-repeat center center;
+        border-right: 1px solid $grey-separator;
+        bottom: 0;
+        cursor: move;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 50px;
+      }
+  }
+
+  /*
+    NO DRAG
+  */
+
+  &.mod-nodrag{
+
+    .box-content{
+      padding-left: 30px;
+    }
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          BOXES MOD-RULE STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+ .box{
+
+  &.mod-rule{
+
+    &.is-confirming{
+      pointer-events: none;
+
+      .box-confirm{
+        cursor: auto;
+        pointer-events: auto;
+      }
+    }
+  }
+}

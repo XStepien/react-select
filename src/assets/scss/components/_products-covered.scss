@@ -1,0 +1,218 @@
+.products-covered{
+  position: relative;
+  text-align: center;
+}
+
+  .products-covered-value{
+    color: $grey;
+    display: inline-block;
+    font-family: 'Lato', sans-serif;
+    font-size: $font-biggest;
+    font-weight: 300;
+    position: relative;
+    transition: all $transition-fast ease;
+  }
+
+    .products-covered-value-tilde{
+      display: none;
+      margin-right: -5px;
+    }
+
+  .products-covered-gauge{
+    background: rgba(0,0,0,.07);
+    border-radius: $border-radius;
+    height: 2px;
+    overflow: hidden;
+  }
+
+    .products-covered-gauge-progression{
+      background: $blue;
+      background: linear-gradient(to right, $blue 0%,$sky 100%);
+      height: 2px;
+      transition: all $transition-fast ease;
+      width: 0;
+    }
+
+  .products-covered-caption{
+    color: $grey;
+    font-size: $font-small;
+    margin: 3px 0 0;
+    transition: all $transition-fast ease;
+  }
+
+  // Message displayed during loading
+
+  .products-covered-calculating{
+    color: $grey;
+    display: none;
+    font-size: $font-small;
+    margin: 3px 0 0;
+    transition: all $transition-fast ease;
+  }
+
+  .products-covered-loading{
+    display: none;
+    height: 20px;
+    width: 20px;
+  }
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          PRODUCTS COVERED MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.products-covered{
+
+
+  /*
+    In modal header
+  */
+
+  &.mod-modal-head{
+    float: right;
+    margin-top: 2px;
+    padding: 0 $margin-small;
+    width: auto;
+
+    .products-covered-value{
+      font-size: $font-bigger;
+      font-weight: 400;
+    }
+
+      .products-covered-value-tilde{
+        margin-right: -3px;
+      }
+
+    .products-covered-gauge{
+      min-width: 200px;
+    }
+
+    .products-covered-calculating{
+      position: relative;
+      top: inherit;
+      white-space: nowrap;
+    }
+
+    .products-covered-loading{
+      position: relative;
+      top: 2px;
+    }
+  }
+
+  &.mod-light{
+
+    .products-covered-caption{
+      color: $grey-light;
+    }
+  }
+
+  &.mod-replace{
+
+    .products-covered-gauge{
+      margin: 0 auto;
+      max-width: 200px;
+    }
+  }
+
+  &.mod-transform-pim{
+    min-width: 200px;
+    text-align: right;
+
+    .products-covered-caption{
+      color: $grey-light;
+    }
+
+    .products-covered-calculating{
+      color: $grey-light;
+    }
+
+    .products-covered-gauge{
+      float: right;
+      margin: 7px 0 0 0;
+      width: 200px;
+    }
+  }
+
+  &.mod-transform-modal-head{
+    min-width: 200px;
+    text-align: right;
+    margin: 3px 20px 0 0;
+
+    .products-covered-caption{
+      color: $grey;
+    }
+
+    .products-covered-calculating{
+      color: $grey-light;
+    }
+
+    .products-covered-gauge{
+      float: right;
+      margin: 7px 0 0 0;
+      width: 200px;
+    }
+  }
+
+  &.mod-basic{
+    min-width: 200px;
+
+    .products-covered-caption{
+      color: $grey;
+    }
+
+    .products-covered-calculating{
+      color: $grey-light;
+    }
+
+    .products-covered-gauge{
+      float: right;
+      margin: 7px 0 0 0;
+      width: 200px;
+    }
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          PRODUCTS COVERED STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.products-covered{
+  transition: max-width 500ms ease-in-out, opacity 500ms ease-in-out;
+
+  &.is-loading{
+
+    .products-covered-caption{
+      display: none;
+    }
+
+    .products-covered-value-tilde{
+      display: inline-block;
+    }
+
+    .products-covered-calculating{
+      display: block;
+    }
+
+    .products-covered-loading{
+      display: inline-block;
+    }
+  }
+
+  &.is-hidden {
+    max-width: 0px;
+    opacity: 0;
+    padding: 0;
+  }
+
+  &.is-disabled {
+
+    .products-covered-caption{
+      color: $grey-light;
+    }
+  }
+}

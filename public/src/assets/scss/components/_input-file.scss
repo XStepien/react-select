@@ -1,0 +1,107 @@
+.inputfile{
+  position: relative;
+}
+
+  .inputfile-button{
+    background: $blue;
+    border: 0;
+    border-radius: $border-radius 0 0 $border-radius;
+    color: white;
+    cursor: pointer;
+    display: table-cell;
+    font-size: $font-standard;
+    font-weight: 600;
+    padding: 8px 20px;
+    position: relative;
+    text-align: center;
+    transition: background $transition-fastest ease,
+                color $transition-fastest ease;
+    white-space: nowrap;
+    width: inherit;
+
+    &:hover,
+    &:focus{
+      background-color: $blue-lighter;
+      color: white;
+      cursor: pointer;
+      text-decoration: none;
+    }
+  }
+
+    .inputfile-button-input{
+      bottom: 0;
+      cursor: inherit;
+      display: block;
+      left: 0;
+      margin: 0;
+      opacity: 0;
+      padding: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 100%;
+    }
+
+  .inputfile-path{
+    display: table-cell;
+    height: $input-height;
+    overflow: hidden;
+    width: 100%;
+  }
+
+    .inputfile-path-input{
+      background: $grey-input;
+      border:1px solid $grey-border;
+      border-left: 0px;
+      border-radius: 0 $border-radius $border-radius 0;
+      box-shadow: inset 0 3px 3px rgba(0,0,0,0.05);
+      color: $grey;
+      display: block;
+      font-size: $font-standard;
+      height: $input-height;
+      line-height: calc(#{$input-height} - 2px);
+      overflow: hidden;
+      outline: none;
+      padding: 0 $margin-small;
+      transition: all $transition-fastest ease;
+      width: 100%;
+
+      &::-ms-clear {
+      display: none;
+      }
+
+      &:hover{
+        border-color: $grey-border-over;
+      }
+
+      &:focus{
+        background-color: white;
+        border-color: $sky;
+        outline: none;
+      }
+    }
+
+  .inputfile-error{
+    color: $red;
+    display: none;
+    font-size: $font-small;
+    margin: 0;
+  }
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          INPUT-FILE STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+
+.inputfile{
+
+  &.is-error{
+
+    .inputfile-error{
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+.item-count{
+  font-size: $font-small;
+  color: $orange-darker;
+  vertical-align: top;
+
+}
+
+.item-count-tick{
+  background: url(/src/assets/images/components/count/tick.png) $green center no-repeat;
+  border-radius: 50%;
+  display: none;
+  height: 16px;
+  margin: 0 3px 0 0;
+  vertical-align: top;
+  width: 16px;
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+            ITEM COUNT STATE
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.item-count{
+
+  &.is-complete{
+    color: $green;
+
+    .item-count-tick{
+      display: inline-block;
+    }
+  }
+
+  &.error,
+  &.is-error{
+    color: $red !important;
+  }
+}
+

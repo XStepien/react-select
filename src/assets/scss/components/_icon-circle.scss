@@ -1,0 +1,489 @@
+.icon-circle {
+  background-color: $blue-deep;
+  border-radius: 50%;
+  display: inline-block;
+  height: 44px;
+  position: relative;
+  width: 44px;
+
+  &:before{
+    @include m-icon-lgw;
+    color: white;
+    position: absolute;
+  }
+}
+
+.wrap-icon-circle{
+  align-items: center;
+  display: grid;
+  grid-template-columns: 44px auto;
+  position: relative;
+
+  &.mod-duo{
+    grid-template-columns: 74px auto;
+
+    >.icon-circle:first-child{
+      box-shadow: 2px 0 2px rgba(0, 0, 0, 0.57);
+      z-index: 1;
+    }
+
+    .mod-rear{
+      box-shadow: 0px 0 2px rgba(0, 0, 0, 0.3);
+      left: 30px;
+      position: absolute;
+      z-index: 0;
+    }
+  }
+
+  &.mod-duo-plus{
+    grid-template-columns: 81px auto;
+    background: url(/src/assets/images/pages/catalogs/source-plus.png) 67px center no-repeat;
+
+    >.icon-circle:first-child{
+      box-shadow: 2px 0 2px rgba(0, 0, 0, 0.57);
+      z-index: 1;
+    }
+
+    .mod-rear{
+      box-shadow: 0px 0 2px rgba(0, 0, 0, 0.3);
+      left: 30px;
+      position: absolute;
+      z-index: 0;
+    }
+  }
+}
+
+.wrap-icon-circle{
+
+  &.mod-switch-catalogue{
+    grid-template-columns: 80px auto;
+
+    &.mod-duo{
+      grid-template-columns: 80px auto;
+    }
+
+    &.mod-duo-plus{
+      grid-template-columns: 80px auto;
+    }
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          ICON CIRCLE MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.icon-circle {
+
+  /* Size */
+
+  &.mod-small{
+    height: 24px;
+    width: 24px;
+  }
+
+   &.mod-medium{
+    height: initial;
+
+    &:before{
+      font-size: 20px !important;
+      left: initial !important;
+      top: initial !important;
+    }
+  }
+
+  /* BG COLOR */
+
+  &.mod-green{
+    background-color: $green;
+  }
+
+  &.mod-blue{
+    background-color: $blue;
+  }
+
+  &.mod-orange{
+    background-color: $orange;
+  }
+
+  &.mod-red{
+    background-color: $red;
+  }
+
+  &.mod-white{
+    background-color: white;
+  }
+
+  &.mod-transparent{
+    background-color: transparent;
+
+    &:before{
+      color: inherit;
+    }
+  }
+
+  &.mod-sky{
+    background-color: $sky;
+  }
+
+  /* FONT COLOR */
+
+  &.mod-icon-blue{
+
+    &:before{
+      color: $blue;
+    }
+  }
+
+  &.mod-magento{
+    background:url(/src/assets/images/pages/import-catalog/import-choice/choice-magento.png) #EF672F no-repeat center;
+  }
+
+  &.mod-woocommerce{
+    background:url(/src/assets/images/pages/import-catalog/import-choice/choice-woocommerce.png) #9b5c8f no-repeat center;
+  }
+
+  &.mod-prestashop{
+    background:url(/src/assets/images/pages/import-catalog/import-choice/choice-prestashop.png) #9fdbea no-repeat center;
+  }
+
+  &.mod-shopware{
+    background:url(/src/assets/images/pages/import-catalog/import-choice/choice-shopware.png) $grey-background no-repeat center;
+  }
+
+  &.mod-shopify{
+    background:url(/src/assets/images/pages/import-catalog/import-choice/choice-shopify.png) $grey-background no-repeat center;
+  }
+
+  &.mod-lgw {
+    background: url(/src/assets/images/pages/apps/appcolor/color-finder-picto.png) $sky-lighter no-repeat center;
+    background-size: 85%;
+  }
+
+  &.mod-google_analytics {
+    background: url(/src/assets/images/pages/apps/google/picto-analytics.png) white no-repeat center;
+    background-size: 85%;
+    box-shadow: 0px 0 2px rgba(0, 0, 0, 0.3);
+  }
+  
+  &.mod-color_extraction {
+    @extend .mod-lgw;
+  }
+  
+  &.mod-brand_extraction {
+    @extend .mod-lgw;
+  }
+
+  &.mod-link{
+
+    &:before{
+      content: unicode($icon-link);
+      font-size: 30px;
+      left: 7px;
+      top: 7px;
+    }
+  }
+
+  &.mod-manual{
+
+    &:before{
+      content: unicode($icon-manual);
+      font-size: 30px;
+      left: 7px;
+      top: 8px;
+    }
+  }
+
+  &.mod-ftp{
+
+    &:before{
+      content: unicode($icon-ftp);
+      font-size: 28px;
+      left: 9px;
+      top: 8px;
+    }
+  }
+
+  &.mod-app{
+
+    &:before{
+      content: unicode($icon-app);
+      font-size: 26px;
+      left: 9px;
+      top: 9px;
+    }
+  }
+
+  &.mod-googledrive{
+
+    &:before{
+      content: unicode($icon-googledrive);
+      font-size: 26px;
+      left: 9px;
+      top: 8px;
+    }
+  }
+
+  &.mod-dropbox{
+
+    &:before{
+      content: unicode($icon-dropbox);
+      font-size: 28px;
+      left: 8px;
+      top: 9px;
+    }
+  }
+
+  &.mod-rear{
+    box-shadow: 0px 0 2px rgba(0, 0, 0, 0.3);
+    left: 30px;
+    position: absolute;
+    z-index: -1;
+
+    &.mod-modal{
+      left: initial;
+      right: 0px;
+    }
+  }
+
+  &.mod-add{
+
+    &:before{
+      content: unicode($icon-add);
+      font-size: 26px;
+      left: 9px;
+      top: 9px;
+    }
+
+    &.mod-small{
+
+      &:before{
+        font-size: 16px;
+        left: 4px;
+        top: 4px;
+      }
+    }
+  }
+
+  &.mod-update{
+
+    &:before{
+      content: unicode($icon-update);
+      font-size: 28px;
+      left: 8px;
+      top: 8px;
+    }
+
+    &.mod-small{
+
+      &:before{
+        font-size: 16px;
+        left: 4px;
+        top: 4px;
+      }
+    }
+  }
+
+  &.mod-checked{
+
+    &:before{
+      content: unicode($icon-checked);
+      font-size: 30px;
+      left: 8px;
+      top: 6px;
+    }
+
+    &.mod-small{
+
+      &:before{
+        font-size: 16px;
+        left: 4px;
+        top: 4px;
+        font-weight: 900;
+      }
+    }
+  }
+
+  &.mod-copy{
+
+    &:before{
+      content: unicode($icon-copy);
+      font-size: 26px;
+      left: 9px;
+      top: 9px;
+    }
+
+    &.mod-small{
+
+      &:before{
+        font-size: 16px;
+        left: 4px;
+        top: 4px;
+      }
+    }
+  }
+
+  &.mod-close{
+
+    &:before{
+      content: unicode($icon-close);
+      font-size: 27px;
+      left: 9px;
+      top: 9px;
+    }
+
+    &.mod-small{
+
+      &:before{
+        font-size: 16px;
+        left: 4px;
+        top: 4px;
+        font-weight: 900;
+      }
+    }
+  }
+
+  &.mod-delete{
+
+    &:before{
+      content: unicode($icon-delete);
+      font-size: 27px;
+      left: 9px;
+      top: 9px;
+    }
+
+    &.mod-small{
+
+      &:before{
+        font-size: 16px;
+        left: 4px;
+        top: 4px;
+      }
+    }
+  }
+
+  &.mod-pause{
+
+    &:before{
+      content: unicode($icon-pause);
+    }
+  }
+
+  &.mod-play{
+
+    &:before{
+      content: unicode($icon-play);
+    }
+  }
+
+  &.mod-warning{
+
+    &:before{
+      content: unicode($icon-exclamation);
+      font-size: 27px;
+      left: 9px;
+      top: 9px;
+    }
+  }
+
+  &.mod-import{
+
+    &:before{
+      content: unicode($icon-import);
+      font-size: 27px;
+      left: 7px;
+      top: 9px;
+    }
+  }
+
+  &.mod-previewrule{
+    height: initial;
+
+    &:before{
+      content: unicode($icon-previewrule);
+      font-size: 27px;
+      top: -1px;
+    }
+  }
+
+  &.mod-bag{
+    height: initial;
+
+    &:before{
+      content: unicode($icon-bag2);
+      font-size: 24px;
+      left: 1px;
+      top: -1px;
+    }
+  }
+
+  &.mod-previewcatalog{
+    height: initial;
+
+    &:before{
+      content: unicode($icon-previewcatalog);
+      font-size: 24px;
+      left: 1px;
+      top: -1px;
+    }
+  }
+
+  &.mod-match{
+
+    &:before{
+      content: unicode($icon-match-path1);
+      font-size: 27px;
+      left: 9px;
+      top: 9px;
+    }
+
+    &:after{
+      @include m-icon-lgw;
+      color: white;
+      content: unicode($icon-match-path2);
+      font-size: 27px;
+      left: 9px;
+      position: absolute;
+      opacity: 0.3;
+      top: 9px;
+    }
+  }
+
+  &.mod-clock{
+
+    &:before{
+      content: unicode($icon-clock);
+      font-size: 27px;
+      left: 9px;
+      top: 9px;
+    }
+  }
+
+  &.mod-invoice{
+    position: absolute;
+    right: 2px;
+    top: 4px;
+  }
+
+  &.mod-pending{
+
+    &:before{
+      content: '!';
+      left: 10px;
+      font-family: 'Lato', sans-serif !important;
+      font-size: 18px;
+      font-weight: 900;
+      top: 2px;
+    }
+  }
+
+  &.mod-reset{
+    height: 100%;
+
+    &:before{
+      position: initial;
+    }
+  }
+}

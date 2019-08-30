@@ -1,0 +1,488 @@
+button{
+  border: 0;
+  cursor: pointer;
+  outline: none;
+}
+
+.button{
+  background: $blue;
+  border: 0;
+  border-radius: $border-radius;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  font-size: $font-standard;
+  font-weight: 600;
+  margin-top: $margin-small;
+  padding: 8px 20px;
+  position: relative;
+  text-align: center;
+  transition: background $transition-fastest ease,
+              color $transition-fastest ease;
+
+  &:hover,
+  &:focus{
+    background-color: $blue-lighter;
+    color: white;
+    text-decoration: none;
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+              BUTTONS MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.button{
+
+  /*
+    COLORS
+  */
+
+  &.mod-navy{
+    background: $navy;
+
+    &:hover,
+    &:focus{
+      background-color: $navy-lighter;
+    }
+  }
+
+  &.mod-dark-light{
+    background: $dark-light;
+
+    &:hover,
+    &:focus{
+      background-color: $dark-lighter;
+    }
+  }
+
+  &.mod-green{
+    background-color: $green;
+
+    &:hover,
+    &:focus{
+      background-color: $green-lighter;
+    }
+  }
+
+  &.mod-red{
+    background-color: $red;
+
+    &:hover,
+    &:focus{
+      background-color: $red-lighter;
+    }
+  }
+
+  &.mod-dark-light{
+    background: $dark-light;
+
+    &:hover,
+    &:focus{
+      background-color: $dark-lighter;
+    }
+  }
+
+  &.mod-white{
+    background-color: white;
+    box-shadow: inset 0 0 0 1px $grey-border;
+    color: $grey-light;
+
+    &:hover,
+    &:focus{
+      background-color: $grey-background;
+      color: $grey;
+    }
+  }
+
+  &.mod-stroke-blue{
+    background: transparent;
+    border: 1px solid $blue;
+    color: $blue;
+
+    &:hover,
+    &:focus{
+      background-color: $blue;
+      border-color: $blue;
+      color: white;
+
+      &.mod-filled{
+        background-color: $blue;
+      }
+    }
+
+    &.mod-filled{
+      background: white;
+    }
+  }
+
+  &.mod-stroke-green{
+    background: transparent;
+    border: 1px solid $green;
+    color: $green;
+
+    &:hover,
+    &:focus{
+      background-color: $green;
+      border-color: $green;
+      color: white;
+    }
+  }
+
+  &.mod-stroke-red{
+    background: transparent;
+    border: 1px solid $red;
+    color: $red;
+
+    &:hover,
+    &:focus{
+      background-color: $red;
+      border-color: $red;
+      color: white;
+
+      &.mod-filled{
+        background-color: $red;
+      }
+    }
+
+    &.mod-filled{
+      background: white;
+    }
+  }
+
+  &.mod-stroke-navy{
+    background: transparent;
+    border: 1px solid $navy;
+    color: $navy;
+
+    &:hover,
+    &:focus{
+      background-color: $navy;
+      border-color: $navy;
+      color: white;
+    }
+  }
+
+  &.mod-outline-white{
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+
+    &:hover,
+    &:focus{
+      background: white;
+      color: $blue;
+    }
+  }
+
+  &.mod-outline-blue{
+    background: transparent;
+    border: 1px solid white;
+
+    &:hover,
+    &:focus{
+      background-color: $blue;
+      border-color: $blue;
+    }
+  }
+
+  &.mod-outline-green{
+    background: transparent;
+    border: 1px solid white;
+
+    &:hover,
+    &:focus{
+      background-color: $green;
+      border-color: $green;
+    }
+  }
+
+  &.mod-outline-red{
+    background: transparent;
+    border: 1px solid white;
+
+    &:hover,
+    &:focus{
+      background-color: $red;
+      border-color: $red;
+    }
+  }
+
+  /*
+    CTA
+  */
+
+  &.mod-cta{
+    box-shadow: 0 4px 0 $blue-darker;
+    top:0;
+
+    &:hover{
+      box-shadow: 0 2px 0 $blue-darker;
+      top:2px;
+    }
+
+    &.mod-navy{
+      box-shadow: 0 4px 0 $navy-darker;
+
+      &:hover{
+        box-shadow: 0 2px 0 $navy-darker;
+      }
+    }
+
+    &.mod-red{
+      box-shadow: 0 4px 0 $red-darker;
+
+      &:hover{
+        box-shadow: 0 2px 0 $red-darker;
+      }
+    }
+
+    &.mod-green{
+      box-shadow: 0 4px 0 $green-darker;
+
+      &:hover{
+        box-shadow: 0 2px 0 $green-darker;
+      }
+    }
+  }
+
+  /*
+    Size
+  */
+
+  &.mod-small{
+    font-size: $font-small;
+    padding: 4px 10px;
+  }
+
+  &.mod-big{
+    font-size: $font-big;
+    padding: 12px 30px;
+  }
+
+  &.mod-bigger{
+    font-size: $font-big;
+    padding: 18px 40px;
+  }
+
+  /*
+    Wide button
+  */
+
+  &.mod-wide{
+    min-width: 150px;
+
+    &.mod-small{
+      min-width: 100px;
+    }
+
+    &.mod-big{
+      min-width: 200px;
+    }
+
+    &.mod-bigger{
+      min-width: 200px;
+    }
+  }
+
+  /*
+    Block button
+  */
+
+  &.mod-block{
+    display: block;
+  }
+
+  /*
+    Add button
+  */
+
+  &.mod-add{
+    background: url(/src/assets/images/components/input/tag-add.png) no-repeat 10px center;
+    border:1px dashed $grey-border;
+    box-shadow: none;
+    color: $grey-light;
+    font-weight: normal;
+    padding-left: 30px;
+    text-align: left;
+
+    &:hover,
+    &:focus,
+    &:active{
+      background-color: $grey-input;
+      box-shadow: none;
+      color: $grey;
+      top: 0;
+    }
+  }
+
+  /*
+    in filters
+  */
+
+  &.mod-filters{
+    margin-top: 9px;
+  }
+  /*
+    in pim dashboard
+  */
+
+  &.mod-icon-update{
+    justify-self: end;
+    padding: 7px 20px 5px;
+
+    &:before{
+      @include m-icon-lgw;
+      content: unicode($icon-update);
+      font-size: 22px;
+    }
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+             BUTTONS STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.button{
+
+  /*
+    Disabled button
+  */
+
+  &.is-disabled{
+    background: $grey-border-over;
+    border-color: $grey-border-over;
+    color: $grey-light;
+    pointer-events: none;
+
+    &:focus{
+      background: $grey-border-over;
+      border-color: $grey-border-over;
+      color: $grey-light;
+      pointer-events: none;
+    }
+
+    &.mod-dark{
+      background: $dark;
+      border-color: $dark;
+      color: $dark-lighter;
+    }
+  }
+
+  &.is-desactivated{
+    background: transparent;
+    border: 1px dashed #ccc;
+    box-shadow: none;
+    color: $grey-light;
+    pointer-events: none;
+    top: 0;
+
+    &.mod-desactivated-white{
+      border: 1px dashed white;
+      color: white;
+    }
+  }
+
+  &.is-waiting{
+    background: $grey-border-over;
+    color: $grey-light;
+    overflow: hidden;
+    pointer-events: none;
+    top: 0;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+
+    &:before{
+      animation: loadingAnimation 1.0s infinite ease-in-out;
+      background: $grey-disabled;
+      border-radius: 50%;
+      content: '';
+      height: 400px;
+      left: 50%;
+      margin: -200px 0 0 -200px;
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      width: 400px;
+    }
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+             LINK BUTTONS
+
+ - - - - - - - - - - - - - - - - - - - */
+// e.g. Cancel button
+
+.button-link{
+  background:transparent;
+  color: $grey;
+  font-size: $font-standard;
+  display: inline-block;
+  margin-top: $margin-small;
+  padding: 8px 20px;
+  text-decoration: underline;
+  vertical-align: top;
+
+  &:hover,
+  &:focus{
+    color: $blue;
+  }
+
+  &.mod-small{
+    font-size: $font-small;
+    padding: 4px 15px;
+  }
+
+  &.mod-big{
+    font-size: $font-big;
+    padding: 12px 30px;
+  }
+
+  &.mod-dark{
+    color: white;
+
+    &:hover,
+    &:focus{
+      color: $blue;
+    }
+  }
+  
+  &.is-disabled {
+    pointer-events: none;
+    color: $grey-light;
+  }
+
+  /*
+    DARK LIGHT
+  */
+
+  &.mod-dark-light{
+    color: $dark-light;
+
+    &:hover,
+    &:focus{
+      color: $darker;
+    }
+  }
+
+  &.mod-delete-view{
+    background: url(/src/assets/images/components/buttons/trash.png) 2px 11px no-repeat;
+    color: white;
+    padding-right: 24px;
+
+    &:hover,
+    &:focus{
+      background: url(/src/assets/images/components/buttons/trash.png) 2px -19px no-repeat;
+      color: $blue;
+    }
+  }
+}

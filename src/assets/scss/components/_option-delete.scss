@@ -1,0 +1,23 @@
+.option-delete{
+}
+
+  .option-delete-confirm{
+    background: white;
+    bottom: 0;
+    cursor: default;
+    left: 52px;
+    opacity: 0;
+    padding: $margin-big $margin-standard;
+    position: absolute;
+    right: -52px;
+    text-align: center;
+    top: 0;
+    transition: all $transition-fastest ease;
+
+    &.is-visible{
+      left: 0;
+      opacity: 0.95;
+      right: 0;
+      transition: all $transition-fast ease;
+    }
+  }

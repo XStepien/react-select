@@ -1,0 +1,199 @@
+.ruleboxes{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+
+.rulebox{
+  @include m-box-style();
+  align-items: center;
+  display: block;
+  position: relative;
+  min-height: 100px;
+  transition: none;
+
+  &:hover{
+    background: $sky-white;
+    color: $blue;
+    cursor: pointer;
+
+    .rulebox-grey-light{
+      color: $blue;
+    }
+
+    .rulebox-icon{
+       background: $sky-white;
+    }
+  }
+}
+
+  .rulebox-icon{
+    background: white;
+    bottom: 0;
+    color: white;
+    display: inline-block;
+    margin-right: 20px;
+    position: absolute;
+    width: 60px;
+    top: 0;
+    transition: $transition-fast;
+
+    &:before{
+      @include m-icon-lgw;
+      content: '';
+    }
+  }
+
+  .rulebox-grey-light{
+    color: $grey-light;
+  }
+
+  .rulebox-overview{
+    align-items: center;
+    display: grid;
+    grid-column-gap: 30px;
+    grid-template-columns: auto auto auto;
+    margin: 0 130px 0 100px;
+    min-height: 100px;
+  }
+
+  .rulebox-detail{
+    display: none;
+  }
+
+  .rulebox-detail-title{
+    border-right: 1px solid $grey-separator;
+    display: none;
+    height: 100%;
+    padding: $margin-big $margin-standard $margin-big 0;
+  }
+
+  .rulebox-action{
+    bottom: 0;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100px;
+  }
+
+  .rulebox-detail-content{
+    align-items: start;
+    display: grid;
+    grid-gap: 2px 30px;
+    grid-template-columns: 32% 68%;
+    margin: 45px 15px 45px 0;
+  }
+
+  .rulebox-detail-operator{
+    text-align: right;
+    line-height: 30px;
+  }
+
+  .rulebox-detail-rule{
+    line-height: 30px;
+  }
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+            RULEBOX MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.rulebox{
+
+  &.mod-secundary{
+    //transition: $transition-fast;
+
+    .rulebox-icon{
+      border: 1px solid $grey-border;
+      background: $grey-background;
+      cursor: move;
+      color: $grey-light;
+
+
+      &:before{
+        align-items: center;
+        bottom: 0;
+        content: unicode($icon-drag);
+        display: flex;
+        font-size: 25px;
+        font-weight: 500;
+        left: 19px;
+        min-height: 100%;
+        position: absolute;
+        top: 0px;
+        text-decoration: none;
+      }
+    }
+
+    &:hover{
+
+      .rulebox-icon{
+        border: 1px solid $sky-lighter;
+        background: $sky-lightest;
+        color: $sky;
+      }
+    }
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+           RULEBOX STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.rulebox{
+
+  &.is-disabled{
+    background-color: $grey-disabled;
+    color: $grey-light;
+
+    &:hover{
+      background: $sky-white;
+      color: $blue;
+    }
+
+    .rulebox-icon{
+      align-items: center;
+      background:  $grey-border;
+      border: 1px solid $grey-border-over;
+      color: $grey-light;
+    }
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+           RULEBOXES STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+ .ruleboxes{
+
+  &.is-expanded{
+
+    .rulebox{
+
+      .rulebox-detail{
+        align-items: center;
+        display: grid;
+        grid-column-gap: 30px;
+        grid-template-columns: 33% 66%;
+        margin: 0 130px 0 100px;
+      }
+
+      .rulebox-detail-title{
+        display: block;
+      }
+
+      .rulebox-overview{
+        display: none;
+      }
+    }
+  }
+}
+

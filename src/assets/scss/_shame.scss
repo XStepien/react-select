@@ -1,0 +1,218 @@
+/* CHECKBOX */
+/* Erase bootstrap */
+
+/* .radio-wrap.radio-wrap,
+.checkbox-wrap.checkbox-wrap{
+  padding: 0;
+} */
+
+/* .checkbox-state-input.checkbox-state-input.checkbox-state-input{
+  margin: 0;
+} */
+
+/* TEXTCOMPLETE */
+/* In modal z-index */
+
+.unscrollable{
+  .textcomplete{
+     z-index: 160 !important; // erase plugin's inline style
+  }
+}
+
+.flag{
+  margin: -2px 5px 0 0;
+}
+
+.flag{
+
+  &.mod-smarthome{
+    margin: 2px 10px 0 0;
+  }
+
+  &.mod-channels{
+    margin: 2px 10px 0 15px;
+  }
+
+  &.mod-checkbox{
+    margin: -2px 5px 0 4px;
+  }
+}
+
+.flag::selection {
+  background: transparent;
+}
+
+.flag::-moz-selection {
+  background: transparent;
+}
+
+.logo-duo,
+.logo-duo-plus{
+  margin: 0 0 0 23px;
+  min-height: 44px;
+  position: relative;
+  width: 79px;
+
+  :first-child{
+    box-shadow: 2px 0 2px rgba(0, 0, 0, 0.57);
+    position: absolute;
+    right: 46px;
+    top: initial;
+    z-index: 1;
+  }
+
+  :nth-child(2){
+    position: absolute;
+    right: 18px;
+    top: initial;
+    z-index: 0;
+  }
+
+  &.mod-switch{
+    margin: 0;
+
+    :first-child{
+      right: initial;
+      top: initial;
+    }
+
+    :nth-child(2){
+      left: 27px;
+      right: initial;
+      top: initial;
+    }
+  }
+}
+
+.logo-duo-plus{
+  background: url(/src/assets/images/pages/catalogs/source-plus.png) right 9px top 2px no-repeat;
+  margin-left: 20px;
+
+  &.mod-switch{
+    margin: 0;
+    background: url(/src/assets/images/pages/catalogs/source-plus.png) right 0px center no-repeat;
+  }
+}
+
+.contact-list{
+  padding:0;
+  list-style: none;
+  li{
+    margin-bottom:5px;
+  }
+  img{
+      margin-right:10px;
+      margin-top:-2px;
+  }
+}
+
+.hidden {
+  display: none!important;
+}
+
+
+#zuora_payment iframe {
+    width: 100%;
+}
+
+.chat-list-item{
+
+  .signature{
+    display: none;
+  }
+}
+
+.wrap-shadow{
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+
+  &.mod-inline-block{
+    padding: 5px 10px;
+  }
+
+  &.mod-white{
+    box-shadow: 0 0 22px rgba(255, 255, 255, 0.4);
+  }
+}
+
+.box-extend{
+    background-color: $sky-lightest;
+    margin: 0 -15px -15px -15px;
+    padding: 30px;
+
+    &.mod-full{
+      margin: -15px -15px;
+    }
+    &.mod-error{
+      background-color: $red-lightest;
+    }
+}
+
+.legal-header{
+  background-color: $darker;
+  color: white;
+  margin: {
+    top: -45px;
+    right: -$margin-bigger;
+    bottom: $margin-bigger;
+    left: -$margin-bigger;
+  }
+  padding: $margin-bigger $margin-bigger $margin-big;
+}
+
+.boxfield-tags-span{
+
+  &.mod-additional{
+    margin-top: 10px;
+  }
+}
+
+// react slidedown animation
+.react-slidedown {
+  height: 0;
+  transition-property: none;
+  transition-duration: $transition-fast;
+  transition-timing-function: ease-in-out;
+}
+
+.react-slidedown.transitioning {
+  overflow-y: hidden;
+}
+
+.react-slidedown.closed {
+  display: none;
+}
+
+.alert {
+
+  &.alert-danger {
+    background-color: $red-lightest;
+    border-color: $red-lighter;
+    color: $red-darker;
+  }
+
+  .list-unstyled{
+    list-style: none;
+    padding: 0;
+  }
+
+  .list-unstyled:last-of-type{
+    margin-bottom: 0;
+  }
+}
+
+.lgw-modal{
+
+  &.is-opening{
+
+    .filters{
+
+      &.mod-preview-pim{
+        left: 0;
+      }
+    }
+  }
+}
+
+.u-scale-8{
+  transform: scale(.8);
+}

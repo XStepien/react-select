@@ -1,0 +1,37 @@
+.infinite-bar{
+  background: rgba(0,0,0,.07);
+  border: 0;
+  border-radius: 4px;
+  height: 2px;
+  margin: 5px 0;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+
+  &.mod-categories{
+    margin-top: 60px;
+  }
+}
+
+.infinite-bar:after {
+    animation: greenglow 1.3s cubic-bezier(0.860, 0.000, 0.070, 1.000) infinite;
+    background: $blue;
+    background: linear-gradient(to right, $sky 0%,$blue 100%);
+    border-radius: 4px;
+    content: " ";
+    display: block;
+    height: 2px;
+    position: absolute;
+    top: 0;
+    width: 400%;
+    z-index: 2;
+}
+
+@keyframes greenglow {
+  from {
+      left:-400%;
+  }
+  to {
+      left:100%;
+  }
+}

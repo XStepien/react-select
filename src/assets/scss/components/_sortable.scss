@@ -1,0 +1,90 @@
+//////////////////////////////
+// SORTABLE BOX
+// e.g. Fields rules
+
+.ui-sortable{
+  list-style: none;
+  padding-left: 0;
+
+  .ui-state-highlight{
+    border: 2px dashed #dadada;
+    border-radius: $border-radius;
+    height: 150px;
+    margin-bottom: $margin-small;
+  }
+
+  .ui-sortable-helper{
+    display: table;
+    transition: none;
+
+    &:hover{
+
+      .box-delete{
+        opacity: 0;
+      }
+    }
+  }
+}
+
+.ui-handle-field{
+  background: url(/src/assets/images/pages/channels/fields/advanced/drag.png) no-repeat center center;
+  border-right: 1px solid #eee;
+  bottom: 0;
+  cursor: move;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 50px;
+}
+
+.ui-placeholder-field{
+  border: dashed 2px $grey-placeholder;
+  height: 74px;
+}
+
+.ui-placeholder-body-line{
+  display: table-row;
+  height: 94px;
+
+  .table-body-cell:first-child{
+    border-left: dashed 2px $grey-placeholder;
+  }
+
+  .table-body-cell:last-child{
+    border-right: dashed 2px $grey-placeholder;
+  }
+
+  .table-body-cell{
+    background: $grey-background;
+    border-top: dashed 2px $grey-placeholder;
+    border-bottom: dashed 2px $grey-placeholder;
+    border-color: $grey-placeholder !important;
+  }
+}
+
+/* In pim */
+
+.ui-sortable{
+
+  &.mod-pim{
+    list-style: none;
+    padding-left: 0;
+
+    /*.ui-state-highlight{
+      border: 2px dashed #dadada;
+      border-radius: $border-radius;
+      height: 150px;
+      margin-bottom: $margin-small;
+    }*/
+
+    .ui-sortable-helper{
+      display: grid;
+      transition: none;
+    }
+
+    .ui-placeholder-rule{
+      border: dashed 2px $grey-placeholder;
+      min-height: 100px;
+    }
+  }
+}

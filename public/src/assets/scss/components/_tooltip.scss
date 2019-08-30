@@ -1,0 +1,227 @@
+.tooltip-lgw{
+  animation: tooltipTop 200ms;
+  border-radius: $border-radius;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, .05);
+  background: $sky-lighter;
+  color: $dark-light;
+  font-size: $font-small;
+  left:0;
+  max-width: 300px;
+  padding: 10px 15px;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  z-index: 160;
+
+  &:after{
+    border-style: solid;
+    border-width: 4px 4px 0 4px;
+    border-color: $sky-lighter transparent transparent transparent;
+    content: '';
+    height: 0;
+    left: 50%;
+    margin: 0 0 0 -4px;
+    position: absolute;
+    top: 100%;
+    width: 0;
+  }
+}
+/* for react tooltips */
+.tooltip-lgw-inner {
+  font-size: $font-small;
+  max-width: 300px;
+  padding: 10px 15px;
+  text-align: center;
+}
+
+/*[data-tooltip-text]{
+  cursor: default;
+}*/
+
+/* - - - - - - - - - - - - - - - - - - -
+
+              TOOLTIP MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.tooltip-lgw{
+
+  /*
+    Positions
+  */
+
+  &.mod-right{
+    animation: tooltipRight 200ms;
+
+    &:after{
+      border-width: 4px 4px 4px 0;
+      border-color: transparent $sky-lighter transparent transparent;
+      left: -4px;
+      margin: -4px 0 0 0;
+      top: 50%;
+    }
+  }
+
+  &.mod-bottom{
+    animation: tooltipBottom 200ms;
+
+    &:after{
+      border-width: 0 4px 4px 4px;
+      border-color: transparent transparent $sky-lighter transparent;
+      left: 50%;
+      margin: 0 0 0 -4px;
+      top: -4px;
+    }
+  }
+
+  &.mod-left{
+    animation: tooltipLeft 200ms;
+
+    &:after{
+      border-width: 4px 0 4px 4px;
+      border-color: transparent transparent transparent $sky-lighter;
+      left: 100%;
+      margin: -4px 0 0 0;
+      top: 50%;
+    }
+  }
+
+  /*
+    Sizes
+  */
+
+  &.mod-big{
+    max-width: 500px;
+    text-align: left;
+  }
+
+  &.mod-kraken{
+    font-size: $font-standard;
+    max-width: 500px;
+    padding: $margin-big;
+  }
+
+  /*
+    Colors
+  */
+
+  &.mod-black{
+    background: hsla(223, 46%, 10%, .8);
+    color: white;
+
+    &:after{
+      border-color: hsla(223, 46%, 10%, .8) transparent transparent transparent;
+    }
+
+    &.mod-right{
+
+      &:after{
+        border-color: transparent hsla(223, 46%, 10%, .8) transparent transparent;
+      }
+    }
+
+    &.mod-bottom{
+
+      &:after{
+        border-color: transparent transparent hsla(223, 46%, 10%, .8) transparent;
+      }
+    }
+
+    &.mod-left{
+
+      &:after{
+        border-color: transparent transparent transparent hsla(223, 46%, 10%, .8);
+      }
+    }
+  }
+
+  &.mod-white{
+    background: hsl(0, 0%, 100%);
+    box-shadow: 0 10px 10px 0 rgba(0,0,0,.15);
+    color: $grey;
+
+    &:after{
+      border-color: hsl(0, 0%, 100%) transparent transparent transparent;
+    }
+
+    &.mod-right{
+
+      &:after{
+        border-color: transparent hsl(0, 0%, 100%) transparent transparent;
+      }
+    }
+
+    &.mod-bottom{
+
+      &:after{
+        border-color: transparent transparent hsl(0, 0%, 100%) transparent;
+      }
+    }
+
+    &.mod-left{
+
+      &:after{
+        border-color: transparent transparent transparent hsl(0, 0%, 100%);
+      }
+    }
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          TOOLTIP ANIMATIONS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+@keyframes tooltipTop{
+
+  from{
+    margin-top: -7px;
+    opacity: 0;
+  }
+
+  to{
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes tooltipRight{
+
+  from{
+    margin-left: 7px;
+    opacity: 0;
+  }
+
+  to{
+    margin-left: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes tooltipBottom{
+
+  from{
+    margin-top: 7px;
+    opacity: 0;
+  }
+
+  to{
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes tooltipLeft{
+
+  from{
+    margin-left: -7px;
+    opacity: 0;
+  }
+
+  to{
+    margin-left: 0;
+    opacity: 1;
+  }
+}

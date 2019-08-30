@@ -1,0 +1,151 @@
+.field-tooltip{
+  background: white;
+  border-radius: $border-radius;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, .2);
+  min-height: 150px;
+  position: absolute;
+  right: -390px;
+  top: 0;
+  width: 375px;
+  z-index: 20;
+
+  @media (max-width: $xl) {
+    right: -340px;
+    width: 325px;
+  }
+
+  &:before{
+    border: solid transparent;
+    border-color: rgba(255, 255, 255, 0);
+    border-right-color: #fff;
+    border-width: 12px;
+    content: " ";
+    height: 0;
+    margin-top: -20px;
+    pointer-events: none;
+    position: absolute;
+    right: 100%;
+    top: 93px;
+    width: 0;
+  }
+}
+
+  .field-tooltip-head{
+    padding: 15px 30px 0;
+  }
+
+  .field-tooltip-content{
+    max-height: 400px;
+    overflow-y: auto;
+  }
+
+    .field-tooltip-content-inner{
+      padding: 0 30px 15px;
+    }
+
+  .field-tooltip-function{
+    text-transform: uppercase;
+  }
+
+  // Erase values sended by the channel
+  .field-tooltip-channel{
+
+    *{
+      font-family: 'Open Sans', sans-serif !important;
+      font-size: $font-small;
+      line-height: 1.5 !important;
+    }
+
+    ul{
+      padding-left: 0 !important;
+
+      li{
+        margin: 0 0 5px !important;
+      }
+    }
+
+    a{
+      color: $grey !important;
+      text-decoration: underline !important;
+
+      &:hover{
+        color: $blue !important;
+      }
+    }
+  }
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+           FIELD TOOLTIP MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.field-tooltip{
+
+  &.mod-default-value{
+
+    min-height: 253px;
+
+    .filed-tooltip-loader{
+      margin-top: 70px;
+    }
+
+    &:before{
+      top: 150px;
+    }
+  }
+
+  &.mod-boxfield-rule{
+    right: -420px;
+    top: -35px;
+
+    @media (max-width: $xl) {
+      right: -370px;
+      width: 325px;
+    }
+
+    &:before{
+      top: 66px;
+    }
+  }
+
+  &.mod-inside{
+    margin-top: 30px;
+    position: relative;
+    right: initial;
+    top: initial;
+    width: 100%;
+
+    &:before{
+      border-color: transparent transparent white transparent;
+      border-style: solid;
+      border-width: 0 8px 8px 8px;
+      content: '';
+      height: 0;
+      left: 45px;
+      position: absolute;
+      width: 0;
+      top: 12px;
+    }
+  }
+
+  &.mod-inrule{
+    border: 1px solid $grey-border;
+    box-shadow: none;
+    margin-top: $margin-tiny;
+    position: relative;
+    right: initial;
+    top: initial;
+    width: 100%;
+
+    &:before{
+      content: none;
+    }
+
+    .field-tooltip-head{
+      padding: 5px $margin-standard 0;
+      box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.08);
+    }
+  }
+}

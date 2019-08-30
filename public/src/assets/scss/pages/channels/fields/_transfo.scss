@@ -1,0 +1,625 @@
+/* Refacto made in _boxfield.scss, will be removed once rules remade */
+
+/*.box-field{
+  &.is-focused:not(.is-ruled){
+    .assignment{
+      input{
+         opacity:1;
+      }
+    }
+
+    .box-field-link{
+      color: $dark-lighter;
+    }
+
+    &:not(.box-ob){
+      &.box{
+        background:$sky-lighter;
+        box-shadow:none;
+        input{
+          border-color:white;
+          background:white;
+          box-shadow: 0 3px 0 0 rgba(0,0,0,.05);
+        }
+        label{
+          color:white !important;
+        }
+        .advanced-rule-icon{
+          background-position:0 -40px;
+        }
+        .assignment{
+          padding-right:0;
+        }
+      }
+    }
+  }*/
+  /*&.is-saving{
+    .assign-tags{
+      background-image:url(/src/assets/images/pages/channels/fields/loading.gif);
+      background-position:10px center;
+      background-repeat:no-repeat;
+    }
+  }
+  input{
+     z-index:10;
+     position:relative;
+  }
+}*/
+
+  /*.box-field-link{
+
+    &.mod-list{
+      position: absolute;
+      right: 65px;
+      top: 15px;
+    }
+  }*/
+
+
+/*.advanced-rule{
+  position:absolute;
+  display:block;
+  bottom: 28px;
+  right: 30px;
+  height:20px;
+  width:20px;
+  .count{
+    display:none;
+  }
+}
+.advanced-rule-icon{
+  background:url(/src/assets/images/pages/channels/fields/cog.png) no-repeat;
+  display:block;
+  height:20px;
+  width:20px;
+  &:hover{
+    background-position:0 -20px;
+  }
+}*/
+
+/*.is-disabled{
+  .assign-tags{
+    background-color:$grey-disabled;
+    cursor:not-allowed;
+    box-shadow: none;
+  }
+}*/
+
+
+
+//////////////////////////////
+// ASSIGNMENT INPUTS
+
+/*.assignment{
+  padding-right:35px;
+  transition: all $transition-fast ease;
+  .input-box{
+    position:relative;
+    cursor:text;
+  }
+  .description{
+    margin-top:0;
+    max-height:0;
+    opacity:0;
+    overflow:hidden;
+    transition: all $transition-fast ease;
+  }
+  &.focused{
+    .assign-tags{
+      opacity:0;
+    }
+    .description{
+      max-height:200px;
+      opacity:1;
+      margin-top:10px;
+    }
+  }
+  .gradiant{
+    opacity:1;
+    width:30px;
+    position:absolute;
+    right:0;
+    top:0;
+    bottom:0;
+    z-index:1;
+    pointer-events:none;
+    background: linear-gradient(to right, rgba(250,250,250,0) 0%,rgba(250,250,250,0) 1%,rgba(250,250,250,1) 50%,rgba(250,250,250,1) 100%);
+  }
+  input{
+    color:$grey;
+    &:hover,
+    &:focus{
+      color:$grey;
+    }
+  }
+}*/
+
+
+/*.field-with-adv-btn{
+  .switch{
+    margin:0;
+    padding-top:$margin-small;
+  }
+}*/
+/*.is-ruled{
+  cursor:pointer;
+  .field-with-adv-btn{
+    pointer-events: none;
+    .assign-tags{
+      padding:0 10px 0 0;
+      border:0;
+      background:white;
+      padding:0;
+      box-shadow: none;
+    }
+    .is-ellipsed,
+    .is-full-length {
+      pointer-events: auto;
+    }
+    input{
+      cursor:default;
+      border:0;
+      padding:0;
+      background:white;
+      pointer-events: none;
+    }
+    select,
+    .field-virtual-select,
+    .chosen-container,
+    .switch{
+      opacity:0;
+      pointer-events: none;
+    }
+  }
+  .advanced-label{
+    display:none;
+  }
+  .covered{
+    margin:15px 0 0 0;
+    color:$grey-light;
+  }
+  .count{
+    background:$blue;
+    height:14px;
+    min-width:14px;
+    line-height:14px;
+    padding:0;
+    font-size:$font-smaller;
+    position:absolute;
+    top:-4px;
+    right:-4px;
+    border-radius:7px;
+    font-weight:600;
+    color:white;
+    text-align: center;
+    padding:0 2px;
+    z-index:20;
+    display:block;
+  }
+  .tags-box{
+    height:44px;
+
+    [data-type="rules"] {
+      b {
+        padding: 0 5px 0 0;
+        display: inline-block;
+        font-size: 15px;
+      }
+    }
+
+  }
+  .advanced-rule{
+    bottom: 20px;
+  }
+  .gradiant,
+  .fading{
+    display:none;
+  }
+  p{
+    margin:0;
+    line-height: 1.2;
+    font-size:$font-small;
+    line-height: 1;
+    *{
+      margin:0;
+      line-height: 1;
+      vertical-align: bottom;
+    }
+  }
+  &:hover,
+  &:focus{
+    .rules-covered-products{
+      text-decoration: underline;
+    }
+  }
+  &:after{
+    content:'';
+    position:absolute;
+    bottom:58px;
+    left:0;
+    right:0;
+    height:1px;
+    background:$grey-background;
+  }
+}*/
+
+
+//////////////////////////////
+// INPUT TAGS
+
+/*.assign-tags{
+  line-height:30px;
+  position:absolute;
+  top:0;
+  right:0;
+  left:0;
+  bottom:0;
+  box-shadow: inset 0 3px 3px rgba(0,0,0,0.05);
+  border-radius: $border-radius;
+  border:1px solid $grey-border;
+  padding:{
+    top:6px;
+    left:$margin-small;
+  }
+  font-size:0; // Remove spacing of inline-block childs
+  background:$grey-input;
+  overflow:hidden;
+  //display: none;
+
+  &.is-error{
+    overflow: visible;
+
+    .boxfield-tags-span{
+
+      &.mod-error{
+
+        &:hover{
+
+          .boxfield-assign-tags-error{
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+
+  p{
+    font-size:$font-standard;
+    color:$navy;
+  }
+  span{
+    font-size: $font-standard;
+    margin:0;
+    margin-right: 3px;
+    line-height: 0;
+    vertical-align: middle;
+    &.light{
+      color:$grey-light;
+    }
+  }
+  .tags-box{
+    white-space: nowrap;
+  }
+  .tag{
+    font-size: $font-small;
+    display:inline-block;
+    text-transform: uppercase;
+    background:$sky;
+    border:1px solid $sky;
+    font-weight:600;
+    height:24px;
+    line-height:23px;
+    color:white;
+    border-radius:3px;
+    padding:0 7px;
+    &.function,
+    &.function-close{
+      background:white;
+      color:$grey;
+      border-color:$sky;
+      height:30px;
+      line-height: 29px;
+      margin-top:0;
+      font-size:$font-small;
+      position:relative;
+      border-radius:0;
+      &::before {
+        content:'';
+        height: 30px;
+        width: 3px;
+        position: absolute;
+        top:-1px;
+      }
+      span{
+        color:$blue;
+        font-size:$font-small;
+        padding:0;
+        margin:0;
+        position:relative;
+        top:-1px;
+      }
+    }
+    &.function{
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px;
+      &::before {
+        background:url(/src/assets/images/pages/channels/fields/tags/function-overlay.png) white;
+        right:-3px;
+      }
+    }
+    &.function-close{
+      width:5px;
+      padding:0;
+      border-top-right-radius: 3px;
+      border-bottom-right-radius: 3px;
+      &::before {
+        background:url(/src/assets/images/pages/channels/fields/tags/function-overlay-close.png) white;
+        left:-3px;
+      }
+    }
+  }
+  .spinner{
+    margin-top: 4px;
+  }
+  .wrap{
+    display:inline-block;
+    margin:0;
+    padding:0;
+    border:1px solid #eee;
+    background:#fff;
+    height:32px;
+  }
+  .space{
+    display:inline-block;
+    width:7px;
+    height:30px;
+    background:url(/src/assets/images/pages/channels/fields/tags/space.png) no-repeat center 18px;
+  }
+  span + span {
+    margin-right: 3px;
+  }
+
+  .text + .space,
+  .space + .text {
+    margin-left: -6px;
+  }
+}*/
+
+
+//////////////////////////////
+// FIELD LABEL
+
+/*.field-label{
+  position:relative;
+  .compulsory{
+    position:absolute;
+    right:0px;
+    top:0;
+    z-index:2;
+  }
+  .fading{
+    width:30px;
+    position:absolute;
+    top:0;
+    bottom:0;
+    right:0;
+    z-index:1;
+    background: linear-gradient(to left,  rgba(255,255,255,1) 0%,rgba(255,255,255,1) 49%,rgba(255,255,255,0) 100%);
+  }
+}
+
+  .field-label-main{
+    color: $grey-light;
+    display: block;
+    font-weight: 600;
+    margin-bottom: 7px;
+    padding-right: 10px;
+    overflow: hidden;
+    position: relative;
+    transition: all $transition-fastest ease;
+    white-space: nowrap;
+  }
+
+  .field-label-locked-icon{
+    background: url(/src/assets/images/components/input/locker.png) no-repeat top left;
+    display: inline-block;
+    height: 15px;
+    margin-right: 5px;
+    width: 11px;
+  }
+
+  .field-label-secundary{
+    color: $grey-light;
+    display: block;
+    font-size: $font-small;
+    font-weight: 400;
+    margin-bottom: 7px;
+    padding-right:10px;
+    overflow: hidden;
+    position: relative;
+    transition: all $transition-fastest ease;
+    white-space: nowrap;
+  }*/
+
+.rule-list-field-label{
+  color: $grey;
+}
+
+.rule-action-field-label-main{
+  color: $grey;
+}
+
+.rule-action-field-label-secundary{
+  color: $grey-light;
+  font-size: $font-small;
+  font-weight: 400;
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+      RULE LIST FIELD LABEL STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.rule-list-field-label{
+
+  &.is-ellipsed{
+    cursor: pointer;
+
+    &:hover{
+      color: $grey-light;
+    }
+  }
+
+  &.is-full-length{
+    cursor: pointer;
+    white-space: normal;
+    word-break: break-all;
+
+    &:hover{
+      color: $grey-light;
+    }
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+        FIELD LABEL MAIN STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+  /*.field-label-main{
+
+  &.is-ellipsed{
+    cursor: pointer;
+
+    &:hover{
+      color: $grey-light;
+    }
+  }
+
+  &.is-full-length{
+    cursor: pointer;
+    white-space: normal;
+    word-break: break-all;
+
+    &:hover{
+      color: $grey;
+    }
+  }
+}*/
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+      FIELD LABEL SECUNDARY STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+/*.field-label-secundary{
+
+  &.is-ellipsed{
+    cursor: pointer;
+
+    &:hover{
+      color: $grey;
+    }
+  }
+
+  &.is-full-length{
+    cursor: pointer;
+    white-space: normal;
+    word-break: break-all;
+
+    &:hover{
+      color: $grey;
+    }
+  }
+}*/
+
+
+
+
+/*.done{
+  .field-label-main{
+    color:$grey;
+  }
+  .assignment{
+    .input{
+      opacity:0;
+    }
+  }
+}*/
+
+#loading-custom-fields{
+  margin:150px auto 0;
+}
+
+//////////////////////////////
+// CONVERSION LIST
+
+.conversion-channel{
+    position:relative;
+
+    .stack-list{
+        max-height: 500px;
+        overflow-y: auto;
+    }
+}
+
+
+//////////////////////////////
+// DOUBLE ARROW BETWEEN INPUT >>
+
+.result{
+  padding-left:50px;
+  background: url(/src/assets/images/pages/channels/fields/advanced/result.png) 11px 15px no-repeat;
+}
+.result-margin{
+  padding-left:50px;
+}
+
+//////////////////////////////
+// Calculate attributes products covered
+
+/*.rules-covered-products,
+.rules-covered-processing{
+  opacity: 0;
+  padding-top: 3px;
+  position: absolute;
+  top: 15px;
+  right: 0;
+  transition: all $transition-fast ease;
+  span{
+    font-size: $font-small;
+    margin: 0 !important;
+    line-height: 1;
+    vertical-align: inherit;
+  }
+}
+
+.is-processing{
+  .spinner{
+    display: none;
+  }
+  .rules-covered-products{
+    opacity: 0;
+  }
+  .rules-covered-processing{
+    opacity: 1;
+  }
+}*/
+
+/*.final{
+  .rules-covered-products{
+    opacity: 1;
+  }
+  .spinner{
+    opacity: 0;
+  }
+}*/
+.chose-html-list {
+  display: block;
+}

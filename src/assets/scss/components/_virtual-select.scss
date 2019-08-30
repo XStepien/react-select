@@ -1,0 +1,172 @@
+
+.ui-virtual-select {}
+
+.ui-virtual-select--search-input {
+  background: url(/src/assets/images/components/select/arrow-down.png) $grey-input no-repeat right 15px center;
+  border: 1px solid $grey-border;
+  border-radius: $border-radius;
+  box-shadow: inset 0 3px 3px rgba(0,0,0,0.05);
+  color: $grey;
+  font-size: $font-standard;
+  height:44px;
+  line-height: 44px;
+  padding:0 15px;
+  outline: none;
+  width: 100%;
+
+  &:hover,
+  &:focus{
+    border-color:$grey-border-over;
+    cursor: pointer;
+  }
+}
+
+.ui-virtual-select.open .ui-virtual-select--search-input,
+.ui-virtual-select.loading .ui-virtual-select--search-input {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.ui-virtual-select--loading-indicator {
+  border: 1px solid $grey-border;
+  border-top: none;
+  background-color: white;
+  background-image: url(/src/assets/images/pages/channels/fields/loading.gif);
+  background-position: 10px center;
+  background-repeat: no-repeat;
+  background-size: 5%;
+  box-sizing: border-box;
+  border-bottom-left-radius: $border-radius;
+  border-bottom-right-radius: $border-radius;
+  color: $grey-light;
+  cursor: pointer;
+  font-size: $font-small;
+  font-style: italic;
+  height: 44px;
+  padding: 12px 10px 6px 45px;
+  position: absolute;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  top: 100%;
+  width: 100%;
+  z-index: 70;
+}
+
+.ui-virtual-select--items {
+  background-color: white;
+  border: 1px solid $grey-border;
+  border-top: none;
+  display: block!important;
+  opacity: 0;
+  position: absolute;
+  top: 100%;
+  transform: scale(1, 0);
+  transform-origin:right top;
+  transition: transform $transition-faster ease,
+                opacity $transition-faster ease;
+  width: 100%;
+  z-index: 70;
+}
+
+.ui-virtual-select--item {
+  box-sizing: border-box;
+  color: $grey;
+  font-size: $font-standard;
+  line-height: 1.5;
+  min-height: 44px;
+  padding: 12px 15px 12px 25px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  word-wrap: normal;
+}
+
+.ui-virtual-select--item.active {
+  background-color: lightgrey;
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          VIRTUAL SELECT MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+ .field-virtual-select {
+
+  &.mod-break{
+
+    .ui-virtual-select--items {
+      overflow-x: visible;
+    }
+
+    .ui-virtual-select--item {
+      overflow-wrap: break-word;
+      white-space: pre-line;
+    }
+  }
+
+  &.mod-auto{
+
+    .ui-virtual-select--items {
+      border-top: 1px solid #d7d7d7;
+      max-width: 500px;
+      min-width: 300px;
+      top: 43px;
+      width: auto;
+      @media (min-width: $xl){
+        max-width: 600px;
+      }
+    }
+
+    .ui-virtual-select--item {
+      overflow-wrap: break-word;
+      white-space: pre-line;
+    }
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          VIRTUAL SELECT STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+ .ui-virtual-select {
+
+  &.open{
+
+    .ui-virtual-select--search-input {
+      cursor: auto;
+    }
+
+    .ui-virtual-select--items {
+      opacity: 1;
+      transform: scale(1);
+      transition: transform $transition-faster ease,
+                  opacity $transition-faster ease;
+    }
+
+    .ui-virtual-select--search-input {
+      background: url(/src/assets/images/components/select/arrow-up.png) $grey-input no-repeat right 15px center;
+    }
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+      VIRTUAL SELECT ITEMS STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.ui-virtual-select--item{
+
+  &.active{
+    background: $sky-lightest;
+    color: $grey;
+  }
+}

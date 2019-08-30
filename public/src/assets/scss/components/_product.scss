@@ -1,0 +1,42 @@
+.product{
+  cursor: pointer;
+
+  &:hover,
+  &:focus{
+    text-decoration: none;
+
+    .product-tile{
+      box-shadow: 0 -0.5px 1px rgba(0, 0, 0, .2), 0 10px 10px rgba(0, 0, 0, .2);
+      top: -6px;
+    }
+  }
+}
+
+  .product-tile{
+    background: white;
+    border-radius: $border-radius;
+    box-shadow: 0 -0.5px 1px rgba(0, 0, 0, .2), 0 2px 2px rgba(0, 0, 0, .2);
+    color: $grey;
+    display: block;
+    font-size: $font-small;
+    height: 200px;
+    left: 0;
+    margin-bottom: $margin-standard;
+    overflow: hidden;
+    padding: 10px 15px;
+    position: relative;
+    top: 0;
+    transition: opacity $transition-fastest ease,
+                background $transition-fastest ease,
+                top $transition-fastest ease,
+                box-shadow $transition-fastest ease;
+  }
+
+    .product-tile-image{
+      background: #f2f2f2;
+      border-radius: $border-radius;
+      display: block;
+      height: 105px;
+      margin: 0 auto 10px;
+      width: 105px;
+    }

@@ -1,0 +1,249 @@
+$squere-button-size: 57px;
+
+.square-button{
+  display: inline-block;
+  transition: all $transition-fastest ease;
+
+  &:hover{
+
+    .square-button-link{
+      background-color: $blue-lighter;
+    }
+
+    .square-button-over{
+      left: $squere-button-size;
+      opacity: 1;
+    }
+  }
+}
+
+  .square-button-link{
+    background-color: $blue;
+    height: $squere-button-size;
+    float: left;
+    position: relative;
+    width: $squere-button-size;
+    z-index: 1;
+  }
+
+    .square-button-link-icon{
+      background-image: url(/src/assets/images/components/square-button/back.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      display: block;
+      height: $squere-button-size;
+      width: $squere-button-size;
+    }
+
+  .square-button-over{
+    background: white;
+    color: $grey;
+    font-weight: normal;
+    height: $squere-button-size;
+    left: 0;
+    line-height: $squere-button-size;
+    max-width: inherit;
+    opacity: 0;
+    padding: 0 15px;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    transition: all $transition-fastest ease;
+    white-space: nowrap;
+  }
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+           SQUARE BUTTON MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.square-button{
+
+  /*
+    COLOR - NAVY
+  */
+
+  &.mod-navy{
+
+    .square-button-link-icon{
+      background-color: $navy;
+    }
+
+    &:hover{
+
+      .square-button-link-icon{
+        background-color: $navy-lighter;
+      }
+    }
+  }
+
+  /*
+    COLOR - TRANSPARENT
+  */
+
+  &.mod-transparent{
+
+    &:hover{
+      background-color:transparent;
+    }
+
+    .square-button-link,
+    .square-button-link-icon{
+      background-color:transparent;
+    }
+
+    .square-button-over{
+      background-color:transparent;
+      color:white;
+    }
+  }
+
+  /*
+    COLOR - WHITE
+  */
+
+  &.mod-white{
+
+    .square-button-link,
+    .square-button-link-icon,
+    .square-button-over{
+      background-color: white;
+    }
+
+    .square-button-link-icon{
+      background-color: white;
+      background-image: url(/src/assets/images/components/square-button/back-grey.png);
+    }
+
+    &:hover{
+
+      .square-button-link-icon{
+        background-position: 0 - $squere-button-size;
+      }
+    }
+  }
+
+  /*
+    TOP LEFT OF CONTAINER
+  */
+
+  &.mod-top-left{
+    left: 0;
+    position: absolute;
+    top: 0;
+    z-index: 15;
+  }
+
+  &.mod-cms{
+    left: initial;
+    position: absolute;
+    top: 0;
+    z-index: 15;
+
+    .square-button-link {
+      background-color: white;
+      padding: 13px;
+    }
+  }
+
+  /*
+    DOCKED ON TOP LEFT
+  */
+
+  &.mod-dock-top-left{
+    left: 0;
+    top: 0;
+    position: fixed;
+    z-index: 99;
+
+    .square-button-over{
+      width: 400px;
+      max-width: inherit;
+    }
+  }
+
+  /*
+    ICONS
+  */
+
+  &.mod-home{
+
+    .square-button-link-icon{
+      background-image: url(/src/assets/images/logos/lengow-blue-icon.png);
+      background-color: white;
+    }
+
+    &:hover{
+
+      .square-button-link-icon{
+        background-color: white;
+        background-image: url(/src/assets/images/components/square-button/back-blue.png);
+      }
+    }
+  }
+
+  &.mod-login{
+
+    .square-button-link-icon{
+      background-image: url(/src/assets/images/logos/lengow-white-icon.png);
+    }
+
+    &:hover{
+
+      .square-button-link-icon{
+        background-image: url(/src/assets/images/components/square-button/back.png);
+      }
+    }
+  }
+
+  &.mod-join{
+
+    .square-button-link{
+      background-color: transparent;
+      width: 164px;
+    }
+
+    .square-button-link-icon{
+      background-image: url(/src/assets/images/logos/lengow-blue-brand.png);
+      background-color: white;
+      background-position: 19px center;
+      width: 164px;
+    }
+
+    @media (max-width: $xl){
+
+      .square-button-link{
+        width: $squere-button-size;
+      }
+
+      .square-button-link-icon{
+        background-image: url(/src/assets/images/logos/lengow-blue-icon.png);
+        background-color: white;
+        background-position: center;
+        width: $squere-button-size;
+      }
+    }
+
+    &:hover{
+
+      .square-button-link{
+        background-color: transparent;
+      }
+
+      .square-button-link-icon{
+        background-color: white;
+        background-image: url(/src/assets/images/components/square-button/back-blue.png);
+        width: $squere-button-size;
+      }
+    }
+  }
+
+  &.mod-refresh{
+
+    .square-button-link-icon{
+      background-image: url(/src/assets/images/components/square-button/refresh.png);
+    }
+  }
+}

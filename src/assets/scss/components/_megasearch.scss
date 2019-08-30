@@ -1,0 +1,258 @@
+.megasearch{
+  background-color: transparent;
+  border: 0;
+  display: block;
+  font-size: $font-standard;
+  height: 35px;
+  line-height: 35px;
+  margin: 0;
+  position: relative;
+  text-align: left;
+  transition: all $transition-fast ease;
+  width: 100%;
+}
+
+  .megasearch-input{
+    background-color: transparent;
+    color: white;
+    border: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+/*     height: 35px;
+    line-height: 35px; */
+    outline: none;
+    padding: 0 30px 0 0;
+    transition: all $transition-fast ease;
+    width: 100%;
+
+    &:focus{
+      outline: none;
+    }
+
+    &::-moz-placeholder{
+      color: white;
+    }
+    &:-ms-input-placeholder{
+      color: white;
+    }
+    &::-webkit-input-placeholder{
+      color: white;
+    }
+  }
+
+  .megasearch-empty{
+    background-color: transparent;
+    border: 0;
+    color: white;
+    display: inline-block;
+    height: 35px;
+    outline: none;
+    right: 0;
+    position: absolute;
+    top: 0;
+    width: 22px;
+
+    &:before{
+      @include m-icon-lgw;
+      content: unicode($icon-search);
+      font-size: 19px;
+      height: 22px;
+      right: 0;
+      position: absolute;
+      top: 9px;
+      width: 22px;
+    }
+  }
+
+  .megasearch-drop{
+    background-color: white;
+    border-radius: $border-radius;
+    border: 0;
+    box-shadow: 0px 4px 20px 0px rgba(9, 9, 84, 0.12);
+    color: $font-rkt-grey;
+    display: block;
+    font-size: $font-standard;
+    left: inherit;
+    margin: 0;
+    padding: 0;
+    max-height: calc( 100vh - 300px );
+    opacity: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: absolute;
+    right: -16px;
+    top: 50px;
+    transform: scale(1,0);
+    transform-origin: top center;
+    transition: all $transition-fast ease;
+    width: 600px;
+    white-space: nowrap;
+  }
+
+    .megasearch-drop-group{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+      .megasearch-drop-group-title{
+        background-color: $silver-rkt-darker;
+        color: white;
+        font-weight: 700;
+        list-style: none;
+        margin: 0;
+        padding: 0 $margin-small;
+        text-transform: uppercase;
+
+        &:focus{
+          outline: none;
+        }
+      }
+
+      .megasearch-drop-group-item{
+        color: $font-rkt-grey-lighter;
+        letter-spacing: 0.5px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        transition: all $transition-faster ease;
+
+        &:before{
+          background-color: transparent;
+          bottom: 0px;
+          content: '';
+          left: 0;
+          position: absolute;
+          top: 0;
+          transition: all $transition-fast ease;
+          width: 3px;
+        }
+
+        &:after{
+          background-color: transparent;
+          bottom: 0px;
+          content: '';
+          right: 0;
+          position: absolute;
+          top: 0;
+          transition: all $transition-fast ease;
+          width: 3px;
+        }
+
+        strong{
+          color: $font-rkt-grey-light;
+        }
+
+        &.active{
+          color: $font-rkt-grey-light;
+          cursor: pointer;
+          background-color: $silver-rkt-lighter;
+
+          &:before,
+          &:after{
+            background-color: $blue-rkt-base;
+          }
+
+          .megasearch-item-supervision{
+            opacity: 1;
+          }
+        }
+      }
+      .megasearch-item-link{
+        color: $font-rkt-grey;
+        display: inline-block;
+        padding: $margin-tiny $margin-standard;
+        transition: all $transition-faster ease;
+        text-overflow: ellipsis;
+        overflow-x: hidden;
+        width: 100%;
+
+        .global-search-item-small{
+          color: $font-rkt-grey-light;
+        }
+
+        &:hover,
+        &:focus{
+          text-decoration: none!important;
+          color: $font-rkt-grey;
+        }
+
+        &:focus{
+          outline: none;
+        }
+      }
+      .megasearch-item-space{
+        display: inline-block;
+        width: 15px;
+      }
+      .megasearch-item-supervision{
+        background: url(/src/assets/images/rocket/sunglasses.png) $blue-rkt-base center no-repeat;
+        border: 0;
+        display: inline-block;
+        height: 60px;
+        opacity: 0;
+        position: absolute;
+        right: 0;
+        transition: all $transition-fast ease;
+        width: 60px;
+
+        &:hover,
+        &:focus{
+          background: url(/src/assets/images/rocket/sunglasses.png) $blue-rkt-dark center no-repeat;
+          outline: none;
+
+          .megasearch-item-supervision-label{
+            opacity: 1;
+            transform: translateX(-13px);
+            transition: opacity $transition-fast ease 150ms, transform $transition-slow cubic-bezier(.17,.67,.49,.98) 150ms;
+          }
+        }
+      }
+
+        .megasearch-item-supervision-label{
+          bacKground-color: rgba(30, 33, 40, 1);
+          border-radius: $border-radius;
+          color: white;
+          font-size: $font-small;
+          font-weight: 600;
+          line-height: 18px;
+          padding: 2px 5px;
+          position: absolute;
+          opacity: 0;
+          right: 42px;
+          text-align: right;
+          top: 21px;
+          width: auto;
+          white-space: nowrap;
+        }
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          GLOBAL SEARCH STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.megasearch{
+
+  &.is-not-empty{
+
+    .megasearch-empty{
+
+      &:before{
+        content: unicode($icon-close);
+      }
+    }
+
+    .megasearch-input{
+      border-bottom: 1px solid white;
+    }
+  }
+
+  &.is-with-drop{
+
+    .megasearch-drop{
+      opacity: 1;
+      transform: scale(1,1);
+    }
+  }
+}

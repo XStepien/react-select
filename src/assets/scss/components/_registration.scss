@@ -1,0 +1,79 @@
+.registration-illustration{
+  background-color: $dark;
+  background-position: center;
+  background-repeat: no-repeat;
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  opacity: 1;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: all 350ms ease;
+  width: 100%;
+  z-index: 2;
+}
+
+.registration-step{
+  padding-bottom: $margin-standard;
+}
+
+.registration-progression{
+  background: $grey-background;
+  bottom: 0;
+  height: 4px;
+  left: 0;
+  position: absolute;
+  right: 0;
+}
+
+  .registration-progression-gauge{
+    background: $blue;
+    bottom: 0;
+    height: 4px;
+    left: 0;
+    position: absolute;
+    transition: all $transition-fast ease;
+  }
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+           REGISTRATION MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.registration-illustration{
+
+  &.mod-step1{
+    background-image: url(/src/assets/images/pages/registration/registration-1.png);
+    background-image: url(/src/assets/images/pages/registration/registration-1.png), linear-gradient(20deg, #1D2B4E 0%, #0e5788 90%);
+  }
+
+  &.mod-step2{
+    background-image: url(/src/assets/images/pages/registration/registration-2.png);
+    background-image: url(/src/assets/images/pages/registration/registration-2.png), linear-gradient(20deg, #1c2f54 0%, #086aa2 90%);
+    opacity:0;
+  }
+
+  &.mod-step3{
+    background-image: url(/src/assets/images/pages/registration/registration-3.png);
+    background-image: url(/src/assets/images/pages/registration/registration-3.png), linear-gradient(20deg, #19385f 0%, #0082c2 90%);
+    opacity:0;
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          REGISTRATION STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.registration-progression-gauge{
+
+  &.is-complete{
+    background: $green;
+  }
+}
+

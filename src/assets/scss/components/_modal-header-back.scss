@@ -1,0 +1,264 @@
+.modal-head-back{
+  float: left;
+  position: relative;
+}
+
+  .modal-head-back-button{
+    //background: url(/src/assets/images/components/modal-head/back-modal.png) top center no-repeat;
+    display: block;
+    float: left;
+    height: 69px;
+    width: 69px;
+
+    &:hover,
+    &:focus{
+      text-decoration: none;
+    }
+
+    &:before{
+      align-items: center;
+      @include m-icon-lgw;
+      color: $grey;
+      content: unicode($icon-previous);
+      display: flex;
+      font-size: 24px;
+      justify-content: center;
+      height: 69px;
+      text-decoration: none;
+      width: 69px;
+    }
+  }
+
+  .modal-head-back-title{
+    float: left;
+    font-weight: 600;
+    height: 69px;
+    line-height: 69px;
+    opacity: 1;
+    transition: all $transition-fastest ease;
+    white-space: nowrap;
+  }
+
+    .modal-head-back-breadcrum{
+      color: $grey-light;
+      margin: 13px 0 0;
+      font-size: $font-small;
+    }
+
+    .modal-head-back-title-main{
+    }
+
+    .modal-head-back-title-secundary{
+      color: $grey-light;
+      margin: 0;
+      font-size: $font-small;
+    }
+
+  .modal-head-back-over{
+    background: white;
+    height: 69px;
+    left: 54px;
+    line-height: 69px;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    transition: all $transition-fastest ease;
+    white-space: nowrap;
+  }
+
+  .modal-head-action{
+    background: no-repeat center;
+    border-radius: 50%;
+    display: block;
+    float: right;
+    height: 36px;
+    margin: 16px 10px 0 5px;
+    transition: background $transition-fastest ease;
+    width: 36px;
+
+    &:hover{
+      background-color: $grey-background;
+    }
+  }
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          MODAL HEAD BACK MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.modal-head-back{
+
+  /*
+    Title with breadcrum
+  */
+
+  &.mod-breadcrum{
+
+    .modal-head-back-title{
+      line-height: inherit;
+    }
+  }
+
+  /*
+    Title with secundary label
+  */
+
+  &.mod-label-secundary{
+
+    .modal-head-back-title{
+      margin-top: 10px;
+      line-height: inherit;
+    }
+  }
+
+  &.mod-dark{
+    color: white;
+
+    .modal-head-back-button{
+
+      &:before{
+        @include m-icon-lgw;
+        color: white;
+      }
+    }
+
+    .modal-head-back-over{
+      background-color: $dark-light;
+      color: white;
+      padding: 0 $margin-small 0 0;
+    }
+
+    .modal-head-back-title{
+      align-items: center;
+      display: flex;
+      line-height: inherit;
+    }
+
+    .modal-head-back-breadcrum-arrow{
+      color: $dark-lighter;
+      height: 69px;
+      position: relative;
+      width: 40px;
+
+      &:before{
+        @include m-icon-lgw;
+        content: unicode($icon-carret);
+        font-size: 16px;
+        font-weight: 400;
+        left: 5px;
+        position: absolute;
+        top: 29px;
+        text-decoration: none;
+        transform: rotate(-90deg);
+      }
+    }
+
+    .modal-head-back-title-main{
+    }
+
+    .modal-head-back-title-secundary{
+      color: $dark-ultralight;
+      font-size: $font-small;
+    }
+  }
+}
+
+.modal-head-action{
+
+  &.mod-download{
+    background-image: url(/src/assets/images/components/modal-head/download.png);
+
+    &.mod-center{
+      margin: 9px 10px 0 5px;
+    }
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+         MODAL HEAD BACK STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.modal-head-back{
+
+  /*
+    Arrow over effect
+  */
+
+  &.is-overed{
+
+    &.mod-dark{
+
+      .modal-head-back-button{
+        background-color: $dark-light;
+
+        &:before{
+          text-decoration: none;
+        }
+      }
+    }
+
+    .modal-head-back-button{
+
+      &:before{
+        text-decoration: none;
+      }
+    }
+
+    .modal-head-back-title{
+      opacity: 0;
+    }
+
+    .modal-head-back-over{
+      left: 69px;
+      opacity: 1;
+    }
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+      MODAL HEAD BACK TITLES STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.modal-head-back-title-main{
+
+   &.is-ellipsed{
+    cursor: pointer;
+
+    &:hover{
+      color: $grey-light;
+    }
+  }
+
+  &.is-full-length{
+    cursor: pointer;
+
+    &:hover{
+      color: $grey-light;
+    }
+  }
+}
+
+.modal-head-back-title-secundary{
+
+   &.is-ellipsed{
+    cursor: pointer;
+
+    &:hover{
+      color: $grey;
+    }
+  }
+
+  &.is-full-length{
+    cursor: pointer;
+
+    &:hover{
+      color: $grey;
+    }
+  }
+}

@@ -1,0 +1,105 @@
+
+.dash-stats{}
+
+  .dash-stats-canvas {
+    margin: 0 0 15px 0;
+  }
+
+  .dash-stats-links{
+    margin-top: 3px;
+  }
+
+.dash-activities{
+  position: relative;
+}
+
+  .dash-activities-more{
+    background: url(/src/assets/images/pages/home/more.png) $grey-border center no-repeat;
+    border-radius: 50%;
+    display: block;
+    height: 23px;
+    margin-left: 9px;
+    margin-top: 6px;
+    position: relative;
+    transition: all $transition-fastest ease;
+    width: 23px;
+    z-index: 1;
+
+    &:hover{
+      opacity: .66;
+    }
+
+    &.is-loading {
+      animation-name: spin;
+      animation-duration: 2500ms;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+  }
+
+  @keyframes spin {
+
+    from {
+      transform:rotate(0deg);
+    }
+
+    to {
+      transform:rotate(360deg);
+    }
+  }
+
+  .dash-activities-line{
+    background: $grey-border;
+    bottom: 20px;
+    left: 20px;
+    padding: 0;
+    position: absolute;
+    top: 20px;
+    width: 1px;
+  }
+
+  .dash-activities-item{
+    margin-bottom: 20px;
+    min-height:36px;
+    padding-left: 54px;
+    position: relative;
+    text-transform: lowercase;
+  }
+
+    .dash-activities-item-avatar{
+      background: white;
+      background-position: center;
+      background-size: cover;
+      border: 2px solid white;
+      border-radius: 50%;
+      height: 40px;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 40px;
+    }
+
+    .dash-activities-item-date{
+      color: $grey-light;
+      margin: 0;
+
+      &::first-letter {
+        text-transform: uppercase;
+      }
+    }
+
+    .dash-activities-item-message{
+
+      &::first-letter {
+        text-transform: uppercase;
+      }
+
+      a{
+        color: $grey;
+        text-decoration: underline;
+
+        &:hover{
+          color: $blue;
+        }
+      }
+    }

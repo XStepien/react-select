@@ -1,0 +1,67 @@
+.back{
+  background: url(/src/assets/images/components/buttons/back.png) left center no-repeat;
+  color: $grey-light;
+  cursor: pointer;
+  font-size: $font-small;
+  font-weight: 600;
+  padding-left: 18px;
+
+  &:hover,
+  &:focus{
+    color: $grey-light;
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+              BACK MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.back{
+
+  /*
+    COLORS
+  */
+
+  &.mod-blue{
+    background: url(/src/assets/images/components/buttons/back-blue.png) no-repeat left center;
+    color: $blue;
+
+    &:hover,
+    &:focus{
+      color: $blue;
+    }
+  }
+
+  &.mod-white{
+    background: url(/src/assets/images/components/buttons/back-white.png) no-repeat left center;
+    color: white;
+
+    &:hover,
+    &:focus{
+      color: white;
+    }
+  }
+
+  /*
+    ORDER
+  */
+
+  &.mod-order{
+    left: 30px;
+    position: absolute;
+    top: 80px;
+  }
+
+  /*
+    APP
+  */
+
+  &.mod-app{
+    left: 15px;
+    position: absolute;
+    top: 32px;
+  }
+}

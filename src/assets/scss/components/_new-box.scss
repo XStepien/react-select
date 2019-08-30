@@ -1,0 +1,40 @@
+.new-box{
+  border: 2px dotted $grey-border;
+  border-radius: $border-radius;
+  color: $grey-light;
+  display: block;
+  font-size: $font-small;
+  margin-bottom: $margin-standard;
+  padding: 20px 40px;
+  transition: all $transition-fastest ease;
+
+  &:hover,
+  &:focus{
+    background: white;
+    color: $grey;
+    text-decoration: none;
+  }
+}
+
+.new-box-title{
+  font-weight: 600;
+  margin: 0;
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+              NEW BOX MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.new-box{
+
+  &.mod-white{
+    border-color: $grey-disabled;
+
+    &:hover{
+      background-color: $grey-background;
+    }
+  }
+}

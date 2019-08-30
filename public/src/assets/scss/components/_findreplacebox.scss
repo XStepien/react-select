@@ -1,0 +1,163 @@
+.findreplaceboxes{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.findreplacebox{
+  @include m-box-style();
+  align-items: center;
+  display: block;
+  position: relative;
+  min-height: 100px;
+  transition: none;
+
+
+  &:hover{
+    background: $sky-white;
+    color: $blue;
+    cursor: pointer;
+
+    .findreplacebox-grey-light{
+      color: $blue;
+    }
+
+    .findreplacebox-icon{
+      background: $blue;
+    }
+  }
+}
+
+  .findreplacebox-icon{
+    background: $sky;
+    bottom: 0;
+    color: white;
+    display: inline-block;
+    min-height: 100%;
+    position: absolute;
+    transition: $transition-fast;
+    width: 60px;
+
+    &:before{
+      @include m-icon-lgw;
+      align-items: center;
+      bottom: 0;
+      content: unicode($icon-replace);
+      display: flex;
+      font-size: 23px;
+      font-weight: 500;
+      left: 20px;
+      position: absolute;
+      top: 0;
+      text-decoration: none;
+    }
+  }
+
+  .findreplacebox-grey-light{
+    color: $grey-light;
+  }
+
+  .findreplacebox-overview{
+    align-items: center;
+    display: grid;
+    grid-column-gap: 30px;
+    grid-template-columns: auto auto auto;
+    margin: 0 130px 0 100px;
+    min-height: 100px;
+  }
+
+  .findreplacebox-detail{
+    display: none;
+  }
+
+  .findreplacebox-detail-title{
+    border-right: 1px solid $grey-separator;
+    display: none;
+    height: 100%;
+    padding: $margin-big $margin-standard $margin-big 0;
+  }
+
+  .findreplacebox-action{
+    bottom: 0;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100px;
+  }
+
+  .findreplacebox-detail-content{
+    align-items: start;
+    display: grid;
+    grid-gap: 2px 30px;
+    grid-template-columns: 32% 68%;
+    margin: 45px 15px 45px 0;
+  }
+
+  .findreplacebox-detail-operator{
+    text-align: right;
+    line-height: 30px;
+  }
+
+  .findreplacebox-detail-rule{
+    line-height: 30px;
+  }
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          FINDREPLACEBOX STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.findreplacebox{
+
+  &.is-disabled{
+    background-color: $grey-disabled;
+    color: $grey-light;
+
+    &:hover{
+      background: $sky-white;
+      color: $blue;
+
+      .findreplacebox-icon{
+        background: $blue;
+      }
+    }
+
+    .findreplacebox-icon{
+      align-items: center;
+      background:  $grey-border-over;
+    }
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+           FINREPLACEBOX STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+ .findreplaceboxes{
+
+  &.is-expanded{
+
+    .findreplacebox{
+
+      .findreplacebox-detail{
+        align-items: center;
+        display: grid;
+        grid-column-gap: 30px;
+        grid-template-columns: 33% 66%;
+        margin: 0 130px 0 100px;
+      }
+
+      .findreplacebox-detail-title{
+        display: block;
+      }
+
+      .findreplacebox-overview{
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,150 @@
+.unscrollable{
+  overflow: hidden;
+}
+
+.noscroll {
+  position: fixed;
+  overflow-y: scroll;
+  width: 100%;
+}
+
+.scrollable{
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+  .scrollable-header{
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .scrollable-content{
+    margin: 100px auto $margin-bigger;
+    max-width: 600px;
+    padding: 0 $margin-bigger;
+  }
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+              SCROLLABLE MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.scrollable{
+
+  /*
+    with footer
+  */
+
+  &.mod-with-footer{
+    margin-bottom: $footer-height;
+
+    .container{
+      padding-bottom: $margin-bigger;
+    }
+  }
+
+  /*
+    with header
+  */
+
+  &.mod-with-header{
+    margin-top: $modal-head-height;
+    padding-top: $margin-bigger;
+  }
+
+  /*
+    with header
+  */
+
+  &.mod-with-header-double{
+    margin-top: calc(#{$modal-head-height}*2);
+    padding-top: $margin-bigger;
+  }
+
+  /*
+    Registration
+  */
+
+  &.mod-registration{
+
+    .scrollable-content{
+      margin-top: 115px;
+
+      @media (max-width: $xl){
+        margin-top: 90px;
+        padding: 0 40px;
+      }
+    }
+  }
+
+  /*
+    Join
+  */
+
+  &.mod-join{
+
+    .scrollable-content{
+      margin: 115px auto $margin-small;
+
+      @media (max-width: $xl){
+        margin-top: 90px;
+        padding: 0 40px;
+      }
+    }
+  }
+
+  /*
+    wider
+  */
+
+  &.mod-wider{
+
+    .scrollable-content{
+      max-width: 820px;
+    }
+  }
+
+  /*
+    widest
+  */
+
+  &.mod-widest{
+
+    .scrollable-content{
+      max-width: 100%;
+    }
+  }
+
+  /*
+    In product detail
+  */
+
+  &.mod-product-detail{
+
+    .scrollable-content{
+      margin: auto;
+      max-width: inherit;
+      padding: 0 15px;
+      width: 100%;
+    }
+  }
+
+  &.mod-order-logs{
+
+    .scrollable-content{
+      padding: 0;
+      margin-bottom: $margin-standard;
+      max-width: 100%;
+    }
+  }
+}

@@ -1,0 +1,48 @@
+.button-channel{
+  background-color: transparent;
+  color: white;
+  display: inline-block;
+  font-size: $font-small;
+  font-weight: 600;
+  height: $footer-height;
+  line-height: 1.2;
+  padding: 0 20px 0 12px;
+  overflow: hidden;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: all $transition-fast;
+  vertical-align: middle;
+  white-space: nowrap;
+
+  &:hover,
+  &:focus{
+    background-color: $dark-light;
+    color: white;
+    text-decoration: none;
+  }
+
+  &.mod-duo{
+
+    .button-channel-txt{
+      padding-top: 12px;
+    }
+  }
+}
+
+  .button-channel-flag{
+    display: inline-block;
+    float: left;
+    margin-right: 12px;
+    padding-top: 20px;
+    position: relative;
+  }
+
+  .button-channel-txt{
+    display: inline-block;
+    float: left;
+    height: $footer-height;
+    line-height: 1.2;
+    padding-top: 20px;
+    position: relative;
+  }

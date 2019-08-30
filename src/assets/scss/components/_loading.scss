@@ -1,0 +1,221 @@
+.ajax-loading{
+  margin: 0 auto;
+  padding-top: 35px;
+  position: relative;
+  text-align: center;
+  width: 300px;
+}
+
+.ajax-loading-ball1,
+.ajax-loading-ball2 {
+  animation: sk-bounce 2.0s infinite ease-in-out;
+  background-color: $blue;
+  border-radius: 50%;
+  height: 40px;
+  left: 0;
+  opacity: 0.6;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 40px;
+}
+
+.ajax-loading-ball2 {
+  animation-delay: -1.0s;
+}
+
+.ajax-loading-message{
+  color: $grey;
+  font-family: 'Lato', sans-serif;
+  line-height: 1.4;
+  font-size: $font-big;
+  font-weight: 400;
+  margin: $margin-small 0 $margin-standard;
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+            LOADING MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.ajax-loading{
+
+  /*
+    In modals
+  */
+
+  &.mod-modal{
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 40%;
+  }
+
+  &.mod-small {
+    .ajax-loading-ball1,
+    .ajax-loading-ball2{
+      height: 30px;
+      width: 30px;
+    }
+  }
+
+  /*
+    White balls
+  */
+
+  &.mod-dark{
+
+    .ajax-loading-ball1,
+    .ajax-loading-ball2{
+      background-color: white;
+    }
+  }
+
+  /*
+    Fix stats tables... can be better
+  */
+
+  &.mod-stats-tabs{
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 100px;
+  }
+
+  /*
+    Fix position for attributes loading
+  */
+
+  &.mod-attributes{
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 30vh;
+  }
+
+  /*
+    Onboarding
+  */
+
+  &.mod-onboarding{
+    color: white;
+    display: none;
+    top: 40vh;
+    z-index: 100000;
+
+    .ajax-loading-ball1,
+    .ajax-loading-ball2{
+      background-color: white;
+    }
+  }
+
+  /*
+    In reports datagrid
+  */
+
+  &.mod-datagrid{
+    padding-bottom: $margin-standard;
+  }
+
+  /*
+    Fix position for conversion list
+  */
+
+  &.mod-conversion-list{
+    float: left;
+  }
+
+  /*
+    In matching categories
+  */
+
+  &.mod-thesaurus{
+    position: relative;
+    top: 30px;
+  }
+
+  &.mod-delete-rule{
+    position: absolute;
+    top: 15px;
+  }
+
+  &.mod-registration{
+    margin: 0 0 25px 0;
+    width: 40px;
+  }
+
+  &.mod-orders-search{
+    margin-top: $margin-big;
+    padding: $margin-big;
+  }
+
+  &.mod-split-left-checkout{
+    display: block;
+    position: absolute;
+    top: 50%;
+    width: 40px;
+    height: 40px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &.mod-about-app{
+    margin-top: 60px;
+  }
+
+  &.mod-tickets {
+    margin-top: 20px;
+  }
+
+  &.mod-logs {
+    float:left;
+    width: 70px;
+
+    &:before {
+      background: $grey-border;
+      content: '';
+      left: 50%;
+      position: absolute;
+      top: 0;
+      transform: translateX(-50%);
+      height: 20px;
+      width: 1px;
+    }
+  }
+
+  /*
+    For invoices
+  */
+  &.mod-invoice {
+    position: absolute;
+    right: -122px;
+    top: 22px;
+  }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+           LOADING ANIMATIONS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+@keyframes sk-bounce {
+
+  0%, 100% {
+    transform: scale(0);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+}

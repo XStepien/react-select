@@ -1,0 +1,75 @@
+.add-input{
+  background: url(/src/assets/images/pages/products/new.png) $grey-background 10px center no-repeat;
+  border: 2px dotted $grey-border;
+  border-radius: 3px;
+  color: $grey-light;
+  display: block;
+  font-size: 14.1px;
+  height: 44px;
+  margin-bottom: 0px;
+  padding: 10px 40px;
+  transition: all 125ms ease;
+
+  &:hover{
+    background: url(/src/assets/images/pages/products/new.png) white 10px center no-repeat;
+    cursor: pointer;
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+            ADD INPUT MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.add-input {
+
+  &.mod-appcolor{
+    color: $grey-light;
+    margin-left: 35px;
+    text-decoration: none;
+
+    &:hover{
+      color: $grey-light;
+      text-decoration: none;
+    }
+  }
+
+  &.mod-attribute{
+    width: 100%;
+
+    &:hover,
+    &:focus{
+      text-decoration: none;
+    }
+  }
+
+  &.mod-appcustom-channel{
+    background: url(/src/assets/images/pages/products/new.png) $grey-background 15px center no-repeat;
+    cursor: pointer;
+    height: 70px;
+    padding: 23px 20px 0 50px;
+    width: 100%;
+
+    &:hover,
+    &:focus{
+      background: url(/src/assets/images/pages/products/new.png) white 15px center no-repeat;
+      cursor: pointer;
+      text-decoration: none;
+    }
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+            ADD INPUT STATES
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.add-input {
+
+  &.is-disabled{
+    opacity:.5;
+    pointer-events: none;
+  }
+}

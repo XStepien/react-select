@@ -1,0 +1,203 @@
+/* - - - - - - - - - - - - - - - - - - -
+
+         BOX MOD RULE ELEMENT
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.box{
+
+  &.mod-rule-element{
+    padding-left: 150px;
+    transition: left 100ms ease;
+    margin-bottom: 40px;
+
+    .box-operator{
+      background: $sky;
+      bottom: 0;
+      border-radius: $border-radius 0 0 $border-radius;
+      color: white;
+      font-size: $font-big;
+      font-weight: 600;
+      left: 0;
+      padding: 5px;
+      position: absolute;
+      text-align: center;
+      top: 0;
+      width: 120px;
+
+      &.mod-medium{
+        padding: 10px;
+      }
+
+      .box-operator-content{
+        position: absolute;
+        top: 150px;
+
+        &.mod-for{
+          top: 120px;
+        }
+
+        &.mod-time{
+          top: 100px;
+        }
+      }
+    }
+
+    &.mod-condition{
+
+      .box-operator{
+        background: $blue-deep;
+      }
+
+      &.mod-bridge{
+
+        &:before{
+          @include m-icon-lgw;
+          color: $blue-deep;
+        }
+      }
+    }
+
+    &.mod-time{
+
+      .box-operator{
+        background: $dark-light;
+      }
+    }
+
+    &.mod-bridge{
+      margin-top: 40px;
+
+      &:before{
+        @include m-icon-lgw;
+        color: $sky;
+        content: unicode($icon-linker);
+        font-size: 66px;
+        height: 40px;
+        left: 28px;
+        position: absolute;
+        top: -53px;
+        width: 40px;
+        z-index: 2;
+      }
+    }
+
+    .box-statement{
+      color: $grey-border-focus;
+      position: absolute;
+      top: -23px;
+
+      &.mod-small{
+        color: $grey;
+        font-weight: 700;
+        font-size: $font-small;
+      }
+    }
+
+    .box-scope-ope{
+      border: 1px dotted $grey-border;
+      border-radius: $border-radius;
+      color: $grey;
+      display: inline-block;
+      font-style: italic;
+      font-weight: 600;
+      padding: 10px;
+      text-decoration: none;
+      transition: all $transition-fast ease;
+
+      &:hover{
+        background: $grey-input;
+      }
+    }
+
+    .box-or{
+      border: 1px solid $grey-border;
+      border-radius: 20px;
+      background: $grey-input;
+      color: $grey-placeholder;
+      display: inline-block;
+      font-size: $font-small;
+      padding: 0 10px;
+    }
+
+    .box-row{
+      @include m-row-style();
+      padding: 5px 0;
+      position: relative;
+
+      &:hover{
+
+        .box-remove-row{
+          opacity:1;
+        }
+      }
+    }
+
+    .box-remove-row{
+      background: url(/src/assets/images/pages/home/close.png) $grey-border no-repeat center;
+      border-radius: 50%;
+      bottom: 19px;
+      display: block;
+      height: 15px;
+      opacity: 0;
+      position: absolute;
+      right: -7px;
+      transition: all $transition-fastest ease;
+      width: 15px;
+      z-index: 1;
+
+      &.mod-pim{
+        right: -10px;
+      }
+
+      &.mod-replace{
+        bottom: 38px;
+      }
+
+      &:hover{
+        background-color: $red;
+      }
+    }
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+        BOX MOD RULE ELEMENT MOD
+
+- - - - - - - - - - - - - - - - - - - */
+
+.box{
+
+  &.mod-rule-element{
+
+    &.mod-box-action{
+      padding-top:30px;
+    }
+
+    &.mod-bridge{
+      margin-top: 40px;
+    }
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+      BOX MOD RULE ELEMENT STATES
+
+- - - - - - - - - - - - - - - - - - - */
+
+/*
+
+.box{
+
+  &.mod-rule-element{
+
+    &.is-no-remove-rows{
+
+      .box-remove-row{
+        display:none;
+      }
+    }
+  }
+}*/

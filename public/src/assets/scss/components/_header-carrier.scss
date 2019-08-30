@@ -1,0 +1,86 @@
+.header-carrier{
+  background-color: $grey-disabled;
+  height: 50px;
+  padding: 11px $margin-standard $margin-small $margin-standard;
+  position: relative;
+}
+
+  .header-carrier-logo{
+    background-repeat: no-repeat;
+    border: 0;
+    height: 50px;
+    margin-right: $margin-standard;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 50px;
+  }
+
+  .vcs-invoice{
+    height: 50px;
+    padding-top: 10px;
+    position: absolute;
+    right: $margin-small;
+    top: 0px;
+    width: 50px;
+  }
+
+    .vcs-invoice-icon{
+      background: url(/src/assets/images/pages/logistics/invoice.png) white center no-repeat;
+      border-radius: 50%;
+      height: 34px;
+      position: absolute;
+      width: 34px;
+    }
+
+    .vcs-invoice-status{
+      background: $blue;
+      border-radius: 50%;
+      height: 20px;
+      position: absolute;
+      right: 4px;
+      top: -4px;
+      width: 20px;
+
+      &:before {
+        @include m-icon-lgw;
+        color: white;
+        font-size: 21px;
+        height: 20px;
+        position: absolute;
+        width: 20px;
+      }
+    }
+
+  /* - - - - - - - - - - - - - - - - - - -
+
+          HEADER-CARRIER MODS
+
+  - - - - - - - - - - - - - - - - - - - */
+
+  .header-carrier-logo{
+
+    &.mod-ups{
+      background-image: url(/src/assets/images/pages/logistics/carrier/carrier.png);
+      background-position: 0px 0px;
+    }
+
+    &.mod-france-express{
+      background-image: url(/src/assets/images/pages/logistics/carrier/carrier.png);
+      background-position: 0px -50px;
+    }
+
+    &.mod-placeholder{
+
+      &:before {
+        @include m-icon-lgw;
+        color: $grey;
+        content: unicode($icon-carrier);
+        font-size: 37px;
+        position: absolute;
+        top: 8px;
+        left: 6px;
+      }
+    }
+  }

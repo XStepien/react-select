@@ -1,0 +1,103 @@
+.search-select{
+  float: right;
+  margin: 17px 10px 0 0;
+  width: 330px;
+
+  @media (min-width: $md) {
+    width: 400px;
+  }
+
+  .search{
+    border-radius: 20px 0 0 20px;
+    float: left;
+    margin: 0 -13px 0 0;
+    padding-right: 10px;
+    width: 190px;
+
+    @media (min-width: $md) {
+      width: 220px;
+    }
+
+    .search-input{
+      width: 100%;
+    }
+  }
+
+  select{
+    background: #f5f5f5;
+    border: 0;
+    border-radius: 0 20px 20px 0;
+    height: 34px;
+    line-height: 34px;
+  }
+
+  .chosen-container{
+    width: 140px !important;
+
+    @media (min-width: $md) {
+      width: 190px !important;
+    }
+  }
+
+  .chosen-container-single{
+
+    .chosen-single{
+      background: white;
+      box-shadow: none;
+      border-radius: 0 $border-radius $border-radius 0;
+      height: 34px;
+      font-size: $font-small;
+      font-weight: 600;
+      line-height: 34px;
+
+      span{
+        margin-right: 10px;
+      }
+
+      div{
+        width: 20px;
+
+        b{
+          background: url(/src/assets/images/layout/filters/carret.png) no-repeat left center;
+        }
+      }
+    }
+
+    &.chosen-container-active{
+
+      .chosen-single{
+
+        div b{
+          background: url(/src/assets/images/layout/filters/carret.png) no-repeat left center;
+        }
+      }
+
+      &.chosen-with-drop{
+
+        .chosen-single{
+
+          div b{
+            background: url(/src/assets/images/layout/filters/carret-up.png) no-repeat left center;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+          SEARCH-SELECT MODS
+
+- - - - - - - - - - - - - - - - - - - */
+
+.search-select{
+
+  &.mod-noselect{
+    width: auto;
+  }
+
+  &.mod-catalogue{
+    margin: 11px 10px 0 0;
+  }
+}

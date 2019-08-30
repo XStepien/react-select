@@ -1,0 +1,287 @@
+/* - - - - - - - - - - - - - - - - - - -
+
+             GENERAL SETTINGS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+html{
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  min-height: 100%;
+}
+
+body{
+  background: $grey-background;
+  color: $grey;
+  font-family: 'Lato', sans-serif;
+  font-size: $font-standard;
+  line-height: 1.42857143;
+  min-height: 100%;
+
+  &.mod-white{
+    background:white;
+  }
+}
+
+*{
+  box-sizing: border-box;
+}
+
+
+/* - - - - - - - - - - - - - - - - - - -
+
+                 FONTS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+h1{
+  font-family: 'Lato', sans-serif;
+  font-size: $font-biggest;
+  font-weight: 900;
+  line-height: 1.2;
+  margin: $margin-standard 0 $margin-small;
+
+  &.mod-thin{
+    font-weight: 300;
+  }
+}
+
+h2{
+  font-family: 'Lato', sans-serif;
+  font-size: $font-bigger;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: $margin-standard 0 $margin-small;
+
+  &.mod-thin{
+    font-weight: 400;
+  }
+}
+
+h3{
+  font-family: 'Lato', sans-serif;
+  font-size: $font-big + 2px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: $margin-small 0;
+
+  &.mod-thin{
+    font-weight: 400;
+  }
+}
+
+h4{
+  font-family: 'Lato', sans-serif;
+  font-size: $font-big;
+  font-weight: 700;
+  line-height: 1.4;
+  margin: $margin-small 0;
+
+  &.mod-thin{
+    font-weight: 400;
+  }
+}
+
+h5{
+  font-family: 'Lato', sans-serif;
+  font-size: $font-big;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: $margin-small 0;
+}
+
+h6{
+  font-family: 'Lato', sans-serif;
+  font-size: $font-big;
+  font-style: italic;
+  line-height: 1.5;
+  margin: $margin-small 0;
+}
+
+p{
+  line-height: 1.5;
+  margin: 0 0 10px;
+}
+
+b{
+  font-weight: 600;
+}
+
+img {
+  vertical-align: middle;
+}
+
+ol, ul {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+hr{
+  margin: 20px 0;
+  border: 0;
+  border-top: 1px solid #eee;
+
+  &.mod-dark{
+    border-top: 1px solid $grey-separator;
+  }
+
+  &.mod-black{
+    border-top: 1px solid black;
+  }
+
+  &.mod-light{
+    border-top: 1px solid $dark-lighter;
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+                 LINKS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+a,
+.link,
+button.link{
+  background-color: transparent;
+  color: $blue;
+  outline: none !important;
+  text-decoration: none;
+
+  &:focus,
+  &:hover{
+    color: $blue;
+    text-decoration: underline;
+  }
+
+  &.link-toggle{
+    padding-right: 30px;
+    position: relative;
+
+    &:before{
+      @include m-icon-lgw;
+      content: unicode($icon-carret);
+      position: absolute;
+      right: 7px;
+      top: 3px;
+    }
+
+    &.is-open{
+
+      &:before{
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - -
+
+                 LINKS MODS
+
+ - - - - - - - - - - - - - - - - - - - */
+
+.link-red{
+  color: $red;
+
+  &:focus,
+  &:hover{
+    color: $red-darker;
+  }
+}
+
+.link-underlined{
+  color: inherit;
+  text-decoration: underline;
+  transition: all $transition-fastest ease;
+
+  &:hover,
+  &:focus{
+    color: $blue;
+  }
+
+  &.mod-red{
+    color: $red;
+
+    &:hover,
+    &:focus{
+      color: $red-darker;
+    }
+  }
+
+  &.mod-orange{
+    color: $orange-darkest;
+
+    &:hover,
+    &:focus{
+      color: $orange-darkest;
+    }
+  }
+
+  &.mod-background-sky{
+    color: $navy;
+
+    &:hover{
+      color: white;
+    }
+  }
+
+  &.mod-dark-light{
+    color: $dark-light;
+
+    &:hover{
+      color: $dark;
+    }
+  }
+
+  &.mod-dark{
+    color: $dark;
+
+    &:hover{
+      color: $dark-light;
+    }
+  }
+
+  &.mod-white{
+    color: white;
+
+    &:hover{
+      color: $blue;
+    }
+  }
+
+  &.mod-pointer{
+    cursor:pointer;
+  }
+
+  &.mod-grey{
+    text-decoration: none;
+    color: $grey;
+
+    &:hover{
+      color: $blue;
+    }
+  }
+
+  &.mod-toggle{
+    padding-right: 30px;
+    position: relative;
+
+    &:before{
+      @include m-icon-lgw;
+      content: unicode($icon-carret);
+      position: absolute;
+      right: 7px;
+      top: 3px;
+    }
+
+    &.is-open{
+
+      &:before{
+        transform: rotate(180deg);
+      }
+    }
+  }
+}

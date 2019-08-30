@@ -1,0 +1,35 @@
+.rulelist{}
+
+  .rulelist-break{
+    border-left: 5px solid $grey-separator;
+    margin-left: 30px;
+
+    &.mod-monolist{
+      border-left: 5px solid transparent;
+    }
+  }
+
+    .rulelist-break-info{
+      align-items: center;
+      color: $grey-light;
+      display: grid;
+      font-size: $font-small;
+      grid-template-columns: 50px auto;
+      padding: $margin-small $margin-standard $margin-small 60px;
+    }
+
+  .rulelist-title{
+    margin-left: 100px;
+
+    &.mod-break{
+      margin-left: 65px;
+    }
+  }
+
+  .rulelist-info{
+    align-items: center;
+    color: $grey-light;
+    font-size: $font-small;
+    margin-left: 100px;
+    padding: $margin-small 0;
+  }
