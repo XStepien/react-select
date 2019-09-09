@@ -4,14 +4,18 @@ import classNames from 'classnames';
 
 /**
  * Display placeholder or selected value(s)
- * 
+ *
  * 1 => handle multi select
  * 3 => handle adding values ?
  */
-const SelectValue = ({ value, placeholder, dispatch, ...props }) => {
+const SelectValue = ({
+    value, placeholder, dispatch, ...props
+}) => {
+    const { valueRenderer, labelKey } = props;
+
     function renderValue(val) {
-        return props.valueRenderer ? props.valueRenderer(val) : (
-            <span>{val[props.labelKey]}</span>
+        return valueRenderer ? valueRenderer(val) : (
+            <span>{val[labelKey]}</span>
         );
     }
 
@@ -40,7 +44,10 @@ const SelectValue = ({ value, placeholder, dispatch, ...props }) => {
 };
 
 SelectValue.propTypes = {
+    dispatch: PropTypes.func,
+    valueRenderer: PropTypes.func,
     placeholder: PropTypes.string,
+    labelKey: PropTypes.string,
     value: PropTypes.oneOfType([
         PropTypes.string, PropTypes.number, PropTypes.object,
     ]),

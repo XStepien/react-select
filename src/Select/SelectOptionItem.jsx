@@ -12,6 +12,7 @@ const SelectOptionItem = React.forwardRef(({
     isSelected,
     onHovered,
     onSelected,
+    onClicked,
     optionRenderer,
     index,
     style,
@@ -27,7 +28,12 @@ const SelectOptionItem = React.forwardRef(({
     function handleOptionClicked(e) {
         e.preventDefault();
         e.stopPropagation();
-        onSelected(option);
+        
+        if (option.callback) {
+            onClicked(option);
+        } else if (!option.grpTitle) {
+            onSelected(option);
+        }
     }
 
     const [isHovered, bind] = useHover();
@@ -49,7 +55,7 @@ const SelectOptionItem = React.forwardRef(({
                 'result-selected': isSelected,
                 'group-result': option.grpTitle,
             })}
-            onClick={!option.grpTitle ? handleOptionClicked : null}
+            onClick={handleOptionClicked}
             {...bind}
         >
             {renderOption(option)}

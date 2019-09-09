@@ -1,0 +1,39 @@
+{
+    "extends": [
+      "airbnb-base",
+      "airbnb/rules/react"
+    ],
+    "plugins": [
+      "react-hooks"
+    ],
+    "globals": {
+        "window": "writable",
+        "document": "writable"
+    },
+    "rules": {
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn",
+      "no-console": [0],
+      "max-len": [1, { "code": 125, "ignoreTrailingComments": true, "ignoreUrls": true  }],
+      "arrow-parens": [2, "always"],
+      "curly": [2, "all"],
+      "indent" : [1, 4, { "SwitchCase": 0 }],
+      "react/jsx-indent": [1, 4],
+      "react/jsx-indent-props": [1, 4],
+      "react/forbid-prop-types": [2, { "forbid": ["any"], "checkContextTypes": true, "checkChildContextTypes": true }],
+      "react/require-default-props": [0],
+      "react/sort-comp": [2, {
+        "order": [
+          "instance-variables",
+          "lifecycle",
+          "/^on.+$/",
+          "getters",
+          "setters",
+          "/^(get|set)(?!(InitialState$|DefaultProps$|ChildContext$)).+$/",
+          "instance-methods",
+          "everything-else",
+          "rendering"
+        ]
+      }]
+    }
+}

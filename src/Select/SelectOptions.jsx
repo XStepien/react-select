@@ -1,8 +1,10 @@
-import React, { useRef, useState, useEffect, useContext } from 'react';
-import { FixedSizeList as List } from 'react-window';
+import React, {
+    useRef, useState, useEffect, useContext, useCallback,
+} from 'react';
 import PropTypes from 'prop-types';
+import { FixedSizeList as List } from 'react-window';
+// import { DynamicSizeList as List } from 'react-window';
 import classNames from 'classnames';
-import { CSSTransition } from 'react-transition-group';
 
 import findIndex from 'lodash/findIndex';
 
@@ -12,12 +14,9 @@ import { SelectContext } from './SelectContext';
 
 import SelectOptionItem from './SelectOptionItem';
 
-const ITEM_SIZE = 44;
-const LIST_HEIGHT = 300;
-
-const SelectOptions = ({ optionsConfig, ...props }) => {
-    const optionsListRef = useRef();
-    const listRef= useRef();
+const SelectOptions = ({ optionsConfig }) => {
+    const optionsListRef = useRef(null);
+    const listRef = useRef(null);
 
     // Get data from react context api
     const {
@@ -25,13 +24,16 @@ const SelectOptions = ({ optionsConfig, ...props }) => {
         valueKey,
         labelKey,
         optionRenderer,
+        optionCallback,
         noResultRenderer,
         searchValue,
         selectedValue: selectedOption,
         filteredOptions: options,
+        optionsTabs,
+        selectedTab,
     } = useContext(SelectContext);
 
-    const [listHeight, setListHeight] = useState(optionsConfig.list);
+    const [listHeight, setListHeight] = useState(optionsConfig.listHeight);
     const [hovered, setHovered] = useState(-1);
     const [cursor, setCursor] = useState(0);
 
@@ -39,9 +41,9 @@ const SelectOptions = ({ optionsConfig, ...props }) => {
 
     const optionsLength = options.length;
 
-    function getListHeight() {
-        const listFullHeight = optionsLength * optionsConfig.itemSize
-        return listFullHeight < optionsConfig.listHeight ? listFullHeight : optionsConfig.listHeight;
+    function onClicked(callback, index) {
+        optionCallback(callback);
+        setCursor(index);
     }
 
     function itemKey(index, data) {
@@ -49,10 +51,12 @@ const SelectOptions = ({ optionsConfig, ...props }) => {
         return item[valueKey];
     }
 
-    function onSelected(opt) {
-        dispatch({ type: 'selectValue', payload: opt });
-    }
-
+    const onSelected = useCallback(
+        (opt) => {
+            dispatch({ type: 'selectValue', payload: opt });
+        },
+        [dispatch],
+    );
     /* Keyboard navigation */
     const downKeyPressed = useOnKeyPressed('ArrowDown');
     const upKeyPressed = useOnKeyPressed('ArrowUp');
@@ -65,14 +69,14 @@ const SelectOptions = ({ optionsConfig, ...props }) => {
 
     useEffect(() => {
         if (optionsLength && downKeyPressed) {
-            setCursor((current) => current < optionsLength - 1 ? current + 1 : current);
+            setCursor((current) => (current < optionsLength - 1 ? current + 1 : current));
         }
     }, [downKeyPressed, optionsLength]);
 
     useEffect(() => {
         if (upKeyPressed) {
-            setCursor((current) => current > 0 ? current - 1 : current);
-        }   
+            setCursor((current) => (current > 0 ? current - 1 : current));
+        }
     }, [upKeyPressed]);
 
     useEffect(() => {
@@ -88,18 +92,19 @@ const SelectOptions = ({ optionsConfig, ...props }) => {
     }, [cursor, options.length]);
     /* END keyboard navigation */
 
-
     useEffect(() => {
         if (enterKeyPressed && !options[cursor].grpTitle) {
-            onSelected(options[cursor])
+            onSelected(options[cursor]);
         }
-    }, [enterKeyPressed, options, cursor, dispatch]);
+    }, [enterKeyPressed, options, cursor, dispatch, onSelected]);
 
     useEffect(() => {
-        const listFullHeight = options.length * optionsConfig.itemSize;
+        const itemSizeIndex = optionsTabs ? optionsTabs.indexOf(selectedTab) : 0;
+        const listFullHeight = options.length * optionsConfig.itemSize[itemSizeIndex];
         setListHeight(listFullHeight < optionsConfig.listHeight ? listFullHeight : optionsConfig.listHeight);
-    }, [options.length]);
+    }, [options.length, optionsConfig, optionsTabs, selectedTab]);
 
+    // eslint-disable-next-line react/prop-types
     const renderOption = React.forwardRef(({ index, style }, ref) => (
         <SelectOptionItem
             ref={ref}
@@ -108,9 +113,9 @@ const SelectOptions = ({ optionsConfig, ...props }) => {
             focused={index === cursor}
             isSelected={selectedOption && (selectedOption[valueKey] === options[index][valueKey])}
             onSelected={onSelected}
+            onClicked={onClicked}
             onHovered={setHovered}
             option={options[index]}
-            valueKey={valueKey}
             labelKey={labelKey}
             optionRenderer={optionRenderer}
         />
@@ -118,29 +123,29 @@ const SelectOptions = ({ optionsConfig, ...props }) => {
 
     return (
         <div ref={optionsListRef} className={classNames('lgw-select-results')}>
-            <CSSTransition classNames="fade" timeout={300}>
-                {options.length ? (
-                    <List
+            {options.length ? (
+                <List
                     ref={listRef}
-                    height={getListHeight()}
+                    height={listHeight}
                     itemCount={optionsLength}
-                    itemSize={optionsConfig.itemSize}
+                    itemSize={optionsConfig.itemSize[optionsTabs ? optionsTabs.indexOf(selectedTab) : 0]}
                     itemData={options}
                     itemKey={itemKey}
                     width={width}
-                    >
-                        {renderOption}
-                    </List>
-                ) : (
-                    <div className="no-results">
-                        {noResultRenderer(searchValue)}
-                    </div>
-                )}
-            </CSSTransition>
+                >
+                    {renderOption}
+                </List>
+            ) : (
+                <div className="no-results">
+                    {noResultRenderer(searchValue)}
+                </div>
+            )}
         </div>
     );
 };
 
-SelectOptions.propTypes = {};
+SelectOptions.propTypes = {
+    optionsConfig: PropTypes.object,
+};
 
 export default SelectOptions;

@@ -1,28 +1,24 @@
-import React, { useRef, useState, useEffect, useContext } from 'react';
+import React, {
+    useRef, useState, useEffect, useContext,
+} from 'react';
 
 import { useDebounce } from '../utils/hooks';
 import { SelectContext } from './SelectContext';
 
-const SelectSearch = ({ ...props }) => {
-    // console.log('[SelectSearch] rendering');
-
-    const inputRef = useRef();
+const SelectSearch = () => {
+    const inputRef = useRef(null);
     const [inputValue, setInputValue] = useState('');
 
     const { dispatch, labelKey } = useContext(SelectContext);
 
     function onInputChange({ target }) {
         setInputValue(target.value);
-    };
-
-    // function onInputFocus() {
-    //     console.log('input focus');
-    // }
+    }
 
     const retValue = useDebounce(inputValue, 500);
 
     useEffect(() => {
-        dispatch({ type: 'filterOptions', payload: retValue, labelKey })
+        dispatch({ type: 'filterOptions', payload: retValue, labelKey });
     }, [retValue, dispatch, labelKey]);
 
     return (
@@ -34,7 +30,6 @@ const SelectSearch = ({ ...props }) => {
                 autoComplete="off"
                 ref={inputRef}
                 onBlur={onInputChange}
-                // onFocus={onInputFocus}
                 onChange={onInputChange}
                 value={inputValue}
             />

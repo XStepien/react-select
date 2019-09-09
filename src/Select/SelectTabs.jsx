@@ -4,13 +4,13 @@ import classNames from 'classnames';
 
 import { SelectContext } from './SelectContext';
 
-const SelectTabs = ({ ...props }) => {
+const SelectTabs = () => {
     const { dispatch, optionsTabs, selectedTab } = useContext(SelectContext);
 
     function onTabClicked(e, tab) {
         e.preventDefault();
         if (tab !== selectedTab) {
-            dispatch({ type: 'changeTab', payload: tab })
+            dispatch({ type: 'changeTab', payload: tab });
         }
     }
 
@@ -30,7 +30,7 @@ const SelectTabs = ({ ...props }) => {
                             {tab}
                         </a>
                     </li>
-                )
+                ),
             )}
         </ul>
     );

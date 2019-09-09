@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import get from 'lodash/get';
+import findKey from 'lodash/findKey';
 
 import { useClickOutside, useEscKeyPressed, usePrevious } from '../utils/hooks';
 
@@ -32,6 +33,7 @@ const Select = ({
     valueRenderer,
     options,
     optionRenderer,
+    optionCallback,
     noResultRenderer,
     valueKey,
     labelKey,
@@ -42,9 +44,12 @@ const Select = ({
     tabbed,
     footerHeight,
     optionsConfig,
+    containerId,
     ...props
 }) => {
-    const containerRef = useRef();
+    const containerRef = useRef(null);
+
+    const { className, disabled } = props;
 
     const [state, dispatch] = useReducer(SelectReducer, initialState);
 
@@ -59,7 +64,7 @@ const Select = ({
 
     // Open dropdown when container clicked
     function onContainerClicked(e) {
-        if (props.disabled
+        if (disabled
             || (e.type === 'click' && e.button !== 0)
             || e.target.tagName === 'INPUT'
             || ['lgw-select-results', 'lgw-select-tab-anchor'].includes(e.target.classList.value)) {
@@ -70,6 +75,8 @@ const Select = ({
         e.preventDefault();
 
         dispatch({ type: 'toggleDropdown', payload: true });
+
+        return true;
     }
 
     // Close dropdown on Escape key pressed or click outside
@@ -82,19 +89,40 @@ const Select = ({
         dispatch({ type: 'setOptions', payload: options });
     }, [options]);
 
+    // Select tab according to initial value ( if set )
+    useEffect(() => {
+        if (value && tabbed) {
+            const selectTab = findKey(options, (oList) => oList.find((o) => o[valueKey] === value));
+            dispatch({ type: 'changeTab', payload: selectTab });
+        }
+    }, [options, tabbed, value, valueKey]);
+
+    // Select option according to initial value ( if set )
     useEffect(() => {
         const preSelectedValue = selectOptions.find((opt) => opt[valueKey] === value);
-        if (value 
-            && preSelectedValue 
+        if (value
+            && !selectedValue
+            && preSelectedValue
             && (!prevSelectedValue || (prevSelectedValue && preSelectedValue[valueKey] !== prevSelectedValue[valueKey]))) {
             dispatch({ type: 'selectValue', payload: preSelectedValue });
         }
-    }, [value, selectOptions, valueKey, prevSelectedValue]);
+    }, [value, selectOptions, valueKey, prevSelectedValue, selectedValue]);
 
     useEffect(() => {
+        if (!selectedValue || (value !== selectedValue[valueKey])) {
+            const newVal = value ? selectOptions.find((opt) => opt[valueKey] === value) : null;
+            dispatch({ type: 'selectValue', payload: newVal });
+            // onChanged(newVal);
+        }
+        // eslint-disable-next-line
+    }, [value]);
+
+    // Dispatch to parent the value selected
+    useEffect(() => {
         // TODO: handle multiple values
-        if (prevSelectedValue 
-            && get(selectedValue, valueKey, false) !== get(prevSelectedValue, valueKey, false)
+        if ((prevSelectedValue
+            && get(selectedValue, valueKey, false) !== get(prevSelectedValue, valueKey, false))
+            || (!prevSelectedValue && get(selectedValue, valueKey, false))
         ) {
             onChanged(selectedValue);
         }
@@ -113,7 +141,7 @@ const Select = ({
                     'is-active': isOpen || !!selectedValue,
                     'mod-tabs': tabbed,
                 },
-                props.className,
+                className,
             )}
             onClick={onContainerClicked}
             style={style.container}
@@ -128,13 +156,17 @@ const Select = ({
             />
             {/* Dropdown (search input/tabs/options list) */}
             {isOpen && (
-                <SelectProvider value={{ ...state, labelKey, valueKey, optionRenderer, noResultRenderer, dispatch }}>
+                <SelectProvider value={{
+                    ...state, labelKey, valueKey, optionRenderer, optionCallback, noResultRenderer, dispatch,
+                }}
+                >
                     <SelectDrop
                         style={style.dropDown}
                         searchable={searchable}
                         tabbed={tabbed}
                         footerHeight={footerHeight}
                         optionsConfig={optionsConfig}
+                        containerId={containerId}
                     />
                 </SelectProvider>
             )}
@@ -144,14 +176,14 @@ const Select = ({
 
 Select.propTypes = {
     value: PropTypes.oneOfType([
-        PropTypes.string, PropTypes.number, PropTypes.object,
+        PropTypes.string, PropTypes.number,
     ]),
     valueRenderer: PropTypes.oneOfType([
         PropTypes.node,
         PropTypes.func,
     ]),
     options: PropTypes.oneOfType([
-        PropTypes.object, PropTypes.array
+        PropTypes.object, PropTypes.array,
     ]).isRequired,
     optionRenderer: PropTypes.oneOfType([
         PropTypes.node,
@@ -171,6 +203,9 @@ Select.propTypes = {
     footerHeight: PropTypes.number,
     optionsConfig: PropTypes.object,
     optionCallback: PropTypes.func,
+    className: PropTypes.string,
+    disabled: PropTypes.bool,
+    containerId: PropTypes.string,
 };
 
 Select.defaultProps = {
@@ -180,21 +215,22 @@ Select.defaultProps = {
         dropDown: { width: '100%' },
     },
     optionsConfig: {
-        itemSize: 44,
-        listHeight: 300 
+        itemSize: [44],
+        listHeight: 300,
     },
     valueKey: 'value',
     labelKey: 'label',
-    onChanged: (val) => console.log('changed value => ', val),
+    onChanged: (val) => console.log('[SELECT] changed value => ', val),
     searchable: false,
     tabbed: false,
     noResultRenderer: (search) => (
         <div>
             No results match
-            <span> "{search}"</span>
+            <span>{` "${search}"`}</span>
         </div>
     ),
     footerHeight: 0,
-}
+    containerId: '',
+};
 
 export default Select;

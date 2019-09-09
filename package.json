@@ -5,9 +5,13 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "es6-promise": "^4.2.8",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-react-hooks": "^2.0.1",
     "faker": "^4.1.0",
     "isomorphic-fetch": "^2.2.1",
+    "lodash": "^4.17.15",
     "node-sass": "^4.12.0",
+    "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-scripts": "3.1.1",
@@ -16,13 +20,10 @@
     "resize-observer-polyfill": "^1.5.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=3001 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
   },
   "browserslist": {
     "production": [
